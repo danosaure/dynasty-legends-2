@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Yangping Pass",
+    "position": "(61,106)",
+    "tacticalPoints": 2000000,
+    "description": "Increases Wei Officers damage to the garrison by 20%",
+    "earnings": 180
+  },
+  {
+    "name": "North Summit",
+    "position": "(52,74)",
+    "tacticalPoints": 2000000,
+    "description": "Increases Shu Officers damage to the garrison by 20%",
+    "earnings": 180
+  },
+  {
+    "name": "Maming Pavilion",
+    "position": "(90,63)",
+    "tacticalPoints": 2000000,
+    "description": "Increases Wu Officers damage to the garrison by 20%",
+    "earnings": 180
+  },
+  {
+    "name": "Mianyang County",
+    "position": "(99,96)",
+    "tacticalPoints": 2000000,
+    "description": "Increases Other Officers damage to the garrison by 20%",
+    "earnings": 180
+  },
+  {
+    "name": "Mount Dingjun",
+    "position": "(63,81)",
+    "tacticalPoints": 5000000,
+    "description": "Reduces the garrison's damage taken by 20%",
+    "earnings": 360
+  },
+  {
+    "name": "Hanshui Trail",
+    "position": "(87,91)",
+    "tacticalPoints": 5000000,
+    "description": "Reduces the garrison's damage taken by 20%",
+    "earnings": 360
+  },
+  {
+    "name": "Hanzhong City",
+    "position": "(75,85)",
+    "tacticalPoints": 140000000,
+    "description": "Reduces the garrison's damage taken by 20%",
+    "earnings": 720
+  }
+]
