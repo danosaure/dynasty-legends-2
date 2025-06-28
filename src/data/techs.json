@@ -1,0 +1,125 @@
+{
+  "label": "Tech",
+  "techs": [
+    [
+      {
+        "label": "Attack Training I",
+        "description": "Increases ATK for Officers in the battle Formation",
+        "bonuses": [
+          {
+            "resources": {},
+            "bonus": {}
+          },
+          {
+            "resources": {},
+            "bonus": {
+              "atk": 1100
+            }
+          },
+          {
+            "resources": {
+              "lumber": 120,
+              "grains": 360,
+              "iron": 720
+            },
+            "bonus": {
+              "atk": 2000
+            }
+          }
+        ]
+      },
+      {
+        "label": "Defense Training I",
+        "description": "Increases DEF for Officers in the battle Formation"
+      },
+      {
+        "label": "Tenacity Training I",
+        "description": "Increases HP for Officers in the battle Formation"
+      },
+      {
+        "label": "Free Paths",
+        "description": "Unlocks the function of borrowing other's territories for attack"
+      }
+    ],
+    [
+      {
+        "label": "Lumber Mill",
+        "description": "Wood Yield Rate"
+      },
+      {
+        "label": "Granary",
+        "description": "Grains Yield Rate"
+      },
+      {
+        "label": "Iron Foundry",
+        "description": "Iron Yield Rate"
+      },
+      {
+        "label": "Mighty Generals",
+        "description": "Grants additional bonuses for Mythic and Unique Officers"
+      }
+    ],
+    [
+      {
+        "label": "Diligent Warrior I",
+        "description": "Increases ATK, DEF, and HP for Officers in the battle Formation"
+      },
+      {
+        "label": "Territory Expansion",
+        "description": "Territory Cap"
+      }
+    ],
+    [
+      {
+        "label": "Attack Training II",
+        "description": "Greatly increases ATK for Officers in the battle Formation"
+      },
+      {
+        "label": "Defense Training II",
+        "description": "Greatly increases DEF for Officers in the battle Formation"
+      },
+      {
+        "label": "Tenacity Training II",
+        "description": "Greatly increases HP for Officers in the battle Formation"
+      }
+    ],
+    [
+      {
+        "label": "Overall Development",
+        "description": "Increases the yield rate of all resources"
+      },
+      {
+        "label": "United Strength",
+        "description": "Activates additional bonuses when deploying Officers of the same faction in the battle Formation"
+      },
+      {
+        "label": "Formation Expansion",
+        "description": "Unlock new Formations"
+      }
+    ],
+    [
+      {
+        "label": "Special Training - Vanguard Camp",
+        "description": "Increases ATK, DEF, and HP for Officers of Vanguard Camp"
+      },
+      {
+        "label": "Special Training - Valiant Cavalry",
+        "description": "Increases ATK, DEF, and HP for Officers of Valiant Cavalry"
+      },
+      {
+        "label": "Special Training - Royal Guards",
+        "description": "Increases ATK, DEF, and HP for Officers of Royal Guards"
+      },
+      {
+        "label": "Rehabilitation",
+        "description": "March Order Cap"
+      }
+    ],
+    [
+      {
+        "label": "Diligent Warrior III",
+        "description": "Greatly increases ATK, DEF, and HP for Officers in the battle Formation"
+      }
+    ]
+  ]
+}
