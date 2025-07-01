@@ -1,4 +1,4 @@
-import { HanzhongTechLevelsType } from './hanzhong-tech-levels-type';
+import type { HanzhongTechLevelsType } from './hanzhong-tech-levels-type';
 
 export type HanzhongTechType = {
   label: string;

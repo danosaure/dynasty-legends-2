@@ -1,4 +1,4 @@
-import { HanzhongTacticalPointsType } from './hanzhong-tactical-points-type';
+import type { HanzhongTacticalPointsType } from './hanzhong-tactical-points-type';
 
 export type HanzhongTerritoryLevelType = {
   tacticalPoints: HanzhongTacticalPointsType;

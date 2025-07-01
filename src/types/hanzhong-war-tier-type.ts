@@ -1,5 +1,5 @@
-import { HanzhongTechType } from './hanzhong-tech-type';
-import { HanzhongWarTierTaskType } from './hanzhong-war-tier-task-type';
+import type { HanzhongTechType } from './hanzhong-tech-type';
+import type { HanzhongWarTierTaskType } from './hanzhong-war-tier-task-type';
 
 export type HanzhongWarTierType = {
   icon: string;
