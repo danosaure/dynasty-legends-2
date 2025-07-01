@@ -3,6 +3,7 @@ import { HanzhongType } from '../types/hanzhong-type';
 export const HANZHONG_DATA: HanzhongType = {
   cities: [
     {
+      id: 'hanzhong-city-yangping-pass',
       name: 'Yangping Pass',
       position: '(61,106)',
       tacticalPoints: 2000000,
@@ -10,6 +11,7 @@ export const HANZHONG_DATA: HanzhongType = {
       earnings: 180,
     },
     {
+      id: 'hanzhong-city-north-summit',
       name: 'North Summit',
       position: '(52,74)',
       tacticalPoints: 2000000,
@@ -17,6 +19,7 @@ export const HANZHONG_DATA: HanzhongType = {
       earnings: 180,
     },
     {
+      id: 'hanzhong-city-maming-pavilion',
       name: 'Maming Pavilion',
       position: '(90,63)',
       tacticalPoints: 2000000,
@@ -24,6 +27,7 @@ export const HANZHONG_DATA: HanzhongType = {
       earnings: 180,
     },
     {
+      id: 'hanzhong-city-mianyang-county',
       name: 'Mianyang County',
       position: '(99,96)',
       tacticalPoints: 2000000,
@@ -31,6 +35,7 @@ export const HANZHONG_DATA: HanzhongType = {
       earnings: 180,
     },
     {
+      id: 'hanzhong-city-mount-dingjun',
       name: 'Mount Dingjun',
       position: '(63,81)',
       tacticalPoints: 5000000,
@@ -38,6 +43,7 @@ export const HANZHONG_DATA: HanzhongType = {
       earnings: 360,
     },
     {
+      id: 'hanzhong-city-hanshui-trail',
       name: 'Hanshui Trail',
       position: '(87,91)',
       tacticalPoints: 5000000,
@@ -45,6 +51,7 @@ export const HANZHONG_DATA: HanzhongType = {
       earnings: 360,
     },
     {
+      id: 'hanzhong-city-hanzhong-city',
       name: 'Hanzhong City',
       position: '(75,85)',
       tacticalPoints: 140000000,
