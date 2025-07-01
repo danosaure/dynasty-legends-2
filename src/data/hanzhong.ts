@@ -25,7 +25,28 @@ export const HANZHONG_DATA: HanzhongWarTierType[] = [
         description: 'Defeat Bandits 1 times',
       },
     ],
-    techs: [],
+    techs: [
+      {
+        label: 'Attack Training I',
+        description: 'Increases ATK for Officers in the battle Formation',
+        levels: [],
+      },
+      {
+        label: 'Defense Training I',
+        description: 'Increases DEF for Officers in the battle Formation',
+        levels: [],
+      },
+      {
+        label: 'Tenacity Training I',
+        description: 'Increases HP for Officers in the battle Formation',
+        levels: [],
+      },
+      {
+        label: 'Free Paths',
+        description: "Unlocks the function of borrowing other's territories for attack",
+        levels: [],
+      },
+    ],
   },
   {
     icon: 'war-tier-2',
@@ -51,7 +72,28 @@ export const HANZHONG_DATA: HanzhongWarTierType[] = [
         description: 'Defeat Bandits 2 times',
       },
     ],
-    techs: [],
+    techs: [
+      {
+        label: 'Lumber Mill',
+        description: 'Wood Yield Rate',
+        levels: [],
+      },
+      {
+        label: 'Granary',
+        description: 'Grains Yield Rate',
+        levels: [],
+      },
+      {
+        label: 'Iron Foundry',
+        description: 'Iron Yield Rate',
+        levels: [],
+      },
+      {
+        label: 'Mighty Generals',
+        description: 'Grants additional bonuses for Mythic and Unique Officers',
+        levels: [],
+      },
+    ],
   },
   {
     icon: 'war-tier-3',
@@ -73,7 +115,18 @@ export const HANZHONG_DATA: HanzhongWarTierType[] = [
         description: 'Activate 8 Techs',
       },
     ],
-    techs: [],
+    techs: [
+      {
+        label: 'Diligent Warrior I',
+        description: 'Increases ATK, DEF, and HP for Officers in the battle Formation',
+        levels: [],
+      },
+      {
+        label: 'Territory Expansion',
+        description: 'Territory Cap',
+        levels: [],
+      },
+    ],
   },
   {
     icon: 'war-tier-4',
@@ -95,7 +148,23 @@ export const HANZHONG_DATA: HanzhongWarTierType[] = [
         description: 'Defeat Bandits 4 times',
       },
     ],
-    techs: [],
+    techs: [
+      {
+        label: 'Attack Training II',
+        description: 'Greatly increases ATK for Officers in the battle Formation',
+        levels: [],
+      },
+      {
+        label: 'Defense Training II',
+        description: 'Greatly increases DEF for Officers in the battle Formation',
+        levels: [],
+      },
+      {
+        label: 'Tenacity Training II',
+        description: 'Greatly increases HP for Officers in the battle Formation',
+        levels: [],
+      },
+    ],
   },
   {
     icon: 'war-tier-5',
@@ -117,7 +186,23 @@ export const HANZHONG_DATA: HanzhongWarTierType[] = [
         description: 'Activate 14 Techs',
       },
     ],
-    techs: [],
+    techs: [
+      {
+        label: 'Overall Development',
+        description: 'Increases the yield rate of all resources',
+        levels: [],
+      },
+      {
+        label: 'United Strength',
+        description: 'Activates additional bonuses when deploying Officers of the same faction in the battle Formation',
+        levels: [],
+      },
+      {
+        label: 'Formation Expansion',
+        description: 'Unlock new Formations',
+        levels: [],
+      },
+    ],
   },
   {
     icon: 'war-tier-6',
@@ -143,7 +228,28 @@ export const HANZHONG_DATA: HanzhongWarTierType[] = [
         description: 'Activate 18 Techs',
       },
     ],
-    techs: [],
+    techs: [
+      {
+        label: 'Special Training - Vanguard Camp',
+        description: 'Increases ATK, DEF, and HP for Officers of Vanguard Camp',
+        levels: [],
+      },
+      {
+        label: 'Special Training - Valiant Cavalry',
+        description: 'Increases ATK, DEF, and HP for Officers of Valiant Cavalry',
+        levels: [],
+      },
+      {
+        label: 'Special Training - Royal Guards',
+        description: 'Increases ATK, DEF, and HP for Officers of Royal Guards',
+        levels: [],
+      },
+      {
+        label: 'Rehabilitation',
+        description: 'March Order Cap',
+        levels: [],
+      },
+    ],
   },
   {
     icon: 'war-tier-7',
@@ -165,6 +271,12 @@ export const HANZHONG_DATA: HanzhongWarTierType[] = [
         description: 'Guild occupies Hanzhong City 1 times',
       },
     ],
-    techs: [],
+    techs: [
+      {
+        label: 'Diligent Warrior III',
+        description: 'Greatly increases ATK, DEF, and HP for Officers in the battle Formation',
+        levels: [],
+      },
+    ],
   },
 ];
