@@ -1,6 +1,6 @@
-import type { HanzhongBaseIDType } from './hanzhong-base-id-type';
+import type { BaseIDType } from './base-id-type';
 
-export type HanzhongCityType = HanzhongBaseIDType & {
+export type HanzhongCityType = BaseIDType & {
   name: string;
   position: string;
   tacticalPoints: number;

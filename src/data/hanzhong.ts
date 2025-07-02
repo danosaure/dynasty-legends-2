@@ -3,7 +3,7 @@ import type { HanzhongType } from '../types/hanzhong-type';
 export const HANZHONG_DATA: HanzhongType = {
   cities: [
     {
-      id: 'hanzhong-city-yangping-pass',
+      id: 'hanzhong--city--yangping-pass',
       name: 'Yangping Pass',
       position: '(61,106)',
       tacticalPoints: 2000000,
@@ -11,7 +11,7 @@ export const HANZHONG_DATA: HanzhongType = {
       earnings: 180,
     },
     {
-      id: 'hanzhong-city-north-summit',
+      id: 'hanzhong--city--north-summit',
       name: 'North Summit',
       position: '(52,74)',
       tacticalPoints: 2000000,
@@ -19,7 +19,7 @@ export const HANZHONG_DATA: HanzhongType = {
       earnings: 180,
     },
     {
-      id: 'hanzhong-city-maming-pavilion',
+      id: 'hanzhong--city--maming-pavilion',
       name: 'Maming Pavilion',
       position: '(90,63)',
       tacticalPoints: 2000000,
@@ -27,7 +27,7 @@ export const HANZHONG_DATA: HanzhongType = {
       earnings: 180,
     },
     {
-      id: 'hanzhong-city-mianyang-county',
+      id: 'hanzhong--city--mianyang-county',
       name: 'Mianyang County',
       position: '(99,96)',
       tacticalPoints: 2000000,
@@ -35,7 +35,7 @@ export const HANZHONG_DATA: HanzhongType = {
       earnings: 180,
     },
     {
-      id: 'hanzhong-city-mount-dingjun',
+      id: 'hanzhong--city--mount-dingjun',
       name: 'Mount Dingjun',
       position: '(63,81)',
       tacticalPoints: 5000000,
@@ -43,7 +43,7 @@ export const HANZHONG_DATA: HanzhongType = {
       earnings: 360,
     },
     {
-      id: 'hanzhong-city-hanshui-trail',
+      id: 'hanzhong--city--hanshui-trail',
       name: 'Hanshui Trail',
       position: '(87,91)',
       tacticalPoints: 5000000,
@@ -51,7 +51,7 @@ export const HANZHONG_DATA: HanzhongType = {
       earnings: 360,
     },
     {
-      id: 'hanzhong-city-hanzhong-city',
+      id: 'hanzhong--city--hanzhong-city',
       name: 'Hanzhong City',
       position: '(75,85)',
       tacticalPoints: 140000000,
@@ -165,7 +165,11 @@ export const HANZHONG_DATA: HanzhongType = {
   },
   warTiers: [
     {
-      icon: 'war-tier-1',
+      id: 'hanzhong--war-tier--1',
+      icon: {
+        path: 'war-tier-1.svg',
+        inactive: 'war-tier-1-disabled.svg',
+      },
       tasks: [
         {
           label: 'Logging Pioneer',
@@ -190,21 +194,25 @@ export const HANZHONG_DATA: HanzhongType = {
       ],
       techs: [
         {
+          id: 'hanzhong--tech--attack-training-i',
           label: 'Attack Training I',
           description: 'Increases ATK for Officers in the battle Formation',
           levels: [],
         },
         {
+          id: 'hanzhong--tech--defense-training-i',
           label: 'Defense Training I',
           description: 'Increases DEF for Officers in the battle Formation',
           levels: [],
         },
         {
+          id: 'hanzhong--tech--tenacity-training-i',
           label: 'Tenacity Training I',
           description: 'Increases HP for Officers in the battle Formation',
           levels: [],
         },
         {
+          id: 'hanzhong--tech--free-paths',
           label: 'Free Paths',
           description: "Unlocks the function of borrowing other's territories for attack",
           levels: [],
@@ -212,7 +220,11 @@ export const HANZHONG_DATA: HanzhongType = {
       ],
     },
     {
-      icon: 'war-tier-2',
+      id: 'hanzhong--war-tier--2',
+      icon: {
+        path: 'war-tier-2.svg',
+        inactive: 'war-tier-2-disabled.svg',
+      },
       tasks: [
         {
           label: 'Logging Elite',
@@ -237,21 +249,25 @@ export const HANZHONG_DATA: HanzhongType = {
       ],
       techs: [
         {
+          id: 'hanzhong--tech--lumber-mill',
           label: 'Lumber Mill',
           description: 'Wood Yield Rate',
           levels: [],
         },
         {
+          id: 'hanzhong--tech--granary',
           label: 'Granary',
           description: 'Grains Yield Rate',
           levels: [],
         },
         {
+          id: 'hanzhong--tech--iron-foundry',
           label: 'Iron Foundry',
           description: 'Iron Yield Rate',
           levels: [],
         },
         {
+          id: 'hanzhong--tech--might-generals',
           label: 'Mighty Generals',
           description: 'Grants additional bonuses for Mythic and Unique Officers',
           levels: [],
@@ -259,7 +275,11 @@ export const HANZHONG_DATA: HanzhongType = {
       ],
     },
     {
-      icon: 'war-tier-3',
+      id: 'hanzhong--war-tier--3',
+      icon: {
+        path: 'war-tier-3.svg',
+        inactive: 'war-tier-3-disabled.svg',
+      },
       tasks: [
         {
           label: 'Territory Plunderer I',
@@ -280,11 +300,13 @@ export const HANZHONG_DATA: HanzhongType = {
       ],
       techs: [
         {
+          id: 'hanzhong--tech--diligent-warrior-i',
           label: 'Diligent Warrior I',
           description: 'Increases ATK, DEF, and HP for Officers in the battle Formation',
           levels: [],
         },
         {
+          id: 'hanzhong--tech--territory-expansion',
           label: 'Territory Expansion',
           description: 'Territory Cap',
           levels: [],
@@ -292,7 +314,11 @@ export const HANZHONG_DATA: HanzhongType = {
       ],
     },
     {
-      icon: 'war-tier-4',
+      id: 'hanzhong--war-tier--4',
+      icon: {
+        path: 'war-tier-4.svg',
+        inactive: 'war-tier-4-disabled.svg',
+      },
       tasks: [
         {
           label: 'Territory Plunderer II',
@@ -313,16 +339,19 @@ export const HANZHONG_DATA: HanzhongType = {
       ],
       techs: [
         {
+          id: 'hanzhong--tech--attack-training-ii',
           label: 'Attack Training II',
           description: 'Greatly increases ATK for Officers in the battle Formation',
           levels: [],
         },
         {
+          id: 'hanzhong--tech--defense-training-ii',
           label: 'Defense Training II',
           description: 'Greatly increases DEF for Officers in the battle Formation',
           levels: [],
         },
         {
+          id: 'hanzhong--tech--tenacity-training-ii',
           label: 'Tenacity Training II',
           description: 'Greatly increases HP for Officers in the battle Formation',
           levels: [],
@@ -330,7 +359,11 @@ export const HANZHONG_DATA: HanzhongType = {
       ],
     },
     {
-      icon: 'war-tier-5',
+      id: 'hanzhong--war-tier--5',
+      icon: {
+        path: 'war-tier-5.svg',
+        inactive: 'war-tier-5-disabled.svg',
+      },
       tasks: [
         {
           label: 'Land Conqueror IV',
@@ -351,16 +384,19 @@ export const HANZHONG_DATA: HanzhongType = {
       ],
       techs: [
         {
+          id: 'hanzhong--tech--overall-development',
           label: 'Overall Development',
           description: 'Increases the yield rate of all resources',
           levels: [],
         },
         {
+          id: 'hanzhong--tech--united-strength',
           label: 'United Strength',
           description: 'Activates additional bonuses when deploying Officers of the same faction in the battle Formation',
           levels: [],
         },
         {
+          id: 'hanzhong--tech--formation-expansion',
           label: 'Formation Expansion',
           description: 'Unlock new Formations',
           levels: [],
@@ -368,7 +404,11 @@ export const HANZHONG_DATA: HanzhongType = {
       ],
     },
     {
-      icon: 'war-tier-6',
+      id: 'hanzhong--war-tier--6',
+      icon: {
+        path: 'war-tier-6.svg',
+        inactive: 'war-tier-6-disabled.svg',
+      },
       tasks: [
         {
           label: 'Territory Plunderer III',
@@ -393,21 +433,25 @@ export const HANZHONG_DATA: HanzhongType = {
       ],
       techs: [
         {
+          id: 'hanzhong--tech--special-training-vanguard-camp',
           label: 'Special Training - Vanguard Camp',
           description: 'Increases ATK, DEF, and HP for Officers of Vanguard Camp',
           levels: [],
         },
         {
+          id: 'hanzhong--tech--special-training-valiant-cavalry',
           label: 'Special Training - Valiant Cavalry',
           description: 'Increases ATK, DEF, and HP for Officers of Valiant Cavalry',
           levels: [],
         },
         {
+          id: 'hanzhong--tech--special-training-royal-guards',
           label: 'Special Training - Royal Guards',
           description: 'Increases ATK, DEF, and HP for Officers of Royal Guards',
           levels: [],
         },
         {
+          id: 'hanzhong--tech--rehabilitation',
           label: 'Rehabilitation',
           description: 'March Order Cap',
           levels: [],
@@ -415,7 +459,11 @@ export const HANZHONG_DATA: HanzhongType = {
       ],
     },
     {
-      icon: 'war-tier-7',
+      id: 'hanzhong--war-tier--7',
+      icon: {
+        path: 'war-tier-7.svg',
+        inactive: 'war-tier-7-disabled.svg',
+      },
       tasks: [
         {
           label: 'Territory Plunderer IV',
@@ -436,6 +484,7 @@ export const HANZHONG_DATA: HanzhongType = {
       ],
       techs: [
         {
+          id: 'hanzhong--tech--diligent-warrior-iii',
           label: 'Diligent Warrior III',
           description: 'Greatly increases ATK, DEF, and HP for Officers in the battle Formation',
           levels: [],
