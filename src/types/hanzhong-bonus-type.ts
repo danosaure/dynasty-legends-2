@@ -1,4 +1,4 @@
-export type HanzhongTechBonusType = {
+export type HanzhongBonusType = {
   atk?: number;
   def?: number;
   hp?: number;
