@@ -1,5 +1,7 @@
+import type { PotentiallyUnknownNumberType } from './potentially-unknown-number-type';
+
 export type HanzhongTechResourceType = {
-  lumber: number;
-  grains: number;
-  iron: number;
+  lumber: PotentiallyUnknownNumberType;
+  grains: PotentiallyUnknownNumberType;
+  iron: PotentiallyUnknownNumberType;
 };

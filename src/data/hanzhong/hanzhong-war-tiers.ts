@@ -1,5 +1,13 @@
 import type { HanzhongWarTierType } from '../../types/hanzhong-war-tier-type';
-import { HANZHONG_WAR_TIER_1_TECHS, HANZHONG_WAR_TIER_2_TECHS } from './hanzhong-techs';
+import {
+  HANZHONG_WAR_TIER_1_TECHS,
+  HANZHONG_WAR_TIER_2_TECHS,
+  HANZHONG_WAR_TIER_3_TECHS,
+  HANZHONG_WAR_TIER_4_TECHS,
+  HANZHONG_WAR_TIER_5_TECHS,
+  HANZHONG_WAR_TIER_6_TECHS,
+  HANZHONG_WAR_TIER_7_TECHS,
+} from './hanzhong-techs';
 
 export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
   id: 'hanzhong--war-tier--1',
@@ -87,22 +95,7 @@ export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
       description: 'Activate 8 Techs',
     },
   ],
-  techs: [
-    {
-      id: 'hanzhong--tech--diligent-warrior-1',
-      assetPath: 'hanzhong/tech/diligent-warrior-1.png',
-      label: 'Diligent Warrior I',
-      description: 'Increases ATK, DEF, and HP for Officers in the battle Formation',
-      levels: [],
-    },
-    {
-      id: 'hanzhong--tech--territory-expansion',
-      assetPath: 'hanzhong/tech/territory-expansion.png',
-      label: 'Territory Expansion',
-      description: 'Territory Cap',
-      levels: [],
-    },
-  ],
+  techs: HANZHONG_WAR_TIER_3_TECHS,
 };
 
 export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
@@ -129,29 +122,7 @@ export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
       description: 'Defeat Bandits 4 times',
     },
   ],
-  techs: [
-    {
-      id: 'hanzhong--tech--attack-training-2',
-      assetPath: 'hanzhong/tech/attack-training-2.png',
-      label: 'Attack Training II',
-      description: 'Greatly increases ATK for Officers in the battle Formation',
-      levels: [],
-    },
-    {
-      id: 'hanzhong--tech--defense-training-2',
-      assetPath: 'hanzhong/tech/defense-training-2.png',
-      label: 'Defense Training II',
-      description: 'Greatly increases DEF for Officers in the battle Formation',
-      levels: [],
-    },
-    {
-      id: 'hanzhong--tech--tenacity-training-2',
-      assetPath: 'hanzhong/tech/tenacity-training-2.png',
-      label: 'Tenacity Training II',
-      description: 'Greatly increases HP for Officers in the battle Formation',
-      levels: [],
-    },
-  ],
+  techs: HANZHONG_WAR_TIER_4_TECHS,
 };
 
 export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
@@ -178,29 +149,7 @@ export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
       description: 'Activate 14 Techs',
     },
   ],
-  techs: [
-    {
-      id: 'hanzhong--tech--overall-development',
-      assetPath: 'hanzhong/tech/overall-development.png',
-      label: 'Overall Development',
-      description: 'Increases the yield rate of all resources',
-      levels: [],
-    },
-    {
-      id: 'hanzhong--tech--united-strength',
-      assetPath: 'hanzhong/tech/united-strength.png',
-      label: 'United Strength',
-      description: 'Activates additional bonuses when deploying Officers of the same faction in the battle Formation',
-      levels: [],
-    },
-    {
-      id: 'hanzhong--tech--formation-expansion',
-      assetPath: 'hanzhong/tech/formation-expansion.png',
-      label: 'Formation Expansion',
-      description: 'Unlock new Formations',
-      levels: [],
-    },
-  ],
+  techs: HANZHONG_WAR_TIER_5_TECHS,
 };
 
 export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
@@ -231,36 +180,7 @@ export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
       description: 'Activate 18 Techs',
     },
   ],
-  techs: [
-    {
-      id: 'hanzhong--tech--special-training--vanguard-camp',
-      assetPath: 'hanzhong/tech/special-training--vanguard-camp.png',
-      label: 'Special Training - Vanguard Camp',
-      description: 'Increases ATK, DEF, and HP for Officers of Vanguard Camp',
-      levels: [],
-    },
-    {
-      id: 'hanzhong--tech--special-training--valiant-cavalry',
-      assetPath: 'hanzhong/tech/special-training--valiant-cavalry.png',
-      label: 'Special Training - Valiant Cavalry',
-      description: 'Increases ATK, DEF, and HP for Officers of Valiant Cavalry',
-      levels: [],
-    },
-    {
-      id: 'hanzhong--tech--special-training-royal-guards',
-      assetPath: 'hanzhong/tech/special-training--royal-guards.png',
-      label: 'Special Training - Royal Guards',
-      description: 'Increases ATK, DEF, and HP for Officers of Royal Guards',
-      levels: [],
-    },
-    {
-      id: 'hanzhong--tech--rehabilitation',
-      assetPath: 'hanzhong/tech/rehabilitation.png',
-      label: 'Rehabilitation',
-      description: 'March Order Cap',
-      levels: [],
-    },
-  ],
+  techs: HANZHONG_WAR_TIER_6_TECHS,
 };
 
 export const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
@@ -287,15 +207,7 @@ export const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
       description: 'Guild occupies Hanzhong City 1 times',
     },
   ],
-  techs: [
-    {
-      id: 'hanzhong--tech--diligent-warrior-3',
-      assetPath: 'hanzhong/tech/diligent-warrior-3.png',
-      label: 'Diligent Warrior III',
-      description: 'Greatly increases ATK, DEF, and HP for Officers in the battle Formation',
-      levels: [],
-    },
-  ],
+  techs: HANZHONG_WAR_TIER_7_TECHS,
 };
 
 export const HANZHONG_WAR_TIERS: HanzhongWarTierType[] = [

@@ -1,3 +1,5 @@
+import type { PotentiallyUnknownNumberType } from './potentially-unknown-number-type';
+
 export type HanzhongBonusType = {
   atk?: number;
   def?: number;
@@ -5,5 +7,6 @@ export type HanzhongBonusType = {
   woodRate?: number;
   grainsRate?: number;
   ironRate?: number;
+  territoryCap?: PotentiallyUnknownNumberType;
   description?: string;
 };

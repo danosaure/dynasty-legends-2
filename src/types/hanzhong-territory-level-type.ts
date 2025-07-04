@@ -1,12 +1,12 @@
-import type { HanzhongTacticalPointsType } from './hanzhong-tactical-points-type';
+import type { PotentiallyUnknownNumberType } from './potentially-unknown-number-type';
 
 export type HanzhongTerritoryLevelType = {
-  tacticalPoints: HanzhongTacticalPointsType;
+  tacticalPoints: PotentiallyUnknownNumberType;
   earnings: number;
   team: {
-    green: HanzhongTacticalPointsType;
-    orange: [HanzhongTacticalPointsType, HanzhongTacticalPointsType];
-    red: HanzhongTacticalPointsType;
-    factionBonus: HanzhongTacticalPointsType;
+    green: PotentiallyUnknownNumberType;
+    orange: [PotentiallyUnknownNumberType, PotentiallyUnknownNumberType];
+    red: PotentiallyUnknownNumberType;
+    factionBonus: PotentiallyUnknownNumberType;
   };
 };
