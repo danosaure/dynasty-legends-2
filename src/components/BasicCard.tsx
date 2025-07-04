@@ -16,7 +16,7 @@ export interface BasicCardProps {
 
 export const BasicCard = ({ assetImage, label, value, maxValue, onChange }: BasicCardProps) => {
   return (
-    <Card sx={{ width: 200 }}>
+    <Card sx={{ width: 150 }}>
       <CardContent>
         <Grid container spacing={1}>
           <Grid size={{ xs: 6 }}>

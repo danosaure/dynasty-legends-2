@@ -5,6 +5,7 @@ import type { IconType } from './icon-type';
 
 export type HanzhongWarTierType = BaseIDType & {
   icon: IconType;
+  bg: string;
   tasks: HanzhongWarTierTaskType[];
   techs: HanzhongTechType[];
 };
