@@ -18,8 +18,8 @@ const Root = styled('div')(() => ({
   },
 
   img: {
-    maxWidth: 80,
-    maxHeight: 80,
+    maxWidth: '90%',
+    maxHeight: '90%',
   },
 }));
 

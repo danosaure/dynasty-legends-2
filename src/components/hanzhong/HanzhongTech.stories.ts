@@ -2,25 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
 import { HanzhongTech, type HanzhongTechProps } from './HanzhongTech';
-import type { HanzhongTechLevelType } from '../../types/hanzhong-tech-level-type';
-
-const FOO_LEVEL: HanzhongTechLevelType = {
-  resources: {
-    lumber: 5,
-    grains: 5,
-    iron: 5,
-  },
-  bonuses: {},
-};
+import { HANZHONG_TECH_ATTACK_TRAINING_1 } from '../../data/hanzhong/hanzhong-techs';
 
 const defaultProps: HanzhongTechProps = {
-  info: {
-    id: 'hanzhong-tech-id-123',
-    assetPath: 'hanzhong/tech/attack-training-1.png',
-    label: 'Name of the tech',
-    description: 'Some tech description',
-    levels: [FOO_LEVEL, FOO_LEVEL, FOO_LEVEL, FOO_LEVEL, FOO_LEVEL],
-  },
+  info: HANZHONG_TECH_ATTACK_TRAINING_1,
   value: 2,
   onChange: fn(),
 };
@@ -48,7 +33,7 @@ Default.storyName = 'happy case';
 export const ValueTooHigh: Story = {
   args: {
     ...defaultProps,
-    value: 10,
+    value: 20,
   },
 };
 ValueTooHigh.storyName = 'Value higher than levels';
