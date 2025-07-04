@@ -68,4 +68,4 @@ export const ValueEqualsMaxValue: Story = {
     maxValue: 5,
   },
 };
-ValueEqualsMaxValue.storyName = '(value = 10) and (maxValue = 5)';
+ValueEqualsMaxValue.storyName = '(value = 5) and (maxValue = 5)';
