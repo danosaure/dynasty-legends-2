@@ -14,7 +14,7 @@ export const HanzhongWarTierTechs = ({ info, currentSelections, onChange }: Hanz
     <Grid
       container
       size={{ xs: 12 }}
-      style={{ backgroundColor: info.bg }}
+      style={{ backgroundColor: info.bg, padding: '10px' }}
       sx={{ alignItems: 'flex-start', justifyContent: 'flex-start' }}
     >
       <Grid size={{ xs: 12, md: 3 }}>

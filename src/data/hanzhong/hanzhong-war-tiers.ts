@@ -1,12 +1,11 @@
 import type { HanzhongWarTierType } from '../../types/hanzhong-war-tier-type';
-import { HANZHONG_WAR_TIER_1_TECHS } from './hanzhong-techs';
+import { HANZHONG_WAR_TIER_1_TECHS, HANZHONG_WAR_TIER_2_TECHS } from './hanzhong-techs';
 
 export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
   id: 'hanzhong--war-tier--1',
   bg: '#B9E5E4',
   icon: {
     path: 'hanzhong/war-tier/lv1.png',
-    inactive: 'war-tier-1-disabled.svg',
   },
   tasks: [
     {
@@ -38,7 +37,6 @@ export const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
   bg: '#ADE7F7',
   icon: {
     path: 'hanzhong/war-tier/lv2.png',
-    inactive: 'war-tier-2-disabled.svg',
   },
   tasks: [
     {
@@ -62,36 +60,7 @@ export const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
       description: 'Defeat Bandits 2 times',
     },
   ],
-  techs: [
-    {
-      id: 'hanzhong--tech--lumber-mill',
-      assetPath: 'hanzhong/tech/lumber-mill.png',
-      label: 'Lumber Mill',
-      description: 'Wood Yield Rate',
-      levels: [],
-    },
-    {
-      id: 'hanzhong--tech--granary',
-      assetPath: 'hanzhong/tech/granary.png',
-      label: 'Granary',
-      description: 'Grains Yield Rate',
-      levels: [],
-    },
-    {
-      id: 'hanzhong--tech--iron-foundry',
-      assetPath: 'hanzhong/tech/iron-foundry.png',
-      label: 'Iron Foundry',
-      description: 'Iron Yield Rate',
-      levels: [],
-    },
-    {
-      id: 'hanzhong--tech--mighty-generals',
-      assetPath: 'hanzhong/tech/mighty-generals.png',
-      label: 'Mighty Generals',
-      description: 'Grants additional bonuses for Mythic and Unique Officers',
-      levels: [],
-    },
-  ],
+  techs: HANZHONG_WAR_TIER_2_TECHS,
 };
 
 export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
@@ -99,7 +68,6 @@ export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
   bg: '#DBC5FF',
   icon: {
     path: 'hanzhong/war-tier/lv3.png',
-    inactive: 'war-tier-3-disabled.svg',
   },
   tasks: [
     {
@@ -142,7 +110,6 @@ export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
   bg: '#F5CB87',
   icon: {
     path: 'hanzhong/war-tier/lv4.png',
-    inactive: 'war-tier-4-disabled.svg',
   },
   tasks: [
     {
@@ -192,7 +159,6 @@ export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
   bg: '#FFD9A8',
   icon: {
     path: 'hanzhong/war-tier/lv5.png',
-    inactive: 'war-tier-5-disabled.svg',
   },
   tasks: [
     {
@@ -242,7 +208,6 @@ export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
   bg: '#F6E8A4',
   icon: {
     path: 'hanzhong/war-tier/lv6.png',
-    inactive: 'war-tier-6-disabled.svg',
   },
   tasks: [
     {
@@ -303,7 +268,6 @@ export const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
   bg: '#FFFCA6',
   icon: {
     path: 'hanzhong/war-tier/lv7.png',
-    inactive: 'war-tier-7-disabled.svg',
   },
   tasks: [
     {

@@ -1,4 +1,4 @@
 export type IconType = {
   path: string;
-  inactive?: string;
+  alt?: string;
 };
