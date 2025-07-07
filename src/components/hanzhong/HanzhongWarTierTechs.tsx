@@ -18,7 +18,11 @@ export const HanzhongWarTierTechs = ({ info, currentSelections, onChange }: Hanz
       sx={{ alignItems: 'flex-start', justifyContent: 'flex-start' }}
     >
       <Grid size={{ xs: 12, md: 3 }}>
-        <img src={`/assets/${info.icon.path}`} alt={info.id} style={{ maxHeight: '90%', maxWidth: '90%' }} />
+        <img
+          src={`${import.meta.env.BASE_URL}/assets/${info.icon.path}`}
+          alt={info.id}
+          style={{ maxHeight: '90%', maxWidth: '90%' }}
+        />
       </Grid>
       <Grid container size={{ xs: 12, md: 9 }} spacing={{ xs: 1, md: 2 }}>
         {info.techs.map((tech) => (
