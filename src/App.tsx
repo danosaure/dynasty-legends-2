@@ -6,10 +6,16 @@ import Typography from '@mui/material/Typography';
 
 import { HanzhongWarTiersTechs } from './components/hanzhong/HanzhongWarTiersTechs';
 import { HANZHONG_DATA } from './data/hanzhong';
+import { ResourceIncomes } from './components/hanzhong/ResourceIncomes';
 
 export const App = () => {
-  const currentSelections: Record<string, number> = {};
-  const onChange = () => {};
+  let currentSelections: Record<string, number> = {};
+  const onChange = (key: string, value: number) => {
+    currentSelections = {
+      ...currentSelections,
+      [key]: value,
+    };
+  };
 
   return (
     <Grid container direction="row" spacing={2} sx={{ justifyContent: 'flex-start', alignItems: 'flex-start' }}>
@@ -23,7 +29,9 @@ export const App = () => {
         </Grid>
         <Grid size={{ xs: 3 }}>LOGO</Grid>
         <Grid size={{ xs: 9 }}>TOP</Grid>
-        <Grid size={{ xs: 3 }}>Left menu</Grid>
+        <Grid size={{ xs: 3 }}>
+          <ResourceIncomes currentSelections={currentSelections} onChange={onChange} />
+        </Grid>
         <Grid size={{ xs: 9 }}>
           <Paper elevation={3}>
             <HanzhongWarTiersTechs info={HANZHONG_DATA.warTiers} currentSelections={currentSelections} onChange={onChange} />
