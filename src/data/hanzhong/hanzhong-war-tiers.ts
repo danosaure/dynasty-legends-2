@@ -31,6 +31,7 @@ export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
     {
       label: 'Free Paths',
       description: 'Upgrade Tech Free Paths to Lv.1',
+      requirements: [1, 'hanzhong--tech--free-paths'],
     },
     {
       label: 'Bandits Terminator I',
