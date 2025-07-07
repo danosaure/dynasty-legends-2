@@ -26,7 +26,7 @@ const Root = styled('div')(() => ({
 export const BasicCardImage = ({ assetImage }: BasicCardImageProps) => {
   return (
     <Root className={classes.center}>
-      <img src={`/assets/${assetImage}`} alt={assetImage} />
+      <img src={`${import.meta.env.BASE_URL}assets/${assetImage}`} alt={assetImage} />
     </Root>
   );
 };
