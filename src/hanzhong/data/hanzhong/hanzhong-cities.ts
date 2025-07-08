@@ -1,4 +1,4 @@
-import type { HanzhongCityType } from '../../types/hanzhong-city-type';
+import type { HanzhongCityType } from '../../types/hanzhong/hanzhong-city-type';
 
 export const HANZHONG_CITIES: HanzhongCityType[] = [
   {

@@ -1,4 +1,4 @@
-import type { HanzhongWarTierType } from '../../types/hanzhong-war-tier-type';
+import type { HanzhongWarTierType } from '../../types/hanzhong/hanzhong-war-tier-type';
 import {
   HANZHONG_WAR_TIER_1_TECHS,
   HANZHONG_WAR_TIER_2_TECHS,
@@ -10,7 +10,7 @@ import {
 } from './hanzhong-techs';
 
 export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
-  id: 'hanzhong--war-tier--1',
+  id: 'Hanzhong_WarTier_1',
   bg: '#B9E5E4',
   icon: {
     path: 'hanzhong/war-tier/lv1.png',
@@ -42,7 +42,7 @@ export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
-  id: 'hanzhong--war-tier--2',
+  id: 'Hanzhong_WarTier_2',
   bg: '#ADE7F7',
   icon: {
     path: 'hanzhong/war-tier/lv2.png',
@@ -73,7 +73,7 @@ export const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
-  id: 'hanzhong--war-tier--3',
+  id: 'Hanzhong_WarTier_3',
   bg: '#DBC5FF',
   icon: {
     path: 'hanzhong/war-tier/lv3.png',
@@ -100,7 +100,7 @@ export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
-  id: 'hanzhong--war-tier--4',
+  id: 'Hanzhong_WarTier_4',
   bg: '#F5CB87',
   icon: {
     path: 'hanzhong/war-tier/lv4.png',
@@ -127,7 +127,7 @@ export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
-  id: 'hanzhong--war-tier--5',
+  id: 'Hanzhong_WarTier_5',
   bg: '#FFD9A8',
   icon: {
     path: 'hanzhong/war-tier/lv5.png',
@@ -154,7 +154,7 @@ export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
-  id: 'hanzhong--war-tier--6',
+  id: 'Hanzhong_WarTier_6',
   bg: '#F6E8A4',
   icon: {
     path: 'hanzhong/war-tier/lv6.png',
@@ -185,7 +185,7 @@ export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
-  id: 'hanzhong--war-tier--7',
+  id: 'Hanzhong_WarTier_7',
   bg: '#FFFCA6',
   icon: {
     path: 'hanzhong/war-tier/lv7.png',

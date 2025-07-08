@@ -1,4 +1,4 @@
-import type { HanzhongTechType } from '../../types/hanzhong-tech-type';
+import type { HanzhongTechType } from '../../types/hanzhong/hanzhong-tech-type';
 import { mapTableToResourcesAndBonuses } from '../utils';
 
 //

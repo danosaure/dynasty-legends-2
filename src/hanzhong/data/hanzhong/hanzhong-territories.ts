@@ -1,4 +1,4 @@
-import type { HanzhongTerritoryType } from '../../types/hanzhong-territory-type';
+import type { HanzhongTerritoryType } from '../../types/hanzhong/hanzhong-territory-type';
 
 export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
   features: [
@@ -21,6 +21,11 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
         red: null,
         factionBonus: null,
       },
+      /*
+      features: [
+        "Increases the garrison's damage taken by 20%."
+      ]
+      */
     },
     {
       tacticalPoints: 500000,
@@ -31,6 +36,11 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
         red: null,
         factionBonus: null,
       },
+      /*
+      features: [
+        "Increases the garrison's damage taken by 20%."
+      ]
+      */
     },
     {
       tacticalPoints: 700000,

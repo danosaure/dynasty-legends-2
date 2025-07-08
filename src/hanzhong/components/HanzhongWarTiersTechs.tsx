@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid';
 
-import type { HanzhongWarTierType } from '../../types/hanzhong-war-tier-type';
+import type { HanzhongWarTierType } from '../../types/hanzhong/hanzhong-war-tier-type';
 import { HanzhongWarTierTechs } from './HanzhongWarTierTechs';
 
 export interface HanzhongWarTiersTechsProps {
