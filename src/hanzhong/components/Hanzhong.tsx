@@ -8,14 +8,22 @@ import { HanzhongWarTiersTechs } from './HanzhongWarTiersTechs';
 import { HANZHONG_DATA } from '../data';
 import { initializeEarnings } from './utils/initialize-earnings';
 import type { HanzhongBonusType } from '../types';
+import type { HanzhongUserDataType } from '../../persistence/hanzhong-user-data-type';
 
 export const Hanzhong = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
-  const [username] = useState<string>('DEFAULT');
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState<HanzhongUserDataType>({});
+  const [userBonuses, setUserBonuses] = useState<HanzhongBonusType>({});
 
-  const hanzhongContextData: HanzhongContextType = useMemo(() => HANZHONG_DATA, [username]);
+  const hanzhongContextData: HanzhongContextType = useMemo(
+    () => ({
+      hanzhong: HANZHONG_DATA,
+      user: userData,
+      bonuses: userBonuses,
+    }),
+    [userData, userBonuses]
+  );
 
   const onChange = (key: string, newValue: number) => {
     setUserData({
@@ -31,6 +39,7 @@ export const Hanzhong = () => {
       'hanzhong--tech--diligent-warrior-3': 10,
     });
     console.log('<Hanzhong>  bonuses:', bonuses);
+    setUserBonuses(bonuses);
     setLoading(false);
   }, []);
 
@@ -45,7 +54,7 @@ export const Hanzhong = () => {
           <HanzhongSidePanel onChange={onChange} />
         </Grid>
         <Grid size={{ xs: 9 }}>
-          <HanzhongWarTiersTechs info={hanzhongContextData.warTiers} onChange={onChange} />
+          <HanzhongWarTiersTechs info={hanzhongContextData.hanzhong.warTiers} onChange={onChange} />
         </Grid>
       </Grid>
     </HanzhongContext.Provider>
