@@ -1,4 +1,4 @@
-import type { HanzhongTerritoryType } from '../../types/hanzhong/hanzhong-territory-type';
+import type { HanzhongTerritoryType } from '../types';
 
 export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
   features: [

@@ -10,11 +10,9 @@ export interface ValueAdjusterProps {
   maxValue?: number;
   /** When increased or decreased, the function to call with the new value. */
   onChange: (newValue: number) => void;
-  /** Display horizontally. */
-  horizontal?: boolean;
 }
 
-export const ValueAdjuster = ({ value, maxValue, onChange, horizontal }: ValueAdjusterProps) => {
+export const ValueAdjuster = ({ value, maxValue, onChange }: ValueAdjusterProps) => {
   const onIncrease = () => onChange(value + 1);
   const onDecrease = () => onChange(value - 1);
 
@@ -22,27 +20,20 @@ export const ValueAdjuster = ({ value, maxValue, onChange, horizontal }: ValueAd
 
   const content = maxValue === undefined ? value : `${value} / ${maxValue}`;
 
-  if (horizontal) {
-    return (
-      <Typography align="center" color={hasError ? 'error' : undefined}>
-        <IconButton title="Decrease value" onClick={onDecrease} disabled={hasError || value === 0}>
-          <ArrowDownwardSharpIcon />
-        </IconButton>
-        {content}
-        <IconButton title="Increase value" onClick={onIncrease} disabled={hasError || value === maxValue}>
-          <ArrowUpwardSharpIcon />
-        </IconButton>
-      </Typography>
-    );
-  }
+  const iconSX = { fontSize: 20 };
+  const typographySX = {
+    mt: -3,
+    bgcolor: 'rgba(255, 255, 255, 0.8)',
+  };
+
   return (
-    <Typography align="center" color={hasError ? 'error' : undefined}>
-      <IconButton title="Increase value" onClick={onIncrease} disabled={hasError || value === maxValue}>
-        <ArrowUpwardSharpIcon />
-      </IconButton>
-      <div>{content}</div>
+    <Typography align="center" color={hasError ? 'error' : undefined} variant="body1" sx={typographySX}>
       <IconButton title="Decrease value" onClick={onDecrease} disabled={hasError || value === 0}>
-        <ArrowDownwardSharpIcon />
+        <ArrowDownwardSharpIcon sx={iconSX} />
+      </IconButton>
+      {content}
+      <IconButton title="Increase value" onClick={onIncrease} disabled={hasError || value === maxValue}>
+        <ArrowUpwardSharpIcon sx={iconSX} />
       </IconButton>
     </Typography>
   );

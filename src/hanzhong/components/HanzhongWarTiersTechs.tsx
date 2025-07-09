@@ -1,24 +1,18 @@
 import Grid from '@mui/material/Grid';
 
-import type { HanzhongWarTierType } from '../../types/hanzhong/hanzhong-war-tier-type';
+import type { HanzhongWarTierType } from '../types';
 import { HanzhongWarTierTechs } from './HanzhongWarTierTechs';
 
 export interface HanzhongWarTiersTechsProps {
   info: HanzhongWarTierType[];
-  currentSelections: Record<string, number>;
   onChange: (id: string, newValue: number) => void;
 }
 
-export const HanzhongWarTiersTechs = ({ info, currentSelections, onChange }: HanzhongWarTiersTechsProps) => {
+export const HanzhongWarTiersTechs = ({ info, onChange }: HanzhongWarTiersTechsProps) => {
   return (
     <Grid container size={{ xs: 12 }} spacing={2}>
       {info.map((hanzhongWarTier) => (
-        <HanzhongWarTierTechs
-          key={hanzhongWarTier.id}
-          info={hanzhongWarTier}
-          currentSelections={currentSelections}
-          onChange={onChange}
-        />
+        <HanzhongWarTierTechs key={hanzhongWarTier.id} info={hanzhongWarTier} onChange={onChange} />
       ))}
     </Grid>
   );

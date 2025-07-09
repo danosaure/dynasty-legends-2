@@ -1,4 +1,4 @@
-import type { HanzhongWarTierType } from '../../types/hanzhong/hanzhong-war-tier-type';
+import type { HanzhongWarTierType } from '../types';
 import {
   HANZHONG_WAR_TIER_1_TECHS,
   HANZHONG_WAR_TIER_2_TECHS,

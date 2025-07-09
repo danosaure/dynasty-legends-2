@@ -1,46 +1,32 @@
 import Grid from '@mui/material/Grid';
-import type { HanzhongInfoDataKeyUpdaterType } from '../../types/hanzhong/hanzhong-info-data-key-updater-type';
-import { useState } from 'react';
+import type { HanzhongInfoDataKeyUpdaterType, HanzhongInfoDataType } from '../types';
 import Typography from '@mui/material/Typography';
 import { HanzhongInfoDisplay } from './HanzhongInfoDisplay';
 
 export type HanzhongInfosDisplayProps = {
   label: string;
+  items: HanzhongInfoDataType[];
   onChange: HanzhongInfoDataKeyUpdaterType;
 };
 
-const CURRENT_LUMBER_KEY = 'hanzhong--inventory--lumber';
-const CURRENT_GRAINS_KEY = 'hanzhong--inventory--grains';
-const CURRENT_IRON_KEY = 'hanzhong--inventory--iron';
-
-export const HanzhongInfosDisplay = ({ label, onChange }: HanzhongInfosDisplayProps) => {
-  const [currentLumber, setCurrentLumber] = useState<number>(-1);
-  const [currentGrains, setCurrentGrains] = useState<number>(-1);
-  const [currentIron, setCurrentIron] = useState<number>(-1);
-
-  const infosToDisplay = infos.map((value) => ({
-    ...value,
-    onChange: (newValue: number) => onChange(value.id, newValue),
+export const HanzhongInfosDisplay = ({ label, items, onChange }: HanzhongInfosDisplayProps) => {
+  const itemsToDisplay = items.map((item) => ({
+    ...item,
+    onChange: (newValue: number) => onChange(item.id, newValue),
   }));
 
-  let infos = [
-    {
-      id: 'foo-bar',
-      currentValue: -1,
-      projectedValue: -1,
-      onChange: (newValue: number): void => {},
-    },
-  ];
-
   return (
-    <Grid container spacing={2}>
-      <Typography>{label}</Typography>
-      {infosToDisplay.map((info) => (
+    <Grid container spacing={2} direction={'column'}>
+      <Typography variant="subtitle1">{label}</Typography>
+      {itemsToDisplay.map((item) => (
         <HanzhongInfoDisplay
-          key={info.id}
-          currentValue={info.currentValue}
-          projectedValue={info.projectedValue}
-          onChange={info.onChange}
+          key={item.id}
+          id={item.id}
+          label={item.label}
+          currentValue={item.currentValue}
+          projectedValue={item.projectedValue}
+          unit={item.unit}
+          onChange={item.onChange}
         />
       ))}
     </Grid>

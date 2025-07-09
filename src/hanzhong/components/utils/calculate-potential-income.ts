@@ -1,6 +1,5 @@
-import { HANZHONG_DATA } from '../../../data/hanzhong';
-import type { HanzhongCityType } from '../../../types/hanzhong/hanzhong-city-type';
-import type { HanzhongType } from '../../../types/hanzhong/hanzhong-type';
+import { HANZHONG_DATA } from '../../data';
+import type { HanzhongCityType, HanzhongType } from '../../types';
 
 export type PotentialIncomeType = {
   woodRate: number;

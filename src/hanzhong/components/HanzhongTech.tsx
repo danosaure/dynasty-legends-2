@@ -1,5 +1,5 @@
-import type { HanzhongTechType } from '../../types/hanzhong/hanzhong-tech-type';
-import { BasicCard } from '../BasicCard';
+import { BasicCard } from '../../components/BasicCard';
+import type { HanzhongTechType } from '../types';
 
 export interface HanzhongTechProps {
   info: HanzhongTechType;

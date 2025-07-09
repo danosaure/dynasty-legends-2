@@ -1,32 +1,13 @@
-import { styled } from '@mui/material/styles';
-
 export interface BasicCardImageProps {
   assetImage: string;
 }
 
-const PREFIX = 'BasicCardImage';
-
-const classes = {
-  center: `${PREFIX}--center`,
-};
-
-const Root = styled('div')(() => ({
-  [`&.${classes.center}`]: {
-    display: 'flex',
-    alignItems: 'center',
-    width: '100%',
-  },
-
-  img: {
-    maxWidth: '90%',
-    maxHeight: '90%',
-  },
-}));
-
 export const BasicCardImage = ({ assetImage }: BasicCardImageProps) => {
-  return (
-    <Root className={classes.center}>
-      <img src={`${import.meta.env.BASE_URL}assets/${assetImage}`} alt={assetImage} />
-    </Root>
-  );
+  const src = `${import.meta.env.BASE_URL}assets/${assetImage}`;
+  const imgStyle = {
+    maxWidth: '75%',
+    maxHeight: '75%',
+  };
+
+  return <img src={src} alt={assetImage} style={imgStyle} />;
 };

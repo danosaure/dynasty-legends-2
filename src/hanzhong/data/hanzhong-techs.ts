@@ -1,5 +1,5 @@
-import type { HanzhongTechType } from '../../types/hanzhong/hanzhong-tech-type';
-import { mapTableToResourcesAndBonuses } from '../utils';
+import { mapTableToResourcesAndBonuses } from './utils';
+import type { HanzhongTechType } from '../types';
 
 //
 //  ----- War Tier 1 -----

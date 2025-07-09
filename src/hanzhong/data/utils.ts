@@ -1,6 +1,5 @@
-import type { HanzhongBonusType } from '../types/hanzhong-bonus-type';
-import type { HanzhongTechLevelType } from '../types/hanzhong-tech-level-type';
-import type { PotentiallyUnknownNumberType } from '../types/potentially-unknown-number-type';
+import type { PotentiallyUnknownNumberType } from '../../types';
+import type { HanzhongBonusType, HanzhongTechLevelType } from '../types';
 
 type bonusKeys = keyof HanzhongBonusType;
 

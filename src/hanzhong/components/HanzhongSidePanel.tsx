@@ -1,4 +1,5 @@
 import Grid from '@mui/material/Grid';
+
 import { ResourceIncomes } from './ResourceIncomes';
 
 export type HanzhongSidePanelProps = {

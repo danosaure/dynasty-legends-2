@@ -1,9 +1,8 @@
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-
-import { ResourceIncome } from './ResourceIncome';
-import { useHanzhongContext } from './HanzhongContext';
-import { getUserDataValueByKey } from './utils/get-user-data-value-by-key';
+import { HanzhongInfosDisplay } from './HanzhongInfosDisplay';
+import type { HanzhongInfoDataType } from '../types';
+import { useUserDataContext } from '../../components/UserDataContext';
+import { getUserDataValuesByKeys } from './utils';
+import { useState } from 'react';
 
 export interface ResourceIncomesProps {
   /**
@@ -16,37 +15,32 @@ export interface ResourceIncomesProps {
   onChange: (resourceIncomeKey: string, newValue: number) => void;
 }
 
+const LUMBER_KEY = 'resource-income--lumber';
+const GRAINS_KEY = 'resource-income--grains';
+const IRON_KEY = 'resource-income--iron';
+
 export const ResourceIncomes = ({ onChange }: ResourceIncomesProps) => {
-  const hanzhongContextData = useHanzhongContext();
-  const currentSelections = hanzhongContextData.usersData.DEFAULT;
+  const { hanzhong: userData } = useUserDataContext();
 
-  const LUMBER_KEY = 'resource-income--lumber';
-  const GRAINS_KEY = 'resource-income--grains';
-  const IRON_KEY = 'resource-income--iron';
+  const [lumber, grains, iron] = getUserDataValuesByKeys(userData, [LUMBER_KEY, GRAINS_KEY, IRON_KEY]);
 
-  const lumber = getUserDataValueByKey(hanzhongContextData, LUMBER_KEY);
-  console.log('lumber:', 'getUserDataValueByKey()=', lumber, ' ; direct=', currentSelections[LUMBER_KEY] ?? 0);
+  const [projectedLumber] = useState(lumber);
+  const [projectedGrains] = useState(grains);
+  const [projectedIron] = useState(iron);
 
-  return (
-    <Grid container spacing={1} direction="column">
-      <Typography>Resource Income</Typography>
-      <ResourceIncome
-        value={currentSelections[LUMBER_KEY] ?? 0}
-        label="Lumber"
-        onChange={(newValue: number) => onChange(LUMBER_KEY, newValue)}
-      />
-
-      <ResourceIncome
-        value={currentSelections[GRAINS_KEY] ?? 0}
-        label="Grains"
-        onChange={(newValue: number) => onChange(GRAINS_KEY, newValue)}
-      />
-
-      <ResourceIncome
-        value={currentSelections[IRON_KEY] ?? 0}
-        label="Grains"
-        onChange={(newValue: number) => onChange(IRON_KEY, newValue)}
-      />
-    </Grid>
+  const items: HanzhongInfoDataType[] = [
+    [LUMBER_KEY, 'lumber', lumber, projectedLumber],
+    [GRAINS_KEY, 'Grains', grains, projectedGrains],
+    [IRON_KEY, 'Iron', iron, projectedIron],
+  ].map(
+    ([id, label, currentValue, projectedValue]): HanzhongInfoDataType => ({
+      id: id as string,
+      label: label as string,
+      currentValue: currentValue as number,
+      projectedValue: projectedValue as number,
+      unit: '/h',
+    })
   );
+
+  return <HanzhongInfosDisplay label="Resource Income" items={items} onChange={onChange} />;
 };

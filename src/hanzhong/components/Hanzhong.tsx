@@ -2,24 +2,16 @@ import { useMemo, useState } from 'react';
 
 import Grid from '@mui/material/Grid';
 
-import { HanzhongContext } from './HanzhongContext';
+import { HanzhongContext, type HanzhongContextType } from './HanzhongContext';
 import { HanzhongSidePanel } from './HanzhongSidePanel';
 import { HanzhongWarTiersTechs } from './HanzhongWarTiersTechs';
-import { HANZHONG_DATA } from '../../data/hanzhong';
-import type { HanzhongUserDataType } from '../../persistence/hanzhong-user-data-type';
+import { HANZHONG_DATA } from '../data';
 
 export const Hanzhong = () => {
-  const [userData, setUserData] = useState<HanzhongUserDataType>({});
+  const [username] = useState<string>('DEFAULT');
+  const [userData, setUserData] = useState({});
 
-  const hanzhongContextData = useMemo(
-    () => ({
-      hanzhongData: HANZHONG_DATA,
-      usersData: {
-        DEFAULT: userData,
-      },
-    }),
-    [userData]
-  );
+  const hanzhongContextData: HanzhongContextType = useMemo(() => HANZHONG_DATA, [username]);
 
   const onChange = (key: string, newValue: number) => {
     setUserData({
@@ -31,15 +23,11 @@ export const Hanzhong = () => {
   return (
     <HanzhongContext.Provider value={hanzhongContextData}>
       <Grid container spacing={2}>
-        <Grid size={{ xs: 3, md: 4 }}>
+        <Grid size={{ xs: 3 }}>
           <HanzhongSidePanel onChange={onChange} />
         </Grid>
-        <Grid size={{ xs: 9, md: 8 }}>
-          <HanzhongWarTiersTechs
-            info={hanzhongContextData.hanzhongData.warTiers}
-            currentSelections={userData}
-            onChange={onChange}
-          />
+        <Grid size={{ xs: 9 }}>
+          <HanzhongWarTiersTechs info={hanzhongContextData.warTiers} onChange={onChange} />
         </Grid>
       </Grid>
     </HanzhongContext.Provider>

@@ -16,18 +16,14 @@ export interface BasicCardProps {
 
 export const BasicCard = ({ assetImage, label, value, maxValue, onChange }: BasicCardProps) => {
   return (
-    <Card sx={{ width: 150 }}>
-      <CardContent>
-        <Grid container spacing={1}>
-          <Grid size={{ xs: 6 }}>
-            <BasicCardImage assetImage={assetImage} />
-          </Grid>
-          <Grid size={{ xs: 6 }}>
-            <ValueAdjuster value={value} maxValue={maxValue} onChange={onChange} />
-          </Grid>
-          <Grid size={{ xs: 12 }}>
-            <Typography sx={{ textAlign: 'center' }}>{label}</Typography>
-          </Grid>
+    <Card sx={{ width: 140 }}>
+      <CardContent sx={{ 'p': 1, '&:last-child': { pb: 1 } }}>
+        <Grid container sx={{ justifyContent: 'center', alignItems: 'flex-start' }}>
+          <BasicCardImage assetImage={assetImage} />
+          <ValueAdjuster value={value} maxValue={maxValue} onChange={onChange} />
+          <Typography sx={{ textAlign: 'center' }} variant="body2">
+            {label}
+          </Typography>
         </Grid>
       </CardContent>
     </Card>

@@ -4,7 +4,6 @@ import { fn } from 'storybook/test';
 import { ResourceIncomes, type ResourceIncomesProps } from './ResourceIncomes';
 
 const defaultProps: ResourceIncomesProps = {
-  currentSelections: {},
   onChange: fn(),
 };
 

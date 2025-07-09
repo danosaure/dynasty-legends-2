@@ -1,5 +1,5 @@
-import type { HanzhongContextType } from '../HanzhongContext';
+import type { HanzhongUserDataType } from '../../../persistence/hanzhong-user-data-type';
 
-export const getUserDataValueByKey = (hanzhongContextData: HanzhongContextType, key: string, user: string = 'DEFAULT'): number => {
-  return hanzhongContextData.usersData[user]?.[key] ?? 0;
+export const getUserDataValueByKey = (userData: HanzhongUserDataType, key: string): number => {
+  return userData[key] ?? 0;
 };
