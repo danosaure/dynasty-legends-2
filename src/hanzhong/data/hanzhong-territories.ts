@@ -14,7 +14,20 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
   levels: [
     {
       tacticalPoints: 300000,
-      earnings: 60,
+      earnings: [
+        {
+          id: 'hanzhong--territory--lumber-mill--1',
+          earnings: { woodRate: 60 },
+        },
+        {
+          id: 'hanzhong--territory--granary--1',
+          earnings: { grainsRate: 60 },
+        },
+        {
+          id: 'hanzhong--territory--iron-mine--1',
+          earnings: { ironRate: 60 },
+        },
+      ],
       team: {
         green: 489425,
         orange: [null, null],
@@ -29,7 +42,20 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
     },
     {
       tacticalPoints: 500000,
-      earnings: 120,
+      earnings: [
+        {
+          id: 'hanzhong--territory--lumber-mill--2',
+          earnings: { woodRate: 120 },
+        },
+        {
+          id: 'hanzhong--territory--granary--2',
+          earnings: { grainsRate: 120 },
+        },
+        {
+          id: 'hanzhong--territory--iron-mine--2',
+          earnings: { ironRate: 120 },
+        },
+      ],
       team: {
         green: 489425,
         orange: [null, 489425],
@@ -44,7 +70,20 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
     },
     {
       tacticalPoints: 700000,
-      earnings: 180,
+      earnings: [
+        {
+          id: 'hanzhong--territory--lumber-mill--3',
+          earnings: { woodRate: 180 },
+        },
+        {
+          id: 'hanzhong--territory--granary--3',
+          earnings: { grainsRate: 180 },
+        },
+        {
+          id: 'hanzhong--territory--iron-mine--3',
+          earnings: { ironRate: 180 },
+        },
+      ],
       team: {
         green: 701068,
         orange: [699201, 556621],
@@ -54,7 +93,20 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
     },
     {
       tacticalPoints: 1500000,
-      earnings: 240,
+      earnings: [
+        {
+          id: 'hanzhong--territory--lumber-mill--4',
+          earnings: { woodRate: 240 },
+        },
+        {
+          id: 'hanzhong--territory--granary--4',
+          earnings: { grainsRate: 240 },
+        },
+        {
+          id: 'hanzhong--territory--iron-mine--4',
+          earnings: { ironRate: 240 },
+        },
+      ],
       team: {
         green: 1641266,
         orange: [1472552, 1172380],
@@ -64,7 +116,20 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
     },
     {
       tacticalPoints: 2700000,
-      earnings: 300,
+      earnings: [
+        {
+          id: 'hanzhong--territory--lumber-mill--5',
+          earnings: { woodRate: 300 },
+        },
+        {
+          id: 'hanzhong--territory--granary--5',
+          earnings: { grainsRate: 300 },
+        },
+        {
+          id: 'hanzhong--territory--iron-mine--5',
+          earnings: { ironRate: 300 },
+        },
+      ],
       team: {
         green: 2764530,
         orange: [2327514, 1902304],
@@ -74,7 +139,20 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
     },
     {
       tacticalPoints: 4200000,
-      earnings: 360,
+      earnings: [
+        {
+          id: 'hanzhong--territory--lumber-mill--6',
+          earnings: { woodRate: 360 },
+        },
+        {
+          id: 'hanzhong--territory--granary--6',
+          earnings: { grainsRate: 360 },
+        },
+        {
+          id: 'hanzhong--territory--iron-mine--6',
+          earnings: { ironRate: 360 },
+        },
+      ],
       team: {
         green: 4150360,
         orange: [4097498, 3946037],
@@ -84,7 +162,20 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
     },
     {
       tacticalPoints: 7300000,
-      earnings: 420,
+      earnings: [
+        {
+          id: 'hanzhong--territory--lumber-mill--7',
+          earnings: { woodRate: 420 },
+        },
+        {
+          id: 'hanzhong--territory--granary--7',
+          earnings: { grainsRate: 420 },
+        },
+        {
+          id: 'hanzhong--territory--iron-mine--7',
+          earnings: { ironRate: 420 },
+        },
+      ],
       team: {
         green: 7432568,
         orange: [null, 6291460],
@@ -94,7 +185,20 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
     },
     {
       tacticalPoints: 10800000,
-      earnings: 480,
+      earnings: [
+        {
+          id: 'hanzhong--territory--lumber-mill--8',
+          earnings: { woodRate: 480 },
+        },
+        {
+          id: 'hanzhong--territory--granary--8',
+          earnings: { grainsRate: 480 },
+        },
+        {
+          id: 'hanzhong--territory--iron-mine--8',
+          earnings: { ironRate: 480 },
+        },
+      ],
       team: {
         green: 11816536,
         orange: [10111904, 7510353],
@@ -104,7 +208,20 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
     },
     {
       tacticalPoints: 10800000,
-      earnings: 540,
+      earnings: [
+        {
+          id: 'hanzhong--territory--lumber-mill--9',
+          earnings: { woodRate: 540 },
+        },
+        {
+          id: 'hanzhong--territory--granary--9',
+          earnings: { grainsRate: 540 },
+        },
+        {
+          id: 'hanzhong--territory--iron-mine--9',
+          earnings: { ironRate: 540 },
+        },
+      ],
       team: {
         green: 13796665,
         orange: [13391665, 10025056],
