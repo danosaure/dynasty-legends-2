@@ -1,13 +1,16 @@
 import { mapTableToResourcesAndBonuses } from './utils';
 import type { HanzhongTechType } from '../types';
+import { HANZHONG_TECH_IDS } from '../constants/items-ids';
+
+const assetPath = (f: string): string => `hanzhong/tech/${f}.png`;
 
 //
 //  ----- War Tier 1 -----
 //
 
 export const HANZHONG_TECH_ATTACK_TRAINING_1: HanzhongTechType = {
-  id: 'hanzhong--tech--attack-training-1',
-  assetPath: 'hanzhong/tech/attack-training-1.png',
+  id: HANZHONG_TECH_IDS.ATTACK_TRAINING_1,
+  assetPath: assetPath('attack-training-1'),
   label: 'Attack Training I',
   description: 'Increases ATK for Officers in the battle Formation',
   levels: mapTableToResourcesAndBonuses(
@@ -28,8 +31,8 @@ export const HANZHONG_TECH_ATTACK_TRAINING_1: HanzhongTechType = {
 };
 
 export const HANZHONG_TECH_DEFENSE_TRAINING_1: HanzhongTechType = {
-  id: 'hanzhong--tech--defense-training-1',
-  assetPath: 'hanzhong/tech/defense-training-1.png',
+  id: HANZHONG_TECH_IDS.DEFENSE_TRAINING_1,
+  assetPath: assetPath('defense-training-1'),
   label: 'Defense Training I',
   description: 'Increases DEF for Officers in the battle Formation',
   levels: mapTableToResourcesAndBonuses(
@@ -50,8 +53,8 @@ export const HANZHONG_TECH_DEFENSE_TRAINING_1: HanzhongTechType = {
 };
 
 export const HANZHONG_TECH_TENACITY_TRAINING_1: HanzhongTechType = {
-  id: 'hanzhong--tech--tenacity-training-1',
-  assetPath: 'hanzhong/tech/tenacity-training-1.png',
+  id: HANZHONG_TECH_IDS.TENACITY_TRAINING_1,
+  assetPath: assetPath('tenacity-training-1'),
   label: 'Tenacity Training I',
   description: 'Increases HP for Officers in the battle Formation',
   levels: mapTableToResourcesAndBonuses(
@@ -72,8 +75,8 @@ export const HANZHONG_TECH_TENACITY_TRAINING_1: HanzhongTechType = {
 };
 
 export const HANZHONG_TECH_FREE_PATHS: HanzhongTechType = {
-  id: 'hanzhong--tech--free-paths',
-  assetPath: 'hanzhong/tech/free-paths.png',
+  id: HANZHONG_TECH_IDS.FREE_PATHS,
+  assetPath: assetPath('free-paths'),
   label: 'Free Paths',
   description: "Unlocks the function of borrowing other's territories for attack",
   levels: [
@@ -96,8 +99,8 @@ export const HANZHONG_TECH_FREE_PATHS: HanzhongTechType = {
 //
 
 export const HANZHONG_TECH_LUMBER_MILL: HanzhongTechType = {
-  id: 'hanzhong--tech--lumber-mill',
-  assetPath: 'hanzhong/tech/lumber-mill.png',
+  id: HANZHONG_TECH_IDS.LUMBER_MILL,
+  assetPath: assetPath('lumber-mill'),
   label: 'Lumber Mill',
   description: 'Wood Yield Rate',
   levels: mapTableToResourcesAndBonuses(
@@ -113,8 +116,8 @@ export const HANZHONG_TECH_LUMBER_MILL: HanzhongTechType = {
 };
 
 export const HANZHONG_TECH_GRANARY: HanzhongTechType = {
-  id: 'hanzhong--tech--granary',
-  assetPath: 'hanzhong/tech/granary.png',
+  id: HANZHONG_TECH_IDS.GRANARY,
+  assetPath: assetPath('granary'),
   label: 'Granary',
   description: 'Grains Yield Rate',
   levels: mapTableToResourcesAndBonuses(
@@ -130,8 +133,8 @@ export const HANZHONG_TECH_GRANARY: HanzhongTechType = {
 };
 
 export const HANZHONG_TECH_IRON_FOUNDRY: HanzhongTechType = {
-  id: 'hanzhong--tech--iron-foundry',
-  assetPath: 'hanzhong/tech/iron-foundry.png',
+  id: HANZHONG_TECH_IDS.IRON_FOUNDRY,
+  assetPath: assetPath('iron-foundry'),
   label: 'Iron Foundry',
   description: 'Iron Yield Rate',
   levels: mapTableToResourcesAndBonuses(
@@ -147,8 +150,8 @@ export const HANZHONG_TECH_IRON_FOUNDRY: HanzhongTechType = {
 };
 
 export const HANZHONG_TECH_MIGHTY_GENERALS: HanzhongTechType = {
-  id: 'hanzhong--tech--mighty-generals',
-  assetPath: 'hanzhong/tech/mighty-generals.png',
+  id: HANZHONG_TECH_IDS.MIGHTY_GENERALS,
+  assetPath: assetPath('mighty-generals'),
   label: 'Mighty Generals',
   description: 'Grants additional bonuses for Mythic and Unique Officers',
   levels: [
@@ -171,8 +174,8 @@ export const HANZHONG_TECH_MIGHTY_GENERALS: HanzhongTechType = {
 //
 
 export const HANZHONG_TECH_DILIGENT_WARRIOR_1: HanzhongTechType = {
-  id: 'hanzhong--tech--diligent-warrior-1',
-  assetPath: 'hanzhong/tech/diligent-warrior-1.png',
+  id: HANZHONG_TECH_IDS.DILIGENT_WARRIOR_1,
+  assetPath: assetPath('diligent-warrior-1'),
   label: 'Diligent Warrior I',
   description: 'Increases ATK, DEF, and HP for Officers in the battle Formation',
   levels: mapTableToResourcesAndBonuses(
@@ -192,8 +195,8 @@ export const HANZHONG_TECH_DILIGENT_WARRIOR_1: HanzhongTechType = {
   ),
 };
 export const HANZHONG_TECH_TERRITORY_EXPANSION: HanzhongTechType = {
-  id: 'hanzhong--tech--territory-expansion',
-  assetPath: 'hanzhong/tech/territory-expansion.png',
+  id: HANZHONG_TECH_IDS.TERRITORY_EXPANSION,
+  assetPath: assetPath('territory-expansion'),
   label: 'Territory Expansion',
   description: 'Territory Cap',
   levels: mapTableToResourcesAndBonuses(
@@ -202,7 +205,7 @@ export const HANZHONG_TECH_TERRITORY_EXPANSION: HanzhongTechType = {
       [670, 670, 670, 1],
       [2000, 2000, 2000, 2],
       [3300, 3300, 3300, 3],
-      [null, null, null, 4],
+      [4700, 4700, 4700, 4],
       [6000, 6000, 6000, 5],
       [7400, 7400, 7400, 7],
       [8700, 8700, 8700, 9],
@@ -218,8 +221,8 @@ export const HANZHONG_TECH_TERRITORY_EXPANSION: HanzhongTechType = {
 //
 
 export const HANZHONG_TECH_ATTACK_TRAINING_2: HanzhongTechType = {
-  id: 'hanzhong--tech--attack-training-2',
-  assetPath: 'hanzhong/tech/attack-training-2.png',
+  id: HANZHONG_TECH_IDS.ATTACK_TRAINING_2,
+  assetPath: assetPath('attack-training-2'),
   label: 'Attack Training II',
   description: 'Greatly increases ATK for Officers in the battle Formation',
   levels: mapTableToResourcesAndBonuses(
@@ -240,8 +243,8 @@ export const HANZHONG_TECH_ATTACK_TRAINING_2: HanzhongTechType = {
 };
 
 export const HANZHONG_TECH_DEFENSE_TRAINING_2: HanzhongTechType = {
-  id: 'hanzhong--tech--defense-training-2',
-  assetPath: 'hanzhong/tech/defense-training-2.png',
+  id: HANZHONG_TECH_IDS.DEFENSE_TRAINING_2,
+  assetPath: assetPath('defense-training-2'),
   label: 'Defense Training II',
   description: 'Greatly increases DEF for Officers in the battle Formation',
   levels: mapTableToResourcesAndBonuses(
@@ -262,8 +265,8 @@ export const HANZHONG_TECH_DEFENSE_TRAINING_2: HanzhongTechType = {
 };
 
 export const HANZHONG_TECH_TENACITY_TRAINING_2: HanzhongTechType = {
-  id: 'hanzhong--tech--tenacity-training-2',
-  assetPath: 'hanzhong/tech/tenacity-training-2.png',
+  id: HANZHONG_TECH_IDS.TENACITY_TRAINING_2,
+  assetPath: assetPath('tenacity-training-2'),
   label: 'Tenacity Training II',
   description: 'Greatly increases HP for Officers in the battle Formation',
   levels: mapTableToResourcesAndBonuses(
@@ -288,8 +291,8 @@ export const HANZHONG_TECH_TENACITY_TRAINING_2: HanzhongTechType = {
 //
 
 export const HANZHONG_TECH_OVERALL_DEVELOPMENT: HanzhongTechType = {
-  id: 'hanzhong--tech--overall-development',
-  assetPath: 'hanzhong/tech/overall-development.png',
+  id: HANZHONG_TECH_IDS.OVERALL_DEVELOPMENT,
+  assetPath: assetPath('overall-development'),
   label: 'Overall Development',
   description: 'Increases the yield rate of all resources',
   levels: mapTableToResourcesAndBonuses(
@@ -305,8 +308,8 @@ export const HANZHONG_TECH_OVERALL_DEVELOPMENT: HanzhongTechType = {
 };
 
 export const HANZHONG_TECH_UNITED_STRENGTH: HanzhongTechType = {
-  id: 'hanzhong--tech--united-strength',
-  assetPath: 'hanzhong/tech/united-strength.png',
+  id: HANZHONG_TECH_IDS.UNITED_STRENGTH,
+  assetPath: assetPath('united-strength'),
   label: 'United Strength',
   description: 'Activates additional bonuses when deploying Officers of the same faction in the battle Formation',
   levels: [
@@ -325,8 +328,8 @@ export const HANZHONG_TECH_UNITED_STRENGTH: HanzhongTechType = {
 };
 
 export const HANZHONG_TECH_FORMATION_EXPANSION: HanzhongTechType = {
-  id: 'hanzhong--tech--formation-expansion',
-  assetPath: 'hanzhong/tech/formation-expansion.png',
+  id: HANZHONG_TECH_IDS.FORMATION_EXPANSION,
+  assetPath: assetPath('formation-expansion'),
   label: 'Formation Expansion',
   description: 'Unlock new Formations',
   levels: [
@@ -348,8 +351,8 @@ export const HANZHONG_TECH_FORMATION_EXPANSION: HanzhongTechType = {
 //
 
 export const HANZHONG_TECH_SPECIAL_TRAINING_VANGUARD_CAMP: HanzhongTechType = {
-  id: 'hanzhong--tech--special-training--vanguard-camp',
-  assetPath: 'hanzhong/tech/special-training--vanguard-camp.png',
+  id: HANZHONG_TECH_IDS.SPECIAL_TRAINING__VANGUARD_CAMP,
+  assetPath: assetPath('special-training--vanguard-camp'),
   label: 'Special Training - Vanguard Camp',
   description: 'Increases ATK, DEF, and HP for Officers of Vanguard Camp',
   levels: mapTableToResourcesAndBonuses(
@@ -370,8 +373,8 @@ export const HANZHONG_TECH_SPECIAL_TRAINING_VANGUARD_CAMP: HanzhongTechType = {
 };
 
 export const HANZHONG_TECH_SPECIAL_TRAINING_VALIANT_CAVALRY: HanzhongTechType = {
-  id: 'hanzhong--tech--special-training--valiant-cavalry',
-  assetPath: 'hanzhong/tech/special-training--valiant-cavalry.png',
+  id: HANZHONG_TECH_IDS.SPECIAL_TRAINING__VALIANT_CAVALRY,
+  assetPath: assetPath('special-training--valiant-cavalry'),
   label: 'Special Training - Valiant Cavalry',
   description: 'Increases ATK, DEF, and HP for Officers of Valiant Cavalry',
   levels: mapTableToResourcesAndBonuses(
@@ -392,8 +395,8 @@ export const HANZHONG_TECH_SPECIAL_TRAINING_VALIANT_CAVALRY: HanzhongTechType = 
 };
 
 export const HANZHONG_TECH_SPECIAL_TRAINING_ROYAL_GUARDS: HanzhongTechType = {
-  id: 'hanzhong--tech--special-training-royal-guards',
-  assetPath: 'hanzhong/tech/special-training--royal-guards.png',
+  id: HANZHONG_TECH_IDS.SPECIAL_TRAINING__ROYAL_GUARDS,
+  assetPath: assetPath('special-training--royal-guards'),
   label: 'Special Training - Royal Guards',
   description: 'Increases ATK, DEF, and HP for Officers of Royal Guards',
   levels: mapTableToResourcesAndBonuses(
@@ -414,8 +417,8 @@ export const HANZHONG_TECH_SPECIAL_TRAINING_ROYAL_GUARDS: HanzhongTechType = {
 };
 
 export const HANZHONG_TECH_REHABILITATION: HanzhongTechType = {
-  id: 'hanzhong--tech--rehabilitation',
-  assetPath: 'hanzhong/tech/rehabilitation.png',
+  id: HANZHONG_TECH_IDS.REHABILITATION,
+  assetPath: assetPath('rehabilitation'),
   label: 'Rehabilitation',
   description: 'March Order Cap',
   levels: [
@@ -437,8 +440,8 @@ export const HANZHONG_TECH_REHABILITATION: HanzhongTechType = {
 //
 
 export const HANZHONG_TECH_DILIGENT_WARRIOR_3: HanzhongTechType = {
-  id: 'hanzhong--tech--diligent-warrior-3',
-  assetPath: 'hanzhong/tech/diligent-warrior-3.png',
+  id: HANZHONG_TECH_IDS.DILIGENT_WARRIOR_3,
+  assetPath: assetPath('diligent-warrior-3'),
   label: 'Diligent Warrior III',
   description: 'Greatly increases ATK, DEF, and HP for Officers in the battle Formation',
   levels: mapTableToResourcesAndBonuses(

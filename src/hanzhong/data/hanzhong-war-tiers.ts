@@ -9,11 +9,15 @@ import {
   HANZHONG_WAR_TIER_7_TECHS,
 } from './hanzhong-techs';
 
+import { HANZHONG_WAR_TIER_IDS } from '../constants/items-ids';
+
+const assetPath = (f: string): string => `hanzhong/war-tier/${f}.png`;
+
 export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
-  id: 'Hanzhong_WarTier_1',
+  id: HANZHONG_WAR_TIER_IDS.LV1,
   bg: '#B9E5E4',
   icon: {
-    path: 'hanzhong/war-tier/lv1.png',
+    path: assetPath('lv1'),
   },
   tasks: [
     {
@@ -42,10 +46,10 @@ export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
-  id: 'Hanzhong_WarTier_2',
+  id: HANZHONG_WAR_TIER_IDS.LV2,
   bg: '#ADE7F7',
   icon: {
-    path: 'hanzhong/war-tier/lv2.png',
+    path: assetPath('lv2'),
   },
   tasks: [
     {
@@ -73,10 +77,10 @@ export const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
-  id: 'Hanzhong_WarTier_3',
+  id: HANZHONG_WAR_TIER_IDS.LV3,
   bg: '#DBC5FF',
   icon: {
-    path: 'hanzhong/war-tier/lv3.png',
+    path: assetPath('lv3'),
   },
   tasks: [
     {
@@ -100,10 +104,10 @@ export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
-  id: 'Hanzhong_WarTier_4',
+  id: HANZHONG_WAR_TIER_IDS.LV4,
   bg: '#F5CB87',
   icon: {
-    path: 'hanzhong/war-tier/lv4.png',
+    path: assetPath('lv4'),
   },
   tasks: [
     {
@@ -127,10 +131,10 @@ export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
-  id: 'Hanzhong_WarTier_5',
+  id: HANZHONG_WAR_TIER_IDS.LV5,
   bg: '#FFD9A8',
   icon: {
-    path: 'hanzhong/war-tier/lv5.png',
+    path: assetPath('lv5'),
   },
   tasks: [
     {
@@ -154,10 +158,10 @@ export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
-  id: 'Hanzhong_WarTier_6',
+  id: HANZHONG_WAR_TIER_IDS.LV6,
   bg: '#F6E8A4',
   icon: {
-    path: 'hanzhong/war-tier/lv6.png',
+    path: assetPath('lv6'),
   },
   tasks: [
     {
@@ -185,10 +189,10 @@ export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
-  id: 'Hanzhong_WarTier_7',
+  id: HANZHONG_WAR_TIER_IDS.LV7,
   bg: '#FFFCA6',
   icon: {
-    path: 'hanzhong/war-tier/lv7.png',
+    path: assetPath('lv7'),
   },
   tasks: [
     {

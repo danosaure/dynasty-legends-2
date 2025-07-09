@@ -1,8 +1,9 @@
 import type { HanzhongCityType } from '../types';
+import { HANZHONG_CITY_IDS } from '../constants/items-ids';
 
 export const HANZHONG_CITIES: HanzhongCityType[] = [
   {
-    id: 'hanzhong--city--yangping-pass',
+    id: HANZHONG_CITY_IDS.YANGPING_PASS,
     name: 'Yangping Pass',
     position: '(61,106)',
     tacticalPoints: 2000000,
@@ -14,7 +15,7 @@ export const HANZHONG_CITIES: HanzhongCityType[] = [
     },
   },
   {
-    id: 'hanzhong--city--north-summit',
+    id: HANZHONG_CITY_IDS.NORTH_SUMMIT,
     name: 'North Summit',
     position: '(52,74)',
     tacticalPoints: 2000000,
@@ -26,7 +27,7 @@ export const HANZHONG_CITIES: HanzhongCityType[] = [
     },
   },
   {
-    id: 'hanzhong--city--maming-pavilion',
+    id: HANZHONG_CITY_IDS.MAMING_PAVILION,
     name: 'Maming Pavilion',
     position: '(90,63)',
     tacticalPoints: 2000000,
@@ -38,7 +39,7 @@ export const HANZHONG_CITIES: HanzhongCityType[] = [
     },
   },
   {
-    id: 'hanzhong--city--mianyang-county',
+    id: HANZHONG_CITY_IDS.MIANYANG_COUNTY,
     name: 'Mianyang County',
     position: '(99,96)',
     tacticalPoints: 2000000,
@@ -50,7 +51,7 @@ export const HANZHONG_CITIES: HanzhongCityType[] = [
     },
   },
   {
-    id: 'hanzhong--city--mount-dingjun',
+    id: HANZHONG_CITY_IDS.MOUNT_DINGJUN,
     name: 'Mount Dingjun',
     position: '(63,81)',
     tacticalPoints: 5000000,
@@ -62,7 +63,7 @@ export const HANZHONG_CITIES: HanzhongCityType[] = [
     },
   },
   {
-    id: 'hanzhong--city--hanshui-trail',
+    id: HANZHONG_CITY_IDS.HANSHUI_TRAIL,
     name: 'Hanshui Trail',
     position: '(87,91)',
     tacticalPoints: 5000000,
@@ -74,7 +75,7 @@ export const HANZHONG_CITIES: HanzhongCityType[] = [
     },
   },
   {
-    id: 'hanzhong--city--hanzhong-city',
+    id: HANZHONG_CITY_IDS.HANZHONG_CITY,
     name: 'Hanzhong City',
     position: '(75,85)',
     tacticalPoints: 140000000,
