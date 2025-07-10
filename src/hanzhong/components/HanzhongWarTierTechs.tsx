@@ -24,7 +24,7 @@ export const HanzhongWarTierTechs = ({ info, onChange }: HanzhongWarTierTechsPro
       >
         <Grid size={{ xs: 12, md: 'auto' }}>
           <img
-            src={`${import.meta.env.BASE_URL}/assets/${info.icon.path}`}
+            src={`${import.meta.env.BASE_URL}assets/${info.icon.path}`}
             alt={info.id}
             style={{ maxHeight: 150, maxWidth: 150 }}
           />

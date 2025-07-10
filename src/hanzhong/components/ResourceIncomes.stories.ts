@@ -1,11 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fn } from 'storybook/test';
 
-import { ResourceIncomes, type ResourceIncomesProps } from './ResourceIncomes';
+import { ResourceIncomes } from './ResourceIncomes';
 
-const defaultProps: ResourceIncomesProps = {
-  onChange: fn(),
-};
+const defaultProps = {};
 
 const meta = {
   title: 'Hanzhong/ResourceIncomes',
