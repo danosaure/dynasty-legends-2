@@ -9,14 +9,17 @@ export const TacticalBonuses = () => {
     {
       label: 'ATK',
       value: bonuses.atk ?? 0,
+      unit: 'x45',
     },
     {
       label: 'DEF',
       value: bonuses.def ?? 0,
+      unit: 'x45',
     },
     {
       label: 'HP',
       value: bonuses.hp ?? 0,
+      unit: 'x0.6',
     },
     {
       label: 'Tactical Points',

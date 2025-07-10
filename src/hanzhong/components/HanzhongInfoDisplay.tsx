@@ -22,7 +22,6 @@ export const HanzhongInfoDisplay = ({ label, value, unit }: HanzhongInfoDisplayP
           endAdornment={endAdornment}
           inputProps={{ 'aria-label': label, 'style': { textAlign: 'right' } }}
           size="small"
-          type="number"
         />
       </Grid>
     </Grid>
