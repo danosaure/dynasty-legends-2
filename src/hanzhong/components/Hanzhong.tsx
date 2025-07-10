@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type SyntheticEvent } from 'react';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -8,7 +8,6 @@ import Tab from '@mui/material/Tab';
 
 import { HanzhongContext, type HanzhongContextType } from './HanzhongContext';
 import { HanzhongWarTiersTechs } from './HanzhongWarTiersTechs';
-import { OccupiedCities } from './OccupiedCities';
 import { OccupiedTerritories } from './OccupiedTerritories';
 import { ResourceIncomes } from './ResourceIncomes';
 import { TacticalBonuses } from './TacticalBonuses';
@@ -55,7 +54,7 @@ export const Hanzhong = () => {
     return null;
   }
 
-  const changeTab = (e, value: string): void => setSelectedTabName(value);
+  const changeTab = (e: SyntheticEvent, value: string): void => setSelectedTabName(value);
 
   return (
     <HanzhongContext.Provider value={hanzhongContextData}>
@@ -69,6 +68,7 @@ export const Hanzhong = () => {
                   ['Territories', 'territories'],
                   ['Siege Progress', 'cities'],
                   ['War Tiers', 'warTiers'],
+                  ['Bandits', 'bandits'],
                 ].map(([label, id]) => (
                   <Tab label={label} value={id} {...generateTabA11yProps('hanzhong', id)} sx={{ alignItems: 'end' }} />
                 ))}
@@ -77,7 +77,6 @@ export const Hanzhong = () => {
 
             <ResourceIncomes />
             <OccupiedTerritories />
-            <OccupiedCities />
             <TacticalBonuses />
           </Grid>
         </Grid>
@@ -87,13 +86,16 @@ export const Hanzhong = () => {
               <HanzhongWarTiersTechs />
             </SectionTabpanel>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="territories">
-              Territories UI
+              TODO: Territories UI
             </SectionTabpanel>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="cities">
-              Cities UI
+              TODO: Cities UI
             </SectionTabpanel>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="warTiers">
-              War Tiers UI
+              TODO: War Tiers UI
+            </SectionTabpanel>
+            <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="bandits">
+              TODO: Bandits UI
             </SectionTabpanel>
           </Paper>
         </Grid>
