@@ -16,7 +16,7 @@ export const initializeEarnings = (hanzhongData: HanzhongType, userData: Hanzhon
   };
 
   bonuses = hanzhongData.cities.reduce((cumul: HanzhongBonusType, city: HanzhongCityType) => {
-    if (city.id in userData) {
+    if (userData[city.id] === 1) {
       return addHanzhongBonuses(cumul, city.earnings);
     }
     return cumul;
