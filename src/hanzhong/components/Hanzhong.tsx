@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
 
 import { HanzhongContext, type HanzhongContextType } from './HanzhongContext';
 import { HanzhongSidePanel } from './HanzhongSidePanel';
@@ -55,10 +56,14 @@ export const Hanzhong = () => {
     <HanzhongContext.Provider value={hanzhongContextData}>
       <Grid container spacing={2}>
         <Grid size={{ xs: 3 }}>
-          <HanzhongSidePanel />
+          <Paper elevation={10} sx={{ p: 2 }}>
+            <HanzhongSidePanel />
+          </Paper>
         </Grid>
         <Grid size={{ xs: 9 }}>
-          <HanzhongWarTiersTechs info={hanzhongContextData.hanzhong.warTiers} onChange={onChange} />
+          <Paper elevation={10} sx={{ p: 2 }}>
+            <HanzhongWarTiersTechs info={hanzhongContextData.hanzhong.warTiers} onChange={onChange} />
+          </Paper>
         </Grid>
       </Grid>
     </HanzhongContext.Provider>

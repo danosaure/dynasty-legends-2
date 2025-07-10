@@ -23,7 +23,7 @@ export const ValueAdjuster = ({ value, maxValue, onChange }: ValueAdjusterProps)
   const iconSX = { fontSize: 20 };
   const typographySX = {
     mt: -3,
-    bgcolor: 'rgba(255, 255, 255, 0.8)',
+    bgcolor: 'rgba(255, 255, 255, 0.9)',
   };
 
   return (

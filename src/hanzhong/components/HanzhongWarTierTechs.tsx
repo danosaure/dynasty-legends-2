@@ -1,4 +1,5 @@
 import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
 
 import type { HanzhongTechType, HanzhongWarTierType } from '../types';
 import { HanzhongTech } from './HanzhongTech';
@@ -13,21 +14,27 @@ export const HanzhongWarTierTechs = ({ info, onChange }: HanzhongWarTierTechsPro
   const { hanzhong: userData } = useUserDataContext();
 
   return (
-    <Grid
-      container
-      size={{ xs: 12 }}
-      style={{ backgroundColor: info.bg, padding: '10px' }}
-      sx={{ alignItems: 'flex-start', justifyContent: 'flex-start' }}
-      spacing={2}
-    >
-      <Grid size={{ xs: 12, md: 'auto' }}>
-        <img src={`${import.meta.env.BASE_URL}/assets/${info.icon.path}`} alt={info.id} style={{ maxHeight: 150, maxWidth: 150 }} />
+    <Paper elevation={10} sx={{ width: '100%' }}>
+      <Grid
+        container
+        size={{ xs: 12 }}
+        style={{ backgroundColor: info.bg, padding: '10px' }}
+        sx={{ alignItems: 'flex-start', justifyContent: 'flex-start' }}
+        spacing={2}
+      >
+        <Grid size={{ xs: 12, md: 'auto' }}>
+          <img
+            src={`${import.meta.env.BASE_URL}/assets/${info.icon.path}`}
+            alt={info.id}
+            style={{ maxHeight: 150, maxWidth: 150 }}
+          />
+        </Grid>
+        <Grid container size={{ xs: 12, md: 'grow' }} spacing={{ xs: 1, md: 2 }}>
+          {info.techs.map((tech: HanzhongTechType) => (
+            <HanzhongTech key={tech.id} info={tech} value={userData[tech.id] ?? 0} onChange={onChange} />
+          ))}
+        </Grid>
       </Grid>
-      <Grid container size={{ xs: 12, md: 'grow' }} spacing={{ xs: 1, md: 2 }}>
-        {info.techs.map((tech: HanzhongTechType) => (
-          <HanzhongTech key={tech.id} info={tech} value={userData[tech.id] ?? 0} onChange={onChange} />
-        ))}
-      </Grid>
-    </Grid>
+    </Paper>
   );
 };
