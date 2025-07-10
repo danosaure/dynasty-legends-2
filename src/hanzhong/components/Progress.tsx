@@ -3,7 +3,7 @@ import { useHanzhongContext } from './HanzhongContext';
 import type { HanzhongInfoDisplayProps } from './HanzhongInfoDisplay';
 import { HANZHONG_CITY_IDS, HANZHONG_TERRITORY_IDS } from '../constants/items-ids';
 
-export const OccupiedTerritories = () => {
+export const Progress = () => {
   const { bonuses, user } = useHanzhongContext();
 
   const territories: number = Object.values(HANZHONG_TERRITORY_IDS).reduce(

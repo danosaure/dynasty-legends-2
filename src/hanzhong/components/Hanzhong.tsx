@@ -8,7 +8,7 @@ import Tab from '@mui/material/Tab';
 
 import { HanzhongContext, type HanzhongContextType } from './HanzhongContext';
 import { HanzhongWarTiersTechs } from './HanzhongWarTiersTechs';
-import { OccupiedTerritories } from './OccupiedTerritories';
+import { Progress } from './Progress';
 import { ResourceIncomes } from './ResourceIncomes';
 import { TacticalBonuses } from './TacticalBonuses';
 import { initializeEarnings } from './utils/initialize-earnings';
@@ -76,7 +76,7 @@ export const Hanzhong = () => {
             </Box>
 
             <ResourceIncomes />
-            <OccupiedTerritories />
+            <Progress />
             <TacticalBonuses />
           </Grid>
         </Grid>
