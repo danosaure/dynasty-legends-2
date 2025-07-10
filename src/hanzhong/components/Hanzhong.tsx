@@ -17,6 +17,7 @@ import type { HanzhongBonusType } from '../types';
 import { SectionTabpanel } from '../../components/SectionTabpanel';
 import { generateTabA11yProps } from '../../components/utils/generate-tab-a11y-props';
 import type { HanzhongUserDataType } from '../../persistence/hanzhong-user-data-type';
+import { Cities } from './Cities';
 
 export const Hanzhong = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -89,7 +90,7 @@ export const Hanzhong = () => {
               TODO: Territories UI
             </SectionTabpanel>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="cities">
-              TODO: Cities UI
+              <Cities />
             </SectionTabpanel>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="warTiers">
               TODO: War Tiers UI
