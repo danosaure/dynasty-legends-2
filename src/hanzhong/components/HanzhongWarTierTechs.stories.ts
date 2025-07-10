@@ -1,12 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fn } from 'storybook/test';
 
 import { HanzhongWarTierTechs, type HanzhongWarTierTechsProps } from './HanzhongWarTierTechs';
 import { HANZHONG_WAR_TIER_1 } from '../data/hanzhong-war-tiers';
 
 const defaultProps: HanzhongWarTierTechsProps = {
   info: HANZHONG_WAR_TIER_1,
-  onChange: fn(),
 };
 
 const meta = {

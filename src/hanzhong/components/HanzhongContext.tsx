@@ -9,12 +9,14 @@ export type HanzhongContextType = {
   hanzhong: HanzhongType;
   user: HanzhongUserDataType;
   bonuses: HanzhongBonusType;
+  onChange: (key: string, value: number) => void;
 };
 
 export const HanzhongContext = createContext<HanzhongContextType>({
   hanzhong: HANZHONG_DATA,
   user: {},
   bonuses: {},
+  onChange: () => {},
 });
 
 HanzhongContext.displayName = 'HanzhongContext';

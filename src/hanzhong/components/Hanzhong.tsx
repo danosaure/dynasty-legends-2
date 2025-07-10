@@ -10,38 +10,34 @@ import { HANZHONG_DATA } from '../data';
 import { initializeEarnings } from './utils/initialize-earnings';
 import type { HanzhongBonusType } from '../types';
 import type { HanzhongUserDataType } from '../../persistence/hanzhong-user-data-type';
-import { HANZHONG_TECH_IDS, HANZHONG_TERRITORY_IDS } from '../constants/items-ids';
 
 export const Hanzhong = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
-  const [userData, setUserData] = useState<HanzhongUserDataType>({
-    // TODO: Remove this mock data.
-    [HANZHONG_TERRITORY_IDS.LUMBER_MILL__1]: 4,
-    [HANZHONG_TERRITORY_IDS.GRANARY__9]: 2,
-    [HANZHONG_TECH_IDS.DILIGENT_WARRIOR_3]: 10,
-  });
+  const [userData, setUserData] = useState<HanzhongUserDataType>({});
 
   const [hanzhongContextData, setHanzhongContextData] = useState<HanzhongContextType>({
     hanzhong: HANZHONG_DATA,
     user: {},
     bonuses: {},
+    onChange: () => {},
   });
-
-  const onChange = (key: string, newValue: number) => {
-    setUserData({
-      ...userData,
-      [key]: newValue,
-    });
-  };
 
   useEffect(() => {
     const bonuses: HanzhongBonusType = initializeEarnings(HANZHONG_DATA, userData);
+
+    const onChange = (key: string, value: number) => {
+      setUserData({
+        ...userData,
+        [key]: value,
+      });
+    };
 
     setHanzhongContextData({
       hanzhong: HANZHONG_DATA,
       user: userData,
       bonuses,
+      onChange,
     });
 
     setLoading(false);
@@ -61,7 +57,7 @@ export const Hanzhong = () => {
         </Grid>
         <Grid size={{ xs: 9 }}>
           <Paper elevation={10} sx={{ p: 2 }}>
-            <HanzhongWarTiersTechs info={hanzhongContextData.hanzhong.warTiers} onChange={onChange} />
+            <HanzhongWarTiersTechs />
           </Paper>
         </Grid>
       </Grid>

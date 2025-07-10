@@ -1,13 +1,15 @@
 import { BasicCard } from '../../components/BasicCard';
 import type { HanzhongTechType } from '../types';
+import { useHanzhongContext } from './HanzhongContext';
 
 export interface HanzhongTechProps {
   info: HanzhongTechType;
   value: number;
-  onChange: (id: string, newValue: number) => void;
 }
 
-export const HanzhongTech = ({ info, value, onChange }: HanzhongTechProps) => {
+export const HanzhongTech = ({ info, value }: HanzhongTechProps) => {
+  const { onChange } = useHanzhongContext();
+
   const onChangeValue = (newValue: number) => onChange(info.id, newValue);
 
   return (
