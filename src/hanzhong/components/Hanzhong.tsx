@@ -37,7 +37,6 @@ export const Hanzhong = () => {
 
   useEffect(() => {
     const bonuses: HanzhongBonusType = initializeEarnings(HANZHONG_DATA, userData);
-    console.log('<Hanzhong>  bonuses:', bonuses);
 
     setHanzhongContextData({
       hanzhong: HANZHONG_DATA,

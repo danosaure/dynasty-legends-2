@@ -12,16 +12,17 @@ export const HanzhongInfoDisplay = ({ label, value, unit }: HanzhongInfoDisplayP
 
   return (
     <Grid container direction="row" sx={{ justifyContent: 'flex-start', alignItems: 'center' }} spacing={1}>
-      <Grid size={{ xs: 6 }}>
+      <Grid size={{ xs: 5 }}>
         <Typography>{label}</Typography>
       </Grid>
-      <Grid size={{ xs: 6 }}>
+      <Grid size={{ xs: 7 }}>
         <Input
           error={value < 0}
           value={value}
           endAdornment={endAdornment}
           inputProps={{ 'aria-label': label, 'style': { textAlign: 'right' } }}
           size="small"
+          readOnly
         />
       </Grid>
     </Grid>

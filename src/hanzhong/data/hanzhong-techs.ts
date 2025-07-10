@@ -138,7 +138,7 @@ export const HANZHONG_TECH_IRON_FOUNDRY: HanzhongTechType = {
   label: 'Iron Foundry',
   description: 'Iron Yield Rate',
   levels: mapTableToResourcesAndBonuses(
-    ['grainsRate'],
+    ['ironRate'],
     [
       [1040, 1040, 520, 180],
       [1610, 1610, 810, 420],

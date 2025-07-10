@@ -3,7 +3,7 @@ import Paper from '@mui/material/Paper';
 
 import type { HanzhongTechType, HanzhongWarTierType } from '../types';
 import { HanzhongTech } from './HanzhongTech';
-import { useUserDataContext } from '../../components/UserDataContext';
+import { useHanzhongContext } from './HanzhongContext';
 
 export interface HanzhongWarTierTechsProps {
   info: HanzhongWarTierType;
@@ -11,7 +11,7 @@ export interface HanzhongWarTierTechsProps {
 }
 
 export const HanzhongWarTierTechs = ({ info, onChange }: HanzhongWarTierTechsProps) => {
-  const { hanzhong: userData } = useUserDataContext();
+  const { user } = useHanzhongContext();
 
   return (
     <Paper elevation={10} sx={{ width: '100%' }}>
@@ -31,7 +31,7 @@ export const HanzhongWarTierTechs = ({ info, onChange }: HanzhongWarTierTechsPro
         </Grid>
         <Grid container size={{ xs: 12, md: 'grow' }} spacing={{ xs: 1, md: 2 }}>
           {info.techs.map((tech: HanzhongTechType) => (
-            <HanzhongTech key={tech.id} info={tech} value={userData[tech.id] ?? 0} onChange={onChange} />
+            <HanzhongTech key={tech.id} info={tech} value={user[tech.id] ?? 0} onChange={onChange} />
           ))}
         </Grid>
       </Grid>
