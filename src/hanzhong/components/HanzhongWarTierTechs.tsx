@@ -7,10 +7,9 @@ import { useHanzhongContext } from './HanzhongContext';
 
 export interface HanzhongWarTierTechsProps {
   info: HanzhongWarTierType;
-  onChange: (id: string, newValue: number) => void;
 }
 
-export const HanzhongWarTierTechs = ({ info, onChange }: HanzhongWarTierTechsProps) => {
+export const HanzhongWarTierTechs = ({ info }: HanzhongWarTierTechsProps) => {
   const { user } = useHanzhongContext();
 
   return (
@@ -31,7 +30,7 @@ export const HanzhongWarTierTechs = ({ info, onChange }: HanzhongWarTierTechsPro
         </Grid>
         <Grid container size={{ xs: 12, md: 'grow' }} spacing={{ xs: 1, md: 2 }}>
           {info.techs.map((tech: HanzhongTechType) => (
-            <HanzhongTech key={tech.id} info={tech} value={user[tech.id] ?? 0} onChange={onChange} />
+            <HanzhongTech key={tech.id} info={tech} value={user[tech.id] ?? 0} />
           ))}
         </Grid>
       </Grid>
