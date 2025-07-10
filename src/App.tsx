@@ -1,43 +1,11 @@
-import AppBar from '@mui/material/AppBar';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 
-import { HanzhongWarTiersTechs } from './components/hanzhong/HanzhongWarTiersTechs';
-import { HANZHONG_DATA } from './data/hanzhong';
-import { ResourceIncomes } from './components/hanzhong/ResourceIncomes';
+import { Hanzhong } from './hanzhong/components';
 
 export const App = () => {
-  let currentSelections: Record<string, number> = {};
-  const onChange = (key: string, value: number) => {
-    currentSelections = {
-      ...currentSelections,
-      [key]: value,
-    };
-  };
-
   return (
     <Grid container direction="row" spacing={2} sx={{ justifyContent: 'flex-start', alignItems: 'flex-start' }}>
-      <Grid container>
-        <Grid size={{ xs: 12 }}>
-          <AppBar position="static">
-            <Toolbar>
-              <Typography variant="h2">Hanzhong Clash Simulator</Typography>
-            </Toolbar>
-          </AppBar>
-        </Grid>
-        <Grid size={{ xs: 3 }}>LOGO</Grid>
-        <Grid size={{ xs: 9 }}>TOP</Grid>
-        <Grid size={{ xs: 3 }}>
-          <ResourceIncomes currentSelections={currentSelections} onChange={onChange} />
-        </Grid>
-        <Grid size={{ xs: 9 }}>
-          <Paper elevation={3}>
-            <HanzhongWarTiersTechs info={HANZHONG_DATA.warTiers} currentSelections={currentSelections} onChange={onChange} />
-          </Paper>
-        </Grid>
-      </Grid>
+      <Hanzhong />
     </Grid>
   );
 };

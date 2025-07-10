@@ -7,7 +7,6 @@ import { ValueAdjuster, type ValueAdjusterProps } from './ValueAdjuster';
 const defaultProps: ValueAdjusterProps = {
   value: 5,
   onChange: fn(),
-  horizontal: false,
 };
 
 const meta = {
