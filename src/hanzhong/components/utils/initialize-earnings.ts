@@ -11,10 +11,9 @@ import type { HanzhongTerritoryResourceType } from '../../types/hanzhong-territo
 import { addHanzhongBonuses } from '../../utils';
 
 export const initializeEarnings = (hanzhongData: HanzhongType, userData: HanzhongUserDataType): HanzhongBonusType => {
-  let bonuses: HanzhongBonusType = {};
-
-  console.log('-----------------------------------------------------------------------');
-  console.log('initializeEarnings(): BEGIN', bonuses);
+  let bonuses: HanzhongBonusType = {
+    territoryCap: 10, // Default.
+  };
 
   bonuses = hanzhongData.cities.reduce((cumul: HanzhongBonusType, city: HanzhongCityType) => {
     if (city.id in userData) {
@@ -48,8 +47,6 @@ export const initializeEarnings = (hanzhongData: HanzhongType, userData: Hanzhon
       return techCumul;
     }, cumul);
   }, bonuses);
-
-  console.log('initializeEarnings(): END', bonuses);
 
   return bonuses;
 };

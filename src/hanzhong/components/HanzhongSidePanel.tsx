@@ -1,15 +1,13 @@
 import Grid from '@mui/material/Grid';
 
 import { ResourceIncomes } from './ResourceIncomes';
+import { TacticalBonuses } from './TacticalBonuses';
 
-export type HanzhongSidePanelProps = {
-  onChange: (key: string, newValue: number) => void;
-};
-
-export const HanzhongSidePanel = ({ onChange }: HanzhongSidePanelProps) => {
+export const HanzhongSidePanel = () => {
   return (
     <Grid container spacing={2}>
-      <ResourceIncomes onChange={onChange} />
+      <ResourceIncomes />
+      <TacticalBonuses />
     </Grid>
   );
 };

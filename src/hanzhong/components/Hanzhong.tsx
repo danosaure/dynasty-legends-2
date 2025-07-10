@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Grid from '@mui/material/Grid';
 
@@ -9,21 +9,23 @@ import { HANZHONG_DATA } from '../data';
 import { initializeEarnings } from './utils/initialize-earnings';
 import type { HanzhongBonusType } from '../types';
 import type { HanzhongUserDataType } from '../../persistence/hanzhong-user-data-type';
+import { HANZHONG_TECH_IDS, HANZHONG_TERRITORY_IDS } from '../constants/items-ids';
 
 export const Hanzhong = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
-  const [userData, setUserData] = useState<HanzhongUserDataType>({});
-  const [userBonuses, setUserBonuses] = useState<HanzhongBonusType>({});
+  const [userData, setUserData] = useState<HanzhongUserDataType>({
+    // TODO: Remove this mock data.
+    [HANZHONG_TERRITORY_IDS.LUMBER_MILL__1]: 4,
+    [HANZHONG_TERRITORY_IDS.GRANARY__9]: 2,
+    [HANZHONG_TECH_IDS.DILIGENT_WARRIOR_3]: 10,
+  });
 
-  const hanzhongContextData: HanzhongContextType = useMemo(
-    () => ({
-      hanzhong: HANZHONG_DATA,
-      user: userData,
-      bonuses: userBonuses,
-    }),
-    [userData, userBonuses]
-  );
+  const [hanzhongContextData, setHanzhongContextData] = useState<HanzhongContextType>({
+    hanzhong: HANZHONG_DATA,
+    user: {},
+    bonuses: {},
+  });
 
   const onChange = (key: string, newValue: number) => {
     setUserData({
@@ -33,15 +35,17 @@ export const Hanzhong = () => {
   };
 
   useEffect(() => {
-    const bonuses: HanzhongBonusType = initializeEarnings(HANZHONG_DATA, {
-      'hanzhong--territory--lumber-mill--1': 4,
-      'hanzhong--territory--granary--9': 2,
-      'hanzhong--tech--diligent-warrior-3': 10,
-    });
+    const bonuses: HanzhongBonusType = initializeEarnings(HANZHONG_DATA, userData);
     console.log('<Hanzhong>  bonuses:', bonuses);
-    setUserBonuses(bonuses);
+
+    setHanzhongContextData({
+      hanzhong: HANZHONG_DATA,
+      user: userData,
+      bonuses,
+    });
+
     setLoading(false);
-  }, []);
+  }, [userData]);
 
   if (loading) {
     return null;
@@ -51,7 +55,7 @@ export const Hanzhong = () => {
     <HanzhongContext.Provider value={hanzhongContextData}>
       <Grid container spacing={2}>
         <Grid size={{ xs: 3 }}>
-          <HanzhongSidePanel onChange={onChange} />
+          <HanzhongSidePanel />
         </Grid>
         <Grid size={{ xs: 9 }}>
           <HanzhongWarTiersTechs info={hanzhongContextData.hanzhong.warTiers} onChange={onChange} />
