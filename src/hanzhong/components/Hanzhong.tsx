@@ -71,7 +71,13 @@ export const Hanzhong = () => {
         <Grid size={{ xs: 3 }}>
           <Grid container spacing={3}>
             <Box sx={{ width: '100%' }}>
-              <Tabs value={selectedTabName} onChange={changeTab} orientation="vertical" sx={{ borderRight: 1 }}>
+              <Tabs
+                value={selectedTabName}
+                onChange={changeTab}
+                orientation="vertical"
+                sx={{ borderRight: 1 }}
+                slotProps={{ indicator: { sx: { width: '10px' } } }}
+              >
                 {[
                   ['Techs', 'techs'],
                   ['Territories', 'territories'],
