@@ -85,7 +85,13 @@ export const Hanzhong = () => {
                   ['War Tiers', 'warTiers'],
                   ['Bandits', 'bandits'],
                 ].map(([label, id]) => (
-                  <Tab label={label} value={id} {...generateTabA11yProps('hanzhong', id)} sx={{ alignItems: 'end' }} />
+                  <Tab
+                    key={`${label}--${label}`}
+                    label={label}
+                    value={id}
+                    {...generateTabA11yProps('hanzhong', id)}
+                    sx={{ alignItems: 'end' }}
+                  />
                 ))}
               </Tabs>
             </Box>
