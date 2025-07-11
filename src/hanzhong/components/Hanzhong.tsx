@@ -15,12 +15,12 @@ import { TacticalBonuses } from './TacticalBonuses';
 import { Territories } from './Territories';
 import { initializeEarnings } from './utils/initialize-earnings';
 import { HANZHONG_DATA } from '../data';
+import type { HanzhongUserDataType } from '../persistence/hanzhong-user-data-type';
 import type { HanzhongBonusType } from '../types';
 import { DEFAULT_HANZHONG_CONTEXT_DATA } from '../utils/default-hanzhong-context-data';
 import { calculateSpecialTrainingsBonuses } from '../utils/calculate-special-trainings-bonuses';
 import { SectionTabpanel } from '../../components/SectionTabpanel';
 import { generateTabA11yProps } from '../../components/utils/generate-tab-a11y-props';
-import type { HanzhongUserDataType } from '../../persistence/hanzhong-user-data-type';
 
 export const Hanzhong = () => {
   const [loading, setLoading] = useState<boolean>(true);

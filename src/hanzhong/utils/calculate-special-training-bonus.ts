@@ -1,4 +1,4 @@
-import type { HanzhongUserDataType } from '../../persistence/hanzhong-user-data-type';
+import type { HanzhongUserDataType } from '../persistence/hanzhong-user-data-type';
 import type { HanzhongBonusType, HanzhongType } from '../types';
 import { addHanzhongBonuses } from './add-hanzhong-bonuses';
 import { findTechBonus } from './find-tech-bonus';
