@@ -1,10 +1,11 @@
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 
 import type { HanzhongCityType } from '../types';
 import Checkbox from '@mui/material/Checkbox';
 import { useState, type ChangeEvent } from 'react';
 import { useHanzhongContext } from './HanzhongContext';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 
 export type CityProps = {
   city: HanzhongCityType;
@@ -21,19 +22,15 @@ export const City = ({ city }: CityProps) => {
   };
 
   return (
-    <Paper elevation={10} sx={{ width: '100%' }}>
-      <Grid
-        container
-        size={{ xs: 12 }}
-        style={{ padding: '10px' }}
-        sx={{ alignItems: 'flex-start', justifyContent: 'flex-start' }}
-        spacing={2}
-      >
-        <Grid size={{ xs: 6 }}>{city.name}</Grid>
-        <Grid size={{ xs: 6 }}>
-          <Checkbox checked={checked} onChange={checkboxChanged} />
+    <Card sx={{ width: 200 }} elevation={10}>
+      <CardContent sx={{ 'p': 1, '&:last-child': { pb: 1 } }}>
+        <Grid container size={{ xs: 12 }} sx={{ alignItems: 'center', justifyContent: 'center' }} spacing={2}>
+          <Grid size={{ xs: 8 }}>{city.name}</Grid>
+          <Grid size={{ xs: 4 }}>
+            <Checkbox checked={checked} onChange={checkboxChanged} />
+          </Grid>
         </Grid>
-      </Grid>
-    </Paper>
+      </CardContent>
+    </Card>
   );
 };
