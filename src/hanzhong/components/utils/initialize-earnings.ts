@@ -1,4 +1,5 @@
 import type { HanzhongUserDataType } from '../../../persistence/hanzhong-user-data-type';
+import { HANZHONG_TECH_IDS } from '../../constants/items-ids';
 import type {
   HanzhongBonusType,
   HanzhongCityType,
@@ -9,6 +10,12 @@ import type {
 } from '../../types';
 import type { HanzhongTerritoryResourceType } from '../../types/hanzhong-territory-level-type';
 import { addHanzhongBonuses } from '../../utils';
+
+const SPECIAL_TRAINING_KEYS = [
+  HANZHONG_TECH_IDS.SPECIAL_TRAINING__VANGUARD_CAMP,
+  HANZHONG_TECH_IDS.SPECIAL_TRAINING__VALIANT_CAVALRY,
+  HANZHONG_TECH_IDS.SPECIAL_TRAINING__ROYAL_GUARDS,
+];
 
 export const initializeEarnings = (hanzhongData: HanzhongType, userData: HanzhongUserDataType): HanzhongBonusType => {
   let bonuses: HanzhongBonusType = {
@@ -40,6 +47,10 @@ export const initializeEarnings = (hanzhongData: HanzhongType, userData: Hanzhon
 
   bonuses = hanzhongData.warTiers.reduce((cumul: HanzhongBonusType, warTier: HanzhongWarTierType): HanzhongBonusType => {
     return warTier.techs.reduce((techCumul: HanzhongBonusType, tech: HanzhongTechType): HanzhongBonusType => {
+      if (SPECIAL_TRAINING_KEYS.includes(tech.id)) {
+        return techCumul;
+      }
+
       const techLevel = userData[tech.id] ?? 0;
       if (techLevel) {
         return addHanzhongBonuses(techCumul, tech.levels[techLevel - 1].bonuses);

@@ -3,37 +3,40 @@ import { useEffect, useState, type SyntheticEvent } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 
+import { Cities } from './Cities';
 import { HanzhongContext, type HanzhongContextType } from './HanzhongContext';
 import { HanzhongWarTiersTechs } from './HanzhongWarTiersTechs';
 import { Progress } from './Progress';
 import { ResourceIncomes } from './ResourceIncomes';
 import { TacticalBonuses } from './TacticalBonuses';
+import { Territories } from './Territories';
 import { initializeEarnings } from './utils/initialize-earnings';
 import { HANZHONG_DATA } from '../data';
 import type { HanzhongBonusType } from '../types';
+import { DEFAULT_HANZHONG_CONTEXT_DATA } from '../utils/default-hanzhong-context-data';
+import { calculateSpecialTrainingsBonuses } from '../utils/calculate-special-trainings-bonuses';
 import { SectionTabpanel } from '../../components/SectionTabpanel';
 import { generateTabA11yProps } from '../../components/utils/generate-tab-a11y-props';
 import type { HanzhongUserDataType } from '../../persistence/hanzhong-user-data-type';
-import { Cities } from './Cities';
-import { Territories } from './Territories';
 
 export const Hanzhong = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [userData, setUserData] = useState<HanzhongUserDataType>({});
   const [selectedTabName, setSelectedTabName] = useState<string>('techs');
 
-  const [hanzhongContextData, setHanzhongContextData] = useState<HanzhongContextType>({
-    hanzhong: HANZHONG_DATA,
-    user: {},
-    bonuses: {},
-    onChange: () => {},
-  });
+  const [hanzhongContextData, setHanzhongContextData] = useState<HanzhongContextType>(DEFAULT_HANZHONG_CONTEXT_DATA);
 
   useEffect(() => {
     const bonuses: HanzhongBonusType = initializeEarnings(HANZHONG_DATA, userData);
+
+    const {
+      vanguardCamp: bonusesVanguardCamp,
+      valiantCavalry: bonusesValiantCavalry,
+      royalGuards: bonusesRoyalGuards,
+    } = calculateSpecialTrainingsBonuses(HANZHONG_DATA, userData, bonuses);
 
     const onChange = (key: string, value: number) => {
       setUserData({
@@ -46,6 +49,9 @@ export const Hanzhong = () => {
       hanzhong: HANZHONG_DATA,
       user: userData,
       bonuses,
+      bonusesVanguardCamp,
+      bonusesValiantCavalry,
+      bonusesRoyalGuards,
       onChange,
     });
 
