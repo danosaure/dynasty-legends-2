@@ -20,7 +20,7 @@ export const BasicCard = ({ assetImage, label, value, maxValue, onChange }: Basi
       <CardContent sx={{ 'p': 1, '&:last-child': { pb: 1 } }}>
         <Grid container sx={{ justifyContent: 'center', alignItems: 'flex-start' }}>
           <BasicCardImage assetImage={assetImage} />
-          <ValueAdjuster value={value} maxValue={maxValue} onChange={onChange} />
+          <ValueAdjuster value={value} maxValue={maxValue} onChange={onChange} sx={{ mt: -3 }} />
           <Typography sx={{ textAlign: 'center' }} variant="body2">
             {label}
           </Typography>

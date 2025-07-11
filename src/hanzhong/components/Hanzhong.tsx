@@ -18,6 +18,7 @@ import { SectionTabpanel } from '../../components/SectionTabpanel';
 import { generateTabA11yProps } from '../../components/utils/generate-tab-a11y-props';
 import type { HanzhongUserDataType } from '../../persistence/hanzhong-user-data-type';
 import { Cities } from './Cities';
+import { Territories } from './Territories';
 
 export const Hanzhong = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -55,6 +56,7 @@ export const Hanzhong = () => {
     return null;
   }
 
+  // @ts-expect-error
   const changeTab = (e: SyntheticEvent, value: string): void => setSelectedTabName(value);
 
   return (
@@ -87,7 +89,7 @@ export const Hanzhong = () => {
               <HanzhongWarTiersTechs />
             </SectionTabpanel>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="territories">
-              TODO: Territories UI
+              <Territories />
             </SectionTabpanel>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="cities">
               <Cities />

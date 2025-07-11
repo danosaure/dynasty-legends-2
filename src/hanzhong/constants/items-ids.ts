@@ -1,31 +1,62 @@
+const SECTION = 'hanzhong';
+
+const LEVEL_1 = 'lv1';
+const LEVEL_2 = 'lv2';
+const LEVEL_3 = 'lv3';
+const LEVEL_4 = 'lv4';
+const LEVEL_5 = 'lv5';
+const LEVEL_6 = 'lv6';
+const LEVEL_7 = 'lv7';
+const LEVEL_8 = 'lv8';
+const LEVEL_9 = 'lv9';
+
+const HANZHONG_TERRITORY = `${SECTION}--territory`;
+export const HANZHONG_TERRITORY_LEVEL_IDS = {
+  LEVEL__1: `${HANZHONG_TERRITORY}--${LEVEL_1}`,
+  LEVEL__2: `${HANZHONG_TERRITORY}--${LEVEL_2}`,
+  LEVEL__3: `${HANZHONG_TERRITORY}--${LEVEL_3}`,
+  LEVEL__4: `${HANZHONG_TERRITORY}--${LEVEL_4}`,
+  LEVEL__5: `${HANZHONG_TERRITORY}--${LEVEL_5}`,
+  LEVEL__6: `${HANZHONG_TERRITORY}--${LEVEL_6}`,
+  LEVEL__7: `${HANZHONG_TERRITORY}--${LEVEL_7}`,
+  LEVEL__8: `${HANZHONG_TERRITORY}--${LEVEL_8}`,
+  LEVEL__9: `${HANZHONG_TERRITORY}--${LEVEL_9}`,
+};
+
+const LUMBER_MILL = 'lumber-mill';
+const GRANARY = 'granary';
+const IRON_MINE = 'iron-mine';
+
 export const HANZHONG_TERRITORY_IDS = {
-  LUMBER_MILL__1: 'hanzhong--territory--lumber-mill--1',
-  LUMBER_MILL__2: 'hanzhong--territory--lumber-mill--2',
-  LUMBER_MILL__3: 'hanzhong--territory--lumber-mill--3',
-  LUMBER_MILL__4: 'hanzhong--territory--lumber-mill--4',
-  LUMBER_MILL__5: 'hanzhong--territory--lumber-mill--5',
-  LUMBER_MILL__6: 'hanzhong--territory--lumber-mill--6',
-  LUMBER_MILL__7: 'hanzhong--territory--lumber-mill--7',
-  LUMBER_MILL__8: 'hanzhong--territory--lumber-mill--8',
-  LUMBER_MILL__9: 'hanzhong--territory--lumber-mill--9',
-  GRANARY__1: 'hanzhong--territory--granary--1',
-  GRANARY__2: 'hanzhong--territory--granary--2',
-  GRANARY__3: 'hanzhong--territory--granary--3',
-  GRANARY__4: 'hanzhong--territory--granary--4',
-  GRANARY__5: 'hanzhong--territory--granary--5',
-  GRANARY__6: 'hanzhong--territory--granary--6',
-  GRANARY__7: 'hanzhong--territory--granary--7',
-  GRANARY__8: 'hanzhong--territory--granary--8',
-  GRANARY__9: 'hanzhong--territory--granary--9',
-  IRON_MINE__1: 'hanzhong--territory--iron-mine--1',
-  IRON_MINE__2: 'hanzhong--territory--iron-mine--2',
-  IRON_MINE__3: 'hanzhong--territory--iron-mine--3',
-  IRON_MINE__4: 'hanzhong--territory--iron-mine--4',
-  IRON_MINE__5: 'hanzhong--territory--iron-mine--5',
-  IRON_MINE__6: 'hanzhong--territory--iron-mine--6',
-  IRON_MINE__7: 'hanzhong--territory--iron-mine--7',
-  IRON_MINE__8: 'hanzhong--territory--iron-mine--8',
-  IRON_MINE__9: 'hanzhong--territory--iron-mine--9',
+  LUMBER_MILL__1: `${HANZHONG_TERRITORY}--${LUMBER_MILL}--${LEVEL_1}`,
+  LUMBER_MILL__2: `${HANZHONG_TERRITORY}--${LUMBER_MILL}--${LEVEL_2}`,
+  LUMBER_MILL__3: `${HANZHONG_TERRITORY}--${LUMBER_MILL}--${LEVEL_3}`,
+  LUMBER_MILL__4: `${HANZHONG_TERRITORY}--${LUMBER_MILL}--${LEVEL_4}`,
+  LUMBER_MILL__5: `${HANZHONG_TERRITORY}--${LUMBER_MILL}--${LEVEL_5}`,
+  LUMBER_MILL__6: `${HANZHONG_TERRITORY}--${LUMBER_MILL}--${LEVEL_6}`,
+  LUMBER_MILL__7: `${HANZHONG_TERRITORY}--${LUMBER_MILL}--${LEVEL_7}`,
+  LUMBER_MILL__8: `${HANZHONG_TERRITORY}--${LUMBER_MILL}--${LEVEL_8}`,
+  LUMBER_MILL__9: `${HANZHONG_TERRITORY}--${LUMBER_MILL}--${LEVEL_9}`,
+
+  GRANARY__1: `${HANZHONG_TERRITORY}--${GRANARY}--${LEVEL_1}`,
+  GRANARY__2: `${HANZHONG_TERRITORY}--${GRANARY}--${LEVEL_2}`,
+  GRANARY__3: `${HANZHONG_TERRITORY}--${GRANARY}--${LEVEL_3}`,
+  GRANARY__4: `${HANZHONG_TERRITORY}--${GRANARY}--${LEVEL_4}`,
+  GRANARY__5: `${HANZHONG_TERRITORY}--${GRANARY}--${LEVEL_5}`,
+  GRANARY__6: `${HANZHONG_TERRITORY}--${GRANARY}--${LEVEL_6}`,
+  GRANARY__7: `${HANZHONG_TERRITORY}--${GRANARY}--${LEVEL_7}`,
+  GRANARY__8: `${HANZHONG_TERRITORY}--${GRANARY}--${LEVEL_8}`,
+  GRANARY__9: `${HANZHONG_TERRITORY}--${GRANARY}--${LEVEL_9}`,
+
+  IRON_MINE__1: `${HANZHONG_TERRITORY}--${IRON_MINE}--${LEVEL_1}`,
+  IRON_MINE__2: `${HANZHONG_TERRITORY}--${IRON_MINE}--${LEVEL_2}`,
+  IRON_MINE__3: `${HANZHONG_TERRITORY}--${IRON_MINE}--${LEVEL_3}`,
+  IRON_MINE__4: `${HANZHONG_TERRITORY}--${IRON_MINE}--${LEVEL_4}`,
+  IRON_MINE__5: `${HANZHONG_TERRITORY}--${IRON_MINE}--${LEVEL_5}`,
+  IRON_MINE__6: `${HANZHONG_TERRITORY}--${IRON_MINE}--${LEVEL_6}`,
+  IRON_MINE__7: `${HANZHONG_TERRITORY}--${IRON_MINE}--${LEVEL_7}`,
+  IRON_MINE__8: `${HANZHONG_TERRITORY}--${IRON_MINE}--${LEVEL_8}`,
+  IRON_MINE__9: `${HANZHONG_TERRITORY}--${IRON_MINE}--${LEVEL_9}`,
 };
 
 export const HANZHONG_WAR_TIER_IDS = {
@@ -38,9 +69,10 @@ export const HANZHONG_WAR_TIER_IDS = {
   LV7: 'Hanzhong_WarTier_7',
 };
 
+const HANZHONG_TECH = `${SECTION}--tech`;
 export const HANZHONG_TECH_IDS = {
   //  ----- War Tier 1 -----
-  ATTACK_TRAINING_1: 'hanzhong--tech--attack-training-1',
+  ATTACK_TRAINING_1: `${HANZHONG_TECH}--attack-training-1`,
   DEFENSE_TRAINING_1: 'hanzhong--tech--defense-training-1',
   TENACITY_TRAINING_1: 'hanzhong--tech--tenacity-training-1',
   FREE_PATHS: 'hanzhong--tech--free-paths',

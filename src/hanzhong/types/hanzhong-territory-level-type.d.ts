@@ -7,6 +7,7 @@ export type HanzhongTerritoryResourceType = {
 };
 
 export type HanzhongTerritoryLevelType = {
+  id: string;
   tacticalPoints: PotentiallyUnknownNumberType;
   earnings: HanzhongTerritoryResourceType[];
   team: {

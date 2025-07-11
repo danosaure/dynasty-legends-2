@@ -1,5 +1,5 @@
 import type { HanzhongTerritoryType } from '../types';
-import { HANZHONG_TERRITORY_IDS } from '../constants/items-ids';
+import { HANZHONG_TERRITORY_IDS, HANZHONG_TERRITORY_LEVEL_IDS } from '../constants/items-ids';
 
 export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
   features: [
@@ -14,6 +14,7 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
   ],
   levels: [
     {
+      id: HANZHONG_TERRITORY_LEVEL_IDS.LEVEL__1,
       tacticalPoints: 300000,
       earnings: [
         {
@@ -42,6 +43,7 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
       */
     },
     {
+      id: HANZHONG_TERRITORY_LEVEL_IDS.LEVEL__2,
       tacticalPoints: 500000,
       earnings: [
         {
@@ -70,6 +72,7 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
       */
     },
     {
+      id: HANZHONG_TERRITORY_LEVEL_IDS.LEVEL__3,
       tacticalPoints: 700000,
       earnings: [
         {
@@ -93,6 +96,7 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
       },
     },
     {
+      id: HANZHONG_TERRITORY_LEVEL_IDS.LEVEL__4,
       tacticalPoints: 1500000,
       earnings: [
         {
@@ -116,6 +120,7 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
       },
     },
     {
+      id: HANZHONG_TERRITORY_LEVEL_IDS.LEVEL__5,
       tacticalPoints: 2700000,
       earnings: [
         {
@@ -139,6 +144,7 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
       },
     },
     {
+      id: HANZHONG_TERRITORY_LEVEL_IDS.LEVEL__6,
       tacticalPoints: 4200000,
       earnings: [
         {
@@ -162,6 +168,7 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
       },
     },
     {
+      id: HANZHONG_TERRITORY_LEVEL_IDS.LEVEL__7,
       tacticalPoints: 7300000,
       earnings: [
         {
@@ -185,6 +192,7 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
       },
     },
     {
+      id: HANZHONG_TERRITORY_LEVEL_IDS.LEVEL__8,
       tacticalPoints: 10800000,
       earnings: [
         {
@@ -208,6 +216,7 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
       },
     },
     {
+      id: HANZHONG_TERRITORY_LEVEL_IDS.LEVEL__9,
       tacticalPoints: 10800000,
       earnings: [
         {

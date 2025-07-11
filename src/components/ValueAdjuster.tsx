@@ -1,6 +1,7 @@
 import ArrowDownwardSharpIcon from '@mui/icons-material/ArrowDownwardSharp';
 import ArrowUpwardSharpIcon from '@mui/icons-material/ArrowUpwardSharp';
 import IconButton from '@mui/material/IconButton';
+import type { SxProps } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
 export interface ValueAdjusterProps {
@@ -10,9 +11,11 @@ export interface ValueAdjusterProps {
   maxValue?: number;
   /** When increased or decreased, the function to call with the new value. */
   onChange: (newValue: number) => void;
+
+  sx?: SxProps;
 }
 
-export const ValueAdjuster = ({ value, maxValue, onChange }: ValueAdjusterProps) => {
+export const ValueAdjuster = ({ value, maxValue, sx, onChange }: ValueAdjusterProps) => {
   const onIncrease = () => onChange(value + 1);
   const onDecrease = () => onChange(value - 1);
 
@@ -22,8 +25,8 @@ export const ValueAdjuster = ({ value, maxValue, onChange }: ValueAdjusterProps)
 
   const iconSX = { fontSize: 20 };
   const typographySX = {
-    mt: -3,
     bgcolor: 'rgba(255, 255, 255, 0.9)',
+    ...sx,
   };
 
   return (
