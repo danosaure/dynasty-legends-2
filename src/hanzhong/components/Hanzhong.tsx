@@ -96,7 +96,7 @@ export const Hanzhong = () => {
           </Grid>
         </Grid>
         <Grid size={{ xs: 9 }}>
-          <Paper elevation={10} sx={{ p: 2 }}>
+          <Paper elevation={10}>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="techs">
               <HanzhongWarTiersTechs />
             </SectionTabpanel>

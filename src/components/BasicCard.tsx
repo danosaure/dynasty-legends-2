@@ -16,7 +16,7 @@ export interface BasicCardProps {
 
 export const BasicCard = ({ assetImage, label, value, maxValue, onChange }: BasicCardProps) => {
   return (
-    <Card sx={{ width: 140, backgroundColor: 'rgba(255, 255, 255, 0.7)' }}>
+    <Card sx={{ width: 140, backgroundColor: 'rgba(255, 255, 255, 0.7)' }} elevation={10}>
       <CardContent sx={{ 'p': 1, '&:last-child': { pb: 1 } }}>
         <Grid container sx={{ justifyContent: 'center', alignItems: 'flex-start' }}>
           <BasicCardImage assetImage={assetImage} />
