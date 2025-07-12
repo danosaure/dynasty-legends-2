@@ -10,5 +10,6 @@ export { type HanzhongTechType } from './hanzhong-tech-type';
 export { type HanzhongTerritoryLevelType } from './hanzhong-territory-level-type';
 export { type HanzhongTerritoryType } from './hanzhong-territory-type';
 export { type HanzhongType } from './hanzhong-type';
+export { type HanzhongUserDataType } from './hanzhong-user-data-type';
 export { type HanzhongWarTierTaskType } from './hanzhong-war-tier-task-type';
 export { type HanzhongWarTierType } from './hanzhong-war-tier-type';

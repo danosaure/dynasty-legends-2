@@ -1,8 +1,7 @@
-import { createIndexOnStore } from '../../persistence-lib/create-index-on-store';
-import type { MigrationType } from '../../persistence-lib/types';
+import { createIndexOnStore, type MigrationType } from '../../persistence-lib';
 
 export const migrate: MigrationType = async (db: IDBDatabase): Promise<void> => {
   // UserData
-  const userDataStore = db.createObjectStore('userData', { keyPath: 'id' });
-  createIndexOnStore(userDataStore, ['name']);
+  const userDataStore = db.createObjectStore('users_data', { keyPath: 'id' });
+  createIndexOnStore(userDataStore, ['username']);
 };

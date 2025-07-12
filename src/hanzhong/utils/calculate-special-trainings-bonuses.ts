@@ -1,7 +1,6 @@
 import { calculateSpecialTrainingBonus } from './calculate-special-training-bonus';
 import { HANZHONG_TECH_IDS } from '../constants/items-ids';
-import type { HanzhongBonusType, HanzhongType } from '../types';
-import type { HanzhongUserDataType } from '../persistence/hanzhong-user-data-type';
+import type { HanzhongBonusType, HanzhongType, HanzhongUserDataType } from '../types';
 
 export type SpecialTrainingsBonusesType = {
   vanguardCamp: HanzhongBonusType;

@@ -15,35 +15,50 @@ import { TacticalBonuses } from './TacticalBonuses';
 import { Territories } from './Territories';
 import { initializeEarnings } from './utils/initialize-earnings';
 import { HANZHONG_DATA } from '../data';
-import type { HanzhongUserDataType } from '../persistence/hanzhong-user-data-type';
-import type { HanzhongBonusType } from '../types';
+import type { HanzhongBonusType, HanzhongUserDataType } from '../types';
 import { DEFAULT_HANZHONG_CONTEXT_DATA } from '../utils/default-hanzhong-context-data';
 import { calculateSpecialTrainingsBonuses } from '../utils/calculate-special-trainings-bonuses';
 import { SectionTabpanel } from '../../components/SectionTabpanel';
 import { generateTabA11yProps } from '../../components/utils/generate-tab-a11y-props';
+import { Menu } from './Menu';
+import { getHanzhongUserDataByUsername } from '../persistence';
+import { saveHanzhongUserDataByUsername } from '../persistence/save-hanzhong-user-data-by-username';
+import { WarTiers } from './WarTiers';
+import { Bandits } from './Bandits';
 
 export const Hanzhong = () => {
-  const [loading, setLoading] = useState<boolean>(true);
+  const [username] = useState<string>('');
+
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [userData, setUserData] = useState<HanzhongUserDataType>({});
   const [selectedTabName, setSelectedTabName] = useState<string>('techs');
+  const [isUserDataModified, setIsUserDataModified] = useState<boolean>(false);
 
   const [hanzhongContextData, setHanzhongContextData] = useState<HanzhongContextType>(DEFAULT_HANZHONG_CONTEXT_DATA);
 
   useEffect(() => {
-    const bonuses: HanzhongBonusType = initializeEarnings(HANZHONG_DATA, userData);
+    console.log(`calling useEffect([username=${username}])`);
+    (async () => {
+      const userData = await getHanzhongUserDataByUsername(username);
+      setUserData(userData);
+    })();
+  }, []);
 
-    const {
-      vanguardCamp: bonusesVanguardCamp,
-      valiantCavalry: bonusesValiantCavalry,
-      royalGuards: bonusesRoyalGuards,
-    } = calculateSpecialTrainingsBonuses(HANZHONG_DATA, userData, bonuses);
-
+  useEffect(() => {
     const onChange = (key: string, value: number) => {
       setUserData({
         ...userData,
         [key]: value,
       });
+      setIsUserDataModified(true);
     };
+
+    const bonuses: HanzhongBonusType = initializeEarnings(HANZHONG_DATA, userData);
+    const {
+      vanguardCamp: bonusesVanguardCamp,
+      valiantCavalry: bonusesValiantCavalry,
+      royalGuards: bonusesRoyalGuards,
+    } = calculateSpecialTrainingsBonuses(HANZHONG_DATA, userData, bonuses);
 
     setHanzhongContextData({
       hanzhong: HANZHONG_DATA,
@@ -55,14 +70,19 @@ export const Hanzhong = () => {
       onChange,
     });
 
-    setLoading(false);
+    setIsLoading(false);
   }, [userData]);
 
-  if (loading) {
+  const onSave = async (): Promise<void> => {
+    await saveHanzhongUserDataByUsername(username, userData);
+    setIsUserDataModified(false);
+  };
+
+  if (isLoading) {
     return null;
   }
 
-  // @ts-expect-error
+  // @ts-expect-error The e is not used, but required by signature.
   const changeTab = (e: SyntheticEvent, value: string): void => setSelectedTabName(value);
 
   return (
@@ -70,6 +90,7 @@ export const Hanzhong = () => {
       <Grid container spacing={2}>
         <Grid size={{ xs: 3 }}>
           <Grid container spacing={3}>
+            <Menu isUserDataModified={isUserDataModified} onSave={onSave} />
             <Box sx={{ width: '100%' }}>
               <Tabs
                 value={selectedTabName}
@@ -113,10 +134,10 @@ export const Hanzhong = () => {
               <Cities />
             </SectionTabpanel>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="warTiers">
-              TODO: War Tiers UI
+              <WarTiers />
             </SectionTabpanel>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="bandits">
-              TODO: Bandits UI
+              <Bandits />
             </SectionTabpanel>
           </Paper>
         </Grid>

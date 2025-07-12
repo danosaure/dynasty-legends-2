@@ -1,4 +1,3 @@
-import type { HanzhongUserDataType } from '../../persistence/hanzhong-user-data-type';
 import { HANZHONG_TECH_IDS } from '../../constants/items-ids';
 import type {
   HanzhongBonusType,
@@ -6,6 +5,7 @@ import type {
   HanzhongTechType,
   HanzhongTerritoryLevelType,
   HanzhongType,
+  HanzhongUserDataType,
   HanzhongWarTierType,
 } from '../../types';
 import type { HanzhongTerritoryResourceType } from '../../types/hanzhong-territory-level-type';
