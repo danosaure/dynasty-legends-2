@@ -1,5 +1,5 @@
-import { migrateDatabase } from '../persistence-lib/migrate-database';
-import { openDatabase } from '../persistence-lib/open-database';
+import { migrateDatabase, openDatabase } from '../persistence-lib';
+
 import { DATABASE_NAME } from './constants';
 import { migrations } from './migrations';
 
