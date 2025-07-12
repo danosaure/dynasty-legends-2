@@ -1,5 +1,5 @@
 import type { PersistenceType } from './persistence-type';
 
-export type PersistenceBaseType = PersistenceType & {
+export interface PersistenceBaseType extends PersistenceType {
   id: string;
-};
+}
