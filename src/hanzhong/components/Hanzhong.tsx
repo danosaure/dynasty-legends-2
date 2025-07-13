@@ -118,8 +118,8 @@ export const Hanzhong = () => {
             </Box>
 
             <ResourceIncomes />
-            <Progress />
             <TacticalBonuses />
+            <Progress />
           </Grid>
         </Grid>
         <Grid size={{ xs: 9 }}>

@@ -8,25 +8,25 @@ export const TacticalBonuses = () => {
   const { bonuses, bonusesVanguardCamp, bonusesValiantCavalry, bonusesRoyalGuards } = useHanzhongContext();
 
   const items: HanzhongInfoDisplayProps[] = [
-    {
-      label: 'ATK',
-      value: bonuses.atk ?? 0,
-      unit: `x${TACTICAL_POINTS_PER_ATK}`,
-    },
-    {
-      label: 'DEF',
-      value: bonuses.def ?? 0,
-      unit: `x${TACTICAL_POINTS_PER_DEF}`,
-    },
-    {
-      label: 'HP',
-      value: bonuses.hp ?? 0,
-      unit: `x${TACTICAL_POINTS_PER_HP}`,
-    },
-    {
-      label: 'Tactical Points',
-      value: calculateTacticalPoints(bonuses),
-    },
+    // {
+    //   label: 'ATK',
+    //   value: bonuses.atk ?? 0,
+    //   unit: `x${TACTICAL_POINTS_PER_ATK}`,
+    // },
+    // {
+    //   label: 'DEF',
+    //   value: bonuses.def ?? 0,
+    //   unit: `x${TACTICAL_POINTS_PER_DEF}`,
+    // },
+    // {
+    //   label: 'HP',
+    //   value: bonuses.hp ?? 0,
+    //   unit: `x${TACTICAL_POINTS_PER_HP}`,
+    // },
+    // {
+    //   label: 'Tactical Points',
+    //   value: calculateTacticalPoints(bonuses),
+    // },
     {
       label: 'Vanguard Camp',
       value: calculateTacticalPoints(bonusesVanguardCamp),
