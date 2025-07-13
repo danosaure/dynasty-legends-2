@@ -37,12 +37,11 @@ export const Hanzhong = () => {
   const [hanzhongContextData, setHanzhongContextData] = useState<HanzhongContextType>(DEFAULT_HANZHONG_CONTEXT_DATA);
 
   useEffect(() => {
-    console.log(`calling useEffect([username=${username}])`);
     (async () => {
       const userData = await getHanzhongUserDataByUsername(username);
       setUserData(userData);
     })();
-  }, []);
+  }, [username]);
 
   useEffect(() => {
     const onChange = (key: string, value: number) => {
@@ -88,15 +87,14 @@ export const Hanzhong = () => {
   return (
     <HanzhongContext.Provider value={hanzhongContextData}>
       <Grid container spacing={2}>
-        <Grid size={{ xs: 3 }}>
-          <Grid container spacing={3}>
+        <Grid size={{ xs: 3, md: 2 }}>
+          <Grid container spacing={1}>
             <Menu isUserDataModified={isUserDataModified} onSave={onSave} />
             <Box sx={{ width: '100%' }}>
               <Tabs
                 value={selectedTabName}
                 onChange={changeTab}
                 orientation="vertical"
-                sx={{ borderRight: 1 }}
                 slotProps={{ indicator: { sx: { width: '10px' } } }}
               >
                 {[

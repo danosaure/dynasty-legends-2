@@ -25,12 +25,12 @@ export const ValueAdjuster = ({ value, maxValue, sx, onChange }: ValueAdjusterPr
 
   const iconSX = { fontSize: 20 };
   const typographySX = {
-    bgcolor: 'rgba(255, 255, 255, 0.9)',
+    bgcolor: 'transparent',
     ...sx,
   };
 
   return (
-    <Typography align="center" color={hasError ? 'error' : undefined} variant="body1" sx={typographySX}>
+    <Typography align="center" color={hasError ? 'error' : undefined} variant="body2" sx={typographySX}>
       <IconButton title="Decrease value" onClick={onDecrease} disabled={hasError || value === 0}>
         <ArrowDownwardSharpIcon sx={iconSX} />
       </IconButton>
