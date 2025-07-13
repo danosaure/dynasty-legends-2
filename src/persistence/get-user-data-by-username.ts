@@ -28,7 +28,6 @@ export const getUserDataByUsername = async (username: string): Promise<Persisten
   } finally {
     if (db) {
       db.close();
-      console.log(`  getUserDataByUsername(username=${username}): db closed.`);
     }
   }
 };

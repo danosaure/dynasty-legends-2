@@ -30,7 +30,7 @@ export const SectionTabpanel = ({ tabsName, tabName, selectedTabName, children, 
       aria-labelledby={generateTabID(tabsName, tabName)}
       {...other}
     >
-      {tabName === selectedTabName && <Box sx={{ p: 3 }}>{children}</Box>}
+      {tabName === selectedTabName && <Box sx={{ p: 1 }}>{children}</Box>}
     </div>
   );
 };

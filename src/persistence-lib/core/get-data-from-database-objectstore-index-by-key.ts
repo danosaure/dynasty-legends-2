@@ -7,14 +7,10 @@ export const getDataFromDatabaseObjectStoreIndexByKey = async <T>(
   objectStoreName: string,
   indexName: string,
   keyValue: string | string[]
-): Promise<T> => {
-  console.log(
-    `getDataFromDatabaseObjectStoreIndexByKey(db, objectStoreName=${objectStoreName}, indexName=${indexName}, keyValue=${keyValue})`
-  );
-  return new Promise((resolve) => {
+): Promise<T> =>
+  new Promise((resolve) => {
     getObjectStoreFromDatabaseByName(db, objectStoreName)
       .then((objectStore) => getIndexFromStoreByName(objectStore, indexName))
       .then((index) => getDataFromIndexByKey<T>(index, keyValue))
       .then(resolve);
   });
-};
