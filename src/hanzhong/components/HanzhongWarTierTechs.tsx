@@ -1,9 +1,9 @@
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 
 import type { HanzhongTechType, HanzhongWarTierType } from '../types';
 import { HanzhongTech } from './HanzhongTech';
 import { useHanzhongContext } from './HanzhongContext';
+import { PaperWrapper } from '../../components';
 
 export interface HanzhongWarTierTechsProps {
   info: HanzhongWarTierType;
@@ -13,7 +13,7 @@ export const HanzhongWarTierTechs = ({ info }: HanzhongWarTierTechsProps) => {
   const { user } = useHanzhongContext();
 
   return (
-    <Paper elevation={10} sx={{ width: '100%' }}>
+    <PaperWrapper sx={{ width: '100%' }}>
       <Grid
         container
         size={{ xs: 12 }}
@@ -37,6 +37,6 @@ export const HanzhongWarTierTechs = ({ info }: HanzhongWarTierTechsProps) => {
           ))}
         </Grid>
       </Grid>
-    </Paper>
+    </PaperWrapper>
   );
 };

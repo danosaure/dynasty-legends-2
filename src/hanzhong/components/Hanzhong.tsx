@@ -2,29 +2,27 @@ import { useEffect, useState, type SyntheticEvent } from 'react';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 
+import { PaperWrapper, SectionTabpanel } from '../../components';
+import { generateTabA11yProps } from '../../components/utils';
+import { HANZHONG_DATA } from '../data';
+import { getHanzhongUserDataByUsername, saveHanzhongUserDataByUsername } from '../persistence';
+import type { HanzhongBonusType, HanzhongUserDataType } from '../types';
+import { calculateSpecialTrainingsBonuses, DEFAULT_HANZHONG_CONTEXT_DATA } from '../utils';
+
+import { Bandits } from './Bandits';
 import { Cities } from './Cities';
 import { HanzhongContext, type HanzhongContextType } from './HanzhongContext';
 import { HanzhongWarTiersTechs } from './HanzhongWarTiersTechs';
+import { Menu } from './Menu';
 import { Progress } from './Progress';
 import { ResourceIncomes } from './ResourceIncomes';
 import { TacticalBonuses } from './TacticalBonuses';
-import { Territories } from './Territories';
-import { initializeEarnings } from './utils/initialize-earnings';
-import { HANZHONG_DATA } from '../data';
-import type { HanzhongBonusType, HanzhongUserDataType } from '../types';
-import { DEFAULT_HANZHONG_CONTEXT_DATA } from '../utils/default-hanzhong-context-data';
-import { calculateSpecialTrainingsBonuses } from '../utils/calculate-special-trainings-bonuses';
-import { SectionTabpanel } from '../../components/SectionTabpanel';
-import { generateTabA11yProps } from '../../components/utils/generate-tab-a11y-props';
-import { Menu } from './Menu';
-import { getHanzhongUserDataByUsername } from '../persistence';
-import { saveHanzhongUserDataByUsername } from '../persistence/save-hanzhong-user-data-by-username';
+import { HanzhongTerritories } from './Territories';
 import { WarTiers } from './WarTiers';
-import { Bandits } from './Bandits';
+import { initializeEarnings } from './utils';
 
 export const Hanzhong = () => {
   const [username] = useState<string>('');
@@ -121,12 +119,12 @@ export const Hanzhong = () => {
           </Grid>
         </Grid>
         <Grid size={{ xs: 9 }}>
-          <Paper elevation={10}>
+          <PaperWrapper>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="techs">
               <HanzhongWarTiersTechs />
             </SectionTabpanel>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="territories">
-              <Territories />
+              <HanzhongTerritories />
             </SectionTabpanel>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="cities">
               <Cities />
@@ -137,7 +135,7 @@ export const Hanzhong = () => {
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="bandits">
               <Bandits />
             </SectionTabpanel>
-          </Paper>
+          </PaperWrapper>
         </Grid>
       </Grid>
     </HanzhongContext.Provider>

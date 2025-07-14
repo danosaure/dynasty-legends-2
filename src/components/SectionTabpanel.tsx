@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import { generateTabID } from './utils/generate-tab-id';
 import { generateTabpanelID } from './utils/generate-tabpanel-id';
 
-export interface SectionTabPanelProps {
+export type SectionTabpanelProps = {
   /** Name of the tabs. This will allow defining multiple tabs section on the
    *  page. The given tab should have an id of `tab--${tabsName}--${tabName}`.
    */
@@ -19,9 +19,9 @@ export interface SectionTabPanelProps {
 
   /** Node children. */
   children?: ReactNode;
-}
+};
 
-export const SectionTabpanel = ({ tabsName, tabName, selectedTabName, children, ...other }: SectionTabPanelProps) => {
+export const SectionTabpanel = ({ tabsName, tabName, selectedTabName, children, ...other }: SectionTabpanelProps) => {
   return (
     <div
       role="tabpanel"

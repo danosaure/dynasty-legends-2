@@ -64,6 +64,8 @@ const HANZHONG_BANDITS_ATTACKS: HanzhongBanditAttackType[] = ATTACKS_DATA.reduce
   return attacks.concat([
     {
       id: `hanzhong--bandits--day-${day}--attack-${attack}`,
+      day,
+      attack,
       level,
     },
   ]);
