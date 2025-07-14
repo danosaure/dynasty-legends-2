@@ -4,8 +4,14 @@ import { calculateTacticalPoints } from '../utils/calculate-tactical-points';
 import { useHanzhongContext } from './HanzhongContext';
 import { HanzhongInfosDisplay } from './HanzhongInfosDisplay';
 
-export const TacticalBonuses = () => {
+export type TacticalBonusesProps = {
+  changeTab: (tabId: string) => void;
+};
+
+export const TacticalBonuses = ({ changeTab }: TacticalBonusesProps) => {
   const { bonusesVanguardCamp, bonusesValiantCavalry, bonusesRoyalGuards } = useHanzhongContext();
+
+  const configure = () => changeTab('settings--tactical-points');
 
   const items: HanzhongInfoDataType[] = [
     {
@@ -22,5 +28,5 @@ export const TacticalBonuses = () => {
     },
   ];
 
-  return <HanzhongInfosDisplay label="Tactical Points" items={items} />;
+  return <HanzhongInfosDisplay label="Tactical Points" items={items} configure={configure} />;
 };

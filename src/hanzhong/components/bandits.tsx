@@ -30,6 +30,7 @@ export const HanzhongBandits = () => {
                 <HanzhongBandit attack={anAttack as HanzhongBanditAttackType} />
               </Grid>
             ))}
+            <Grid size="grow" />
           </Grid>
         ))}
       </Grid>
