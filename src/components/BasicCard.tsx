@@ -13,15 +13,12 @@ export type BasicCardProps = {
   onChange: (newValue: number) => void;
 };
 
-const CARD_WIDTH = 130;
-
 export const BasicCard = ({ assetImage, label, value, maxValue, onChange }: BasicCardProps) => {
   return (
     <CardWrapper
       sx={{
         backgroundColor: 'rgba(255, 255, 255, 0.7)',
-        minWidth: { md: CARD_WIDTH },
-        maxWidth: { xs: '150px', md: '100px' },
+        width: { xs: '180px', md: '140px' },
       }}
       cardContentSx={{ 'p': '5px', '&:last-child': { pb: '1px' } }}
     >

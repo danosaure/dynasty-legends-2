@@ -13,7 +13,7 @@ export const HanzhongInfoDisplay = ({ label, value, unit }: HanzhongInfoDisplayP
       slotProps={{ input: { readOnly: true } }}
       sx={{
         '& label': { color: 'black' },
-        '& input': { textAlign: 'right', fontSize: { xs: 10, sm: 12, md: 16 } },
+        '& input': { textAlign: 'right', fontSize: { xs: 10, sm: 14, md: 16 } },
       }}
     />
   );

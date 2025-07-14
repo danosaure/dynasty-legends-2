@@ -31,7 +31,7 @@ export const ValueAdjuster = ({ value, maxValue, onChange }: ValueAdjusterProps)
         </IconButton>
       </Grid>
       <Grid size={maxValue ? 'grow' : 'auto'}>
-        <Typography sx={{ fontSize: { xs: 11 } }} align="center" color={hasError ? 'error' : undefined}>
+        <Typography sx={{ fontSize: { xs: 14, md: 16 } }} align="center" color={hasError ? 'error' : undefined}>
           {content}
         </Typography>
       </Grid>

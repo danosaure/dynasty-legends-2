@@ -21,7 +21,7 @@ export const HanzhongWarTierTechs = ({ info }: HanzhongWarTierTechsProps) => {
         sx={{ alignItems: 'flex-start', justifyContent: 'flex-start' }}
         spacing={1}
       >
-        <Grid size={{ xs: 3, md: 'auto' }} sx={{ pr: 2, minWidth: '100px' }}>
+        <Grid size={{ xs: 2, md: 'auto' }} sx={{ pr: 2, minWidth: '80px' }}>
           <img
             src={`${import.meta.env.BASE_URL}assets/${info.icon.path}`}
             alt={info.id}
