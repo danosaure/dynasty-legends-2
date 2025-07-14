@@ -1,5 +1,8 @@
 import type { ReactNode } from 'react';
+
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+
 import { generateTabID } from './utils/generate-tab-id';
 import { generateTabpanelID } from './utils/generate-tabpanel-id';
 
@@ -22,6 +25,17 @@ export type SectionTabpanelProps = {
 };
 
 export const SectionTabpanel = ({ tabsName, tabName, selectedTabName, children, ...other }: SectionTabpanelProps) => {
+  let sectionTabpanelContent = null;
+  if (tabName === selectedTabName) {
+    sectionTabpanelContent = (
+      <Box sx={{ p: 1 }}>
+        <Grid container size={{ xs: 12 }} spacing={2}>
+          {children}
+        </Grid>
+      </Box>
+    );
+  }
+
   return (
     <div
       role="tabpanel"
@@ -30,7 +44,7 @@ export const SectionTabpanel = ({ tabsName, tabName, selectedTabName, children, 
       aria-labelledby={generateTabID(tabsName, tabName)}
       {...other}
     >
-      {tabName === selectedTabName && <Box sx={{ p: 1 }}>{children}</Box>}
+      {sectionTabpanelContent}
     </div>
   );
 };

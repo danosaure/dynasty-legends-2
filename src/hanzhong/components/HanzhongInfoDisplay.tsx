@@ -11,7 +11,10 @@ export const HanzhongInfoDisplay = ({ label, value, unit }: HanzhongInfoDisplayP
       label={label}
       value={`${value}${unit ?? ''}`}
       slotProps={{ input: { readOnly: true } }}
-      sx={{ '& label': { color: 'black' }, '& input': { textAlign: 'right' } }}
+      sx={{
+        '& label': { color: 'black' },
+        '& input': { textAlign: 'right', fontSize: { xs: 10, sm: 14, md: 16 } },
+      }}
     />
   );
 };

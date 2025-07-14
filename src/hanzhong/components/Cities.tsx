@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 
+import { TitleTypographyWrapper } from '../../components';
 import { HANZHONG_CITY_IDS } from '../constants/items-ids';
 import { findCityById } from '../utils/find-city-by-id';
 
@@ -19,10 +19,8 @@ export const Cities = () => {
   const bottomSouthCity = findCityById(hanzhong, HANZHONG_CITY_IDS.MIANYANG_COUNTY);
 
   return (
-    <Grid container size={{ xs: 12 }} spacing={2} sx={{ p: 2 }}>
-      <Typography variant="h3" sx={{ mb: 5 }}>
-        Siege Progress
-      </Typography>
+    <>
+      <TitleTypographyWrapper variant="TITLE">Siege Progress</TitleTypographyWrapper>
       <Grid container size={{ xs: 12 }} spacing={2}>
         <Grid size={{ xs: 4 }} />
         <Grid size={{ xs: 4 }}>
@@ -58,6 +56,6 @@ export const Cities = () => {
         </Grid>
         <Grid size={{ xs: 4 }} />
       </Grid>
-    </Grid>
+    </>
   );
 };
