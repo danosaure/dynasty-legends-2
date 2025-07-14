@@ -1,9 +1,9 @@
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 
 import { useHanzhongContext } from './HanzhongContext';
 import { HanzhongBandit } from './Bandit';
 import type { HanzhongBanditAttackType } from '../types';
+import { TitleTypographyWrapper } from '../../components';
 
 export const Bandits = () => {
   const { hanzhong } = useHanzhongContext();
@@ -19,16 +19,14 @@ export const Bandits = () => {
 
   return (
     <Grid container size={{ xs: 12 }} spacing={2}>
-      <Typography variant="h3" sx={{ mb: 5 }}>
-        Bandits
-      </Typography>
+      <TitleTypographyWrapper variant="TITLE">Bandits</TitleTypographyWrapper>
 
       <Grid container size={{ xs: 12 }} direction="column">
         {grid.map((dayAttacks) => (
           <Grid key={`bandits--day-${dayAttacks.day}`} container sx={{ alignItems: 'center' }}>
-            <Grid size={{ xs: 2 }}>Day {dayAttacks.day}</Grid>
+            <Grid size={{ xs: 4, md: 2 }}>Day {dayAttacks.day}</Grid>
             {dayAttacks.attacks.map((anAttack) => (
-              <Grid size={{ xs: 2 }} key={`bandits--day-${dayAttacks.day}--attack-${anAttack?.attack}`}>
+              <Grid size={{ xs: 4, md: 2 }} key={`bandits--day-${dayAttacks.day}--attack-${anAttack?.attack}`}>
                 <HanzhongBandit attack={anAttack as HanzhongBanditAttackType} />
               </Grid>
             ))}

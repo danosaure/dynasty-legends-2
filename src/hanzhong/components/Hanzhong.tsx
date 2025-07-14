@@ -23,6 +23,7 @@ import { TacticalBonuses } from './TacticalBonuses';
 import { HanzhongTerritories } from './Territories';
 import { WarTiers } from './WarTiers';
 import { initializeEarnings } from './utils';
+import { FONT_SIZES } from './constants';
 
 export const Hanzhong = () => {
   const [username] = useState<string>('');
@@ -85,7 +86,7 @@ export const Hanzhong = () => {
   return (
     <HanzhongContext.Provider value={hanzhongContextData}>
       <Grid container spacing={2}>
-        <Grid size={{ xs: 3, md: 2 }}>
+        <Grid size={{ xs: 3 }} sx={{ maxWidth: '250px' }}>
           <Grid container spacing={1}>
             <Menu isUserDataModified={isUserDataModified} onSave={onSave} />
             <Box sx={{ width: '100%' }}>
@@ -97,7 +98,7 @@ export const Hanzhong = () => {
               >
                 {[
                   ['Techs', 'techs'],
-                  ['Territories', 'territories'],
+                  ['Occupied Territories', 'territories'],
                   ['Siege Progress', 'cities'],
                   ['War Tiers', 'warTiers'],
                   ['Bandits', 'bandits'],
@@ -107,7 +108,14 @@ export const Hanzhong = () => {
                     label={label}
                     value={id}
                     {...generateTabA11yProps('hanzhong', id)}
-                    sx={{ alignItems: 'end' }}
+                    sx={{
+                      alignItems: 'end',
+                      textTransform: 'none',
+                      pt: 0,
+                      pb: 0,
+                      fontSize: FONT_SIZES.SIDE_PANEL_TABS,
+                      textAlign: 'right',
+                    }}
                   />
                 ))}
               </Tabs>
@@ -118,7 +126,7 @@ export const Hanzhong = () => {
             <Progress />
           </Grid>
         </Grid>
-        <Grid size={{ xs: 9 }}>
+        <Grid size={{ xs: 'grow' }}>
           <PaperWrapper>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="techs">
               <HanzhongWarTiersTechs />

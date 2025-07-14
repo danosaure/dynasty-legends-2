@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
@@ -19,19 +18,26 @@ const CARD_WIDTH = 130;
 export const BasicCard = ({ assetImage, label, value, maxValue, onChange }: BasicCardProps) => {
   return (
     <CardWrapper
-      sx={{ width: CARD_WIDTH, backgroundColor: 'rgba(255, 255, 255, 0.7)' }}
+      sx={{
+        backgroundColor: 'rgba(255, 255, 255, 0.7)',
+        minWidth: { md: CARD_WIDTH },
+        maxWidth: { xs: '150px', md: '100px' },
+      }}
       cardContentSx={{ 'p': '5px', '&:last-child': { pb: '1px' } }}
     >
       <Grid container sx={{ justifyContent: 'center', alignItems: 'flex-start' }}>
-        <Box sx={{ textAlign: 'center', width: CARD_WIDTH / 2 }}>
+        <Grid
+          size={{ xs: 3, md: 12 }}
+          sx={{ width: { xs: '30px', md: '100px' }, pl: { md: '20px' }, pr: { md: '20px' }, pt: { md: '5px' } }}
+        >
           <BasicCardImage assetImage={assetImage} />
-        </Box>
-        <Box sx={{ mt: -1, width: '100%', backgroundColor: 'none' }}>
+        </Grid>
+        <Grid size={{ xs: 9, md: 12 }}>
           <ValueAdjuster value={value} maxValue={maxValue} onChange={onChange} />
-          <Typography sx={{ textAlign: 'center' }} variant="body2">
-            {label}
-          </Typography>
-        </Box>
+        </Grid>
+        <Typography sx={{ textAlign: 'center' }} variant="body2">
+          {label}
+        </Typography>
       </Grid>
     </CardWrapper>
   );

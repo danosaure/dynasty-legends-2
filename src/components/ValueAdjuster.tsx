@@ -1,7 +1,7 @@
 import ArrowDownwardSharpIcon from '@mui/icons-material/ArrowDownwardSharp';
 import ArrowUpwardSharpIcon from '@mui/icons-material/ArrowUpwardSharp';
+import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
-import type { SxProps } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
 export type ValueAdjusterProps = {
@@ -11,11 +11,9 @@ export type ValueAdjusterProps = {
   maxValue?: number;
   /** When increased or decreased, the function to call with the new value. */
   onChange: (newValue: number) => void;
-
-  sx?: SxProps;
 };
 
-export const ValueAdjuster = ({ value, maxValue, sx, onChange }: ValueAdjusterProps) => {
+export const ValueAdjuster = ({ value, maxValue, onChange }: ValueAdjusterProps) => {
   const onIncrease = () => onChange(value + 1);
   const onDecrease = () => onChange(value - 1);
 
@@ -24,20 +22,24 @@ export const ValueAdjuster = ({ value, maxValue, sx, onChange }: ValueAdjusterPr
   const content = maxValue === undefined ? value : `${value} / ${maxValue}`;
 
   const iconSX = { fontSize: 20 };
-  const typographySX = {
-    bgcolor: 'transparent',
-    ...sx,
-  };
 
   return (
-    <Typography align="center" color={hasError ? 'error' : undefined} variant="body2" sx={typographySX}>
-      <IconButton title="Decrease value" onClick={onDecrease} disabled={hasError || value === 0}>
-        <ArrowDownwardSharpIcon sx={iconSX} />
-      </IconButton>
-      {content}
-      <IconButton title="Increase value" onClick={onIncrease} disabled={hasError || value === maxValue}>
-        <ArrowUpwardSharpIcon sx={iconSX} />
-      </IconButton>
-    </Typography>
+    <Grid container size={{ xs: 12 }} sx={{ alignItems: 'center', justifyContent: 'center' }}>
+      <Grid size="auto">
+        <IconButton title="Decrease value" onClick={onDecrease} disabled={hasError || value === 0}>
+          <ArrowDownwardSharpIcon sx={iconSX} />
+        </IconButton>
+      </Grid>
+      <Grid size={maxValue ? 'grow' : 'auto'}>
+        <Typography sx={{ fontSize: { xs: 11 } }} align="center" color={hasError ? 'error' : undefined}>
+          {content}
+        </Typography>
+      </Grid>
+      <Grid size="auto">
+        <IconButton title="Increase value" onClick={onIncrease} disabled={hasError || value === maxValue}>
+          <ArrowUpwardSharpIcon sx={iconSX} />
+        </IconButton>
+      </Grid>
+    </Grid>
   );
 };
