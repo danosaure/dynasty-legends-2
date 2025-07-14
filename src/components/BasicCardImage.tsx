@@ -1,6 +1,6 @@
-export interface BasicCardImageProps {
+export type BasicCardImageProps = {
   assetImage: string;
-}
+};
 
 export const BasicCardImage = ({ assetImage }: BasicCardImageProps) => {
   const src = `${import.meta.env.BASE_URL}assets/${assetImage}`;

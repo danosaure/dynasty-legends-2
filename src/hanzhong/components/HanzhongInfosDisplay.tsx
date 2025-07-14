@@ -1,6 +1,7 @@
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
+
+import { PaperWrapper } from '../../components';
 
 import { HanzhongInfoDisplay, type HanzhongInfoDisplayProps } from './HanzhongInfoDisplay';
 
@@ -11,7 +12,7 @@ export type HanzhongInfosDisplayProps = {
 
 export const HanzhongInfosDisplay = ({ label, items }: HanzhongInfosDisplayProps) => {
   return (
-    <Paper sx={{ width: '100%', p: 2 }} elevation={10}>
+    <PaperWrapper sx={{ width: '100%', p: 2 }}>
       <Grid container spacing={2} direction={'column'}>
         <Typography variant="subtitle1" fontWeight={'fontWeightBold'}>
           {label}
@@ -20,6 +21,6 @@ export const HanzhongInfosDisplay = ({ label, items }: HanzhongInfosDisplayProps
           <HanzhongInfoDisplay key={`${idx}-${item.label}`} label={item.label} value={item.value} unit={item.unit} />
         ))}
       </Grid>
-    </Paper>
+    </PaperWrapper>
   );
 };

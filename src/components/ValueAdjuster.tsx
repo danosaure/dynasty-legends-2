@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import type { SxProps } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
-export interface ValueAdjusterProps {
+export type ValueAdjusterProps = {
   /** Value to display. */
   value: number;
   /** If defined, the maxValue to not go over. */
@@ -13,7 +13,7 @@ export interface ValueAdjusterProps {
   onChange: (newValue: number) => void;
 
   sx?: SxProps;
-}
+};
 
 export const ValueAdjuster = ({ value, maxValue, sx, onChange }: ValueAdjusterProps) => {
   const onIncrease = () => onChange(value + 1);

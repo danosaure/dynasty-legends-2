@@ -1,9 +1,11 @@
 import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 
-import { City } from './City';
-import { useHanzhongContext } from './HanzhongContext';
 import { HANZHONG_CITY_IDS } from '../constants/items-ids';
 import { findCityById } from '../utils/find-city-by-id';
+
+import { HanzhongCity } from './City';
+import { useHanzhongContext } from './HanzhongContext';
 
 export const Cities = () => {
   const { hanzhong } = useHanzhongContext();
@@ -17,40 +19,45 @@ export const Cities = () => {
   const bottomSouthCity = findCityById(hanzhong, HANZHONG_CITY_IDS.MIANYANG_COUNTY);
 
   return (
-    <Grid container size={{ xs: 12 }} spacing={2}>
-      <Grid size={{ xs: 4 }} />
-      <Grid size={{ xs: 4 }}>
-        <City city={topNorthCity} />
-      </Grid>
-      <Grid size={{ xs: 4 }} />
+    <Grid container size={{ xs: 12 }} spacing={2} sx={{ p: 2 }}>
+      <Typography variant="h3" sx={{ mb: 5 }}>
+        Siege Progress
+      </Typography>
+      <Grid container size={{ xs: 12 }} spacing={2}>
+        <Grid size={{ xs: 4 }} />
+        <Grid size={{ xs: 4 }}>
+          <HanzhongCity city={topNorthCity} />
+        </Grid>
+        <Grid size={{ xs: 4 }} />
 
-      <Grid size={{ xs: 4 }} />
-      <Grid size={{ xs: 4 }}>
-        <City city={northCity} />
-      </Grid>
-      <Grid size={{ xs: 4 }} />
+        <Grid size={{ xs: 4 }} />
+        <Grid size={{ xs: 4 }}>
+          <HanzhongCity city={northCity} />
+        </Grid>
+        <Grid size={{ xs: 4 }} />
 
-      <Grid size={{ xs: 4 }}>
-        <City city={westCity} />
-      </Grid>
-      <Grid size={{ xs: 4 }}>
-        <City city={centerCity} />
-      </Grid>
-      <Grid size={{ xs: 4 }}>
-        <City city={eastCity} />
-      </Grid>
+        <Grid size={{ xs: 4 }}>
+          <HanzhongCity city={westCity} />
+        </Grid>
+        <Grid size={{ xs: 4 }}>
+          <HanzhongCity city={centerCity} />
+        </Grid>
+        <Grid size={{ xs: 4 }}>
+          <HanzhongCity city={eastCity} />
+        </Grid>
 
-      <Grid size={{ xs: 4 }} />
-      <Grid size={{ xs: 4 }}>
-        <City city={southCity} />
-      </Grid>
-      <Grid size={{ xs: 4 }} />
+        <Grid size={{ xs: 4 }} />
+        <Grid size={{ xs: 4 }}>
+          <HanzhongCity city={southCity} />
+        </Grid>
+        <Grid size={{ xs: 4 }} />
 
-      <Grid size={{ xs: 4 }} />
-      <Grid size={{ xs: 4 }}>
-        <City city={bottomSouthCity} />
+        <Grid size={{ xs: 4 }} />
+        <Grid size={{ xs: 4 }}>
+          <HanzhongCity city={bottomSouthCity} />
+        </Grid>
+        <Grid size={{ xs: 4 }} />
       </Grid>
-      <Grid size={{ xs: 4 }} />
     </Grid>
   );
 };
