@@ -15,18 +15,23 @@ export const HanzhongInfosDisplay = ({ label, items, configure }: HanzhongInfosD
   let configureIcon = null;
   if (configure) {
     configureIcon = (
-      <IconButton aria-label="Configure" onClick={() => configure()}>
-        <SettingsIcon />
-      </IconButton>
+      <Grid size={{ xs: 12, sm: 'auto' }} textAlign={'right'} sx={{ fontSize: { xs: 8 } }}>
+        <IconButton aria-label="Configure" onClick={() => configure()} size="small">
+          <SettingsIcon />
+        </IconButton>
+      </Grid>
     );
   }
 
   return (
     <PaperWrapper sx={{ width: '100%', p: 2 }}>
       <Grid container spacing={2} direction={'column'}>
-        <TitleTypographyWrapper variant="SIDEPANEL_TITLE">
-          {label} {configureIcon}
-        </TitleTypographyWrapper>
+        <Grid container spacing={0} direction="row-reverse">
+          {configureIcon}
+          <Grid size={{ xs: 12, sm: 'grow' }}>
+            <TitleTypographyWrapper variant="SIDEPANEL_TITLE">{label}</TitleTypographyWrapper>
+          </Grid>
+        </Grid>
         {items.map((item, idx) => (
           <DebouncedInputField
             key={`${idx}-${item.label}`}
