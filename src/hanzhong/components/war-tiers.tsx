@@ -1,6 +1,6 @@
 import { TitleTypographyWrapper } from '../../components';
 
-export const WarTiers = () => {
+export const HanzhongWarTiers = () => {
   return (
     <>
       <TitleTypographyWrapper variant="TITLE">War Tiers</TitleTypographyWrapper>

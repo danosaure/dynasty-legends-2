@@ -4,7 +4,7 @@ import { Outlet } from 'react-router';
 
 export const MainLayout = () => {
   return (
-    <Grid container size={{ xs: 12 }} spacing={1} direction={'column'}>
+    <Grid container size={{ xs: 12 }} direction={'column'}>
       <MainHeader />
       <Outlet />
     </Grid>

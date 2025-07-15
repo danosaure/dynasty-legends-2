@@ -20,7 +20,7 @@ export const HanzhongCities = () => {
 
   return (
     <>
-      <TitleTypographyWrapper variant="TITLE">Siege Progress</TitleTypographyWrapper>
+      <TitleTypographyWrapper variant="TITLE">Cities</TitleTypographyWrapper>
       <Grid container size={{ xs: 12 }} spacing={2}>
         <Grid size={{ xs: 4 }} />
         <Grid size={{ xs: 4 }}>

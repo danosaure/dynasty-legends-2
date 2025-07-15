@@ -12,7 +12,7 @@ import { getHanzhongUserDataByUsername, saveHanzhongUserDataByUsername } from '.
 import type { HanzhongBonusType, HanzhongUserDataType } from '../types';
 import { calculateSpecialTrainingsBonuses, DEFAULT_HANZHONG_CONTEXT_DATA } from '../utils';
 
-import { Bandits } from './Bandits';
+import { HanzhongBandits } from './bandits';
 import { HanzhongContext, type HanzhongContextType } from './HanzhongContext';
 import { HanzhongWarTiersTechs } from './HanzhongWarTiersTechs';
 import { Menu } from './Menu';
@@ -20,10 +20,10 @@ import { Progress } from './Progress';
 import { ResourceIncomes } from './ResourceIncomes';
 import { TacticalBonuses } from './TacticalBonuses';
 import { HanzhongTerritories } from './Territories';
-import { WarTiers } from './WarTiers';
 import { initializeEarnings } from './utils';
 import { FONT_SIZES } from './constants';
 import { HanzhongCities } from './cities';
+import { HanzhongWarTiers } from './war-tiers';
 
 export const Hanzhong = () => {
   const [username] = useState<string>('');
@@ -138,10 +138,10 @@ export const Hanzhong = () => {
               <HanzhongCities />
             </SectionTabpanel>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="warTiers">
-              <WarTiers />
+              <HanzhongWarTiers />
             </SectionTabpanel>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="bandits">
-              <Bandits />
+              <HanzhongBandits />
             </SectionTabpanel>
           </PaperWrapper>
         </Grid>
