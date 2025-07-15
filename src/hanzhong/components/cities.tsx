@@ -7,7 +7,7 @@ import { findCityById } from '../utils/find-city-by-id';
 import { HanzhongCity } from './City';
 import { useHanzhongContext } from './HanzhongContext';
 
-export const Cities = () => {
+export const HanzhongCities = () => {
   const { hanzhong } = useHanzhongContext();
 
   const topNorthCity = findCityById(hanzhong, HANZHONG_CITY_IDS.NORTH_SUMMIT);

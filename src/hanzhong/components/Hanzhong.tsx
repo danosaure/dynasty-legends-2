@@ -13,7 +13,6 @@ import type { HanzhongBonusType, HanzhongUserDataType } from '../types';
 import { calculateSpecialTrainingsBonuses, DEFAULT_HANZHONG_CONTEXT_DATA } from '../utils';
 
 import { Bandits } from './Bandits';
-import { Cities } from './Cities';
 import { HanzhongContext, type HanzhongContextType } from './HanzhongContext';
 import { HanzhongWarTiersTechs } from './HanzhongWarTiersTechs';
 import { Menu } from './Menu';
@@ -24,6 +23,7 @@ import { HanzhongTerritories } from './Territories';
 import { WarTiers } from './WarTiers';
 import { initializeEarnings } from './utils';
 import { FONT_SIZES } from './constants';
+import { HanzhongCities } from './cities';
 
 export const Hanzhong = () => {
   const [username] = useState<string>('');
@@ -135,7 +135,7 @@ export const Hanzhong = () => {
               <HanzhongTerritories />
             </SectionTabpanel>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="cities">
-              <Cities />
+              <HanzhongCities />
             </SectionTabpanel>
             <SectionTabpanel selectedTabName={selectedTabName} tabsName="hanzhong" tabName="warTiers">
               <WarTiers />
