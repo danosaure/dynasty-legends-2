@@ -5,7 +5,7 @@ import { HanzhongBandit } from './Bandit';
 import type { HanzhongBanditAttackType } from '../types';
 import { TitleTypographyWrapper } from '../../components';
 
-export const Bandits = () => {
+export const HanzhongBandits = () => {
   const { hanzhong } = useHanzhongContext();
 
   const grid = [1, 2, 3, 4, 5, 6, 7].map((day) => {

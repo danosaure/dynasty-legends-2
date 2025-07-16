@@ -7,7 +7,7 @@ import { findCityById } from '../utils/find-city-by-id';
 import { HanzhongCity } from './City';
 import { useHanzhongContext } from './HanzhongContext';
 
-export const Cities = () => {
+export const HanzhongCities = () => {
   const { hanzhong } = useHanzhongContext();
 
   const topNorthCity = findCityById(hanzhong, HANZHONG_CITY_IDS.NORTH_SUMMIT);
@@ -20,7 +20,7 @@ export const Cities = () => {
 
   return (
     <>
-      <TitleTypographyWrapper variant="TITLE">Siege Progress</TitleTypographyWrapper>
+      <TitleTypographyWrapper variant="TITLE">Cities</TitleTypographyWrapper>
       <Grid container size={{ xs: 12 }} spacing={2}>
         <Grid size={{ xs: 4 }} />
         <Grid size={{ xs: 4 }}>
