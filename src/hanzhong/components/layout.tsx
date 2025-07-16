@@ -65,7 +65,7 @@ export const HanzhongLayout = () => {
   return (
     <HanzhongContext.Provider value={hanzhongContextData}>
       <Grid container spacing={0} sx={{ justifyContent: 'flex-start', alignItems: 'flex-start' }}>
-        <Grid container spacing={2} size={{ xs: 3 }} sx={{ maxWidth: '250px', backgroundColor: 'rgba(195, 137, 0, 0.2)', p: 1 }}>
+        <Grid container spacing={2} size={{ xs: 3 }} sx={{ maxWidth: '250px', backgroundColor: 'rgba(195, 137, 0, 0.1)', p: 1 }}>
           <ActionsMenu isUserDataModified={isUserDataModified} onSave={onSave} />
           <HanzhongSidePanelTabs />
           <ResourceIncomes />
