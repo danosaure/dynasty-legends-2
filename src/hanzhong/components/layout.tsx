@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router';
 import Grid from '@mui/material/Grid';
 
+import { PaperWrapper } from '../../components';
 import { HANZHONG_DATA } from '../data';
 import { getHanzhongUserDataByUsername, saveHanzhongUserDataByUsername } from '../persistence';
 import type { HanzhongBonusType, HanzhongUserDataType } from '../types';
@@ -71,8 +72,12 @@ export const HanzhongLayout = () => {
           <TacticalBonuses />
           <Progress />
         </Grid>
-        <Grid container size="grow" spacing={2} sx={{ p: 0, pl: 1 }}>
-          <Outlet />
+        <Grid size="grow">
+          <PaperWrapper>
+            <Grid container size="grow" spacing={2} sx={{ p: 1, pb: 3 }}>
+              <Outlet />
+            </Grid>
+          </PaperWrapper>
         </Grid>
       </Grid>
     </HanzhongContext.Provider>
