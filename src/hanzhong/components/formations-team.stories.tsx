@@ -12,7 +12,10 @@ const hanzhongContextData: HanzhongContextType = {
 } as const;
 
 const defaultProps: HanzhongFormationsTeamProps = {
-  team: [{ id: 'abc' }, { id: 'def' }],
+  team: [
+    { id: 'abc', tacticalPoints: 50 },
+    { id: 'def', tacticalPoints: 20 },
+  ],
 };
 
 const meta = {

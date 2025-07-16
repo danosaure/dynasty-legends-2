@@ -12,7 +12,7 @@ const hanzhongContextData: HanzhongContextType = {
 } as const;
 
 const defaultProps: HanzhongFormationsCharacterPops = {
-  info: { id: 'abc' },
+  info: { id: 'abc', tacticalPoints: 50 },
   rank: 'general',
 };
 
@@ -46,14 +46,14 @@ Default.storyName = 'general';
 export const Negative: Story = {
   args: {
     ...defaultProps,
-    info: { id: 'abc' },
+    info: { id: 'abc', tacticalPoints: -50 },
   },
 };
 Negative.storyName = 'general negative';
 
 export const LtDefault: Story = {
   args: {
-    info: { id: 'abc' },
+    info: { id: 'abc', tacticalPoints: 20 },
     rank: 'lieutenant',
   },
 };
@@ -61,7 +61,7 @@ LtDefault.storyName = 'lieutenant';
 
 export const LtNegative: Story = {
   args: {
-    info: { id: 'abc' },
+    info: { id: 'abc', tacticalPoints: -20 },
     rank: 'lieutenant',
   },
 };

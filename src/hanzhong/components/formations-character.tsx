@@ -22,14 +22,14 @@ export type HanzhongFormationsCharacterPops = {
 };
 
 export const HanzhongFormationsCharacter = ({ info, rank }: HanzhongFormationsCharacterPops) => {
-  const { user, onChange } = useHanzhongContext();
+  const { onChange } = useHanzhongContext();
   const fieldValueChanged = (newValue: number) => onChange(info.id, newValue);
 
   return (
     <Grid sx={WIDTH_BY_RANK[rank]}>
       <DebouncedInputField
         label={LABEL_BY_RANK[rank]}
-        value={user[info.id] ?? 0}
+        value={info.tacticalPoints ?? 0}
         small={LABEL_BY_RANK[rank] === LABEL_BY_RANK.lieutenant}
         onChange={fieldValueChanged}
       />

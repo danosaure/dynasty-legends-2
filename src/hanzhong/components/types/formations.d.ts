@@ -1,5 +1,6 @@
 export type HanzhongFormationsCharacterType = {
   id: string;
+  tacticalPoints: number;
 };
 
 export type HanzhongFormationsTeamType = [HanzhongFormationsCharacterType, HanzhongFormationsCharacterType];
