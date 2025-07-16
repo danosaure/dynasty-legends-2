@@ -1,5 +1,5 @@
 import type { SxProps } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
+import Typography, { type TypographyOwnProps } from '@mui/material/Typography';
 import type { ReactNode } from 'react';
 import { FONT_SIZE } from './constants';
 
@@ -11,9 +11,10 @@ export type TitleTypographyWrapperProps = {
   children: ReactNode;
   sx?: WithFontSize;
   variant?: keyof typeof FONT_SIZE;
+  color?: TypographyOwnProps['color'];
 };
 
-export const TitleTypographyWrapper = ({ children, variant, sx }: TitleTypographyWrapperProps) => {
+export const TitleTypographyWrapper = ({ children, variant, sx, color }: TitleTypographyWrapperProps) => {
   const fontSize = {
     ...(variant ? FONT_SIZE[variant] : {}),
     ...sx?.fontSize,
@@ -25,7 +26,7 @@ export const TitleTypographyWrapper = ({ children, variant, sx }: TitleTypograph
   };
 
   return (
-    <Typography sx={mergedSx} fontWeight="fontWeightBold">
+    <Typography sx={mergedSx} fontWeight="fontWeightBold" color={color}>
       {children}
     </Typography>
   );

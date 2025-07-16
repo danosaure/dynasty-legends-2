@@ -1,17 +1,18 @@
+import { useNavigate } from 'react-router';
+
 import type { HanzhongInfoDataType } from '../types';
 import { calculateTacticalPoints } from '../utils/calculate-tactical-points';
+
+import { HANZHONG_ROUTES } from '../constants';
 
 import { useHanzhongContext } from './HanzhongContext';
 import { HanzhongInfosDisplay } from './HanzhongInfosDisplay';
 
-export type TacticalBonusesProps = {
-  changeTab: (tabId: string) => void;
-};
-
-export const TacticalBonuses = ({ changeTab }: TacticalBonusesProps) => {
+export const TacticalBonuses = () => {
   const { bonusesVanguardCamp, bonusesValiantCavalry, bonusesRoyalGuards } = useHanzhongContext();
+  const navigate = useNavigate();
 
-  const configure = () => changeTab('settings--tactical-points');
+  const configure = () => navigate(HANZHONG_ROUTES.FORMATIONS);
 
   const items: HanzhongInfoDataType[] = [
     {

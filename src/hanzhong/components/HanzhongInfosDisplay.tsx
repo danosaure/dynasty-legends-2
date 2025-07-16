@@ -16,8 +16,8 @@ export const HanzhongInfosDisplay = ({ label, items, configure }: HanzhongInfosD
   if (configure) {
     configureIcon = (
       <Grid size={{ xs: 12, sm: 'auto' }} textAlign={'right'} sx={{ fontSize: { xs: 8 } }}>
-        <IconButton aria-label="Configure" onClick={() => configure()} size="small">
-          <SettingsIcon />
+        <IconButton aria-label="Configure" onClick={() => configure()} sx={{ p: 0 }}>
+          <SettingsIcon sx={{ fontSize: { xs: 12, sm: 16 } }} />
         </IconButton>
       </Grid>
     );
