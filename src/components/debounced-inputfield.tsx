@@ -17,42 +17,38 @@ export type DebouncedInputFieldProps = {
 export const DebouncedInputField = ({ label, value, unit, onChange, small, maxValue }: DebouncedInputFieldProps) => {
   const theme = useTheme();
 
-  const [debounced, setDebounced] = useState<number>(value);
-  const [textFieldValue, setTextFieldValue] = useState<string>(String(debounced));
-  const [error, setError] = useState<boolean>(value < 0 || (maxValue ? maxValue < debounced : false));
+  const [textFieldValue, setTextFieldValue] = useState<string>(String(value));
+  const [error, setError] = useState<boolean>(value < 0 || (maxValue ? maxValue < value : false));
 
   useEffect(() => {
-    setDebounced(value);
+    setTextFieldValue(String(value));
   }, [value]);
 
   useEffect(() => {
-    setTextFieldValue(String(debounced));
-  }, [debounced]);
-
-  useEffect(() => {
     const intDebounced = parseInt(textFieldValue);
-    if (isNaN(intDebounced) || intDebounced < 0 || textFieldValue !== String(intDebounced)) {
+
+    if (
+      // Invalid number.
+      isNaN(intDebounced) ||
+      // Negative number.
+      intDebounced < 0 ||
+      // String starts with number but has more.
+      textFieldValue !== String(intDebounced) ||
+      // defined maxValue and number is higher
+      (maxValue && intDebounced > maxValue)
+    ) {
       setError(true);
     } else {
       setError(false);
-      setDebounced(intDebounced);
-    }
-  }, [textFieldValue]);
 
-  useEffect(() => {
-    if (maxValue && debounced > maxValue) {
-      setError(true);
-    }
-
-    if (onChange) {
-      const handler = setTimeout(() => {
-        if (!error && value !== debounced) {
-          onChange(debounced);
+      if (onChange) {
+        if (String(value) !== textFieldValue) {
+          const handler = setTimeout(() => onChange(intDebounced), DELAY);
+          return () => clearTimeout(handler);
         }
-      }, DELAY);
-      return () => clearTimeout(handler);
+      }
     }
-  }, [value, debounced, onChange, error, maxValue]);
+  }, [value, onChange, textFieldValue, maxValue]);
 
   const textFieldChanged = onChange ? (e: ChangeEvent<HTMLInputElement>) => setTextFieldValue(e.target.value) : undefined;
   const size = small ? 'small' : undefined;
