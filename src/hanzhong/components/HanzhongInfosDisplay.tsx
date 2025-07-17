@@ -25,7 +25,7 @@ export const HanzhongInfosDisplay = ({ label, items, configure }: HanzhongInfosD
 
   return (
     <PaperWrapper sx={{ width: '100%', p: 2 }}>
-      <Grid container spacing={2} direction={'column'}>
+      <Grid container spacing={1} direction={'column'}>
         <Grid container spacing={0} direction="row-reverse">
           {configureIcon}
           <Grid size={{ xs: 12, sm: 'grow' }}>
