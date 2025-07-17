@@ -59,11 +59,13 @@ const ATTACKS_DATA: AttackDataRowType[] = [
   [7, 2, 7],
 ];
 
+const HANZHONG_BANDITS_KEY = 'hanzhong--bandits';
+
 const HANZHONG_BANDITS_ATTACKS: HanzhongBanditAttackType[] = ATTACKS_DATA.reduce((attacks, attackData) => {
   const [day, attack, level] = attackData;
   return attacks.concat([
     {
-      id: `hanzhong--bandits--day-${day}--attack-${attack}`,
+      id: `${HANZHONG_BANDITS_KEY}--day-${day}--attack-${attack}`,
       day,
       attack,
       level,
@@ -72,11 +74,13 @@ const HANZHONG_BANDITS_ATTACKS: HanzhongBanditAttackType[] = ATTACKS_DATA.reduce
 }, [] as HanzhongBanditAttackType[]);
 
 export type HanzhongBanditsType = {
+  id: string;
   info: HanzhongBanditLevelsType;
   attacks: HanzhongBanditAttackType[];
 };
 
 export const HANZHONG_BANDITS: HanzhongBanditsType = {
+  id: HANZHONG_BANDITS_KEY,
   info: HANZHONG_BANDIT_LEVELS,
   attacks: HANZHONG_BANDITS_ATTACKS,
 } as const;
