@@ -18,7 +18,7 @@ export const BasicCard = ({ assetImage, label, value, maxValue, onChange }: Basi
     <CardWrapper
       sx={{
         backgroundColor: 'rgba(255, 255, 255, 0.7)',
-        width: { xs: '180px', md: '140px' },
+        width: { xs: '180px', md: '125px', lg: '150px' },
       }}
       cardContentSx={{ 'p': '5px', '&:last-child': { pb: '1px' } }}
     >
