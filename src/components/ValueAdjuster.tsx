@@ -21,7 +21,7 @@ export const ValueAdjuster = ({ value, maxValue, onChange }: ValueAdjusterProps)
 
   const content = maxValue === undefined ? value : `${value} / ${maxValue}`;
 
-  const iconSX = { fontSize: 20 };
+  const iconSX = { fontSize: 18 };
 
   return (
     <Grid container size={{ xs: 12 }} sx={{ alignItems: 'center', justifyContent: 'center' }}>

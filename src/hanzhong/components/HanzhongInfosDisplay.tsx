@@ -24,7 +24,7 @@ export const HanzhongInfosDisplay = ({ label, items, configure }: HanzhongInfosD
   }
 
   return (
-    <PaperWrapper sx={{ width: '100%', p: 2 }}>
+    <PaperWrapper sx={{ width: '100%', p: '5px' }}>
       <Grid container spacing={1} direction={'column'}>
         <Grid container spacing={0} direction="row-reverse">
           {configureIcon}
@@ -39,6 +39,7 @@ export const HanzhongInfosDisplay = ({ label, items, configure }: HanzhongInfosD
             value={item.value}
             unit={item.unit}
             maxValue={item.maxValue}
+            small
           />
         ))}
       </Grid>

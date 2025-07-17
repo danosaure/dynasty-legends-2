@@ -34,8 +34,10 @@ export const HanzhongFormations = () => {
 
   return (
     <>
-      <TitleTypographyWrapper variant="TITLE">Formations</TitleTypographyWrapper>
-      <Grid container size={{ xs: 12 }} spacing={2} direction={'column'}>
+      <Grid size={12}>
+        <TitleTypographyWrapper variant="TITLE">Formations</TitleTypographyWrapper>
+      </Grid>
+      <Grid container size={{ xs: 12, sm: 'auto' }} spacing={2} direction={'column'}>
         {formations.map((formation) => (
           <Grid key={formation.name}>
             <HanzhongFormationsFormation formation={formation} />

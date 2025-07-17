@@ -11,9 +11,9 @@ export const HanzhongFormationsFormation = ({ formation }: HanzhongFormationsFor
   return (
     <PaperWrapper sx={{ p: '10px' }}>
       <Typography sx={{ pb: 1 }}>{formation.name}</Typography>
-      <Grid container spacing={1} direction={'row'}>
+      <Grid container spacing={{ xs: 1, sm: 3 }} direction={'row'}>
         {formation.teams.map((team, idx) => (
-          <Grid key={`formations--${formation.name}--${idx}`} size={{ xs: 4 }}>
+          <Grid key={`formations--${formation.name}--${idx}`} size={{ xs: 12, sm: 4 }}>
             <HanzhongFormationsTeam team={team} />
           </Grid>
         ))}
