@@ -1,10 +1,11 @@
-import { HanzhongInfosDisplay } from './HanzhongInfosDisplay';
-import { useHanzhongContext } from './HanzhongContext';
-import type { HanzhongInfoDisplayProps } from './HanzhongInfoDisplay';
 import { HANZHONG_CITY_IDS, HANZHONG_TERRITORY_IDS } from '../constants/items-ids';
+import type { HanzhongInfoDataType } from '../types';
+
+import { useHanzhongContext } from './HanzhongContext';
+import { HanzhongInfosDisplay } from './HanzhongInfosDisplay';
 
 export const Progress = () => {
-  const { bonuses, user } = useHanzhongContext();
+  const { bonuses, user, hanzhong } = useHanzhongContext();
 
   const territories: number = Object.values(HANZHONG_TERRITORY_IDS).reduce(
     (sum, territoryId): number => sum + (user[territoryId] ?? 0),
@@ -14,20 +15,21 @@ export const Progress = () => {
 
   const cities: number = citiesIDs.reduce((sum, cityId): number => sum + (user[cityId] ?? 0), 0);
 
-  const items: HanzhongInfoDisplayProps[] = [
+  const items: HanzhongInfoDataType[] = [
     {
       label: 'Territories',
       value: territories,
-      unit: `/${bonuses.territoryCap}`,
+      maxValue: bonuses.territoryCap,
     },
     {
       label: 'Cities',
       value: cities,
-      unit: `/${citiesIDs.length}`,
+      maxValue: citiesIDs.length,
     },
     {
       label: 'Bandits',
       value: 0,
+      maxValue: hanzhong.bandits.attacks.length,
     },
   ];
 

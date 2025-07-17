@@ -1,11 +1,12 @@
-import { HanzhongInfosDisplay } from './HanzhongInfosDisplay';
+import type { HanzhongInfoDataType } from '../types';
+
 import { useHanzhongContext } from './HanzhongContext';
-import type { HanzhongInfoDisplayProps } from './HanzhongInfoDisplay';
+import { HanzhongInfosDisplay } from './HanzhongInfosDisplay';
 
 export const ResourceIncomes = () => {
   const { bonuses } = useHanzhongContext();
 
-  const items: HanzhongInfoDisplayProps[] = [
+  const items: HanzhongInfoDataType[] = [
     {
       label: 'Lumber',
       value: bonuses.woodRate ?? 0,
