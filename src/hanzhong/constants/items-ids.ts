@@ -111,40 +111,53 @@ export const HANZHONG_CITY_IDS = {
   HANZHONG_CITY: 'hanzhong--city--hanzhong-city',
 };
 
-export const HANZHONG_FORMATION_IDS = {
-  // Vanguard Camp
-  VANGUARD_CAMP__TEAM_1__GENERAL: 'hanzhong--formations--vanguard-camp--team-1--general',
-  VANGUARD_CAMP__TEAM_1__LIEUTENANT: 'hanzhong--formations--vanguard-camp--team-1--lieutenant',
-  VANGUARD_CAMP__TEAM_2__GENERAL: 'hanzhong--formations--vanguard-camp--team-2--general',
-  VANGUARD_CAMP__TEAM_2__LIEUTENANT: 'hanzhong--formations--vanguard-camp--team-2--lieutenant',
-  VANGUARD_CAMP__TEAM_3__GENERAL: 'hanzhong--formations--vanguard-camp--team-3--general',
-  VANGUARD_CAMP__TEAM_3__LIEUTENANT: 'hanzhong--formations--vanguard-camp--team-3--lieutenant',
-
-  // Valiant Cavalry
-  VALIANT_CAVALRY__TEAM_1__GENERAL: 'hanzhong--formations--vanguard-camp--team-1--general',
-  VALIANT_CAVALRY__TEAM_1__LIEUTENANT: 'hanzhong--formations--vanguard-camp--team-1--lieutenant',
-  VALIANT_CAVALRY__TEAM_2__GENERAL: 'hanzhong--formations--vanguard-camp--team-2--general',
-  VALIANT_CAVALRY__TEAM_2__LIEUTENANT: 'hanzhong--formations--vanguard-camp--team-2--lieutenant',
-  VALIANT_CAVALRY__TEAM_3__GENERAL: 'hanzhong--formations--vanguard-camp--team-3--general',
-  VALIANT_CAVALRY__TEAM_3__LIEUTENANT: 'hanzhong--formations--vanguard-camp--team-3--lieutenant',
-
-  // Royal Guards
-  ROYAL_GUARDS__TEAM_1__GENERAL: 'hanzhong--formations--royal-guards--team-1--general',
-  ROYAL_GUARDS__TEAM_1__LIEUTENANT: 'hanzhong--formations--royal-guards--team-1--lieutenant',
-  ROYAL_GUARDS__TEAM_2__GENERAL: 'hanzhong--formations--royal-guards--team-2--general',
-  ROYAL_GUARDS__TEAM_2__LIEUTENANT: 'hanzhong--formations--royal-guards--team-2--lieutenant',
-  ROYAL_GUARDS__TEAM_3__GENERAL: 'hanzhong--formations--royal-guards--team-3--general',
-  ROYAL_GUARDS__TEAM_3__LIEUTENANT: 'hanzhong--formations--royal-guards--team-3--lieutenant',
+const HANZHONG_FORMATION_KEY = 'hanzhong--formations';
+export const HANZHONG_FORMATIONS: Record<string, string> = {
+  VANGUARD_CAMP: 'vanguard-camp',
+  VALIANT_CAVALRY: 'valiant-cavalry',
+  ROYAL_GUARDS: 'royal-guards',
+} as const;
+const HANZHONG_FORMATION_TEAMS: Record<string, string> = {
+  TEAM_1: 'team-1',
+  TEAM_2: 'team-2',
+  TEAM_3: 'team-3',
+} as const;
+const HANZHONG_FORMATION_RANKS: Record<string, string> = {
+  GENERAL: 'general',
+  LIEUTENANT: 'lieutenant',
 } as const;
 
-type HanzhongFormationTeamType = [string, string];
-type HanzhongFormationType = {
+export const HANZHONG_FORMATION_IDS: Record<string, string> = {
+  ...['VANGUARD_CAMP', 'VALIANT_CAVALRY', 'ROYAL_GUARDS'].reduce(
+    (cumulFormation, formation) =>
+      ['TEAM_1', 'TEAM_2', 'TEAM_3'].reduce(
+        (cumulTeam, team) =>
+          ['GENERAL', 'LIEUTENANT'].reduce(
+            (cumulRank, rank) => ({
+              ...cumulRank,
+              [`${formation}__${team}__${rank}`]: `${HANZHONG_FORMATION_KEY}--${HANZHONG_FORMATIONS[formation]}--${HANZHONG_FORMATION_TEAMS[team]}--${HANZHONG_FORMATION_RANKS[rank]}`,
+            }),
+            cumulTeam
+          ),
+        cumulFormation
+      ),
+    {}
+  ),
+} as const;
+
+export type HanzhongFormationTeamType = [string, string];
+export type HanzhongFormationType = {
+  id: string;
+  techId: string;
   name: string;
   teams: [HanzhongFormationTeamType, HanzhongFormationTeamType, HanzhongFormationTeamType];
 };
+export type HanzhongFormationStructureType = [HanzhongFormationType, HanzhongFormationType, HanzhongFormationType];
 
-export const STRUCTURED_HANZHONG_FORMATIONS: [HanzhongFormationType, HanzhongFormationType, HanzhongFormationType] = [
+export const STRUCTURED_HANZHONG_FORMATIONS: HanzhongFormationStructureType = [
   {
+    id: `${HANZHONG_FORMATION_KEY}--${HANZHONG_FORMATIONS.VANGUARD_CAMP}`,
+    techId: HANZHONG_TECH_IDS.SPECIAL_TRAINING__VANGUARD_CAMP,
     name: 'Vanguard Camp',
     teams: [
       [HANZHONG_FORMATION_IDS.VANGUARD_CAMP__TEAM_1__GENERAL, HANZHONG_FORMATION_IDS.VANGUARD_CAMP__TEAM_1__LIEUTENANT],
@@ -153,6 +166,8 @@ export const STRUCTURED_HANZHONG_FORMATIONS: [HanzhongFormationType, HanzhongFor
     ],
   },
   {
+    id: `${HANZHONG_FORMATION_KEY}--${HANZHONG_FORMATIONS.VALIANT_CAVALRY}`,
+    techId: HANZHONG_TECH_IDS.SPECIAL_TRAINING__VALIANT_CAVALRY,
     name: 'Valiant Cavalry',
     teams: [
       [HANZHONG_FORMATION_IDS.VALIANT_CAVALRY__TEAM_1__GENERAL, HANZHONG_FORMATION_IDS.VALIANT_CAVALRY__TEAM_1__LIEUTENANT],
@@ -161,6 +176,8 @@ export const STRUCTURED_HANZHONG_FORMATIONS: [HanzhongFormationType, HanzhongFor
     ],
   },
   {
+    id: `${HANZHONG_FORMATION_KEY}--${HANZHONG_FORMATIONS.ROYAL_GUARDS}`,
+    techId: HANZHONG_TECH_IDS.SPECIAL_TRAINING__ROYAL_GUARDS,
     name: 'Royal Guards',
     teams: [
       [HANZHONG_FORMATION_IDS.ROYAL_GUARDS__TEAM_1__GENERAL, HANZHONG_FORMATION_IDS.ROYAL_GUARDS__TEAM_1__LIEUTENANT],

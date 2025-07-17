@@ -6,7 +6,7 @@ import { PaperWrapper } from '../../components';
 import { HANZHONG_DATA } from '../data';
 import { getHanzhongUserDataByUsername, saveHanzhongUserDataByUsername } from '../persistence';
 import type { HanzhongBonusType, HanzhongUserDataType } from '../types';
-import { calculateSpecialTrainingsBonuses, DEFAULT_HANZHONG_CONTEXT_DATA } from '../utils';
+import { DEFAULT_HANZHONG_CONTEXT_DATA } from '../utils';
 
 import { ActionsMenu } from './actions-menu';
 import { HanzhongContext, type HanzhongContextType } from './HanzhongContext';
@@ -31,11 +31,6 @@ export const HanzhongLayout = () => {
 
   useEffect(() => {
     const bonuses: HanzhongBonusType = initializeEarnings(HANZHONG_DATA, userData);
-    const {
-      vanguardCamp: bonusesVanguardCamp,
-      valiantCavalry: bonusesValiantCavalry,
-      royalGuards: bonusesRoyalGuards,
-    } = calculateSpecialTrainingsBonuses(HANZHONG_DATA, userData, bonuses);
 
     const onChange = (key: string, value: number) => {
       setUserData({
@@ -49,9 +44,6 @@ export const HanzhongLayout = () => {
       hanzhong: HANZHONG_DATA,
       user: userData,
       bonuses,
-      bonusesVanguardCamp,
-      bonusesValiantCavalry,
-      bonusesRoyalGuards,
       onChange,
     });
   }, [userData]);

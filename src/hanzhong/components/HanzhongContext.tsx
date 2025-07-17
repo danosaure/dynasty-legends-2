@@ -8,9 +8,6 @@ export type HanzhongContextType = {
   hanzhong: HanzhongType;
   user: HanzhongUserDataType;
   bonuses: HanzhongBonusType;
-  bonusesVanguardCamp: HanzhongBonusType;
-  bonusesValiantCavalry: HanzhongBonusType;
-  bonusesRoyalGuards: HanzhongBonusType;
   onChange: (key: string, value: number) => void;
 };
 
@@ -18,9 +15,6 @@ export const HanzhongContext = createContext<HanzhongContextType>({
   hanzhong: HANZHONG_DATA,
   user: {},
   bonuses: {},
-  bonusesVanguardCamp: {},
-  bonusesValiantCavalry: {},
-  bonusesRoyalGuards: {},
   onChange: () => {},
 });
 
