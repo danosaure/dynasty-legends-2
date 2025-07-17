@@ -21,12 +21,17 @@ export const HanzhongBandits = () => {
     <Grid container size={{ xs: 12 }} spacing={2}>
       <TitleTypographyWrapper variant="TITLE">Bandits</TitleTypographyWrapper>
 
-      <Grid container size={{ xs: 12 }} direction="column">
+      <Grid container size={{ xs: 12 }} direction="column" spacing={2}>
         {grid.map((dayAttacks) => (
-          <Grid key={`bandits--day-${dayAttacks.day}`} container sx={{ alignItems: 'center' }}>
-            <Grid size={{ xs: 4, md: 2 }}>Day {dayAttacks.day}</Grid>
+          <Grid
+            container
+            key={`bandits--day-${dayAttacks.day}`}
+            sx={{ alignItems: 'center', justifyContent: 'center' }}
+            spacing={4}
+          >
+            <Grid size="auto">Day {dayAttacks.day}</Grid>
             {dayAttacks.attacks.map((anAttack) => (
-              <Grid size={{ xs: 4, md: 2 }} key={`bandits--day-${dayAttacks.day}--attack-${anAttack?.attack}`}>
+              <Grid size="auto" key={`bandits--day-${dayAttacks.day}--attack-${anAttack?.attack}`}>
                 <HanzhongBandit attack={anAttack as HanzhongBanditAttackType} />
               </Grid>
             ))}
