@@ -1,12 +1,13 @@
-import { HanzhongInfosDisplay } from './HanzhongInfosDisplay';
-import { useHanzhongContext } from './HanzhongContext';
-import type { HanzhongInfoDisplayProps } from './HanzhongInfoDisplay';
+import type { HanzhongInfoDataType } from '../types';
 import { calculateTacticalPoints } from '../utils/calculate-tactical-points';
+
+import { useHanzhongContext } from './HanzhongContext';
+import { HanzhongInfosDisplay } from './HanzhongInfosDisplay';
 
 export const TacticalBonuses = () => {
   const { bonusesVanguardCamp, bonusesValiantCavalry, bonusesRoyalGuards } = useHanzhongContext();
 
-  const items: HanzhongInfoDisplayProps[] = [
+  const items: HanzhongInfoDataType[] = [
     {
       label: 'Vanguard Camp',
       value: calculateTacticalPoints(bonusesVanguardCamp),
