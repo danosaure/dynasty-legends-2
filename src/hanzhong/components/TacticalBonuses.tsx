@@ -1,9 +1,8 @@
 import { useNavigate } from 'react-router';
 
+import { HANZHONG_ROUTES } from '../constants';
 import type { HanzhongInfoDataType } from '../types';
 import { calculateTacticalPoints } from '../utils/calculate-tactical-points';
-
-import { HANZHONG_ROUTES } from '../constants';
 
 import { useHanzhongContext } from './HanzhongContext';
 import { HanzhongInfosDisplay } from './HanzhongInfosDisplay';
