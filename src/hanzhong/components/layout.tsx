@@ -6,7 +6,7 @@ import { PaperWrapper } from '../../components';
 import { HANZHONG_DATA } from '../data';
 import { getHanzhongUserDataByUsername, saveHanzhongUserDataByUsername } from '../persistence';
 import type { HanzhongBonusType, HanzhongUserDataType } from '../types';
-import { calculateSpecialTrainingsBonuses, DEFAULT_HANZHONG_CONTEXT_DATA } from '../utils';
+import { DEFAULT_HANZHONG_CONTEXT_DATA } from '../utils';
 
 import { ActionsMenu } from './actions-menu';
 import { HanzhongContext, type HanzhongContextType } from './HanzhongContext';
@@ -23,7 +23,6 @@ export const HanzhongLayout = () => {
   const [hanzhongContextData, setHanzhongContextData] = useState<HanzhongContextType>(DEFAULT_HANZHONG_CONTEXT_DATA);
 
   useEffect(() => {
-    console.log(`useEffect([username="${username}"])...`);
     (async () => {
       const userData = await getHanzhongUserDataByUsername(username);
       setUserData(userData);
@@ -32,11 +31,6 @@ export const HanzhongLayout = () => {
 
   useEffect(() => {
     const bonuses: HanzhongBonusType = initializeEarnings(HANZHONG_DATA, userData);
-    const {
-      vanguardCamp: bonusesVanguardCamp,
-      valiantCavalry: bonusesValiantCavalry,
-      royalGuards: bonusesRoyalGuards,
-    } = calculateSpecialTrainingsBonuses(HANZHONG_DATA, userData, bonuses);
 
     const onChange = (key: string, value: number) => {
       setUserData({
@@ -50,9 +44,6 @@ export const HanzhongLayout = () => {
       hanzhong: HANZHONG_DATA,
       user: userData,
       bonuses,
-      bonusesVanguardCamp,
-      bonusesValiantCavalry,
-      bonusesRoyalGuards,
       onChange,
     });
   }, [userData]);
@@ -65,7 +56,7 @@ export const HanzhongLayout = () => {
   return (
     <HanzhongContext.Provider value={hanzhongContextData}>
       <Grid container spacing={0} sx={{ justifyContent: 'flex-start', alignItems: 'flex-start' }}>
-        <Grid container spacing={2} size={{ xs: 3 }} sx={{ maxWidth: '250px', backgroundColor: 'rgba(195, 137, 0, 0.2)', p: 1 }}>
+        <Grid container spacing={2} size={{ xs: 3 }} sx={{ maxWidth: '250px', backgroundColor: 'rgba(195, 137, 0, 0.1)', p: 1 }}>
           <ActionsMenu isUserDataModified={isUserDataModified} onSave={onSave} />
           <HanzhongSidePanelTabs />
           <ResourceIncomes />

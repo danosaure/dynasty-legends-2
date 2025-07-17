@@ -12,7 +12,7 @@ export const HanzhongSidePanelTabsItemLabel = ({ label, isActive }: HanzhongSide
       style={{
         fontWeight: isActive ? 'bold' : 'inherit',
         borderRight: isActive ? '5px solid' : 'none',
-        color: isActive ? theme.palette.primary.main : theme.palette.info.main,
+        color: isActive ? theme.palette.success.main : theme.palette.primary.main,
         width: '100%',
         paddingRight: '3px',
       }}
