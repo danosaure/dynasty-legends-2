@@ -23,7 +23,6 @@ export const HanzhongLayout = () => {
   const [hanzhongContextData, setHanzhongContextData] = useState<HanzhongContextType>(DEFAULT_HANZHONG_CONTEXT_DATA);
 
   useEffect(() => {
-    console.log(`useEffect([username="${username}"])...`);
     (async () => {
       const userData = await getHanzhongUserDataByUsername(username);
       setUserData(userData);
