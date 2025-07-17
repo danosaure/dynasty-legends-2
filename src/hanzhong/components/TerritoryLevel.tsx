@@ -9,13 +9,17 @@ export type TerritoryLevelProps = {
 };
 
 export const TerritoryLevel = ({ index, level }: TerritoryLevelProps) => {
-  const lv = index + 1;
-
   return (
-    <Grid container spacing={2} size={{ xs: 12 }} sx={{ justifyContent: 'flex-start', alignItems: 'center' }}>
-      <TerritoryLevelResource label={`Lv.${lv} Woodland`} id={level.earnings[0].id} />
-      <TerritoryLevelResource label={`Lv.${lv} Farmland`} id={level.earnings[1].id} />
-      <TerritoryLevelResource label={`Lv.${lv} Iron Mine`} id={level.earnings[2].id} />
+    <Grid container direction={{ xs: 'row' }} spacing={1}>
+      <Grid size={4}>
+        <TerritoryLevelResource label="Woodland" level={index + 1} id={level.earnings[0].id} />
+      </Grid>
+      <Grid size={4}>
+        <TerritoryLevelResource label="Farmland" level={index + 1} id={level.earnings[1].id} />
+      </Grid>
+      <Grid size={4}>
+        <TerritoryLevelResource label="Iron Mine" level={index + 1} id={level.earnings[2].id} />
+      </Grid>
     </Grid>
   );
 };
