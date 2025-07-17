@@ -10,15 +10,15 @@ export type HanzhongFormationsTeamProps = {
 export const HanzhongFormationsTeam = ({ team }: HanzhongFormationsTeamProps) => {
   const [general, lieutenant] = team;
   const infos: [string, HanzhongFormationsCharacterType][] = [
-    ['general', general],
-    ['lieutenant', lieutenant],
+    ['General', general],
+    ['Lieutenant', lieutenant],
   ];
 
   return (
     <PaperWrapper>
-      <Grid container size={{ xs: 12 }} spacing={1} sx={{ p: 0.5, justifyContent: 'flex-end' }}>
+      <Grid container spacing={1} sx={{ p: 1 }} direction={{ xs: 'row', sm: 'column' }}>
         {infos.map((data) => (
-          <Grid key={`formations--team--rank-${data[0]}`}>
+          <Grid key={`formations--team--rank-${data[0]}`} size={{ xs: 6 }} sx={{ maxWidth: '120px' }}>
             <HanzhongFormationsCharacter info={data[1]} rank={data[0]} />
           </Grid>
         ))}

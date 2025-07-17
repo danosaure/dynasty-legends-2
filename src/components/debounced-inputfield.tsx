@@ -52,7 +52,7 @@ export const DebouncedInputField = ({ label, value, unit, onChange, small, maxVa
 
   const textFieldChanged = onChange ? (e: ChangeEvent<HTMLInputElement>) => setTextFieldValue(e.target.value) : undefined;
   const size = small ? 'small' : undefined;
-  const inputSize = small ? { xs: 9, sm: 12, md: 14 } : { xs: 10, sm: 14, md: 16 };
+  const inputSize = small ? { xs: 11, sm: 13, md: 15 } : { xs: 13, sm: 15, md: 17 };
   const errorColorForInputValue: SxProps = error ? { '& .MuiInputBase-input': { color: theme.palette.error.main } } : {};
 
   const inputSlotPropsForReadOnly = onChange ? {} : { readOnly: true };
@@ -96,7 +96,7 @@ export const DebouncedInputField = ({ label, value, unit, onChange, small, maxVa
       size={size}
       onChange={textFieldChanged}
       sx={{
-        '& label': { color: 'black' },
+        '& label': { color: 'black', fontSize: inputSize },
         '& input': { textAlign: 'right', fontSize: inputSize },
         ...errorColorForInputValue,
       }}
