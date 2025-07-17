@@ -22,6 +22,24 @@ export const DebouncedInputField = ({ label, value, unit, onChange, small, maxVa
   const [error, setError] = useState<boolean>(value < 0 || (maxValue ? maxValue < debounced : false));
 
   useEffect(() => {
+    setDebounced(value);
+  }, [value]);
+
+  useEffect(() => {
+    setTextFieldValue(String(debounced));
+  }, [debounced]);
+
+  useEffect(() => {
+    const intDebounced = parseInt(textFieldValue);
+    if (isNaN(intDebounced) || intDebounced < 0 || textFieldValue !== String(intDebounced)) {
+      setError(true);
+    } else {
+      setError(false);
+      setDebounced(intDebounced);
+    }
+  }, [textFieldValue]);
+
+  useEffect(() => {
     if (maxValue && debounced > maxValue) {
       setError(true);
     }
@@ -36,23 +54,21 @@ export const DebouncedInputField = ({ label, value, unit, onChange, small, maxVa
     }
   }, [value, debounced, onChange, error, maxValue]);
 
-  useEffect(() => {
-    const intDebounced = parseInt(textFieldValue);
-    if (isNaN(intDebounced) || intDebounced < 0 || textFieldValue !== String(intDebounced)) {
-      setError(true);
-    } else {
-      setError(false);
-      setDebounced(intDebounced);
-    }
-  }, [textFieldValue]);
-
   const textFieldChanged = onChange ? (e: ChangeEvent<HTMLInputElement>) => setTextFieldValue(e.target.value) : undefined;
   const size = small ? 'small' : undefined;
   const inputSize = small ? { xs: 9, sm: 12, md: 14 } : { xs: 10, sm: 14, md: 16 };
   const errorColorForInputValue: SxProps = error ? { '& .MuiInputBase-input': { color: theme.palette.error.main } } : {};
-  const errorColorForAdornment: SxProps = error ? { '& .MuiTypography-body1': { color: theme.palette.error.main } } : {};
 
   const inputSlotPropsForReadOnly = onChange ? {} : { readOnly: true };
+
+  const errorColorForAdornment: SxProps = error ? { color: theme.palette.error.main } : {};
+  const adornmentSx: SxProps = {
+    '& .MuiTypography-body1': {
+      fontSize: inputSize,
+      color: theme.palette.info.main,
+      ...errorColorForAdornment,
+    },
+  };
 
   let adornment: string = '';
   if (maxValue && unit) {
@@ -66,7 +82,7 @@ export const DebouncedInputField = ({ label, value, unit, onChange, small, maxVa
   const inputSlotPropsForAdornment = adornment
     ? {
         endAdornment: (
-          <InputAdornment position="end" sx={errorColorForAdornment}>
+          <InputAdornment position="end" sx={adornmentSx}>
             {adornment}
           </InputAdornment>
         ),
