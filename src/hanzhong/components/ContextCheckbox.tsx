@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent } from 'react';
+import { useEffect, useState, type ChangeEvent } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 
 import { useHanzhongContext } from './HanzhongContext';
@@ -11,6 +11,10 @@ export const HanzhongContextUserCheckbox = ({ id }: HanzhongContextUserCheckboxP
   const { user, onChange } = useHanzhongContext();
 
   const [checked, setChecked] = useState<boolean>(Boolean(user[id] ?? 0));
+
+  useEffect(() => {
+    setChecked(Boolean(user[id] ?? 0));
+  }, [user, id]);
 
   const checkboxChanged = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(id, e.target.checked ? 1 : 0);
