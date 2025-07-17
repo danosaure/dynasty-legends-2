@@ -1,12 +1,13 @@
 import Grid from '@mui/material/Grid';
 
-import { PaperWrapper, TitleTypographyWrapper } from '../../components';
+import { DebouncedInputField, PaperWrapper, TitleTypographyWrapper } from '../../components';
 
-import { HanzhongInfoDisplay, type HanzhongInfoDisplayProps } from './HanzhongInfoDisplay';
+import type { HanzhongInfoDataType } from '../types';
 
 export type HanzhongInfosDisplayProps = {
   label: string;
-  items: HanzhongInfoDisplayProps[];
+  items: HanzhongInfoDataType[];
+  configure?: () => void;
 };
 
 export const HanzhongInfosDisplay = ({ label, items }: HanzhongInfosDisplayProps) => {
@@ -15,7 +16,13 @@ export const HanzhongInfosDisplay = ({ label, items }: HanzhongInfosDisplayProps
       <Grid container spacing={2} direction={'column'}>
         <TitleTypographyWrapper variant="SIDEPANEL_TITLE">{label}</TitleTypographyWrapper>
         {items.map((item, idx) => (
-          <HanzhongInfoDisplay key={`${idx}-${item.label}`} label={item.label} value={item.value} unit={item.unit} />
+          <DebouncedInputField
+            key={`${idx}-${item.label}`}
+            label={item.label}
+            value={item.value}
+            unit={item.unit}
+            maxValue={item.maxValue}
+          />
         ))}
       </Grid>
     </PaperWrapper>

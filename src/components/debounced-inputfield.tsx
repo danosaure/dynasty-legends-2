@@ -8,19 +8,24 @@ const DELAY = 1000;
 export type DebouncedInputFieldProps = {
   label: string;
   value: number;
-  unit?: string;
   onChange?: (newValue: number) => void;
   small?: boolean;
+  unit?: string;
+  maxValue?: number;
 };
 
-export const DebouncedInputField = ({ label, value, unit, onChange, small }: DebouncedInputFieldProps) => {
+export const DebouncedInputField = ({ label, value, unit, onChange, small, maxValue }: DebouncedInputFieldProps) => {
   const theme = useTheme();
 
   const [debounced, setDebounced] = useState<number>(value);
   const [textFieldValue, setTextFieldValue] = useState<string>(String(debounced));
-  const [error, setError] = useState<boolean>(value < 0);
+  const [error, setError] = useState<boolean>(value < 0 || (maxValue ? maxValue < debounced : false));
 
   useEffect(() => {
+    if (maxValue && debounced > maxValue) {
+      setError(true);
+    }
+
     if (onChange) {
       const handler = setTimeout(() => {
         if (!error && value !== debounced) {
@@ -29,7 +34,7 @@ export const DebouncedInputField = ({ label, value, unit, onChange, small }: Deb
       }, DELAY);
       return () => clearTimeout(handler);
     }
-  }, [value, debounced, onChange, error]);
+  }, [value, debounced, onChange, error, maxValue]);
 
   useEffect(() => {
     const intDebounced = parseInt(textFieldValue);
@@ -48,16 +53,26 @@ export const DebouncedInputField = ({ label, value, unit, onChange, small }: Deb
   const errorColorForAdornment: SxProps = error ? { '& .MuiTypography-body1': { color: theme.palette.error.main } } : {};
 
   const inputSlotPropsForReadOnly = onChange ? {} : { readOnly: true };
-  const inputSlotPropsForAdornment = unit
+
+  let adornment: string = '';
+  if (maxValue && unit) {
+    adornment = `of ${maxValue}${unit}`;
+  } else if (maxValue) {
+    adornment = `/${maxValue}`;
+  } else if (unit) {
+    adornment = unit;
+  }
+
+  const inputSlotPropsForAdornment = adornment
     ? {
         endAdornment: (
           <InputAdornment position="end" sx={errorColorForAdornment}>
-            {unit}
+            {adornment}
           </InputAdornment>
         ),
       }
     : {};
-  const slotProps = !onChange || unit ? { input: { ...inputSlotPropsForReadOnly, ...inputSlotPropsForAdornment } } : {};
+  const slotProps = !onChange || adornment ? { input: { ...inputSlotPropsForReadOnly, ...inputSlotPropsForAdornment } } : {};
 
   return (
     <TextField

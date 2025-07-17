@@ -25,12 +25,24 @@ type Story = StoryObj<typeof meta>;
 
 export default meta;
 
+// ----- Base -----
+
 export const Default: Story = {
   args: {
     ...defaultProps,
   },
 };
-Default.storyName = 'happy case';
+Default.storyName = 'base';
+
+export const DefaultNegative: Story = {
+  args: {
+    ...defaultProps,
+    value: -5,
+  },
+};
+DefaultNegative.storyName = 'base negative';
+
+// with unit
 
 export const WithUnit: Story = {
   args: {
@@ -38,24 +50,86 @@ export const WithUnit: Story = {
     unit: '/h',
   },
 };
-WithUnit.storyName = 'with unit';
+WithUnit.storyName = 'unit: base';
 
-export const NegativeValue: Story = {
-  args: {
-    ...defaultProps,
-    value: -5,
-  },
-};
-NegativeValue.storyName = 'negative';
-
-export const NegativeValueWithUnit: Story = {
+export const WithUnitNegative: Story = {
   args: {
     ...defaultProps,
     value: -5,
     unit: '/h',
   },
 };
-NegativeValueWithUnit.storyName = 'negative with unit';
+WithUnitNegative.storyName = 'unit: negative';
+
+// MaxValue.
+
+export const MaxValueDefault: Story = {
+  args: {
+    ...defaultProps,
+    maxValue: 50,
+  },
+};
+MaxValueDefault.storyName = 'maxValue: base';
+
+export const MaxValueNegative: Story = {
+  args: {
+    ...defaultProps,
+    maxValue: 50,
+    value: -5,
+  },
+};
+MaxValueNegative.storyName = 'maxValue: negative';
+
+export const MaxValueEqualsValue: Story = {
+  args: {
+    ...defaultProps,
+    maxValue: 50,
+    value: 50,
+  },
+};
+MaxValueEqualsValue.storyName = 'maxValue: equals value';
+
+export const MaxValueLessThanValue: Story = {
+  args: {
+    ...defaultProps,
+    maxValue: 50,
+    value: 100,
+  },
+};
+MaxValueLessThanValue.storyName = 'maxValue: < value';
+
+// maxValue and unit
+
+export const WithMaxValueAndUnitDefault: Story = {
+  args: {
+    ...defaultProps,
+    maxValue: 50,
+    unit: '/h',
+  },
+};
+WithMaxValueAndUnitDefault.storyName = 'maxValue & unit: base';
+
+export const WithMaxValueAndUnitNegative: Story = {
+  args: {
+    ...defaultProps,
+    maxValue: 50,
+    unit: '/h',
+    value: -5,
+  },
+};
+WithMaxValueAndUnitNegative.storyName = 'maxValue & unit: negative';
+
+export const WithMaxValueAndUnitOver: Story = {
+  args: {
+    ...defaultProps,
+    maxValue: 50,
+    unit: '/h',
+    value: 100,
+  },
+};
+WithMaxValueAndUnitOver.storyName = 'maxValue & unit: over';
+
+// onChange
 
 export const WithOnChange: Story = {
   args: {
