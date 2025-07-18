@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-import type { HanzhongBonusType, HanzhongType, HanzhongUserDataType } from '../types';
+import type { HanzhongBonusType, HanzhongContextOnChangeType, HanzhongType, HanzhongUserDataType } from '../types';
 import { HANZHONG_DATA } from '../data';
 import { useSafeContext } from '../../components/utils/use-safe-context';
 
@@ -8,7 +8,7 @@ export type HanzhongContextType = {
   hanzhong: HanzhongType;
   user: HanzhongUserDataType;
   bonuses: HanzhongBonusType;
-  onChange: (key: string, value: number) => void;
+  onChange: HanzhongContextOnChangeType;
 };
 
 export const HanzhongContext = createContext<HanzhongContextType>({
