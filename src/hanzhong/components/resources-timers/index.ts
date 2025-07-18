@@ -1,2 +1,3 @@
-export { HanzhongClockAction } from './ClockAction';
-export { HanzhongResourcesBar } from './ResourcesBar';
+export { HanzhongClockAction } from './clock-action';
+export { HanzhongResourcesBar } from './resources-bar';
+export { HanzhongEstimatedTime } from './estimated-time';

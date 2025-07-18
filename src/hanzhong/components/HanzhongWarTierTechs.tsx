@@ -17,11 +17,11 @@ export const HanzhongWarTierTechs = ({ info }: HanzhongWarTierTechsProps) => {
       <Grid
         container
         size={{ xs: 12 }}
-        style={{ backgroundColor: info.bg, padding: '10px' }}
+        style={{ backgroundColor: info.bg, padding: '5px' }}
         sx={{ alignItems: 'flex-start', justifyContent: 'flex-start' }}
-        spacing={1}
+        spacing={0}
       >
-        <Grid size={{ xs: 2, md: 1 }} sx={{ pr: 2, minWidth: '80px' }}>
+        <Grid sx={{ pr: 1, width: { xs: '70px' } }}>
           <img
             src={`${import.meta.env.BASE_URL}assets/${info.icon.path}`}
             alt={info.id}
@@ -29,7 +29,7 @@ export const HanzhongWarTierTechs = ({ info }: HanzhongWarTierTechsProps) => {
           />
         </Grid>
 
-        <Grid container size={{ xs: 'grow' }} spacing={1}>
+        <Grid container size="grow" spacing={1}>
           {info.techs.map((tech: HanzhongTechType) => (
             <HanzhongTech key={tech.id} info={tech} value={user[tech.id] ?? 0} />
           ))}

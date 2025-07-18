@@ -5,11 +5,12 @@ import type { SxProps } from '@mui/material/styles';
 export type PaperWrapperProps = {
   children: ReactNode;
   sx?: SxProps;
+  elevation?: number;
 };
 
-export const PaperWrapper = ({ children, sx }: PaperWrapperProps) => {
+export const PaperWrapper = ({ children, sx, elevation = 10 }: PaperWrapperProps) => {
   return (
-    <Paper sx={sx} elevation={10}>
+    <Paper sx={sx} elevation={elevation}>
       {children}
     </Paper>
   );
