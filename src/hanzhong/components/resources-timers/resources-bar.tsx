@@ -3,14 +3,10 @@ import Grid from '@mui/material/Grid';
 import { DebouncedInputField, PaperWrapper } from '../../../components';
 import { useHanzhongContext } from '../HanzhongContext';
 
-import { isShowingClocks, RESOURCES_TIMERS_KEYS } from './utils';
+import { RESOURCES_TIMERS_KEYS } from './utils';
 
 export const HanzhongResourcesBar = () => {
   const { user, onChange } = useHanzhongContext();
-
-  if (!isShowingClocks(user)) {
-    return null;
-  }
 
   const items = [
     ['Lumber', RESOURCES_TIMERS_KEYS.INVENTORY_LUMBER],

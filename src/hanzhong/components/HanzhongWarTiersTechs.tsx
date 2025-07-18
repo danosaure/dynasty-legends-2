@@ -4,7 +4,7 @@ import { TitleTypographyWrapper } from '../../components';
 
 import { HanzhongWarTierTechs } from './HanzhongWarTierTechs';
 import { useHanzhongContext } from './HanzhongContext';
-import { HanzhongClockAction, HanzhongResourcesBar } from './resources-timers';
+import { HanzhongResourcesBar } from './resources-timers';
 
 export const HanzhongWarTiersTechs = () => {
   const { hanzhong } = useHanzhongContext();
@@ -12,12 +12,7 @@ export const HanzhongWarTiersTechs = () => {
   return (
     <>
       <Grid container size={12}>
-        <Grid size="grow">
-          <TitleTypographyWrapper variant="TITLE">Techs</TitleTypographyWrapper>
-        </Grid>
-        <Grid size="auto">
-          <HanzhongClockAction />
-        </Grid>
+        <TitleTypographyWrapper variant="TITLE">Techs</TitleTypographyWrapper>
       </Grid>
       <Grid size={12}>
         <HanzhongResourcesBar />

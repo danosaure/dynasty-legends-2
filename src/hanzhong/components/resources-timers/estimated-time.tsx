@@ -7,6 +7,7 @@ import { useHanzhongContext } from '../HanzhongContext';
 import { PaperWrapper } from '../../../components';
 
 import { calculateTimeNeeded, isShowingClocks } from './utils';
+import { TIME_KEYS } from './utils';
 
 export type HanzhongEstimatedTimeProps = {
   id: string;
@@ -21,7 +22,11 @@ export const HanzhongEstimatedTime = ({ id }: HanzhongEstimatedTimeProps) => {
     setValue(calculateTimeNeeded(id, user, bonuses));
   }, [id, user, bonuses]);
 
-  if (!isShowingClocks(user) || value === '') {
+  if (value === '') {
+    return null;
+  }
+
+  if (value === TIME_KEYS.MAX_LEVEL_REACHED) {
     return null;
   }
 
