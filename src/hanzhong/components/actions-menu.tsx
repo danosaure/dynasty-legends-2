@@ -1,6 +1,8 @@
-import SaveIcon from '@mui/icons-material/Save';
 import IconButton from '@mui/material/IconButton';
+import SaveIcon from '@mui/icons-material/Save';
 import Stack from '@mui/material/Stack';
+
+import { HanzhongClockAction } from './resources-timers';
 
 export type ActionsMenuProps = {
   isUserDataModified: boolean;
@@ -9,10 +11,11 @@ export type ActionsMenuProps = {
 
 export const ActionsMenu = ({ isUserDataModified, onSave }: ActionsMenuProps) => {
   return (
-    <Stack direction="row" spacing={3}>
+    <Stack direction="row" spacing={0}>
       <IconButton aria-label="Save" disabled={!isUserDataModified} onClick={onSave}>
         <SaveIcon color={isUserDataModified ? 'primary' : 'disabled'} />
       </IconButton>
+      <HanzhongClockAction />
     </Stack>
   );
 };
