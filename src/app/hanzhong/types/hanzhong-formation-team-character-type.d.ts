@@ -1,4 +1,5 @@
-export type HanzhongFormationTeamCharacterType = {
-  id: string;
+import type { BaseIDType } from '../../types';
+
+export type HanzhongFormationTeamCharacterType = BaseIDType & {
   tacticalPoints: number;
 };

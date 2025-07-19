@@ -1,8 +1,8 @@
-import type { HanzhongTerritoryResourceType } from './hanzhong-territory-resource-type';
+import type { BaseIDType } from '../../types';
+
 import type { PotentiallyUnknownNumberType } from './potentially-unknown-number-type';
 
-export type HanzhongTerritoryLevelType = {
-  id: string;
+export type HanzhongTerritoryLevelType = BaseIDType & {
   tacticalPoints: PotentiallyUnknownNumberType;
   earnings: HanzhongTerritoryResourceType[];
   team: {
