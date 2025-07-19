@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 
 export const MainLayout = () => {
   return (
-    <Container maxWidth="lg" sx={{ maxWidth: '960px !important', paddingLeft: '4px', paddingRight: '4px' }}>
+    <Container maxWidth="lg" sx={{ maxWidth: '1000px !important', paddingLeft: '4px', paddingRight: '4px' }}>
       <Grid container size={{ xs: 12 }} direction={'column'}>
         <MainHeader />
         <Outlet />
