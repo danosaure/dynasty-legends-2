@@ -22,7 +22,7 @@ export const HanzhongTechCard = ({ id, assetImage, label, value, maxValue }: Han
     <CardWrapper
       sx={{
         backgroundColor: 'rgba(255, 255, 255, 0.7)',
-        width: { xs: '180px', md: '125px', lg: '150px' },
+        width: { xs: '180px', md: '130px', lg: '150px' },
       }}
       cardContentSx={{ 'p': '5px', '&:last-child': { pb: '1px' } }}
     >
