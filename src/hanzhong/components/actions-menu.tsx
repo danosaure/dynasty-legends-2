@@ -1,6 +1,7 @@
-import IconButton from '@mui/material/IconButton';
 import SaveIcon from '@mui/icons-material/Save';
 import Stack from '@mui/material/Stack';
+
+import { WrappedIconButton } from '../../components/WrappedIconButton';
 
 export type ActionsMenuProps = {
   isUserDataModified: boolean;
@@ -10,9 +11,7 @@ export type ActionsMenuProps = {
 export const ActionsMenu = ({ isUserDataModified, onSave }: ActionsMenuProps) => {
   return (
     <Stack direction="row" spacing={0}>
-      <IconButton aria-label="Save" disabled={!isUserDataModified} onClick={onSave}>
-        <SaveIcon color={isUserDataModified ? 'primary' : 'disabled'} />
-      </IconButton>
+      <WrappedIconButton label="Save changes" disabled={!isUserDataModified} onClick={onSave} Icon={SaveIcon} withTooltip />
     </Stack>
   );
 };

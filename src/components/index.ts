@@ -3,3 +3,4 @@ export { DebouncedInputField, type DebouncedInputFieldProps } from './debounced-
 export { PaperWrapper } from './PaperWrapper';
 export { TitleTypographyWrapper, type TitleTypographyWrapperProps } from './TitleTypographyWrapper';
 export { ValueAdjuster, type ValueAdjusterProps } from './ValueAdjuster';
+export { WrappedIconButton, type WrappedIconButtonProps } from './WrappedIconButton';
