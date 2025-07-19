@@ -1,17 +1,9 @@
 import { useEffect } from 'react';
 import { HashRouter, Route, Routes } from 'react-router';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { dbOpen } from './persistence/db-open';
+import { AppThemeProvider } from './app/components/app-theme-provider';
 import { MainRoutes } from './app/routes';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#C38900',
-    },
-  },
-});
+import { dbOpen } from './persistence/db-open';
 
 export const App = () => {
   useEffect(() => {
@@ -30,11 +22,11 @@ export const App = () => {
 
   return (
     <HashRouter>
-      <ThemeProvider theme={theme}>
+      <AppThemeProvider>
         <Routes>
           <Route path="/">{MainRoutes}</Route>
         </Routes>
-      </ThemeProvider>
+      </AppThemeProvider>
     </HashRouter>
   );
 };

@@ -1,8 +1,7 @@
 import Grid from '@mui/material/Grid';
-import IconButton from '@mui/material/IconButton';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-import { DebouncedInputField, PaperWrapper, TitleTypographyWrapper } from '../../components';
+import { DebouncedInputField, PaperWrapper, TitleTypographyWrapper, WrappedIconButton } from '../../components';
 import type { HanzhongInfoDataType } from '../types';
 
 export type HanzhongInfosDisplayProps = {
@@ -15,10 +14,8 @@ export const HanzhongInfosDisplay = ({ label, items, configure }: HanzhongInfosD
   let configureIcon = null;
   if (configure) {
     configureIcon = (
-      <Grid size={{ xs: 12, sm: 'auto' }} textAlign={'right'} sx={{ fontSize: { xs: 8 } }}>
-        <IconButton aria-label="Configure" onClick={() => configure()} sx={{ p: 0 }}>
-          <SettingsIcon sx={{ fontSize: { xs: 12, sm: 16 } }} />
-        </IconButton>
+      <Grid size={{ xs: 12, sm: 'auto' }} textAlign={'right'} sx={{ fontSize: { xs: 8 }, mt: -1, mr: -1 }}>
+        <WrappedIconButton label="Configure Formations" onClick={() => configure()} Icon={SettingsIcon} withTooltip small />
       </Grid>
     );
   }

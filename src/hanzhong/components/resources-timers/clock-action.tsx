@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import AlarmIcon from '@mui/icons-material/Alarm';
 import AlarmOffIcon from '@mui/icons-material/AlarmOff';
-import IconButton from '@mui/material/IconButton';
 
+import { WrappedIconButton } from '../../../components';
 import { useHanzhongContext } from '../HanzhongContext';
+
 import { isShowingClocks, toggleClocks } from './utils';
 
 export const HanzhongClockAction = () => {
@@ -21,9 +22,5 @@ export const HanzhongClockAction = () => {
 
   const Icon = showClocks ? AlarmOffIcon : AlarmIcon;
 
-  return (
-    <IconButton aria-label="Clock" onClick={onClick}>
-      <Icon color="primary" />
-    </IconButton>
-  );
+  return <WrappedIconButton label="Show Clocks" onClick={onClick} Icon={Icon} withTooltip />;
 };
