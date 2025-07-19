@@ -18,10 +18,14 @@ export const TerritoryLevelResource = ({ label, level, id }: TerritoryLevelResou
     <CardWrapper>
       <Grid container sx={{ justifyContent: 'center', alignItems: 'center' }}>
         <Grid size={{ xs: 12 }}>
-          <Typography align="center">Lv.{level}</Typography>
+          <Typography align="center" sx={{ fontSize: { xs: 12, sm: 14 } }}>
+            Lv.{level}
+          </Typography>
         </Grid>
         <Grid size={{ xs: 12 }}>
-          <Typography align="center">{label}</Typography>
+          <Typography align="center" sx={{ fontSize: { xs: 13, sm: 16 } }}>
+            {label}
+          </Typography>
         </Grid>
         <Grid size={{ xs: 12 }} sx={{ p: 0 }}>
           <ValueAdjuster value={user[id] ?? 0} onChange={(newValue: number) => onChange(id, newValue)} />

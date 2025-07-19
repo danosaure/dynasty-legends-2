@@ -1,5 +1,3 @@
-export { BasicCard, type BasicCardProps } from './BasicCard';
-export { BasicCardImage, type BasicCardImageProps } from './BasicCardImage';
 export { CardWrapper, type CardWrapperProps } from './CardWrapper';
 export { DebouncedInputField, type DebouncedInputFieldProps } from './debounced-inputfield';
 export { PaperWrapper } from './PaperWrapper';

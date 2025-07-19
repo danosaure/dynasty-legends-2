@@ -1,25 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { fn } from 'storybook/test';
+import { HanzhongTechCard, type HanzhongTechCardProps } from './tech-card';
 
-import { BasicCard, type BasicCardProps } from './BasicCard';
-
-const defaultProps: BasicCardProps = {
+const defaultProps: HanzhongTechCardProps = {
+  id: 'some-tech-id',
   assetImage: 'hanzhong/tech/attack-training-1.png',
   label: 'Nice Card',
   value: 5,
   maxValue: 10,
-  onChange: fn(),
 };
 
 const meta = {
-  title: 'BasicCard',
-  component: BasicCard,
+  title: 'Hanzhong/HanzhongTechCard',
+  component: HanzhongTechCard,
   tags: ['autodocs'],
   args: {
     ...defaultProps,
   },
-} satisfies Meta<typeof BasicCard>;
+} satisfies Meta<typeof HanzhongTechCard>;
 
 type Story = StoryObj<typeof meta>;
 
