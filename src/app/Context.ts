@@ -1,16 +1,14 @@
-import { createContext, type ReactNode } from 'react';
-import { useSafeContext } from './shared/utils';
+import { createContext } from 'react';
+
+import { useSafeContext } from '../../components/utils/use-safe-context';
+import type { PersistenceUserDataType } from '../../persistence/types';
 
 export type AppContextType = {
-  setMenu: (actionMenu: ReactNode) => void;
+  user?: PersistenceUserDataType;
 };
 
-export const DEFAULT_APP_CONTEXT: AppContextType = {
-  setMenu: () => {},
-};
-
-export const AppContext = createContext<AppContextType>(DEFAULT_APP_CONTEXT);
+export const AppContext = createContext<AppContextType>({});
 
 AppContext.displayName = 'AppContext';
 
-export const useAppContext = (): AppContextType => useSafeContext(AppContext);
+export const useHanzhongContext = (): AppContextType => useSafeContext(AppContext);
