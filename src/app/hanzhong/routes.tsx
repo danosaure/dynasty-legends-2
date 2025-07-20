@@ -1,13 +1,13 @@
 import { Navigate, Route } from 'react-router';
 
-import { Hanzhong404 } from './components/404';
-import { HanzhongBandits } from './components/bandits';
-import { HanzhongCities } from './components/cities';
-import { HanzhongFormations } from './components/formations';
-import { HanzhongWarTiersTechs } from './components/HanzhongWarTiersTechs';
-import { HanzhongLayout } from '../hanzhong/components/layout';
-import { HanzhongTerritories } from './components/Territories';
-import { HanzhongWarTiers } from './components/war-tiers';
+import { Hanzhong404 } from './404';
+import { HanzhongBandits } from './bandits';
+import { HanzhongCities } from './cities';
+import { HanzhongFormations } from './formations';
+import { HanzhongWarTiersTechs } from './HanzhongWarTiersTechs';
+import { HanzhongLayout } from './layout';
+import { HanzhongTerritories } from './Territories';
+import { HanzhongWarTiers } from './war-tiers';
 import { HANZHONG_ROUTES } from './constants';
 
 export const HanzhongRoutes = (

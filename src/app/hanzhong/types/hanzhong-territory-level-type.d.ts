@@ -1,10 +1,5 @@
-import type { HanzhongBonusType } from './hanzhong-bonus-type';
+import type { HanzhongTerritoryResourceType } from './hanzhong-territory-resource-type';
 import type { PotentiallyUnknownNumberType } from './potentially-unknown-number-type';
-
-export type HanzhongTerritoryResourceType = {
-  id: string;
-  earnings: HanzhongBonusType;
-};
 
 export type HanzhongTerritoryLevelType = {
   id: string;

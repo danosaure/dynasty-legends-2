@@ -1,4 +1,4 @@
-import type { HanzhongContextType } from '../components/HanzhongContext';
+import type { HanzhongContextType } from '../HanzhongContext';
 import { HANZHONG_DATA } from '../data';
 
 export const DEFAULT_HANZHONG_CONTEXT_DATA: HanzhongContextType = {

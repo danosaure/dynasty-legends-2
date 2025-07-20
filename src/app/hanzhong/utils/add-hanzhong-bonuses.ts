@@ -1,4 +1,4 @@
-import type { HanzhongBonusType } from '../types';
+import type { HanzhongBonusType } from '../types/hanzhong-bonus-type';
 
 export const addHanzhongBonuses = (a: HanzhongBonusType, b: HanzhongBonusType, times: number = 1): HanzhongBonusType => ({
   atk: (a.atk ?? 0) + (b.atk ?? 0) * times,
