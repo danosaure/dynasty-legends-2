@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import { useHanzhongContext } from './HanzhongContext';
 import { HanzhongBandit } from './Bandit';
 import type { HanzhongBanditAttackType } from '../types';
-import { TitleTypographyWrapper } from '../../components';
+import { TitleTypographyWrapper } from '../../shared';
 
 export const HanzhongBandits = () => {
   const { hanzhong } = useHanzhongContext();

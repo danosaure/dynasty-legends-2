@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid';
 
-import { TitleTypographyWrapper } from '../../components';
+import { TitleTypographyWrapper } from '../../shared';
 import { HANZHONG_CITY_IDS } from '../constants/items-ids';
 import { findCityById } from '../utils/find-city-by-id';
 

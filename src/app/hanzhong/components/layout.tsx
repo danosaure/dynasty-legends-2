@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router';
 import Grid from '@mui/material/Grid';
 
-import { PaperWrapper } from '../../components';
+import { PaperWrapper } from '../../shared';
 import { HANZHONG_DATA } from '../data';
 import { getHanzhongUserDataByUsername, saveHanzhongUserDataByUsername } from '../persistence';
 import type { HanzhongBonusType, HanzhongUserDataType } from '../types';

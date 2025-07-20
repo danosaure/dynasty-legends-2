@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { HashRouter, Route, Routes } from 'react-router';
 
-import { AppThemeProvider } from './app/components/app-theme-provider';
 import { MainRoutes } from './app/routes';
 import { dbOpen } from './persistence/db-open';
+import { AppThemeProvider } from './app/theme-provider';
 
 export const App = () => {
   useEffect(() => {

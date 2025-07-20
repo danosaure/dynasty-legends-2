@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
+import DoneIcon from '@mui/icons-material/Done';
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import DoneIcon from '@mui/icons-material/Done';
 
+import { PaperWrapper } from '../../../shared';
 import { useHanzhongContext } from '../HanzhongContext';
-import { PaperWrapper } from '../../../components';
 
 import { calculateTimeNeeded, TIME_KEYS } from './utils';
 

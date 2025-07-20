@@ -1,7 +1,7 @@
 import Grid from '@mui/material/Grid';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-import { DebouncedInputField, PaperWrapper, TitleTypographyWrapper, WrappedIconButton } from '../../components';
+import { DebouncedInputField, PaperWrapper, TitleTypographyWrapper, WrappedIconButton } from '../../shared';
 import type { HanzhongInfoDataType } from '../types';
 
 export type HanzhongInfosDisplayProps = {

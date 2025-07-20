@@ -1,12 +1,12 @@
 import { Route } from 'react-router';
 
-import { MainLayout } from './components/layout';
-import { AppMain } from './components/main';
-import { HanzhongRoutes } from '../hanzhong/routes';
-import { App404 } from './components/404';
+import { HanzhongRoutes } from './hanzhong/routes';
+import { App404 } from './404';
+import { AppLayout } from './layout';
+import { AppMain } from './main';
 
 export const MainRoutes = (
-  <Route Component={MainLayout}>
+  <Route Component={AppLayout}>
     <Route index Component={AppMain} />
     <Route path="hanzhong">{HanzhongRoutes}</Route>
     <Route path="*" Component={App404} />

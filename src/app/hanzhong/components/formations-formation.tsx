@@ -1,8 +1,10 @@
 import Grid from '@mui/material/Grid';
-import { PaperWrapper } from '../../components';
-import type { HanzhongFormationsFormationType } from './types';
 import Typography from '@mui/material/Typography';
+
+import { PaperWrapper } from '../../shared';
+
 import { HanzhongFormationsTeam } from './formations-team';
+import type { HanzhongFormationsFormationType } from './types';
 
 export type HanzhongFormationsFormationProps = {
   formation: HanzhongFormationsFormationType;

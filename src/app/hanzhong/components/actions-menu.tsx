@@ -1,7 +1,7 @@
 import SaveIcon from '@mui/icons-material/Save';
 import Stack from '@mui/material/Stack';
 
-import { WrappedIconButton } from '../../components/WrappedIconButton';
+import { WrappedIconButton } from '../../shared/WrappedIconButton';
 
 export type ActionsMenuProps = {
   isUserDataModified: boolean;

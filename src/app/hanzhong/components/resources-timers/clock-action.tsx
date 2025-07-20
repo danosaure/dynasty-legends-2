@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import AlarmIcon from '@mui/icons-material/Alarm';
 import AlarmOffIcon from '@mui/icons-material/AlarmOff';
 
-import { WrappedIconButton } from '../../../components';
+import { WrappedIconButton } from '../../../shared';
 import { useHanzhongContext } from '../HanzhongContext';
 
 import { isShowingClocks, toggleClocks } from './utils';

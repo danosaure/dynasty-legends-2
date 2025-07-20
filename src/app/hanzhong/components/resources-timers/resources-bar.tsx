@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid';
 
-import { DebouncedInputField, PaperWrapper } from '../../../components';
+import { DebouncedInputField, PaperWrapper } from '../../../shared';
 import { useHanzhongContext } from '../HanzhongContext';
 
 import { RESOURCES_TIMERS_KEYS } from './utils';
@@ -19,7 +19,7 @@ export const HanzhongResourcesBar = () => {
       <Grid container spacing={3} sx={{ p: 1 }}>
         {items.map(([label, key]) => (
           <Grid key={`resources-bar--resource-${label}`} size={4}>
-            <DebouncedInputField label={label} value={user[key] ?? 0} onChange={(newValue) => onChange(key, newValue)} />
+            <DebouncedInputField label={label} value={user[key] ?? 0} onChange={(newValue: number) => onChange(key, newValue)} />
           </Grid>
         ))}
       </Grid>

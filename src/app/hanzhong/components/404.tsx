@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography';
 import { useLocation } from 'react-router';
-import { TitleTypographyWrapper } from '../../components';
+import { TitleTypographyWrapper } from '../../shared';
 
 export const Hanzhong404 = () => {
   const location = useLocation();

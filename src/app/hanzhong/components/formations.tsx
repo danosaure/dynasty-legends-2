@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid';
 
-import { TitleTypographyWrapper } from '../../components';
+import { TitleTypographyWrapper } from '../../shared';
 import { STRUCTURED_HANZHONG_FORMATIONS } from '../constants';
 import { HanzhongFormationsFormation } from './formations-formation';
 import type {

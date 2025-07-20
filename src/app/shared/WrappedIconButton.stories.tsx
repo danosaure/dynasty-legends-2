@@ -3,8 +3,9 @@ import PersonIcon from '@mui/icons-material/Person';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { expect, fn } from 'storybook/test';
 
+import { AppThemeProvider } from '../theme-provider';
+
 import { WrappedIconButton, type WrappedIconButtonProps } from './WrappedIconButton';
-import { AppThemeProvider } from '../app/components/app-theme-provider';
 
 const TEST_TITLE = 'Some label';
 

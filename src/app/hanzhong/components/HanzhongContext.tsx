@@ -2,7 +2,7 @@ import { createContext } from 'react';
 
 import type { HanzhongBonusType, HanzhongContextOnChangeType, HanzhongType, HanzhongUserDataType } from '../types';
 import { HANZHONG_DATA } from '../data';
-import { useSafeContext } from '../../components/utils/use-safe-context';
+import { useSafeContext } from '../../shared/utils/use-safe-context';
 
 export type HanzhongContextType = {
   hanzhong: HanzhongType;

@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid';
 
-import { CardWrapper } from '../../components';
+import { CardWrapper } from '../../shared';
 import type { HanzhongCityType } from '../types';
 import { HanzhongContextUserCheckbox } from './ContextCheckbox';
 

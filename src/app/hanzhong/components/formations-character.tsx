@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid';
 
-import { DebouncedInputField } from '../../components';
+import { DebouncedInputField } from '../../shared';
 
 import { useHanzhongContext } from './HanzhongContext';
 import type { HanzhongFormationsCharacterType } from './types';

@@ -2,7 +2,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { NavLink } from 'react-router';
 
-export const MainHeader = () => {
+export const AppHeader = () => {
   return (
     <Grid container size={{ xs: 12 }} spacing={1} sx={{ mb: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
       <Grid sx={{ height: { xs: 30, sm: 40 } }}>

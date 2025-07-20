@@ -1,5 +1,5 @@
-import { CardWrapper } from '../../components';
 import type { HanzhongBanditAttackType } from '../types';
+import { CardWrapper } from '../../shared';
 
 import { HanzhongContextUserCheckbox } from './ContextCheckbox';
 

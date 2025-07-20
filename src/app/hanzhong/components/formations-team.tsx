@@ -1,7 +1,9 @@
 import Grid from '@mui/material/Grid';
+
+import { PaperWrapper } from '../../shared';
+
 import { HanzhongFormationsCharacter } from './formations-character';
 import type { HanzhongFormationsCharacterType, HanzhongFormationsTeamType } from './types';
-import { PaperWrapper } from '../../components';
 
 export type HanzhongFormationsTeamProps = {
   team: HanzhongFormationsTeamType;

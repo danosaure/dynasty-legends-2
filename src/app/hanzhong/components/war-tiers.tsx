@@ -1,4 +1,4 @@
-import { TitleTypographyWrapper } from '../../components';
+import { TitleTypographyWrapper } from '../../shared';
 
 export const HanzhongWarTiers = () => {
   return (

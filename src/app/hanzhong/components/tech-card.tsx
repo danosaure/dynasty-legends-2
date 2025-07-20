@@ -2,7 +2,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import Box from '@mui/material/Box';
-import { CardWrapper, ValueAdjuster } from '../../components';
+import { CardWrapper, ValueAdjuster } from '../../shared';
 import { useHanzhongContext } from './HanzhongContext';
 import { HanzhongEstimatedTime } from './resources-timers';
 import { HanzhongTechCardImage } from './tech-card-image';

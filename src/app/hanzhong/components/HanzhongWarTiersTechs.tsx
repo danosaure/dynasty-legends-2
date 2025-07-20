@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid';
 
-import { TitleTypographyWrapper } from '../../components';
+import { TitleTypographyWrapper } from '../../shared';
 
 import { HanzhongWarTierTechs } from './HanzhongWarTierTechs';
 import { useHanzhongContext } from './HanzhongContext';

@@ -1,5 +1,4 @@
-import { getUserDataByUsername } from '../../persistence';
-import { saveUserDataByUsername } from '../../persistence/save-user-data-by-username';
+import { getUserDataByUsername, saveUserDataByUsername } from '../../../persistence';
 
 import type { HanzhongUserDataType } from '../types';
 
