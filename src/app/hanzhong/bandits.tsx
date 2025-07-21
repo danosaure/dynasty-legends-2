@@ -11,7 +11,9 @@ export const HanzhongBandits = () => {
 
   const grid = [1, 2, 3, 4, 5, 6, 7].map((day) => {
     const attacks = [1, 2].map((attack) => {
-      const bandit = hanzhong.bandits.attacks.find((anAttack) => anAttack.day === day && anAttack.attack === attack);
+      const bandit = hanzhong.bandits.attacks.find(
+        (anAttack: HanzhongBanditAttackType) => anAttack.day === day && anAttack.attack === attack
+      );
       return bandit;
     });
 

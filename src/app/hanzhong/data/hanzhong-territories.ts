@@ -1,7 +1,7 @@
-import type { HanzhongTerritoryType } from '../types';
+import type { HanzhongTerritoriesType } from '../types';
 import { HANZHONG_TERRITORY_IDS, HANZHONG_TERRITORY_LEVEL_IDS } from '../constants/items-ids';
 
-export const HANZHONG_TERRITORIES: HanzhongTerritoryType = {
+export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
   features: [
     'Increases Wei Officers damage to the garrison by 20%',
     'Increases Shu Officers damage to the garrison by 20%',
