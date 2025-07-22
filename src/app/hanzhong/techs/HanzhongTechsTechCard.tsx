@@ -3,10 +3,10 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import { CardWrapper, ValueAdjuster } from '../../shared';
-
 import { useHanzhongContext } from '../HanzhongContext';
 import { HanzhongEstimatedTime } from '../resources-timers';
-import { HanzhongTechCardImage } from '../tech-card-image';
+
+import { HanzhongTechsTechCardImage } from './HanzhongTechsTechCardImage';
 
 export type HanzhongTechsTechCardProps = {
   id: string;
@@ -34,7 +34,7 @@ export const HanzhongTechsTechCard = ({ id, assetImage, label, value, maxValue }
         >
           <Box sx={{ position: 'relative' }}>
             <Box sx={{ width: { xs: '36px', md: '80px' }, textAlign: 'center' }}>
-              <HanzhongTechCardImage assetImage={assetImage} />
+              <HanzhongTechsTechCardImage assetImage={assetImage} />
             </Box>
             <HanzhongEstimatedTime id={id} />
           </Box>

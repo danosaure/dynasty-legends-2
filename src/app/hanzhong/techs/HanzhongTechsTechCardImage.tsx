@@ -1,8 +1,8 @@
-export type HanzhongTechCardImageProps = {
+export type HanzhongTechsTechCardImageProps = {
   assetImage: string;
 };
 
-export const HanzhongTechCardImage = ({ assetImage }: HanzhongTechCardImageProps) => {
+export const HanzhongTechsTechCardImage = ({ assetImage }: HanzhongTechsTechCardImageProps) => {
   const src = `${import.meta.env.BASE_URL}assets/${assetImage}`;
   const imgStyle = {
     maxWidth: '100%',
