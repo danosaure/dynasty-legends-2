@@ -47,7 +47,7 @@ export const HanzhongTechs = () => {
       ))}
 
       <Dialog open={techId !== NO_TECH_ID} onClose={() => hideTechId()}>
-        TODO: Put dialog content here.
+        TODO: Put dialog content here for {techId}
       </Dialog>
     </HanzhongTechsContext.Provider>
   );
