@@ -2,13 +2,13 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
-import { CardWrapper, ValueAdjuster } from '../shared';
+import { CardWrapper, ValueAdjuster } from '../../shared';
 
-import { useHanzhongContext } from './HanzhongContext';
-import { HanzhongEstimatedTime } from './resources-timers';
-import { HanzhongTechCardImage } from './tech-card-image';
+import { useHanzhongContext } from '../HanzhongContext';
+import { HanzhongEstimatedTime } from '../resources-timers';
+import { HanzhongTechCardImage } from '../tech-card-image';
 
-export type HanzhongTechCardProps = {
+export type HanzhongTechsTechCardProps = {
   id: string;
   assetImage: string;
   label: string;
@@ -16,7 +16,7 @@ export type HanzhongTechCardProps = {
   maxValue: number;
 };
 
-export const HanzhongTechCard = ({ id, assetImage, label, value, maxValue }: HanzhongTechCardProps) => {
+export const HanzhongTechsTechCard = ({ id, assetImage, label, value, maxValue }: HanzhongTechsTechCardProps) => {
   const { onChange } = useHanzhongContext();
 
   return (
