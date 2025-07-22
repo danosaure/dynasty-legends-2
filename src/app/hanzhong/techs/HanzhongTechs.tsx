@@ -4,12 +4,12 @@ import Grid from '@mui/material/Grid';
 
 import { TitleTypographyWrapper } from '../../shared';
 
-import { HanzhongWarTierTechs } from '../HanzhongWarTierTechs';
 import { useHanzhongContext } from '../HanzhongContext';
 import { HanzhongResourcesBar } from '../resources-timers';
 
 import { NO_TECH_ID } from './constants';
 import { HanzhongTechsContext, type HanzhongTechsContextType } from './context';
+import { HanzhongTechsWarTier } from './HanzhongTechsWarTier';
 
 export const HanzhongTechs = () => {
   const { hanzhong } = useHanzhongContext();
@@ -43,7 +43,7 @@ export const HanzhongTechs = () => {
         <HanzhongResourcesBar />
       </Grid>
       {hanzhong.warTiers.map((hanzhongWarTier) => (
-        <HanzhongWarTierTechs key={hanzhongWarTier.id} info={hanzhongWarTier} />
+        <HanzhongTechsWarTier key={hanzhongWarTier.id} info={hanzhongWarTier} />
       ))}
 
       <Dialog open={techId !== NO_TECH_ID} onClose={() => hideTechId()}>

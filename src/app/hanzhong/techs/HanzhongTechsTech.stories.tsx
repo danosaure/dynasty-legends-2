@@ -1,21 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { HANZHONG_TECH_ATTACK_TRAINING_1 } from './data/hanzhong-techs';
-import { HanzhongTech, type HanzhongTechProps } from './HanzhongTech';
+import { HANZHONG_TECH_ATTACK_TRAINING_1 } from '../data/hanzhong-techs';
 
-const defaultProps: HanzhongTechProps = {
+import { HanzhongTechsTech, type HanzhongTechsTechProps } from './HanzhongTechsTech';
+
+const defaultProps: HanzhongTechsTechProps = {
   info: HANZHONG_TECH_ATTACK_TRAINING_1,
   value: 2,
 };
 
 const meta = {
-  title: 'Hanzhong/Tech',
-  component: HanzhongTech,
+  title: 'Hanzhong/Techs/Tech',
+  component: HanzhongTechsTech,
   tags: ['autodocs'],
   args: {
     ...defaultProps,
   },
-} satisfies Meta<typeof HanzhongTech>;
+} satisfies Meta<typeof HanzhongTechsTech>;
 
 type Story = StoryObj<typeof meta>;
 
