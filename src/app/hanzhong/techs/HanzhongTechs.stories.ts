@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { HanzhongWarTiersTechs } from './HanzhongWarTiersTechs';
+import { HanzhongTechs } from './HanzhongTechs';
 
 const defaultProps = {};
 
 const meta = {
-  title: 'Hanzhong/WarTiersTechs',
-  component: HanzhongWarTiersTechs,
+  title: 'Hanzhong/Techs',
+  component: HanzhongTechs,
   tags: ['autodocs'],
   args: {
     ...defaultProps,
   },
-} satisfies Meta<typeof HanzhongWarTiersTechs>;
+} satisfies Meta<typeof HanzhongTechs>;
 
 type Story = StoryObj<typeof meta>;
 
