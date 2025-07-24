@@ -1,14 +1,16 @@
+import InfoOutlineIcon from '@mui/icons-material/InfoOutline';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
-import { CardWrapper, ValueAdjuster } from '../shared';
+import { CardWrapper, ValueAdjuster, WrappedIconButton } from '../../shared';
+import { useHanzhongContext } from '../HanzhongContext';
+import { HanzhongEstimatedTime } from '../resources-timers';
 
-import { useHanzhongContext } from './HanzhongContext';
-import { HanzhongEstimatedTime } from './resources-timers';
-import { HanzhongTechCardImage } from './tech-card-image';
+import { HanzhongTechsTechCardImage } from './HanzhongTechsTechCardImage';
+import { useHanzhongTechsContext } from './context';
 
-export type HanzhongTechCardProps = {
+export type HanzhongTechsTechCardProps = {
   id: string;
   assetImage: string;
   label: string;
@@ -16,8 +18,9 @@ export type HanzhongTechCardProps = {
   maxValue: number;
 };
 
-export const HanzhongTechCard = ({ id, assetImage, label, value, maxValue }: HanzhongTechCardProps) => {
+export const HanzhongTechsTechCard = ({ id, assetImage, label, value, maxValue }: HanzhongTechsTechCardProps) => {
   const { onChange } = useHanzhongContext();
+  const { displayTechId } = useHanzhongTechsContext();
 
   return (
     <CardWrapper
@@ -34,9 +37,21 @@ export const HanzhongTechCard = ({ id, assetImage, label, value, maxValue }: Han
         >
           <Box sx={{ position: 'relative' }}>
             <Box sx={{ width: { xs: '36px', md: '80px' }, textAlign: 'center' }}>
-              <HanzhongTechCardImage assetImage={assetImage} />
+              <HanzhongTechsTechCardImage assetImage={assetImage} />
             </Box>
             <HanzhongEstimatedTime id={id} />
+            <Box
+              sx={{
+                p: 0,
+                position: 'absolute',
+                top: { xs: -15, md: -10 },
+                borderRadius: '20px',
+                lineHeight: 0,
+                left: { xs: -10, md: -15 },
+              }}
+            >
+              <WrappedIconButton label="Show details" Icon={InfoOutlineIcon} onClick={() => displayTechId(id)} small />
+            </Box>
           </Box>
         </Grid>
         <Grid size={{ xs: 'grow', md: 12 }}>

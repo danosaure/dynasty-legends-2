@@ -1,16 +1,16 @@
 import Grid from '@mui/material/Grid';
 
-import { PaperWrapper } from '../shared';
+import { PaperWrapper } from '../../shared';
+import { useHanzhongContext } from '../HanzhongContext';
+import type { HanzhongTechType, HanzhongWarTierType } from '../types';
 
-import { useHanzhongContext } from './HanzhongContext';
-import { HanzhongTech } from './HanzhongTech';
-import type { HanzhongTechType, HanzhongWarTierType } from './types';
+import { HanzhongTechsTech } from './HanzhongTechsTech';
 
-export interface HanzhongWarTierTechsProps {
+export interface HanzhongTechsWarTierProps {
   info: HanzhongWarTierType;
 }
 
-export const HanzhongWarTierTechs = ({ info }: HanzhongWarTierTechsProps) => {
+export const HanzhongTechsWarTier = ({ info }: HanzhongTechsWarTierProps) => {
   const { user } = useHanzhongContext();
 
   return (
@@ -32,7 +32,7 @@ export const HanzhongWarTierTechs = ({ info }: HanzhongWarTierTechsProps) => {
 
         <Grid container size="grow" spacing={1}>
           {info.techs.map((tech: HanzhongTechType) => (
-            <HanzhongTech key={tech.id} info={tech} value={user[tech.id] ?? 0} />
+            <HanzhongTechsTech key={tech.id} info={tech} value={user[tech.id] ?? 0} />
           ))}
         </Grid>
       </Grid>
