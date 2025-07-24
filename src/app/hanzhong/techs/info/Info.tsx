@@ -14,6 +14,7 @@ import { useHanzhongContext } from '../../HanzhongContext';
 import { generateLevelsToDisplay } from './generate-levels-to-display';
 import type { HanzhongTechsTechLevelDisplayType } from './types';
 import { HanzhongTechsTechInfoLevel } from './level';
+import Typography from '@mui/material/Typography';
 
 export type HanzhongTechsTechInfoProps = {
   onClose: () => void;
@@ -34,8 +35,15 @@ export const HanzhongTechsTechInfo = ({ onClose }: HanzhongTechsTechInfoProps) =
   }
 
   const levels = generateLevelsToDisplay(tech.levels, user[techId] ?? 0);
-  console.log(`<HanzhongTechsTechInfo>: levels=`, levels);
 
+  const modalContent =
+    levels.length === 0 ? (
+      <Typography color="success">All completed.</Typography>
+    ) : (
+      levels.map((level: HanzhongTechsTechLevelDisplayType, idx: number) => (
+        <HanzhongTechsTechInfoLevel key={`${techId}--${idx + 1}`} userLevel={user[techId] ?? 0} info={level} />
+      ))
+    );
   return (
     <Dialog
       open={techId !== NO_TECH_ID}
@@ -58,9 +66,7 @@ export const HanzhongTechsTechInfo = ({ onClose }: HanzhongTechsTechInfoProps) =
         </DialogContentText>
 
         <Grid size={12} container sx={{ mt: '10px' }} spacing={1}>
-          {levels.map((level: HanzhongTechsTechLevelDisplayType, idx: number) => (
-            <HanzhongTechsTechInfoLevel key={`${techId}--${idx + 1}`} userLevel={user[techId] ?? 0} info={level} />
-          ))}
+          {modalContent}
         </Grid>
       </DialogContent>
     </Dialog>
