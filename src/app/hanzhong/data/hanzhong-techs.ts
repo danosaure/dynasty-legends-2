@@ -163,7 +163,7 @@ export const HANZHONG_TECH_MIGHTY_GENERALS: HanzhongTechType = {
       },
       bonuses: {
         description:
-          'Each evolution level increase of Mythich or above quality Officers deployed in a Formation boosts the damage dealt in battle by all Officers in this Formation by 0.5%.',
+          'Each evolution level increase of Mythic or above quality Officers deployed in a Formation boosts the damage dealt in battle by all Officers in this Formation by 0.5%.',
       },
     },
   ],

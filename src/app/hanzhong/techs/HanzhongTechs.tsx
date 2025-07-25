@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-import Dialog from '@mui/material/Dialog';
 import Grid from '@mui/material/Grid';
 
 import { TitleTypographyWrapper } from '../../shared';
@@ -10,6 +9,7 @@ import { HanzhongResourcesBar } from '../resources-timers';
 import { NO_TECH_ID } from './constants';
 import { HanzhongTechsContext, type HanzhongTechsContextType } from './context';
 import { HanzhongTechsWarTier } from './HanzhongTechsWarTier';
+import { HanzhongTechsTechInfo } from './info';
 
 export const HanzhongTechs = () => {
   const { hanzhong } = useHanzhongContext();
@@ -27,11 +27,11 @@ export const HanzhongTechs = () => {
   const context: HanzhongTechsContextType = useMemo(
     () =>
       ({
-        techId: NO_TECH_ID,
+        techId: techId,
         displayTechId,
         hideTechId,
       } as const),
-    []
+    [techId]
   );
 
   return (
@@ -46,9 +46,7 @@ export const HanzhongTechs = () => {
         <HanzhongTechsWarTier key={hanzhongWarTier.id} info={hanzhongWarTier} />
       ))}
 
-      <Dialog open={techId !== NO_TECH_ID} onClose={() => hideTechId()}>
-        TODO: Put dialog content here for {techId}
-      </Dialog>
+      <HanzhongTechsTechInfo onClose={hideTechId} />
     </HanzhongTechsContext.Provider>
   );
 };
