@@ -1,6 +1,6 @@
 import type { HanzhongBonusType, HanzhongUserDataType } from '../../types';
 import { findResourcesNeededByTechIdAndLevel } from '../../utils';
-import { calculateTimeNeededForResource } from './calculate-time-needed-for-resource';
+import { calculateTimeNeededForResources } from './calculate-time-needed-for-resources';
 import { TIME_KEYS } from './constants';
 import { extractResourceDataFromUser } from './extract-resource-data-from-user';
 import { formatTime } from './format-time';
@@ -20,21 +20,15 @@ export const calculateTimeNeeded = (id: string, user: HanzhongUserDataType, bonu
 
   const resourceData = extractResourceDataFromUser(user, bonuses);
 
-  const dataToProcess = [
-    [resourcesNeeded.lumber, resourceData.lumber, resourceData.woodRate],
-    [resourcesNeeded.grains, resourceData.grains, resourceData.grainsRate],
-    [resourcesNeeded.iron, resourceData.iron, resourceData.ironRate],
-  ];
+  const longestTime = calculateTimeNeededForResources(resourceData, resourcesNeeded, {
+    lumber: resourceData.woodRate,
+    grains: resourceData.grainsRate,
+    iron: resourceData.ironRate,
+  });
 
-  const [timeForLumber, timeForGrains, timeForIron] = dataToProcess.map(([quantityNeeded, currentInventory, productionRate]) =>
-    calculateTimeNeededForResource(currentInventory, quantityNeeded, productionRate)
-  );
-
-  if (timeForLumber === null || timeForGrains === null || timeForIron === null) {
+  if (longestTime === null) {
     return TIME_KEYS.DONT_KNOW;
   }
-
-  const longestTime = Math.max(timeForLumber, timeForGrains, timeForIron);
 
   return formatTime(longestTime);
 };
