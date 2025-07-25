@@ -9,6 +9,7 @@ const __cache: Record<number, string> = {};
 
 export type HanzhongTimerDisplayProps = {
   minutes: number | null;
+  small?: boolean;
 };
 
 const convertMinutesToString = (minutes: number | null): string => {
@@ -53,12 +54,14 @@ const convertMinutesToColor = (minutes: number | null): string => {
   }
 };
 
-export const HanzhongTimerDisplay = ({ minutes }: HanzhongTimerDisplayProps) => {
+export const HanzhongTimerDisplay = ({ minutes, small }: HanzhongTimerDisplayProps) => {
   const color = convertMinutesToColor(minutes);
   const timeString = convertMinutesToString(minutes);
 
+  const fontSize = small ? { xs: '9px', sm: '13px' } : { xs: '12px', sm: '16px' };
+
   return (
-    <Typography color={color} sx={{ fontSize: { xs: '12px', sm: '16px', md: '16px' } }}>
+    <Typography color={color} sx={{ fontSize }}>
       {timeString}
     </Typography>
   );

@@ -1,22 +1,20 @@
 import { useEffect, useState } from 'react';
 import DoneIcon from '@mui/icons-material/Done';
 import Box from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
 
 import { PaperWrapper } from '../../shared';
 import { useHanzhongContext } from '../HanzhongContext';
 
 import { calculateTimeNeeded, TIME_KEYS } from './utils';
+import { HanzhongTimerDisplay } from './TimerDisplay';
 
 export type HanzhongEstimatedTimeProps = {
   id: string;
 };
 
 export const HanzhongEstimatedTime = ({ id }: HanzhongEstimatedTimeProps) => {
-  const theme = useTheme();
   const { bonuses, user } = useHanzhongContext();
-  const [value, setValue] = useState<string>('');
+  const [value, setValue] = useState<string | number | null>('');
 
   useEffect(() => {
     setValue(calculateTimeNeeded(id, user, bonuses));
@@ -26,7 +24,7 @@ export const HanzhongEstimatedTime = ({ id }: HanzhongEstimatedTimeProps) => {
     return null;
   }
 
-  if (value === TIME_KEYS.MAX_LEVEL_REACHED) {
+  if (value === -1) {
     return (
       <Box
         sx={{
@@ -46,17 +44,8 @@ export const HanzhongEstimatedTime = ({ id }: HanzhongEstimatedTimeProps) => {
 
   return (
     <Box sx={{ p: 0, position: 'absolute', bottom: 0, opacity: 0.8 }}>
-      <PaperWrapper elevation={10} sx={{ p: '2px', width: '100%' }}>
-        <Typography
-          sx={{ fontSize: { xs: 8, md: 15 }, m: '2px' }}
-          style={{
-            width: '100%',
-            textAlign: 'center',
-            color: theme.palette.primary.dark,
-          }}
-        >
-          {value}
-        </Typography>
+      <PaperWrapper elevation={10} sx={{ p: '1px', width: '100%' }}>
+        <HanzhongTimerDisplay minutes={value} small />
       </PaperWrapper>
     </Box>
   );
