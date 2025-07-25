@@ -1,3 +1,4 @@
+export type { AptitudeType } from './aptitude';
 export type { BaseIDType } from './base-id-type';
 export type { FactionType } from './faction';
 export type { IconType } from './icon-type';
