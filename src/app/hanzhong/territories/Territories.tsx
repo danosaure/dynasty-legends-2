@@ -1,9 +1,10 @@
 import Grid from '@mui/material/Grid';
 
-import { useHanzhongContext } from './HanzhongContext';
-import { TitleTypographyWrapper } from '../shared';
+import { TitleTypographyWrapper } from '../../shared';
+import { useHanzhongContext } from '../HanzhongContext';
+import type { HanzhongTerritoryLevelType } from '../types';
+
 import { TerritoryLevel } from './TerritoryLevel';
-import type { HanzhongTerritoryLevelType } from './types';
 
 export const HanzhongTerritories = () => {
   const { hanzhong } = useHanzhongContext();

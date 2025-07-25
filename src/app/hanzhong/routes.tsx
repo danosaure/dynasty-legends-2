@@ -6,9 +6,9 @@ import { HanzhongCities } from './cities';
 import { HanzhongFormations } from './formations';
 import { HanzhongTechs } from './techs';
 import { HanzhongLayout } from './layout';
-import { HanzhongTerritories } from './Territories';
 import { HanzhongWarTiers } from './war-tiers';
 import { HANZHONG_ROUTES } from './constants';
+import { HanzhongTerritories } from './territories';
 
 export const HanzhongRoutes = (
   <Route Component={HanzhongLayout}>
