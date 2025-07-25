@@ -6,8 +6,6 @@ import { HanzhongTechsTechInfoLevelResources } from './LevelResources';
 import { HanzhongTechsTechInfoLevelBonuses } from './LevelBonuses';
 import { useHanzhongContext } from '../../../HanzhongContext';
 import { extractResourceDataFromUser } from '../../../resources-timers/utils/extract-resource-data-from-user';
-import { calculateTimeNeededForResource } from '../../../resources-timers/utils/calculate-time-needed-for-resource';
-import { TIME_KEYS } from '../../../resources-timers/utils';
 import { HanzhongTimerDisplay } from '../../../resources-timers/TimerDisplay';
 import { calculateTimeNeededForResources } from '../../../resources-timers/utils/calculate-time-needed-for-resources';
 

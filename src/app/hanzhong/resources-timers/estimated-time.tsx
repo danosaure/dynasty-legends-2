@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import { PaperWrapper } from '../../shared';
 import { useHanzhongContext } from '../HanzhongContext';
 
-import { calculateTimeNeeded, TIME_KEYS } from './utils';
+import { calculateTimeNeeded } from './utils';
 import { HanzhongTimerDisplay } from './TimerDisplay';
 
 export type HanzhongEstimatedTimeProps = {
@@ -45,7 +45,7 @@ export const HanzhongEstimatedTime = ({ id }: HanzhongEstimatedTimeProps) => {
   return (
     <Box sx={{ p: 0, position: 'absolute', bottom: 0, opacity: 0.8 }}>
       <PaperWrapper elevation={10} sx={{ p: '1px', width: '100%' }}>
-        <HanzhongTimerDisplay minutes={value} small />
+        <HanzhongTimerDisplay minutes={value as number | null} small />
       </PaperWrapper>
     </Box>
   );
