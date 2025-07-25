@@ -5,21 +5,25 @@ const RAW: AptitudeType[] = [
     id: 'aptitude--16',
     name: 'Aptitude 16',
     aptitude: 16,
+    color: '#D4895A',
   },
   {
     id: 'aptitude--18',
     name: 'Aptitude 18',
     aptitude: 18,
+    color: '#D36B67',
   },
   {
     id: 'aptitude--20',
     name: 'Aptitude 20',
     aptitude: 20,
+    color: '#D4AC59',
   },
   {
     id: 'aptitude--22',
     name: 'Aptitude 22',
     aptitude: 22,
+    color: '#FBF488',
   },
 ];
 
