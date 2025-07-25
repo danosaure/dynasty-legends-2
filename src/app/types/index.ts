@@ -1,4 +1,5 @@
 export type { BaseIDType } from './base-id-type';
+export type { FactionType } from './faction';
 export type { IconType } from './icon-type';
 export type { MaterialUiIconColorType } from './MaterialUiIconColorType';
 export type { MaterialUiIconType } from './MaterialUiIconType';
