@@ -4,18 +4,22 @@ const RAW: FactionType[] = [
   {
     id: 'faction--wei',
     name: 'Wei',
+    color: '#466D97',
   },
   {
     id: 'faction--shu',
     name: 'Shu',
+    color: '#66875D',
   },
   {
     id: 'faction--wu',
     name: 'Wu',
+    color: '#A95B4A',
   },
   {
     id: 'faction--other',
     name: 'Other',
+    color: '#C88767',
   },
 ];
 
