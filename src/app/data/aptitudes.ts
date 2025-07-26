@@ -4,6 +4,7 @@ import type { AptitudeType, AptitudeValueType } from '../types';
 type DataType = [AptitudeValueType, number, string];
 
 export const APTITUDE_KEYS: Record<number, AptitudeValueType> = {
+  14: 14,
   16: 16,
   18: 18,
   19: 19,
@@ -12,8 +13,9 @@ export const APTITUDE_KEYS: Record<number, AptitudeValueType> = {
 } as const;
 
 const DATA: DataType[] = [
-  [APTITUDE_KEYS[16], 16, '#D4895A'],
-  [APTITUDE_KEYS[18], 18, '#D36B67'],
+  [APTITUDE_KEYS[14], 14, '#9B6444'],
+  [APTITUDE_KEYS[16], 16, '#873938'],
+  [APTITUDE_KEYS[18], 18, '#9F4140'],
   [APTITUDE_KEYS[19], 20, '#D36B67'],
   [APTITUDE_KEYS[20], 20, '#D4AC59'],
   [APTITUDE_KEYS[22], 22, '#FBF488'],

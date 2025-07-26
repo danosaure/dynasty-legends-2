@@ -5,6 +5,6 @@ export type OfficerType = BaseIDType & {
   name: string;
   factionId: string;
   aptitudeId: string;
-  officerTypeId: string;
+  officerTypeId: string[];
   bonds?: OfficerBondType[];
 };
