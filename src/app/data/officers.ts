@@ -66,7 +66,7 @@ const RAW: OfficerType[] = DATA.map((infos: DataType) => {
     name,
     factionId: getFactionIdByName(factionName),
     aptitudeId: getAptitudeIdByAptitude(aptitude),
-    officerTypeId: officerTypeNames.map((officerTypeName) => getOfficerTypeIdByName(officerTypeName)),
+    officerTypeIds: officerTypeNames.map((officerTypeName) => getOfficerTypeIdByName(officerTypeName)),
   };
 });
 
