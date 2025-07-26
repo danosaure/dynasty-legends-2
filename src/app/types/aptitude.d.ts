@@ -1,7 +1,9 @@
 import type { BaseIDType } from './base-id-type';
 
+export type AptitudeValueType = 16 | 18 | 19 | 20 | 22;
+
 export type AptitudeType = BaseIDType & {
   name: string;
-  aptitude: 16 | 18 | 20 | 22;
+  aptitude: AptitudeValueType;
   color: string;
 };
