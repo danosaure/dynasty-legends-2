@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import type { OfficerType } from '../types';
+import type { OfficerType, OfficerTypeType } from '../types';
 import { getAptitudeById, getFactionById, getOfficerTypeById } from '../data';
 import { CardWrapper } from '../shared';
 import Grid from '@mui/material/Grid';
@@ -15,7 +15,9 @@ export type OfficerCardProps = {
 export const OfficerCard = ({ officer, selectedFaction }: OfficerCardProps) => {
   const faction = getFactionById(officer.factionId);
   const aptitude = getAptitudeById(officer.aptitudeId);
-  const officerTypes = officer.officerTypeIds.map((officerTypeId) => getOfficerTypeById(officerTypeId));
+  const officerTypes: OfficerTypeType[] = officer.officerTypeIds.map<OfficerTypeType>((officerTypeId) =>
+    getOfficerTypeById(officerTypeId)
+  );
 
   const isVisible = selectedFaction === '' || selectedFaction === officer.factionId;
 
@@ -30,25 +32,27 @@ export const OfficerCard = ({ officer, selectedFaction }: OfficerCardProps) => {
           </Box>
         </Grid>
         <Grid size="grow" container direction={'column'} spacing={0}>
-          <Grid>
-            <Typography>{officer.name}</Typography>
-          </Grid>
-          <Grid container direction={'row'} spacing={2}>
-            <Typography sx={{ backgroundColor: aptitude?.color }}>Aptitude {aptitude?.name}</Typography>
-          </Grid>
-          <Grid container spacing={2}>
-            <Grid size={3}>
+          <Grid container direction={'row'} spacing={1}>
+            <Grid size="auto">
               <Tooltip title={faction?.name}>
                 <img src={assetPath(faction?.avatar.path)} alt={faction?.name} height={'25px'} />
               </Tooltip>
             </Grid>
-            {officerTypes.map((officerType) => (
-              <Grid size={3} key={officerType?.name}>
-                <Tooltip title={officerType?.name}>
+            <Grid size="grow">
+              <Typography>{officer.name}</Typography>
+            </Grid>
+          </Grid>
+          <Grid container direction={'row'} spacing={2}>
+            <Grid size="grow">
+              <Typography sx={{ backgroundColor: aptitude?.color }}>Aptitude {aptitude?.name}</Typography>
+            </Grid>
+            <Grid size="auto" container spacing={1}>
+              {officerTypes.map((officerType) => (
+                <Tooltip key={officerType.name} title={officerType?.name}>
                   <img src={assetPath(officerType?.avatar.path)} alt={officerType?.name} height={'20px'} />
                 </Tooltip>
-              </Grid>
-            ))}
+              ))}
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
