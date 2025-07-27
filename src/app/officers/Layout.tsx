@@ -12,26 +12,26 @@ export const OfficersLayout = () => {
   const [selectedAptitude, setSelectedAptitude] = useState<string>('');
   const [selectedOfficerType, setSelectedOfficerType] = useState<string>('');
 
-  const factionSelectorColor = selectedFaction === '' ? 'inherit' : getFactionById(selectedFaction).color;
-  const aptitudeSelectorColor = selectedAptitude === '' ? 'inherit' : getAptitudeById(selectedAptitude).color;
-  const officerTypeSelectorColor = selectedOfficerType === '' ? 'inherit' : getOfficerTypeById(selectedOfficerType).color;
+  const factionSelectorColor = selectedFaction === '' ? 'transparent' : getFactionById(selectedFaction).color;
+  const aptitudeSelectorColor = selectedAptitude === '' ? 'transparent' : getAptitudeById(selectedAptitude).color;
+  const officerTypeSelectorColor = selectedOfficerType === '' ? 'transparent' : getOfficerTypeById(selectedOfficerType).color;
 
   return (
     <Grid container direction={'row'} spacing={2}>
       <Grid container size={{ xs: 2, md: 1 }} direction={'column'}>
-        <Grid sx={{ backgroundColor: factionSelectorColor }}>
+        <Grid sx={{ borderRight: `5px solid ${factionSelectorColor}` }}>
           <OfficersFactionSelector selected={selectedFaction} onSelect={setSelectedFaction} />
         </Grid>
-        <Grid sx={{ backgroundColor: aptitudeSelectorColor }}>
+        <Grid sx={{ borderRight: `5px solid ${aptitudeSelectorColor}` }}>
           <OfficersAptitudeSelector selected={selectedAptitude} onSelect={setSelectedAptitude} />
         </Grid>
-        <Grid sx={{ backgroundColor: officerTypeSelectorColor }}>
+        <Grid sx={{ borderRight: `5px solid ${officerTypeSelectorColor}` }}>
           <OfficersOfficerTypeSelector selected={selectedOfficerType} onSelect={setSelectedOfficerType} />
         </Grid>
       </Grid>
       <Grid container size={{ xs: 10, md: 11 }} spacing={1}>
         {OFFICERS.map((officer) => (
-          <Grid key={officer.id} size={{ xs: 6, md: 3 }}>
+          <Grid key={officer.id} size={{ xs: 6, md: 4 }}>
             <OfficerCard
               officer={officer}
               selectedFaction={selectedFaction}

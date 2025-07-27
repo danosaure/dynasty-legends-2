@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import { useTheme } from '@mui/material/styles';
 
 import { APTITUDES } from '../data';
+import Tooltip from '@mui/material/Tooltip';
 
 export type OfficersAptitudeSelectorProps = {
   selected: string;
@@ -16,22 +17,25 @@ export const OfficersAptitudeSelector = ({ selected, onSelect }: OfficersAptitud
   return (
     <Grid container sx={{ alignItems: 'center', justifyContent: 'center', width: '100%' }}>
       <ButtonGroup orientation="vertical">
-        {APTITUDES.map((aptitude) => (
-          <Button
-            key={aptitude.name}
-            onClick={() => onSelect(aptitude.id === selected ? '' : aptitude.id)}
-            variant="outlined"
-            sx={{
-              backgroundColor: aptitude.color,
-              color: theme.palette.text.primary,
-              fontWeight: aptitude.id === selected ? 'bold' : 'inherit',
-              fontSize: aptitude.id === selected ? '1em' : '0.8em',
-            }}
-            size="small"
-          >
-            {aptitude.name}
-          </Button>
-        ))}
+        {APTITUDES.map((aptitude) => {
+          const isSelected = aptitude.id === selected;
+          return (
+            <Tooltip key={aptitude.name} title={isSelected ? 'Show All' : `Show Aptitude ${aptitude.name} Only`} placement="right">
+              <Button
+                onClick={() => onSelect(isSelected ? '' : aptitude.id)}
+                variant="outlined"
+                sx={{
+                  backgroundColor: aptitude.color,
+                  color: theme.palette.text.primary,
+                  fontWeight: isSelected ? 'bold' : 'inherit',
+                }}
+                size="small"
+              >
+                {aptitude.name}
+              </Button>
+            </Tooltip>
+          );
+        })}
       </ButtonGroup>
     </Grid>
   );

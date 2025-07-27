@@ -51,13 +51,15 @@ export const OfficerCard = ({ officer, selectedFaction, selectedAptitude, select
           </Grid>
           <Grid size={5} container spacing={0.7} sx={{ alignContent: 'center', justifyContent: 'flex-end' }}>
             {officerTypes.map((officerType) => (
-              <Tooltip key={officerType.name} title={officerType?.name}>
-                <img src={assetPath(officerType?.avatar.path)} alt={officerType?.name} height={'17px'} />
-              </Tooltip>
+              <Box key={officerType.name} sx={{ height: { xs: '16px', sm: '20px', md: '24px' } }}>
+                <Tooltip title={officerType?.name}>
+                  <img src={assetPath(officerType?.avatar.path)} alt={officerType?.name} height={'100%'} />
+                </Tooltip>
+              </Box>
             ))}
           </Grid>
           <Grid size={12}>
-            <Typography sx={{ fontSize: { xs: '14px', sm: '14px' } }}>{officer.name}</Typography>
+            <Typography sx={{ fontSize: { xs: '14px', sm: '16px' } }}>{officer.name}</Typography>
           </Grid>
         </Grid>
       </Grid>

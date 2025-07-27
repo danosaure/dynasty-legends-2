@@ -15,17 +15,20 @@ export const OfficersOfficerTypeSelector = ({ selected, onSelect }: OfficerssOff
   return (
     <Grid container sx={{ width: '100%', justifyContent: 'center', alignItems: 'center' }}>
       <ButtonGroup orientation="vertical">
-        {OFFICER_TYPES.map((officerType) => (
-          <Tooltip key={officerType.name} title={officerType.name}>
-            <Button onClick={() => onSelect(officerType.id === selected ? '' : officerType.id)} variant="text">
-              <img
-                src={officerType.id === selected ? assetPath(officerType.avatar.path) : assetPath(officerType.avatar.alt)}
-                alt={officerType.name}
-                height={'35px'}
-              />
-            </Button>
-          </Tooltip>
-        ))}
+        {OFFICER_TYPES.map((officerType) => {
+          const isSelected = officerType.id === selected;
+          return (
+            <Tooltip key={officerType.name} title={isSelected ? 'Show All' : `Show ${officerType.name} Only`} placement="right">
+              <Button onClick={() => onSelect(isSelected ? '' : officerType.id)} variant="text">
+                <img
+                  src={isSelected ? assetPath(officerType.avatar.path) : assetPath(officerType.avatar.alt)}
+                  alt={officerType.name}
+                  height={'35px'}
+                />
+              </Button>
+            </Tooltip>
+          );
+        })}
       </ButtonGroup>
     </Grid>
   );
