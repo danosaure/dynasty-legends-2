@@ -13,7 +13,7 @@ export const OFFICER_TYPE_KEYS: Record<string, OfficerTypeNameType> = {
 } as const;
 
 const DATA: DataType[] = [
-  [OFFICER_TYPE_KEYS.ASSASSIN, '#554A45'],
+  [OFFICER_TYPE_KEYS.ASSASSIN, '#734A32'],
   [OFFICER_TYPE_KEYS.MAGE, '#35587E'],
   [OFFICER_TYPE_KEYS.MARKSMAN, '#67337C'],
   [OFFICER_TYPE_KEYS.SUPPORT, '#3E7A40'],
@@ -27,16 +27,30 @@ const RAW: OfficerTypeType[] = DATA.map((infos) => {
     id: sanitizeId(`officer-type--${name}`),
     name,
     color,
+    avatar: {
+      path: sanitizeId(`data/officer-types/${name}--active.png`),
+      alt: sanitizeId(`data/officer-types/${name}.png`),
+    },
   };
 });
 
 export const OFFICER_TYPES: OfficerTypeType[] = [...RAW] as const;
 
-export const getOfficerTypeById = (id: string): OfficerTypeType | undefined =>
-  OFFICER_TYPES.find((officerType) => officerType.id === id);
+export const getOfficerTypeById = (id: string): OfficerTypeType => {
+  const officerType = OFFICER_TYPES.find((officerType) => officerType.id === id);
+  if (!officerType) {
+    throw new Error(`Unknown officer type id "${id}".`);
+  }
+  return officerType;
+};
 
-export const getOfficerTypeByName = (name: string): OfficerTypeType | undefined =>
-  OFFICER_TYPES.find((officerType) => officerType.name === name);
+export const getOfficerTypeByName = (name: string): OfficerTypeType => {
+  const officerType = OFFICER_TYPES.find((officerType) => officerType.name === name);
+  if (!officerType) {
+    throw new Error(`Unknown officer type name "${name}".`);
+  }
+  return officerType;
+};
 
 export const getOfficerTypeIdByName = (name: string): string => {
   const officerType = getOfficerTypeByName(name);

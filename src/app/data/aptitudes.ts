@@ -13,11 +13,11 @@ export const APTITUDE_KEYS: Record<number, AptitudeValueType> = {
 } as const;
 
 const DATA: DataType[] = [
-  [APTITUDE_KEYS[14], 14, '#9B6444'],
-  [APTITUDE_KEYS[16], 16, '#873938'],
-  [APTITUDE_KEYS[18], 18, '#9F4140'],
-  [APTITUDE_KEYS[19], 20, '#D36B67'],
-  [APTITUDE_KEYS[20], 20, '#D4AC59'],
+  [APTITUDE_KEYS[14], 14, '#EEB488'],
+  [APTITUDE_KEYS[16], 16, '#E97878'],
+  [APTITUDE_KEYS[18], 18, '#F37979'],
+  [APTITUDE_KEYS[19], 20, '#FE7E7D'],
+  [APTITUDE_KEYS[20], 20, '#ECE385'],
   [APTITUDE_KEYS[22], 22, '#FBF488'],
 ];
 
@@ -33,12 +33,20 @@ const RAW: AptitudeType[] = DATA.map((infos: DataType) => {
 
 export const APTITUDES: AptitudeType[] = [...RAW] as const;
 
-export const getAptitudeById = (id: string): AptitudeType | undefined => APTITUDES.find((aptitude) => aptitude.id === id);
-
-export const getAptitudeByAptitude = (apt: number): AptitudeType | undefined =>
-  APTITUDES.find((aptitude) => aptitude.aptitude === apt);
-
-export const getAptitudeIdByAptitude = (apt: number): string => {
-  const aptitude = getAptitudeByAptitude(apt);
-  return aptitude?.id ?? '';
+export const getAptitudeById = (id: string): AptitudeType => {
+  const aptitude = APTITUDES.find((aptitude) => aptitude.id === id);
+  if (!aptitude) {
+    throw new Error(`Invalid aptitude id "${id}".`);
+  }
+  return aptitude;
 };
+
+export const getAptitudeByAptitude = (apt: AptitudeValueType): AptitudeType => {
+  const aptitude = APTITUDES.find((aptitude) => aptitude.aptitude === apt);
+  if (!aptitude) {
+    throw new Error(`Invalid aptitude ${apt}.`);
+  }
+  return aptitude;
+};
+
+export const getAptitudeIdByAptitude = (apt: AptitudeValueType): string => getAptitudeByAptitude(apt).id;
