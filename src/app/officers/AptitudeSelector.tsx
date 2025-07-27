@@ -26,7 +26,7 @@ export const OfficersAptitudeSelector = ({ selected, onSelect }: OfficersAptitud
                 backgroundColor: aptitude.color,
                 color: theme.palette.text.primary,
                 fontWeight: aptitude.id === selected ? 'bold' : 'inherit',
-                fontSize: aptitude.id === selected ? '1.3em' : '1em',
+                fontSize: aptitude.id === selected ? '1em' : '0.8em',
               }}
               size="small"
             >

@@ -11,9 +11,10 @@ export type OfficerCardProps = {
   officer: OfficerType;
   selectedFaction: string;
   selectedAptitude: string;
+  selectedOfficerType: string;
 };
 
-export const OfficerCard = ({ officer, selectedFaction, selectedAptitude }: OfficerCardProps) => {
+export const OfficerCard = ({ officer, selectedFaction, selectedAptitude, selectedOfficerType }: OfficerCardProps) => {
   const faction = getFactionById(officer.factionId);
   const aptitude = getAptitudeById(officer.aptitudeId);
   const officerTypes: OfficerTypeType[] = officer.officerTypeIds.map<OfficerTypeType>((officerTypeId) =>
@@ -22,7 +23,8 @@ export const OfficerCard = ({ officer, selectedFaction, selectedAptitude }: Offi
 
   const isVisible =
     (selectedFaction === '' || selectedFaction === officer.factionId) &&
-    (selectedAptitude === '' || selectedAptitude === officer.aptitudeId);
+    (selectedAptitude === '' || selectedAptitude === officer.aptitudeId) &&
+    (selectedOfficerType === '' || officer.officerTypeIds.includes(selectedOfficerType));
 
   const opacity = isVisible ? 1 : 0.2;
 

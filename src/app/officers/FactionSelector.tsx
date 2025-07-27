@@ -4,6 +4,7 @@ import Tooltip from '@mui/material/Tooltip';
 
 import { FACTIONS } from '../data';
 import { assetPath } from '../utils';
+import ButtonGroup from '@mui/material/ButtonGroup';
 
 export type OfficersFactionSelectorProps = {
   selected: string;
@@ -12,20 +13,20 @@ export type OfficersFactionSelectorProps = {
 
 export const OfficersFactionSelector = ({ selected, onSelect }: OfficersFactionSelectorProps) => {
   return (
-    <Grid container sx={{ height: '100%' }}>
-      {FACTIONS.map((faction) => (
-        <Grid size={3} key={faction.name}>
-          <Tooltip title={faction.name}>
-            <Button onClick={() => onSelect(faction.id === selected ? '' : faction.id)}>
+    <Grid container sx={{ height: '100%', justifyContent: 'center', alignItems: 'center' }}>
+      <ButtonGroup>
+        {FACTIONS.map((faction) => (
+          <Tooltip key={faction.name} title={faction.name}>
+            <Button onClick={() => onSelect(faction.id === selected ? '' : faction.id)} variant="text">
               <img
                 src={faction.id === selected ? assetPath(faction.avatar.path) : assetPath(faction.avatar.alt)}
                 alt={faction.name}
-                height={'50px'}
+                height={'35px'}
               />
             </Button>
           </Tooltip>
-        </Grid>
-      ))}
+        ))}
+      </ButtonGroup>
     </Grid>
   );
 };

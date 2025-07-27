@@ -13,7 +13,7 @@ export const OFFICER_TYPE_KEYS: Record<string, OfficerTypeNameType> = {
 } as const;
 
 const DATA: DataType[] = [
-  [OFFICER_TYPE_KEYS.ASSASSIN, '#554A45'],
+  [OFFICER_TYPE_KEYS.ASSASSIN, '#734A32'],
   [OFFICER_TYPE_KEYS.MAGE, '#35587E'],
   [OFFICER_TYPE_KEYS.MARKSMAN, '#67337C'],
   [OFFICER_TYPE_KEYS.SUPPORT, '#3E7A40'],
