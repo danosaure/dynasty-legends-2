@@ -10,16 +10,19 @@ import Box from '@mui/material/Box';
 export type OfficerCardProps = {
   officer: OfficerType;
   selectedFaction: string;
+  selectedAptitude: string;
 };
 
-export const OfficerCard = ({ officer, selectedFaction }: OfficerCardProps) => {
+export const OfficerCard = ({ officer, selectedFaction, selectedAptitude }: OfficerCardProps) => {
   const faction = getFactionById(officer.factionId);
   const aptitude = getAptitudeById(officer.aptitudeId);
   const officerTypes: OfficerTypeType[] = officer.officerTypeIds.map<OfficerTypeType>((officerTypeId) =>
     getOfficerTypeById(officerTypeId)
   );
 
-  const isVisible = selectedFaction === '' || selectedFaction === officer.factionId;
+  const isVisible =
+    (selectedFaction === '' || selectedFaction === officer.factionId) &&
+    (selectedAptitude === '' || selectedAptitude === officer.aptitudeId);
 
   const opacity = isVisible ? 1 : 0.2;
 

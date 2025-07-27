@@ -7,6 +7,7 @@ import { OfficerCard, type OfficerCardProps } from './Card';
 const defaultProps: OfficerCardProps = {
   officer: OFFICERS[Math.floor(Math.random() * OFFICERS.length)],
   selectedFaction: '',
+  selectedAptitude: '',
 };
 
 const meta = {
