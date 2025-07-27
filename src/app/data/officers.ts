@@ -34,7 +34,7 @@ const DATA: DataType[] = [
   ['Sun Jian', FACTION_KEYS.WU, APTITUDE_KEYS[20], [OFFICER_TYPE_KEYS.WARRIOR]],
   ['Sun Quan', FACTION_KEYS.WU, APTITUDE_KEYS[16], [OFFICER_TYPE_KEYS.SUPPORT]],
   ['Sun Shangxiang', FACTION_KEYS.WU, APTITUDE_KEYS[20], [OFFICER_TYPE_KEYS.MARKSMAN]],
-  ['Sima Yi', FACTION_KEYS.Wei, APTITUDE_KEYS[22], [OFFICER_TYPE_KEYS.MAGE, OFFICER_TYPE_KEYS.ASSASSIN]],
+  ['Sima Yi', FACTION_KEYS.WEI, APTITUDE_KEYS[22], [OFFICER_TYPE_KEYS.MAGE, OFFICER_TYPE_KEYS.ASSASSIN]],
   ['Taishi Ci', FACTION_KEYS.WU, APTITUDE_KEYS[20], [OFFICER_TYPE_KEYS.MARKSMAN]],
   ['Wen Chou', FACTION_KEYS.OTHER, APTITUDE_KEYS[14], [OFFICER_TYPE_KEYS.TANK]],
   ['Xiahou Dun', FACTION_KEYS.WEI, APTITUDE_KEYS[19], [OFFICER_TYPE_KEYS.WARRIOR]],
@@ -57,7 +57,14 @@ const DATA: DataType[] = [
   ['Zhou Yu', FACTION_KEYS.WU, APTITUDE_KEYS[22], [OFFICER_TYPE_KEYS.MAGE]],
   ['Zhuge Liang', FACTION_KEYS.SHU, APTITUDE_KEYS[22], [OFFICER_TYPE_KEYS.MAGE]],
   ['Zuo Ci', FACTION_KEYS.OTHER, APTITUDE_KEYS[22], [OFFICER_TYPE_KEYS.SUPPORT]],
-];
+].sort((a, b) => {
+  if ((a[2] as number) === (b[2] as number)) {
+    return (a[0] as string).localeCompare(b[0] as string);
+  }
+  return (b[2] as number) - (a[2] as number);
+});
+
+const avatar = (name: string): string => `data/officers/${sanitizeId(name)}.png`;
 
 const RAW: OfficerType[] = DATA.map((infos: DataType) => {
   const [name, factionName, aptitude, officerTypeNames] = infos;
@@ -67,14 +74,29 @@ const RAW: OfficerType[] = DATA.map((infos: DataType) => {
     factionId: getFactionIdByName(factionName),
     aptitudeId: getAptitudeIdByAptitude(aptitude),
     officerTypeIds: officerTypeNames.map((officerTypeName) => getOfficerTypeIdByName(officerTypeName)),
+    avatar: {
+      path: avatar(name),
+    },
   };
 });
 
 export const OFFICERS: OfficerType[] = [...RAW] as const;
 
-export const getOfficerById = (id: string): OfficerType | undefined => OFFICERS.find((officer) => officer.id === id);
+export const getOfficerById = (id: string): OfficerType => {
+  const officer = OFFICERS.find((officer) => officer.id === id);
+  if (!officer) {
+    throw new Error(`Invalid officer id "${id}".`);
+  }
+  return officer;
+};
 
-export const getOfficerByName = (name: string): OfficerType | undefined => OFFICERS.find((officer) => officer.name === name);
+export const getOfficerByName = (name: string): OfficerType => {
+  const officer = OFFICERS.find((officer) => officer.name === name);
+  if (!officer) {
+    throw new Error(`Invalid officer name "${name}".`);
+  }
+  return officer;
+};
 
 export const getOfficerIdByName = (name: string): string => {
   const officer = getOfficerByName(name);

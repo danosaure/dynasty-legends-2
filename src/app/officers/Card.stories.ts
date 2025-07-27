@@ -1,24 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import { OFFICERS } from '../data';
+
 import { OfficerCard, type OfficerCardProps } from './Card';
-import { sanitizeId } from '../../utils';
-import {
-  APTITUDE_KEYS,
-  FACTION_KEYS,
-  getAptitudeIdByAptitude,
-  getFactionIdByName,
-  getOfficerTypeIdByName,
-  OFFICER_TYPE_KEYS,
-} from '../data';
 
 const defaultProps: OfficerCardProps = {
-  officer: {
-    id: sanitizeId(`officers--Dong Zhuo`),
-    name: 'Dong Zhuo',
-    factionId: getFactionIdByName(FACTION_KEYS.OTHER),
-    aptitudeId: getAptitudeIdByAptitude(APTITUDE_KEYS[18]),
-    officerTypeIds: [getOfficerTypeIdByName(OFFICER_TYPE_KEYS.TANK)],
-  },
+  officer: OFFICERS[Math.floor(Math.random() * OFFICERS.length)],
+  selectedFaction: '',
 };
 
 const meta = {
@@ -39,18 +27,12 @@ export const Default: Story = {
     ...defaultProps,
   },
 };
-Default.storyName = 'Dong Zhuo';
+Default.storyName = 'random';
 
-export const ZhaoYun: Story = {
+export const Another: Story = {
   args: {
     ...defaultProps,
-    officer: {
-      id: sanitizeId(`officers--Zhao Yun`),
-      name: 'Zhao Yun',
-      factionId: getFactionIdByName(FACTION_KEYS.SHU),
-      aptitudeId: getAptitudeIdByAptitude(APTITUDE_KEYS[19]),
-      officerTypeIds: [getOfficerTypeIdByName(OFFICER_TYPE_KEYS.ASSASSIN)],
-    },
+    officer: OFFICERS[Math.floor(Math.random() * OFFICERS.length)],
   },
 };
-ZhaoYun.storyName = 'Zhao Yun';
+Another.storyName = 'another officer';

@@ -10,6 +10,9 @@ export const AppMain = () => {
 
       <ul>
         <li>
+          <Link to="/officers">Officers</Link>
+        </li>
+        <li>
           <Link to="/hanzhong">Hanzhong</Link>
         </li>
       </ul>
