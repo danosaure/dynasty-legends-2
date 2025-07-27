@@ -17,21 +17,21 @@ export const OfficersLayout = () => {
   const officerTypeSelectorColor = selectedOfficerType === '' ? 'inherit' : getOfficerTypeById(selectedOfficerType).color;
 
   return (
-    <Grid container direction={'column'} spacing={2}>
-      <Grid container>
-        <Grid size={4} sx={{ backgroundColor: factionSelectorColor }}>
+    <Grid container direction={'row'} spacing={2}>
+      <Grid container size={{ xs: 2, md: 1 }} direction={'column'}>
+        <Grid sx={{ backgroundColor: factionSelectorColor }}>
           <OfficersFactionSelector selected={selectedFaction} onSelect={setSelectedFaction} />
         </Grid>
-        <Grid size={4} sx={{ backgroundColor: aptitudeSelectorColor }}>
+        <Grid sx={{ backgroundColor: aptitudeSelectorColor }}>
           <OfficersAptitudeSelector selected={selectedAptitude} onSelect={setSelectedAptitude} />
         </Grid>
-        <Grid size={4} sx={{ backgroundColor: officerTypeSelectorColor }}>
+        <Grid sx={{ backgroundColor: officerTypeSelectorColor }}>
           <OfficersOfficerTypeSelector selected={selectedOfficerType} onSelect={setSelectedOfficerType} />
         </Grid>
       </Grid>
-      <Grid container>
+      <Grid container size={{ xs: 10, md: 11 }} spacing={1}>
         {OFFICERS.map((officer) => (
-          <Grid key={officer.id} size={3}>
+          <Grid key={officer.id} size={{ xs: 6, md: 3 }}>
             <OfficerCard
               officer={officer}
               selectedFaction={selectedFaction}

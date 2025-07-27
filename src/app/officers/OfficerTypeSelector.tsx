@@ -13,8 +13,8 @@ export type OfficerssOfficerTypeSelectorProps = {
 
 export const OfficersOfficerTypeSelector = ({ selected, onSelect }: OfficerssOfficerTypeSelectorProps) => {
   return (
-    <Grid container sx={{ height: '100%', justifyContent: 'center', alignItems: 'center' }}>
-      <ButtonGroup>
+    <Grid container sx={{ width: '100%', justifyContent: 'center', alignItems: 'center' }}>
+      <ButtonGroup orientation="vertical">
         {OFFICER_TYPES.map((officerType) => (
           <Tooltip key={officerType.name} title={officerType.name}>
             <Button onClick={() => onSelect(officerType.id === selected ? '' : officerType.id)} variant="text">

@@ -32,32 +32,32 @@ export const OfficerCard = ({ officer, selectedFaction, selectedAptitude, select
     <CardWrapper sx={{ backgroundColor: aptitude?.color, opacity }}>
       <Grid container size={12} spacing={1}>
         <Grid size="auto">
-          <Box sx={{ width: '100%', maxWidth: '50px' }}>
+          <Box sx={{ width: '100%', maxWidth: { xs: '30px', sm: '50px' } }}>
             <img src={assetPath(officer.avatar.path)} alt={officer.name} width="100%" />
           </Box>
         </Grid>
-        <Grid size="grow" container direction={'column'} spacing={0}>
-          <Grid container direction={'row'} spacing={1}>
-            <Grid size="auto">
-              <Tooltip title={faction?.name}>
-                <img src={assetPath(faction?.avatar.path)} alt={faction?.name} height={'25px'} />
-              </Tooltip>
-            </Grid>
-            <Grid size="grow">
-              <Typography>{officer.name}</Typography>
-            </Grid>
+        <Grid size="grow" container direction={'row'} spacing={0}>
+          <Grid size={3}>
+            <Tooltip title={faction?.name}>
+              <Box sx={{ height: { xs: '17px', sm: '25px' } }}>
+                <img src={assetPath(faction?.avatar.path)} alt={faction?.name} height={'100%'} />
+              </Box>
+            </Tooltip>
           </Grid>
-          <Grid container direction={'row'} spacing={2}>
-            <Grid size="grow">
-              <Typography sx={{ backgroundColor: aptitude?.color }}>Aptitude {aptitude?.name}</Typography>
-            </Grid>
-            <Grid size="auto" container spacing={1}>
-              {officerTypes.map((officerType) => (
-                <Tooltip key={officerType.name} title={officerType?.name}>
-                  <img src={assetPath(officerType?.avatar.path)} alt={officerType?.name} height={'20px'} />
-                </Tooltip>
-              ))}
-            </Grid>
+          <Grid size={4}>
+            <Typography sx={{ backgroundColor: aptitude?.color, fontSize: { xs: '10px', sm: '14px' } }}>
+              Apt {aptitude?.name}
+            </Typography>
+          </Grid>
+          <Grid size={5} container spacing={0.7} sx={{ alignContent: 'center', justifyContent: 'flex-end' }}>
+            {officerTypes.map((officerType) => (
+              <Tooltip key={officerType.name} title={officerType?.name}>
+                <img src={assetPath(officerType?.avatar.path)} alt={officerType?.name} height={'17px'} />
+              </Tooltip>
+            ))}
+          </Grid>
+          <Grid size={12}>
+            <Typography sx={{ fontSize: { xs: '14px', sm: '14px' } }}>{officer.name}</Typography>
           </Grid>
         </Grid>
       </Grid>

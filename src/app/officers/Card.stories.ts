@@ -8,6 +8,7 @@ const defaultProps: OfficerCardProps = {
   officer: OFFICERS[Math.floor(Math.random() * OFFICERS.length)],
   selectedFaction: '',
   selectedAptitude: '',
+  selectedOfficerType: '',
 };
 
 const meta = {
