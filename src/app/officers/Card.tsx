@@ -1,11 +1,12 @@
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import type { OfficerType, OfficerTypeType } from '../types';
+
 import { getAptitudeById, getFactionById, getOfficerTypeById } from '../data';
 import { CardWrapper } from '../shared';
-import Grid from '@mui/material/Grid';
+import type { OfficerType, OfficerTypeType } from '../types';
 import { assetPath } from '../utils';
-import Tooltip from '@mui/material/Tooltip';
-import Box from '@mui/material/Box';
 
 export type OfficerCardProps = {
   officer: OfficerType;
