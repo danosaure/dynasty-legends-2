@@ -2,7 +2,7 @@ import { sanitizeId } from './sanitize-id';
 
 import { describe, expect, it } from 'vitest';
 
-describe.only('sanitizeId()', () => {
+describe('sanitizeId()', () => {
   it('sanitizes a simple string', () => {
     expect(sanitizeId('foo')).toBe('foo');
   });
