@@ -26,6 +26,7 @@ export const ValueAdjuster = ({ value, maxValue, onChange }: ValueAdjusterProps)
     <Grid container size={{ xs: 12 }} sx={{ alignItems: 'center', justifyContent: 'center' }}>
       <Grid size="auto">
         <WrappedIconButton
+          data-testid="decrease-button"
           label="Decrease value"
           onClick={decreaseValue}
           Icon={ArrowDownwardSharpIcon}
@@ -40,6 +41,7 @@ export const ValueAdjuster = ({ value, maxValue, onChange }: ValueAdjusterProps)
       </Grid>
       <Grid size="auto">
         <WrappedIconButton
+          data-testid="increase-button"
           label="Increase value"
           onClick={increaseValue}
           Icon={ArrowUpwardSharpIcon}

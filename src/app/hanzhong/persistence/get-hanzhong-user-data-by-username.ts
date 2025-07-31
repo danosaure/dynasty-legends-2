@@ -1,7 +1,8 @@
 import { getUserDataByUsername } from '../../../persistence';
-import type { HanzhongUserDataType } from '../types';
+import type { HanzhongUserDomainData } from '../types';
+import { generateStructuredUserData } from '../utils';
 
-export const getHanzhongUserDataByUsername = async (username: string): Promise<HanzhongUserDataType> => {
+export const getHanzhongUserDataByUsername = async (username: string): Promise<HanzhongUserDomainData> => {
   const dbUserData = await getUserDataByUsername(username);
-  return dbUserData.hanzhong;
+  return generateStructuredUserData(dbUserData.hanzhong);
 };

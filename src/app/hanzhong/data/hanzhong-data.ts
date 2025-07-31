@@ -3,7 +3,7 @@ import { HANZHONG_TERRITORIES } from './hanzhong-territories';
 import { HANZHONG_WAR_TIERS } from './hanzhong-war-tiers';
 import type { HanzhongType } from '../types';
 import { HANZHONG_BANDITS } from './hanzhong-bandits';
-import { STRUCTURED_HANZHONG_FORMATIONS } from '../constants';
+import { STRUCTURED_HANZHONG_FORMATIONS } from './hanzhong-formations';
 
 export const HANZHONG_DATA: HanzhongType = {
   cities: HANZHONG_CITIES,

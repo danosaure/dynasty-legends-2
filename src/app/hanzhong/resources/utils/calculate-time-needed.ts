@@ -1,10 +1,11 @@
-import type { HanzhongBonusType, HanzhongUserDataType } from '../../types';
+import { SECTION_KEYS } from '../../constants';
+import type { HanzhongBonusType, HanzhongContextGetValue } from '../../types';
 import { findResourcesNeededByTechIdAndLevel } from '../../utils';
 import { calculateTimeNeededForResources } from './calculate-time-needed-for-resources';
 import { extractResourceDataFromUser } from './extract-resource-data-from-user';
 
-export const calculateTimeNeeded = (id: string, user: HanzhongUserDataType, bonuses: HanzhongBonusType): number | null => {
-  const resourcesNeeded = findResourcesNeededByTechIdAndLevel(id, user[id] ?? 0);
+export const calculateTimeNeeded = (getValue: HanzhongContextGetValue, id: string, bonuses: HanzhongBonusType): number | null => {
+  const resourcesNeeded = findResourcesNeededByTechIdAndLevel(id, getValue(SECTION_KEYS.TECHS, id));
 
   if (resourcesNeeded === null) {
     // Cannot find tech or level at max already.
@@ -16,7 +17,7 @@ export const calculateTimeNeeded = (id: string, user: HanzhongUserDataType, bonu
     return -1;
   }
 
-  const resourceData = extractResourceDataFromUser(user, bonuses);
+  const resourceData = extractResourceDataFromUser(getValue, bonuses);
 
   return calculateTimeNeededForResources(resourceData, resourcesNeeded, {
     lumber: resourceData.woodRate,

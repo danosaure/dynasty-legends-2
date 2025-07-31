@@ -36,11 +36,13 @@ export const HANZHONG_BANDIT_LEVELS: HanzhongBanditLevelsType = LEVELS_DATA.redu
   };
 }, {});
 
-type AttackDataRowType = [
-  1 | 2 | 3 | 4 | 5 | 6 | 7 /** Day of the attack */,
-  1 | 2 /** Attack of the day */,
-  PotentiallyUnknownNumberType /** Level of the bandits */
-];
+/** Day of the attack */
+export type HanzhongBanditDay = 1 | 2 | 3 | 4 | 5 | 6 | 7;
+
+/** Attack of the day */
+export type HanzhongBanditAttack = 1 | 2;
+
+type AttackDataRowType = [HanzhongBanditDay, HanzhongBanditAttack, PotentiallyUnknownNumberType /** Level of the bandits */];
 
 const ATTACKS_DATA: AttackDataRowType[] = [
   [1, 1, 1],

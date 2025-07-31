@@ -3,7 +3,7 @@ import type { HanzhongTechLevelType } from './hanzhong-tech-level-type';
 
 export type HanzhongTechType = BaseIDType & {
   assetPath: string;
-  label: string;
+  name: string;
   description: string;
   levels: HanzhongTechLevelType[];
 };

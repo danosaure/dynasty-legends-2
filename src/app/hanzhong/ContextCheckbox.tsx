@@ -3,23 +3,25 @@ import Checkbox from '@mui/material/Checkbox';
 
 import { useHanzhongContext } from './HanzhongContext';
 import { useTheme } from '@mui/material/styles';
+import type { HanzhongUserSectionName } from './types';
 
 export type HanzhongContextUserCheckboxProps = {
+  section: HanzhongUserSectionName;
   id: string;
 };
 
-export const HanzhongContextUserCheckbox = ({ id }: HanzhongContextUserCheckboxProps) => {
+export const HanzhongContextUserCheckbox = ({ section, id }: HanzhongContextUserCheckboxProps) => {
   const theme = useTheme();
-  const { user, onChange } = useHanzhongContext();
+  const { getValue, onChange } = useHanzhongContext();
 
-  const [checked, setChecked] = useState<boolean>(Boolean(user[id] ?? 0));
+  const [checked, setChecked] = useState<boolean>(Boolean(getValue(section, id)));
 
   useEffect(() => {
-    setChecked(Boolean(user[id] ?? 0));
-  }, [user, id]);
+    setChecked(Boolean(getValue(section, id)));
+  }, [getValue, section, id]);
 
   const checkboxChanged = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(id, e.target.checked ? 1 : 0);
+    onChange(section, id, e.target.checked ? 1 : 0);
     setChecked(e.target.checked);
   };
 

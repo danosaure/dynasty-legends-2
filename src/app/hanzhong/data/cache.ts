@@ -75,16 +75,3 @@ const CACHE: CacheType = {
 
 const getKeysFromObject = (obj: Record<string, BaseIDType>): string[] => Object.keys(obj);
 const getObjectById = <T>(obj: Record<string, BaseIDType>, id: string): T | null => (obj[id] as T) ?? null;
-
-export const getBanditById = (id: string): HanzhongBanditAttackType | null =>
-  getObjectById<HanzhongBanditAttackType>(CACHE.bandits, id);
-export const getBanditKeys = (): string[] => getKeysFromObject(CACHE.bandits);
-
-export const getCityById = (id: string): HanzhongCityType | null => getObjectById<HanzhongCityType>(CACHE.cities, id);
-export const getCityKeys = (): string[] => getKeysFromObject(CACHE.cities);
-
-export const getTechById = (id: string): HanzhongTechType | null => getObjectById<HanzhongTechType>(CACHE.techs, id);
-export const getTechKeys = (): string[] => getKeysFromObject(CACHE.techs);
-
-export const getWarTierById = (id: string): HanzhongWarTierType | null => getObjectById<HanzhongWarTierType>(CACHE.warTiers, id);
-export const getWarTierKeys = (): string[] => getKeysFromObject(CACHE.techs);

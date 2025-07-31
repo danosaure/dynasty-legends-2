@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography';
 
 import { CardWrapper, ValueAdjuster } from '../../shared';
 import { useHanzhongContext } from '../HanzhongContext';
+import { SECTION_KEYS } from '../constants';
 
 export type TerritoryLevelResourceProps = {
   label: string;
@@ -11,7 +12,7 @@ export type TerritoryLevelResourceProps = {
 };
 
 export const TerritoryLevelResource = ({ label, level, id }: TerritoryLevelResourceProps) => {
-  const { user, onChange } = useHanzhongContext();
+  const { getValue, onChange } = useHanzhongContext();
 
   return (
     <CardWrapper>
@@ -27,7 +28,10 @@ export const TerritoryLevelResource = ({ label, level, id }: TerritoryLevelResou
           </Typography>
         </Grid>
         <Grid size={{ xs: 12 }} sx={{ p: 0 }}>
-          <ValueAdjuster value={user[id] ?? 0} onChange={(newValue: number) => onChange(id, newValue)} />
+          <ValueAdjuster
+            value={getValue(SECTION_KEYS.TERRITORIES, id)}
+            onChange={(newValue: number) => onChange(SECTION_KEYS.TERRITORIES, id, newValue)}
+          />
         </Grid>
       </Grid>
     </CardWrapper>

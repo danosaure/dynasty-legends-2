@@ -4,6 +4,7 @@ import { DebouncedInputField } from '../shared';
 
 import { useHanzhongContext } from './HanzhongContext';
 import type { HanzhongFormationsCharacterType } from './types';
+import { SECTION_KEYS } from './constants';
 
 export type HanzhongFormationsCharacterPops = {
   info: HanzhongFormationsCharacterType;
@@ -12,7 +13,7 @@ export type HanzhongFormationsCharacterPops = {
 
 export const HanzhongFormationsCharacter = ({ info, rank }: HanzhongFormationsCharacterPops) => {
   const { onChange } = useHanzhongContext();
-  const fieldValueChanged = (newValue: number) => onChange(info.id, newValue);
+  const fieldValueChanged = (newValue: number) => onChange(SECTION_KEYS.FORMATIONS, info.id, newValue);
 
   return (
     <Grid sx={{ width: '70px' }}>

@@ -1,17 +1,18 @@
-import type { HanzhongBonusType, HanzhongType, HanzhongUserDataType } from '../types';
+import { SECTION_KEYS } from '../constants';
+import type { HanzhongBonusType, HanzhongContextGetValue } from '../types';
 import { addHanzhongBonuses } from './add-hanzhong-bonuses';
 import { findTechBonus } from './find-tech-bonus';
 
 export const calculateSpecialTrainingBonus = (
-  hanzhong: HanzhongType,
-  user: HanzhongUserDataType,
+  getValue: HanzhongContextGetValue,
   bonuses: HanzhongBonusType,
   id: string
 ): HanzhongBonusType => {
-  if (user[id]) {
-    const tech = findTechBonus(hanzhong, id);
+  const level = getValue(SECTION_KEYS.TECHS, id);
+  if (level) {
+    const tech = findTechBonus(id);
     if (tech) {
-      return addHanzhongBonuses(bonuses, tech.levels[user[id] - 1].bonuses);
+      return addHanzhongBonuses(bonuses, tech.levels[level - 1].bonuses);
     }
   }
   return bonuses;

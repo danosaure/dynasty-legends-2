@@ -1,16 +1,16 @@
 import { calculateSpecialTrainingBonus } from './calculate-special-training-bonus';
-import type { HanzhongBonusType, HanzhongInfoDataType, HanzhongType, HanzhongUserDataType } from '../types';
+import type { HanzhongBonusType, HanzhongContextGetValue, HanzhongInfoDataType } from '../types';
 import { calculateTacticalPoints } from './calculate-tactical-points';
 import { calculateUserFormationTacticalPoints } from './calculate-user-formation-tactical-points';
+import { STRUCTURED_HANZHONG_FORMATIONS } from '../data';
 
 export const calculateSpecialTrainingsTacticalPoints = (
-  hanzhong: HanzhongType,
-  user: HanzhongUserDataType,
+  getValue: HanzhongContextGetValue,
   bonuses: HanzhongBonusType
 ): HanzhongInfoDataType[] =>
-  hanzhong.formations.map((formation) => {
-    const formationBonuses = calculateSpecialTrainingBonus(hanzhong, user, bonuses, formation.techId);
-    const specialTrainingTacticalPoints = calculateTacticalPoints(formationBonuses);
-    const userFormationTacticalPoints = calculateUserFormationTacticalPoints(user, formation.id);
+  STRUCTURED_HANZHONG_FORMATIONS.map((formation) => {
+    const formationBonuses = calculateSpecialTrainingBonus(getValue, bonuses, formation.techId);
+    const specialTrainingTacticalPoints = calculateTacticalPoints(getValue, formationBonuses);
+    const userFormationTacticalPoints = calculateUserFormationTacticalPoints(getValue, formation.id);
     return { label: formation.name, value: specialTrainingTacticalPoints + userFormationTacticalPoints };
   });

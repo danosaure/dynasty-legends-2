@@ -1,24 +1,26 @@
 import type { HanzhongWarTierType } from '../types';
-import {
-  HANZHONG_WAR_TIER_1_TECHS,
-  HANZHONG_WAR_TIER_2_TECHS,
-  HANZHONG_WAR_TIER_3_TECHS,
-  HANZHONG_WAR_TIER_4_TECHS,
-  HANZHONG_WAR_TIER_5_TECHS,
-  HANZHONG_WAR_TIER_6_TECHS,
-  HANZHONG_WAR_TIER_7_TECHS,
-} from './hanzhong-techs';
+import * as HANZHONG_TECHS from './hanzhong-techs';
 
-import { HANZHONG_WAR_TIER_IDS } from '../constants/items-ids';
+import { DOMAIN_KEY, SECTION_KEYS } from '../constants';
+import { sanitizeId } from '../../../utils';
 
-const assetPath = (f: string): string => `hanzhong/war-tier/${f}.png`;
+export type HanzhongWarTierLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
-export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
-  id: HANZHONG_WAR_TIER_IDS.LV1,
+const assetPath = (filename: string): string => `${DOMAIN_KEY}/${SECTION_KEYS.WAR_TIERS}/${sanitizeId(filename)}.png`;
+
+const baseInfo = (level: HanzhongWarTierLevel) => {
+  return {
+    id: sanitizeId(`${SECTION_KEYS.WAR_TIERS}--${level}`),
+    name: `War Tier ${level}`,
+    icon: {
+      path: assetPath(`lv${level}`),
+    },
+  };
+};
+
+const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
+  ...baseInfo(1),
   bg: '#B9E5E4',
-  icon: {
-    path: assetPath('lv1'),
-  },
   tasks: [
     {
       label: 'Logging Pioneer',
@@ -42,15 +44,17 @@ export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
       description: 'Defeat Bandits 1 times',
     },
   ],
-  techs: HANZHONG_WAR_TIER_1_TECHS,
+  techs: [
+    HANZHONG_TECHS.HANZHONG_TECH_ATTACK_TRAINING_I,
+    HANZHONG_TECHS.HANZHONG_TECH_DEFENSE_TRAINING_I,
+    HANZHONG_TECHS.HANZHONG_TECH_TENACITY_TRAINING_I,
+    HANZHONG_TECHS.HANZHONG_TECH_FREE_PATHS,
+  ],
 };
 
-export const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
-  id: HANZHONG_WAR_TIER_IDS.LV2,
+const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
+  ...baseInfo(2),
   bg: '#ADE7F7',
-  icon: {
-    path: assetPath('lv2'),
-  },
   tasks: [
     {
       label: 'Logging Elite',
@@ -73,15 +77,17 @@ export const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
       description: 'Defeat Bandits 2 times',
     },
   ],
-  techs: HANZHONG_WAR_TIER_2_TECHS,
+  techs: [
+    HANZHONG_TECHS.HANZHONG_TECH_LUMBER_MILL,
+    HANZHONG_TECHS.HANZHONG_TECH_GRANARY,
+    HANZHONG_TECHS.HANZHONG_TECH_IRON_FOUNDRY,
+    HANZHONG_TECHS.HANZHONG_TECH_MIGHTY_GENERALS,
+  ],
 };
 
-export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
-  id: HANZHONG_WAR_TIER_IDS.LV3,
+const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
+  ...baseInfo(3),
   bg: '#DBC5FF',
-  icon: {
-    path: assetPath('lv3'),
-  },
   tasks: [
     {
       label: 'Territory Plunderer I',
@@ -100,15 +106,12 @@ export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
       description: 'Activate 8 Techs',
     },
   ],
-  techs: HANZHONG_WAR_TIER_3_TECHS,
+  techs: [HANZHONG_TECHS.HANZHONG_TECH_DILIGENT_WARRIOR_I, HANZHONG_TECHS.HANZHONG_TECH_TERRITORY_EXPANSION],
 };
 
-export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
-  id: HANZHONG_WAR_TIER_IDS.LV4,
+const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
+  ...baseInfo(4),
   bg: '#F5CB87',
-  icon: {
-    path: assetPath('lv4'),
-  },
   tasks: [
     {
       label: 'Territory Plunderer II',
@@ -127,15 +130,16 @@ export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
       description: 'Defeat Bandits 4 times',
     },
   ],
-  techs: HANZHONG_WAR_TIER_4_TECHS,
+  techs: [
+    HANZHONG_TECHS.HANZHONG_TECH_ATTACK_TRAINING_II,
+    HANZHONG_TECHS.HANZHONG_TECH_DEFENSE_TRAINING_II,
+    HANZHONG_TECHS.HANZHONG_TECH_TENACITY_TRAINING_II,
+  ],
 };
 
-export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
-  id: HANZHONG_WAR_TIER_IDS.LV5,
+const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
+  ...baseInfo(5),
   bg: '#FFD9A8',
-  icon: {
-    path: assetPath('lv5'),
-  },
   tasks: [
     {
       label: 'Land Conqueror IV',
@@ -154,15 +158,16 @@ export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
       description: 'Activate 14 Techs',
     },
   ],
-  techs: HANZHONG_WAR_TIER_5_TECHS,
+  techs: [
+    HANZHONG_TECHS.HANZHONG_TECH_OVERALL_DEVELOPMENT,
+    HANZHONG_TECHS.HANZHONG_TECH_UNITED_STRENGTH,
+    HANZHONG_TECHS.HANZHONG_TECH_FORMATION_EXPANSION,
+  ],
 };
 
-export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
-  id: HANZHONG_WAR_TIER_IDS.LV6,
+const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
+  ...baseInfo(6),
   bg: '#F6E8A4',
-  icon: {
-    path: assetPath('lv6'),
-  },
   tasks: [
     {
       label: 'Territory Plunderer III',
@@ -185,15 +190,17 @@ export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
       description: 'Activate 18 Techs',
     },
   ],
-  techs: HANZHONG_WAR_TIER_6_TECHS,
+  techs: [
+    HANZHONG_TECHS.HANZHONG_TECH_SPECIAL_TRAINING_VANGUARD_CAMP,
+    HANZHONG_TECHS.HANZHONG_TECH_SPECIAL_TRAINING_VALIANT_CAVALRY,
+    HANZHONG_TECHS.HANZHONG_TECH_SPECIAL_TRAINING_ROYAL_GUARDS,
+    HANZHONG_TECHS.HANZHONG_TECH_REHABILITATION,
+  ],
 };
 
-export const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
-  id: HANZHONG_WAR_TIER_IDS.LV7,
+const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
+  ...baseInfo(7),
   bg: '#FFFCA6',
-  icon: {
-    path: assetPath('lv7'),
-  },
   tasks: [
     {
       label: 'Territory Plunderer IV',
@@ -212,7 +219,7 @@ export const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
       description: 'Guild occupies Hanzhong City 1 times',
     },
   ],
-  techs: HANZHONG_WAR_TIER_7_TECHS,
+  techs: [HANZHONG_TECHS.HANZHONG_TECH_DILIGENT_WARRIOR_III],
 };
 
 export const HANZHONG_WAR_TIERS: HanzhongWarTierType[] = [
@@ -224,3 +231,5 @@ export const HANZHONG_WAR_TIERS: HanzhongWarTierType[] = [
   HANZHONG_WAR_TIER_6,
   HANZHONG_WAR_TIER_7,
 ];
+
+export const getWarTierByLevel = (level: HanzhongWarTierLevel): HanzhongWarTierType => HANZHONG_WAR_TIERS[level - 1];

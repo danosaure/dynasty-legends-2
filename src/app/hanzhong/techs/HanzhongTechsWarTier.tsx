@@ -6,13 +6,14 @@ import type { HanzhongTechType, HanzhongWarTierType } from '../types';
 
 import { HanzhongTechsTech } from './HanzhongTechsTech';
 import { assetPath } from '../../utils';
+import { SECTION_KEYS } from '../constants';
 
 export interface HanzhongTechsWarTierProps {
   info: HanzhongWarTierType;
 }
 
 export const HanzhongTechsWarTier = ({ info }: HanzhongTechsWarTierProps) => {
-  const { user } = useHanzhongContext();
+  const { getValue } = useHanzhongContext();
 
   return (
     <PaperWrapper sx={{ width: '100%' }}>
@@ -29,7 +30,7 @@ export const HanzhongTechsWarTier = ({ info }: HanzhongTechsWarTierProps) => {
 
         <Grid container size="grow" spacing={1}>
           {info.techs.map((tech: HanzhongTechType) => (
-            <HanzhongTechsTech key={tech.id} info={tech} value={user[tech.id] ?? 0} />
+            <HanzhongTechsTech key={tech.id} info={tech} value={getValue(SECTION_KEYS.TECHS, tech.id)} />
           ))}
         </Grid>
       </Grid>

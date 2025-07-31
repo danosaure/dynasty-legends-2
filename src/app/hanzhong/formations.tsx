@@ -3,18 +3,16 @@ import Grid from '@mui/material/Grid';
 
 import { TitleTypographyWrapper } from '../shared';
 
-import { STRUCTURED_HANZHONG_FORMATIONS } from './constants';
 import { HanzhongFormationsFormation } from './formations-formation';
-import { useHanzhongContext } from './HanzhongContext';
 import type {
   HanzhongFormationsType,
   HanzhongFormationsFormationType,
   HanzhongFormationsTeamType,
   HanzhongFormationsTeamsType,
 } from './types';
+import { STRUCTURED_HANZHONG_FORMATIONS } from './data';
 
 export const HanzhongFormations = () => {
-  const { user } = useHanzhongContext();
   const [formations, setFormations] = useState<HanzhongFormationsType | null>(null);
 
   useEffect(() => {
