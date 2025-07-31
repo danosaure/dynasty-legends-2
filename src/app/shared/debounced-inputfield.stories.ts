@@ -13,7 +13,7 @@ const defaultProps: DebouncedInputFieldProps = {
 };
 
 const meta = {
-  title: 'DebouncedInputField',
+  title: 'shared/DebouncedInputField',
   component: DebouncedInputField,
   tags: ['autodocs'],
   args: {

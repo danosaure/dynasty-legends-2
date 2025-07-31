@@ -1,23 +1,17 @@
 import { createContext } from 'react';
 
 import { useSafeContext } from '../shared/utils/use-safe-context';
+import type { HanzhongContextType } from './types';
 
-import { HANZHONG_DATA } from './data';
-import type { HanzhongBonusType, HanzhongContextOnChangeType, HanzhongType, HanzhongUserDataType } from './types';
-
-export type HanzhongContextType = {
-  hanzhong: HanzhongType;
-  user: HanzhongUserDataType;
-  bonuses: HanzhongBonusType;
-  onChange: HanzhongContextOnChangeType;
-};
-
-export const HanzhongContext = createContext<HanzhongContextType>({
-  hanzhong: HANZHONG_DATA,
-  user: {},
+export const DEFAULT_HANZHONG_CONTEXT: HanzhongContextType = {
+  getValue: () => 0,
+  getSection: () => ({}),
+  getStringValue: () => '',
   bonuses: {},
   onChange: () => {},
-});
+};
+
+export const HanzhongContext = createContext<HanzhongContextType>(DEFAULT_HANZHONG_CONTEXT);
 
 HanzhongContext.displayName = 'HanzhongContext';
 

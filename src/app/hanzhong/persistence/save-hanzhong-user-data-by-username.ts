@@ -1,11 +1,12 @@
 import { getUserDataByUsername, saveUserDataByUsername } from '../../../persistence';
 
-import type { HanzhongUserDataType } from '../types';
+import type { HanzhongUserDomainData } from '../types';
+import { flattenStructuredUserData } from '../utils';
 
-export const saveHanzhongUserDataByUsername = async (username: string, hanzhongUserData: HanzhongUserDataType): Promise<void> => {
+export const saveHanzhongUserDataByUsername = async (username: string, hanzhongUserData: HanzhongUserDomainData): Promise<void> => {
   const dbUserData = await getUserDataByUsername(username);
 
-  dbUserData.hanzhong = hanzhongUserData;
+  dbUserData.hanzhong = flattenStructuredUserData(hanzhongUserData);
 
   await saveUserDataByUsername(username, dbUserData);
 };

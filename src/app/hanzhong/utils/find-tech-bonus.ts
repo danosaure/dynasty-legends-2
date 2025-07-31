@@ -1,6 +1,6 @@
-import type { HanzhongTechType, HanzhongType, HanzhongWarTierType } from '../types';
+import type { HanzhongTechType, HanzhongWarTierType } from '../types';
 
-export const findTechBonus = (hanzhong: HanzhongType, key: string): HanzhongTechType | null => {
+export const findTechBonus = (key: string): HanzhongTechType => {
   return hanzhong.warTiers.reduce((foundValue: HanzhongTechType | null, warTier: HanzhongWarTierType): HanzhongTechType | null => {
     if (foundValue) {
       return foundValue;

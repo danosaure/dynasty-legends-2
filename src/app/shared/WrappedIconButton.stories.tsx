@@ -15,7 +15,7 @@ const defaultProps: WrappedIconButtonProps = {
 };
 
 const meta = {
-  title: 'WrappedIconButton',
+  title: 'shared/WrappedIconButton',
   component: WrappedIconButton,
   tags: ['autodocs'],
   decorators: [

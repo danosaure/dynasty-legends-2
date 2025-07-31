@@ -3,11 +3,14 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
 import { HanzhongFormationsCharacter, type HanzhongFormationsCharacterPops } from './formations-character';
-import { HanzhongContext, type HanzhongContextType } from './HanzhongContext';
-import { DEFAULT_HANZHONG_CONTEXT_DATA } from './utils';
+import { DEFAULT_HANZHONG_CONTEXT, HanzhongContext } from './HanzhongContext';
+import type { HanzhongContextType } from './types';
 
 const hanzhongContextData: HanzhongContextType = {
-  ...DEFAULT_HANZHONG_CONTEXT_DATA,
+  ...DEFAULT_HANZHONG_CONTEXT,
+  getValue: fn(),
+  getSection: fn(),
+  getStringValue: fn(),
   onChange: fn(),
 } as const;
 

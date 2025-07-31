@@ -13,6 +13,7 @@ export default defineConfig({
   base: '/dynasty-legends-2/',
   plugins: [react()],
   test: {
+    reporters: ['verbose'],
     projects: [
       {
         extends: true,

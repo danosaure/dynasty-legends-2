@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid';
 import { CardWrapper } from '../shared';
 import type { HanzhongCityType } from './types';
 import { HanzhongContextUserCheckbox } from './ContextCheckbox';
+import { SECTION_KEYS } from './constants';
 
 export type HanzhongCityProps = {
   city: HanzhongCityType;
@@ -16,7 +17,7 @@ export const HanzhongCity = ({ city }: HanzhongCityProps) => {
           {city.name}
         </Grid>
         <Grid size={{ xs: 12 }} sx={{ textAlign: 'center' }}>
-          <HanzhongContextUserCheckbox id={city.id} />
+          <HanzhongContextUserCheckbox section={SECTION_KEYS.CITIES} id={city.id} />
         </Grid>
       </Grid>
     </CardWrapper>

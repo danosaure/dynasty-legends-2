@@ -1,4 +1,4 @@
-import type { HanzhongUserDataType } from '../types';
+import type { HanzhongContextGetValue } from '../types';
 
-export const calculateUserFormationTacticalPoints = (user: HanzhongUserDataType, formationId: string): number =>
-  Object.keys(user).reduce((total, userKey) => total + (userKey.startsWith(formationId) ? user[userKey] : 0), 0);
+export const calculateUserFormationTacticalPoints = (getValue: HanzhongContextGetValue, formationId: string): number => 0;
+// Object.keys(user).reduce((total, userKey) => total + (userKey.startsWith(formationId) ? user[userKey] : 0), 0);

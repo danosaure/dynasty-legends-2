@@ -1,26 +1,23 @@
 import { useEffect, useState } from 'react';
-import { HANZHONG_CITY_IDS, HANZHONG_TERRITORY_IDS } from './constants';
+import { SECTION_KEYS } from './constants';
 import type { HanzhongInfoDataType } from './types';
-import { sumValuesFromUserByPrefix } from './utils';
 
 import { useHanzhongContext } from './HanzhongContext';
 import { HanzhongInfosDisplay } from './HanzhongInfosDisplay';
+import { sumValuesFromSection } from './utils';
+import { HANZHONG_DATA } from './data';
 
 export const Progress = () => {
-  const { bonuses, user, hanzhong } = useHanzhongContext();
-  const [banditsCount, setBanditsCount] = useState<number>(sumValuesFromUserByPrefix(user, hanzhong.bandits.id));
+  const { bonuses, getSection } = useHanzhongContext();
+  const [banditsCount, setBanditsCount] = useState<number>(sumValuesFromSection(getSection(SECTION_KEYS.BANDITS)));
 
   useEffect(() => {
-    setBanditsCount(sumValuesFromUserByPrefix(user, hanzhong.bandits.id));
-  }, [user, hanzhong]);
+    setBanditsCount(sumValuesFromSection(getSection(SECTION_KEYS.BANDITS)));
+  }, [getSection]);
 
-  const territories: number = Object.values(HANZHONG_TERRITORY_IDS).reduce(
-    (sum, territoryId): number => sum + (user[territoryId] ?? 0),
-    0
-  );
-  const citiesIDs = Object.values(HANZHONG_CITY_IDS);
+  const territories: number = sumValuesFromSection(getSection(SECTION_KEYS.TERRITORIES));
 
-  const cities: number = citiesIDs.reduce((sum, cityId): number => sum + (user[cityId] ?? 0), 0);
+  const cities: number = sumValuesFromSection(getSection(SECTION_KEYS.CITIES));
 
   const items: HanzhongInfoDataType[] = [
     {
@@ -31,12 +28,12 @@ export const Progress = () => {
     {
       label: 'Cities',
       value: cities,
-      maxValue: citiesIDs.length,
+      maxValue: HANZHONG_DATA.cities.length,
     },
     {
       label: 'Bandits',
       value: banditsCount,
-      maxValue: hanzhong.bandits.attacks.length,
+      maxValue: HANZHONG_DATA.bandits.attacks.length,
     },
   ];
 

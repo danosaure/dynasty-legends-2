@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 
 import { CardWrapper, ValueAdjuster, WrappedIconButton } from '../../shared';
 import { useHanzhongContext } from '../HanzhongContext';
-import { HanzhongEstimatedTime } from '../resources-timers';
+import { HanzhongEstimatedTime } from '../resources';
 
 import { HanzhongTechsTechCardImage } from './HanzhongTechsTechCardImage';
 import { useHanzhongTechsContext } from './context';

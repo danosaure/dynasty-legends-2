@@ -13,12 +13,12 @@ export type HanzhongEstimatedTimeProps = {
 };
 
 export const HanzhongEstimatedTime = ({ id }: HanzhongEstimatedTimeProps) => {
-  const { bonuses, user } = useHanzhongContext();
+  const { bonuses, getValue } = useHanzhongContext();
   const [value, setValue] = useState<string | number | null>('');
 
   useEffect(() => {
-    setValue(calculateTimeNeeded(id, user, bonuses));
-  }, [id, user, bonuses]);
+    setValue(calculateTimeNeeded(getValue, id, bonuses));
+  }, [id, bonuses]);
 
   if (value === '') {
     return null;

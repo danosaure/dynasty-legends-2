@@ -5,9 +5,9 @@ import type { HanzhongTechsTechLevelDisplayType } from '../types';
 import { HanzhongTechsTechInfoLevelResources } from './LevelResources';
 import { HanzhongTechsTechInfoLevelBonuses } from './LevelBonuses';
 import { useHanzhongContext } from '../../../HanzhongContext';
-import { extractResourceDataFromUser } from '../../../resources-timers/utils/extract-resource-data-from-user';
-import { HanzhongTimerDisplay } from '../../../resources-timers/TimerDisplay';
-import { calculateTimeNeededForResources } from '../../../resources-timers/utils/calculate-time-needed-for-resources';
+import { extractResourceDataFromUser } from '../../../resources/utils/extract-resource-data-from-user';
+import { HanzhongTimerDisplay } from '../../../resources/TimerDisplay';
+import { calculateTimeNeededForResources } from '../../../resources/utils/calculate-time-needed-for-resources';
 
 export type HanzhongTechsTechInfoLevelProps = {
   info: HanzhongTechsTechLevelDisplayType;
@@ -15,9 +15,9 @@ export type HanzhongTechsTechInfoLevelProps = {
 };
 
 export const HanzhongTechsTechInfoLevel = ({ info, userLevel }: HanzhongTechsTechInfoLevelProps) => {
-  const { bonuses, user } = useHanzhongContext();
+  const { bonuses, getValue } = useHanzhongContext();
 
-  const resourceData = extractResourceDataFromUser(user, bonuses);
+  const resourceData = extractResourceDataFromUser(getValue, bonuses);
 
   const minutes = calculateTimeNeededForResources(resourceData, info.resources, {
     lumber: resourceData.woodRate,

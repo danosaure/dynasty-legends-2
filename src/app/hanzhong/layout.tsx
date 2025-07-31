@@ -5,21 +5,31 @@ import Grid from '@mui/material/Grid';
 import { PaperWrapper } from '../shared';
 
 import { ActionsMenu } from './actions-menu';
-import { HANZHONG_DATA } from './data';
-import { HanzhongContext, type HanzhongContextType } from './HanzhongContext';
+import { DEFAULT_HANZHONG_CONTEXT, HanzhongContext } from './HanzhongContext';
 import { getHanzhongUserDataByUsername, saveHanzhongUserDataByUsername } from './persistence';
 import { Progress } from './Progress';
 import { ResourceIncomes } from './ResourceIncomes';
 import { HanzhongSidePanelTabs } from './side-panel-tabs';
 import { TacticalBonuses } from './TacticalBonuses';
-import type { HanzhongBonusType, HanzhongUserDataType } from './types';
-import { DEFAULT_HANZHONG_CONTEXT_DATA, initializeEarnings } from './utils';
+import type {
+  HanzhongBonusType,
+  HanzhongContextGetSection,
+  HanzhongContextGetStringValue,
+  HanzhongContextGetValue,
+  HanzhongContextOnChange,
+  HanzhongContextType,
+  HanzhongUserDomainData,
+  HanzhongUserSectionData,
+} from './types';
+import { initializeEarnings } from './utils';
+import { sanitizeId } from '../../utils';
+import type { HanzhongUserSectionName } from './types/user-section-name';
 
 export const HanzhongLayout = () => {
   const [username] = useState<string>('');
-  const [userData, setUserData] = useState<HanzhongUserDataType>({});
+  const [userData, setUserData] = useState<HanzhongUserDomainData>({});
   const [isUserDataModified, setIsUserDataModified] = useState<boolean>(false);
-  const [hanzhongContextData, setHanzhongContextData] = useState<HanzhongContextType>(DEFAULT_HANZHONG_CONTEXT_DATA);
+  const [hanzhongContextData, setHanzhongContextData] = useState<HanzhongContextType>(DEFAULT_HANZHONG_CONTEXT);
 
   useEffect(() => {
     (async () => {
@@ -29,19 +39,52 @@ export const HanzhongLayout = () => {
   }, [username]);
 
   useEffect(() => {
-    const bonuses: HanzhongBonusType = initializeEarnings(HANZHONG_DATA, userData);
-
-    const onChange = (key: string, value: number) => {
+    const onChange: HanzhongContextOnChange = (section: HanzhongUserSectionName, key: string, value: number | string) => {
       setUserData({
         ...userData,
-        [key]: value,
-      });
+        [section]: {
+          ...userData[section],
+          [key]: value,
+        },
+      } as const);
       setIsUserDataModified(true);
     };
 
+    const getSection: HanzhongContextGetSection = (section: HanzhongUserSectionName): HanzhongUserSectionData => {
+      return userData[section];
+    };
+
+    const getValue: HanzhongContextGetValue = (section: HanzhongUserSectionName, id: string): number => {
+      try {
+        const userSection = userData[section];
+        if (userSection) {
+          return (userSection[sanitizeId(id)] as number) ?? 0;
+        }
+        return 0;
+      } catch {
+        return 0;
+      }
+    };
+
+    const getStringValue: HanzhongContextGetStringValue = (section: HanzhongUserSectionName, id: string): string => {
+      try {
+        const userSection = userData[section];
+        if (userSection) {
+          return (userSection[sanitizeId(id)] as string) ?? '';
+        }
+
+        return '';
+      } catch {
+        return '';
+      }
+    };
+
+    const bonuses: HanzhongBonusType = initializeEarnings(getValue);
+
     setHanzhongContextData({
-      hanzhong: HANZHONG_DATA,
-      user: userData,
+      getValue,
+      getSection,
+      getStringValue,
       bonuses,
       onChange,
     });

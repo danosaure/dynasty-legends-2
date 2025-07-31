@@ -3,20 +3,16 @@ import Grid from '@mui/material/Grid';
 import { TitleTypographyWrapper } from '../shared';
 
 import { HanzhongCity } from './City';
-import { HANZHONG_CITY_IDS } from './constants/items-ids';
-import { useHanzhongContext } from './HanzhongContext';
-import { findCityById } from './utils/find-city-by-id';
+import { getCityByName, HANZHONG_CITY_NAMES } from './data';
 
 export const HanzhongCities = () => {
-  const { hanzhong } = useHanzhongContext();
-
-  const topNorthCity = findCityById(hanzhong, HANZHONG_CITY_IDS.NORTH_SUMMIT);
-  const northCity = findCityById(hanzhong, HANZHONG_CITY_IDS.MOUNT_DINGJUN);
-  const westCity = findCityById(hanzhong, HANZHONG_CITY_IDS.YANGPING_PASS);
-  const centerCity = findCityById(hanzhong, HANZHONG_CITY_IDS.HANZHONG_CITY);
-  const eastCity = findCityById(hanzhong, HANZHONG_CITY_IDS.MAMING_PAVILION);
-  const southCity = findCityById(hanzhong, HANZHONG_CITY_IDS.HANSHUI_TRAIL);
-  const bottomSouthCity = findCityById(hanzhong, HANZHONG_CITY_IDS.MIANYANG_COUNTY);
+  const topNorthCity = getCityByName(HANZHONG_CITY_NAMES.NORTH_SUMMIT);
+  const northCity = getCityByName(HANZHONG_CITY_NAMES.MOUNT_DINGJUN);
+  const westCity = getCityByName(HANZHONG_CITY_NAMES.YANGPING_PASS);
+  const centerCity = getCityByName(HANZHONG_CITY_NAMES.HANZHONG_CITY);
+  const eastCity = getCityByName(HANZHONG_CITY_NAMES.MAMING_PAVILION);
+  const southCity = getCityByName(HANZHONG_CITY_NAMES.HANSHUI_TRAIL);
+  const bottomSouthCity = getCityByName(HANZHONG_CITY_NAMES.MIANYANG_COUNTY);
 
   const lastCell = <Grid size={{ md: 3, lg: 6 }} sx={{ display: { xs: 'none', md: 'block' } }} />;
 

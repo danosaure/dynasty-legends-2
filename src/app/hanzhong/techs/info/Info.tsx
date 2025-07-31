@@ -10,18 +10,19 @@ import type { HanzhongTechType } from '../../types';
 import { NO_TECH_ID } from '../constants';
 import { useHanzhongTechsContext } from '../context';
 import { HanzhongTechsTechCardImage } from '../HanzhongTechsTechCardImage';
-import { useHanzhongContext } from '../../HanzhongContext';
 import { generateLevelsToDisplay } from './generate-levels-to-display';
 import type { HanzhongTechsTechLevelDisplayType } from './types';
 import { HanzhongTechsTechInfoLevel } from './level';
 import Typography from '@mui/material/Typography';
+import { useHanzhongContext } from '../../HanzhongContext';
+import { SECTION_KEYS } from '../../constants';
 
 export type HanzhongTechsTechInfoProps = {
   onClose: () => void;
 };
 
 export const HanzhongTechsTechInfo = ({ onClose }: HanzhongTechsTechInfoProps) => {
-  const { user } = useHanzhongContext();
+  const { getValue } = useHanzhongContext();
   const { techId } = useHanzhongTechsContext();
 
   const tech: HanzhongTechType | null = getTechById(techId);
@@ -34,14 +35,14 @@ export const HanzhongTechsTechInfo = ({ onClose }: HanzhongTechsTechInfoProps) =
     );
   }
 
-  const levels = generateLevelsToDisplay(tech.levels, user[techId] ?? 0);
+  const levels = generateLevelsToDisplay(tech.levels, getValue(SECTION_KEYS.TECHS, techId));
 
   const modalContent =
     levels.length === 0 ? (
       <Typography color="success">All completed.</Typography>
     ) : (
       levels.map((level: HanzhongTechsTechLevelDisplayType, idx: number) => (
-        <HanzhongTechsTechInfoLevel key={`${techId}--${idx + 1}`} userLevel={user[techId] ?? 0} info={level} />
+        <HanzhongTechsTechInfoLevel key={`${techId}--${idx + 1}`} userLevel={getValue(SECTION_KEYS.TECHS, techId)} info={level} />
       ))
     );
   return (
