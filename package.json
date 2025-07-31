@@ -12,7 +12,8 @@
     "deploy": "gh-pages -d dist",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:unit": "vitest unit.test"
   },
   "dependencies": {
     "react": "^19.1.0",
