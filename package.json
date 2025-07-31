@@ -13,7 +13,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "vitest run",
-    "test:unit": "vitest unit.test"
+    "test:unit": "vitest run unit.test"
   },
   "dependencies": {
     "react": "^19.1.0",
