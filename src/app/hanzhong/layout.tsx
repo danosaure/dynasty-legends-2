@@ -14,8 +14,11 @@ import { HanzhongSidePanelTabs } from './side-panel-tabs';
 import { TacticalBonuses } from './TacticalBonuses';
 import type { HanzhongBonusType, HanzhongContextType, HanzhongUserDataType } from './types';
 import { DEFAULT_HANZHONG_CONTEXT_DATA, initializeEarnings } from './utils';
+import { useAppContext } from '../Context';
 
 export const HanzhongLayout = () => {
+  const { setMenu } = useAppContext();
+
   const [username] = useState<string>('');
   const [userData, setUserData] = useState<HanzhongUserDataType>({});
   const [isUserDataModified, setIsUserDataModified] = useState<boolean>(false);
@@ -46,16 +49,20 @@ export const HanzhongLayout = () => {
     });
   }, [userData]);
 
-  const onSave = async (): Promise<void> => {
-    await saveHanzhongUserDataByUsername(username, userData);
-    setIsUserDataModified(false);
-  };
+  useEffect(() => {
+    const onSave = async (): Promise<void> => {
+      await saveHanzhongUserDataByUsername(username, userData);
+      setIsUserDataModified(false);
+    };
+
+    setMenu(<ActionsMenu isUserDataModified={isUserDataModified} onSave={onSave} />);
+    return () => setMenu(null);
+  }, [isUserDataModified, setMenu, username, userData]);
 
   return (
     <HanzhongContext.Provider value={hanzhongContextData}>
       <Grid container spacing={0} sx={{ justifyContent: 'flex-start', alignItems: 'flex-start' }}>
         <Grid container spacing={2} size={{ xs: 3 }} sx={{ maxWidth: '225px', backgroundColor: 'rgba(195, 137, 0, 0.1)', p: 1 }}>
-          <ActionsMenu isUserDataModified={isUserDataModified} onSave={onSave} />
           <HanzhongSidePanelTabs />
           <ResourceIncomes />
           <TacticalBonuses />
