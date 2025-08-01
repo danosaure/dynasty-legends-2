@@ -6,13 +6,13 @@ import { PaperWrapper } from '../shared';
 
 import { ActionsMenu } from './actions-menu';
 import { HANZHONG_DATA } from './data';
-import { HanzhongContext, type HanzhongContextType } from './HanzhongContext';
+import { HanzhongContext } from './HanzhongContext';
 import { getHanzhongUserDataByUsername, saveHanzhongUserDataByUsername } from './persistence';
 import { Progress } from './Progress';
 import { ResourceIncomes } from './ResourceIncomes';
 import { HanzhongSidePanelTabs } from './side-panel-tabs';
 import { TacticalBonuses } from './TacticalBonuses';
-import type { HanzhongBonusType, HanzhongUserDataType } from './types';
+import type { HanzhongBonusType, HanzhongContextType, HanzhongUserDataType } from './types';
 import { DEFAULT_HANZHONG_CONTEXT_DATA, initializeEarnings } from './utils';
 
 export const HanzhongLayout = () => {
@@ -40,7 +40,6 @@ export const HanzhongLayout = () => {
     };
 
     setHanzhongContextData({
-      hanzhong: HANZHONG_DATA,
       user: userData,
       bonuses,
       onChange,

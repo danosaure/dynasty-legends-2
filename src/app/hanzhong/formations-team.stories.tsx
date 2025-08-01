@@ -3,8 +3,9 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
 import { HanzhongFormationsTeam, type HanzhongFormationsTeamProps } from './formations-team';
-import { HanzhongContext, type HanzhongContextType } from './HanzhongContext';
+import { HanzhongContext } from './HanzhongContext';
 import { DEFAULT_HANZHONG_CONTEXT_DATA } from './utils';
+import type { HanzhongContextType } from './types';
 
 const hanzhongContextData: HanzhongContextType = {
   ...DEFAULT_HANZHONG_CONTEXT_DATA,

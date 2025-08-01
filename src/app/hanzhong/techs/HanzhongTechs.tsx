@@ -3,17 +3,15 @@ import Grid from '@mui/material/Grid';
 
 import { TitleTypographyWrapper } from '../../shared';
 
-import { useHanzhongContext } from '../HanzhongContext';
 import { HanzhongResourcesBar } from '../resources-timers';
 
 import { NO_TECH_ID } from './constants';
 import { HanzhongTechsContext, type HanzhongTechsContextType } from './context';
 import { HanzhongTechsWarTier } from './HanzhongTechsWarTier';
 import { HanzhongTechsTechInfo } from './info';
+import { HANZHONG_DATA } from '../data';
 
 export const HanzhongTechs = () => {
-  const { hanzhong } = useHanzhongContext();
-
   const [techId, setTechId] = useState<string>(NO_TECH_ID);
 
   const displayTechId = (techId: string): void => {
@@ -42,7 +40,7 @@ export const HanzhongTechs = () => {
       <Grid size={12}>
         <HanzhongResourcesBar />
       </Grid>
-      {hanzhong.warTiers.map((hanzhongWarTier) => (
+      {HANZHONG_DATA.warTiers.map((hanzhongWarTier) => (
         <HanzhongTechsWarTier key={hanzhongWarTier.id} info={hanzhongWarTier} />
       ))}
 
