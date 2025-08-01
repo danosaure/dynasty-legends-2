@@ -1,7 +1,8 @@
-import Grid from '@mui/material/Grid';
-import { AppHeader } from './header';
 import { Outlet } from 'react-router';
 import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+
+import { AppHeader } from './header';
 
 export const AppLayout = () => {
   return (
