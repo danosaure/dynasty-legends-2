@@ -2,7 +2,7 @@ import { useState, type ReactNode } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router';
 import MapIcon from '@mui/icons-material/Map';
 import MenuIcon from '@mui/icons-material/Menu';
-import PersonIcon from '@mui/icons-material/Person';
+import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import Drawer from '@mui/material/Drawer';
 import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
@@ -37,7 +37,7 @@ export const AppHeader = ({ menu }: AppHeaderProps) => {
   };
 
   const NAVIGATION_MENU: [string, string, MaterialUiIconType][] = [
-    ['/officers', 'Officers', PersonIcon],
+    ['/officers', 'Officers', MilitaryTechIcon],
     ['/hanzhong', 'Hanzhong', MapIcon],
   ];
 

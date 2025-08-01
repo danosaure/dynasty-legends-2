@@ -17,7 +17,7 @@ export const OfficersAptitudeSelector = ({ selected, onSelect }: OfficersAptitud
   return (
     <Grid container sx={{ alignItems: 'center', justifyContent: 'center', width: '100%' }}>
       <ButtonGroup orientation="vertical">
-        {APTITUDES.map((aptitude) => {
+        {[...APTITUDES].reverse().map((aptitude) => {
           const isSelected = aptitude.id === selected;
           return (
             <Tooltip key={aptitude.name} title={isSelected ? 'Show All' : `Show Aptitude ${aptitude.name} Only`} placement="right">
@@ -26,7 +26,7 @@ export const OfficersAptitudeSelector = ({ selected, onSelect }: OfficersAptitud
                 variant="outlined"
                 sx={{
                   backgroundColor: aptitude.color,
-                  color: theme.palette.text.primary,
+                  color: isSelected ? theme.palette.success.main : theme.palette.text.primary,
                   fontWeight: isSelected ? 'bold' : 'inherit',
                 }}
                 size="small"
