@@ -1,5 +1,6 @@
-import type { HanzhongCityType, HanzhongType } from '../types';
+import { HANZHONG_DATA } from '../data';
+import type { HanzhongCityType } from '../types';
 
-export const findCityById = (hanzhong: HanzhongType, id: string): HanzhongCityType => {
-  return hanzhong.cities.find((city: HanzhongCityType) => city.id === id);
+export const findCityById = (id: string): HanzhongCityType => {
+  return HANZHONG_DATA.cities.find((city: HanzhongCityType) => city.id === id);
 };

@@ -5,14 +5,15 @@ import { sumValuesFromUserByPrefix } from './utils';
 
 import { useHanzhongContext } from './HanzhongContext';
 import { HanzhongInfosDisplay } from './HanzhongInfosDisplay';
+import { HANZHONG_DATA } from './data';
 
 export const Progress = () => {
-  const { bonuses, user, hanzhong } = useHanzhongContext();
-  const [banditsCount, setBanditsCount] = useState<number>(sumValuesFromUserByPrefix(user, hanzhong.bandits.id));
+  const { bonuses, user } = useHanzhongContext();
+  const [banditsCount, setBanditsCount] = useState<number>(sumValuesFromUserByPrefix(user, HANZHONG_DATA.bandits.id));
 
   useEffect(() => {
-    setBanditsCount(sumValuesFromUserByPrefix(user, hanzhong.bandits.id));
-  }, [user, hanzhong]);
+    setBanditsCount(sumValuesFromUserByPrefix(user, HANZHONG_DATA.bandits.id));
+  }, [user]);
 
   const territories: number = Object.values(HANZHONG_TERRITORY_IDS).reduce(
     (sum, territoryId): number => sum + (user[territoryId] ?? 0),
@@ -36,7 +37,7 @@ export const Progress = () => {
     {
       label: 'Bandits',
       value: banditsCount,
-      maxValue: hanzhong.bandits.attacks.length,
+      maxValue: HANZHONG_DATA.bandits.attacks.length,
     },
   ];
 
