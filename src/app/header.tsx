@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router';
 import MapIcon from '@mui/icons-material/Map';
+import MenuIcon from '@mui/icons-material/Menu';
 import PersonIcon from '@mui/icons-material/Person';
 import Drawer from '@mui/material/Drawer';
 import Grid from '@mui/material/Grid';
@@ -8,13 +9,18 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useTheme, type SxProps } from '@mui/material/styles';
+import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
 import { WrappedIconButton } from './shared';
+import type { MaterialUiIconType } from './types';
 
-export const AppHeader = () => {
+export type AppHeaderProps = {
+  menu: ReactNode;
+};
+
+export const AppHeader = ({ menu }: AppHeaderProps) => {
   const location = useLocation();
   const navigate = useNavigate();
   const theme = useTheme();
@@ -30,13 +36,26 @@ export const AppHeader = () => {
     navigate(to);
   };
 
-  const getSx = (to: string): SxProps => {
+  const NAVIGATION_MENU: [string, string, MaterialUiIconType][] = [
+    ['/officers', 'Officers', PersonIcon],
+    ['/hanzhong', 'Hanzhong', MapIcon],
+  ];
+
+  const navigationMenu = NAVIGATION_MENU.map((item: [string, string, MaterialUiIconType]): ReactNode => {
+    const [to, label, Icon] = item;
     const isSection = location.pathname.startsWith(to);
-    return {
-      color: isSection ? theme.palette.success.main : theme.palette.primary.main,
-      borderLeft: `3px solid ${isSection ? theme.palette.success.main : 'transparent'}`,
-    };
-  };
+    const color = isSection ? theme.palette.success.main : theme.palette.primary.main;
+    const borderLeft = `3px solid ${isSection ? theme.palette.success.main : 'transparent'}`;
+
+    return (
+      <ListItemButton key={to} onClick={() => closeAndNavigate(to)} sx={{ color, borderLeft }}>
+        <ListItemIcon>
+          <Icon sx={{ color }} />
+        </ListItemIcon>
+        <ListItemText primary={label} />
+      </ListItemButton>
+    );
+  });
 
   return (
     <Grid container size={{ xs: 12 }} spacing={1} sx={{ mb: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
@@ -50,24 +69,15 @@ export const AppHeader = () => {
           </NavLink>
         </Typography>
       </Grid>
-      <Grid size="grow" sx={{ textAlign: 'right' }}>
-        <WrappedIconButton Icon={MenuIcon} label="Menu" onClick={toggleMenu} />
-        <Drawer anchor="right" open={showMenu} onClose={toggleMenu}>
-          <List>
-            <ListItemButton onClick={() => closeAndNavigate('/officers')} sx={getSx('/officers')}>
-              <ListItemIcon>
-                <PersonIcon />
-              </ListItemIcon>
-              <ListItemText primary="Officers" />
-            </ListItemButton>
+      <Grid size="grow" justifyContent={'flex-end'}>
+        <Stack direction="row" spacing={0} justifyContent={'flex-end'}>
+          {menu}
 
-            <ListItemButton onClick={() => closeAndNavigate('/hanzhong')} sx={getSx('/hanzhong')}>
-              <ListItemIcon>
-                <MapIcon />
-              </ListItemIcon>
-              <ListItemText primary="Hanzhong" />
-            </ListItemButton>
-          </List>
+          <WrappedIconButton Icon={MenuIcon} label="Menu" onClick={toggleMenu} />
+        </Stack>
+
+        <Drawer anchor="right" open={showMenu} onClose={toggleMenu}>
+          <List>{navigationMenu}</List>
         </Drawer>
       </Grid>
     </Grid>
