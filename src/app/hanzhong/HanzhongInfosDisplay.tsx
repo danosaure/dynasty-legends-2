@@ -16,7 +16,13 @@ export const HanzhongInfosDisplay = ({ label, items, configure }: HanzhongInfosD
   if (configure) {
     configureIcon = (
       <Grid size={{ xs: 12, sm: 'auto' }} textAlign={'right'} sx={{ fontSize: { xs: 8 }, mt: -1, mr: -1 }}>
-        <WrappedIconButton label="Configure Formations" onClick={() => configure()} Icon={SettingsIcon} withTooltip small />
+        <WrappedIconButton
+          label="Configure Formations"
+          onClick={() => configure()}
+          Icon={SettingsIcon}
+          withTooltip="bottom"
+          small
+        />
       </Grid>
     );
   }

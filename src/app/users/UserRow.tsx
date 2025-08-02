@@ -45,7 +45,7 @@ export const UserRow = ({ user, onUsernameChange, onDeleteClick }: UserRowProps)
           Icon={PersonIcon}
           label={isCurrentUser ? `Current user` : `Switch to ${user.username}`}
           onClick={() => setUsername(user.username)}
-          withTooltipRight
+          withTooltip="right"
           selected={isCurrentUser}
         />
       </Grid>
