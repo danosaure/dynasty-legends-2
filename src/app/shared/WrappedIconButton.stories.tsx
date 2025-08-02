@@ -83,6 +83,19 @@ export const TooltipBase: Story = {
 };
 TooltipBase.storyName = 'tooltip: base';
 
+export const TooltipRight: Story = {
+  args: {
+    ...defaultProps,
+    withTooltip: true,
+    withTooltipRight: true,
+  },
+  play: async ({ canvas, userEvent }) => {
+    const button = canvas.getByRole('button');
+    await userEvent.hover(button);
+  },
+};
+TooltipRight.storyName = 'tooltip: on the right';
+
 export const TooltipDisabled: Story = {
   args: {
     ...defaultProps,
