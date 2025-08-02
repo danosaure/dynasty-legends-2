@@ -23,7 +23,7 @@ const appContextData: AppContextType = {
 } as const;
 
 const meta = {
-  title: 'user-management/UserDashboard',
+  title: 'users/UserDashboard',
   component: UserDashboard,
   tags: ['autodocs'],
   decorators: [

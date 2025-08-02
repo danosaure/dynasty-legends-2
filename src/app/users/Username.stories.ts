@@ -7,7 +7,7 @@ const defaultProps: UsernameProps = {
 };
 
 const meta = {
-  title: 'user-management/Username',
+  title: 'users/Username',
   component: Username,
   tags: ['autodocs'],
   args: {

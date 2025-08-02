@@ -29,7 +29,7 @@ const defaultProps: UserRowProps = {
 };
 
 const meta = {
-  title: 'user-management/UserRow',
+  title: 'users/UserRow',
   component: UserRow,
   tags: ['autodocs'],
   decorators: [

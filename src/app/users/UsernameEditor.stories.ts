@@ -10,7 +10,7 @@ const defaultProps: UsernameEditorProps = {
 };
 
 const meta = {
-  title: 'user-management/UsernameEditor',
+  title: 'users/UsernameEditor',
   component: UsernameEditor,
   tags: ['autodocs'],
   args: {
