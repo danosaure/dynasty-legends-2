@@ -11,6 +11,7 @@ export type AppContextBaseUser = {
 export type AppContextType = {
   setMenu: (actionMenu: ReactNode) => void;
   setUsername: (username: string) => void;
+  refreshApp: () => void;
   user: PersistenceUserDataType;
   users: AppContextBaseUser[];
 };
@@ -18,8 +19,9 @@ export type AppContextType = {
 export const DEFAULT_APP_CONTEXT: AppContextType = {
   setUsername: () => {},
   setMenu: () => {},
-  users: [{ id: 'foo', username: 'bar' }],
-  user: { id: 'foo', username: 'bar' },
+  refreshApp: () => {},
+  users: [],
+  user: { id: '', username: '' },
 };
 
 export const AppContext = createContext<AppContextType>(DEFAULT_APP_CONTEXT);

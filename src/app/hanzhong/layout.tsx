@@ -7,7 +7,7 @@ import { PaperWrapper } from '../shared';
 import { ActionsMenu } from './actions-menu';
 import { HANZHONG_DATA } from './data';
 import { HanzhongContext } from './HanzhongContext';
-import { getHanzhongUserDataByUsername, saveHanzhongUserDataByUsername } from './persistence';
+import { getHanzhongUserDataByUsername, saveHanzhongUserData } from './persistence';
 import { Progress } from './Progress';
 import { ResourceIncomes } from './ResourceIncomes';
 import { HanzhongSidePanelTabs } from './side-panel-tabs';
@@ -17,9 +17,9 @@ import { DEFAULT_HANZHONG_CONTEXT_DATA, initializeEarnings } from './utils';
 import { useAppContext } from '../Context';
 
 export const HanzhongLayout = () => {
-  const { setMenu } = useAppContext();
+  const { setMenu, user } = useAppContext();
 
-  const [username] = useState<string>('');
+  const [username] = useState<string>(user?.username ?? '');
   const [userData, setUserData] = useState<HanzhongUserDataType>({});
   const [isUserDataModified, setIsUserDataModified] = useState<boolean>(false);
   const [hanzhongContextData, setHanzhongContextData] = useState<HanzhongContextType>(DEFAULT_HANZHONG_CONTEXT_DATA);
@@ -51,7 +51,7 @@ export const HanzhongLayout = () => {
 
   useEffect(() => {
     const onSave = async (): Promise<void> => {
-      await saveHanzhongUserDataByUsername(username, userData);
+      await saveHanzhongUserData(user.id, userData);
       setIsUserDataModified(false);
     };
 

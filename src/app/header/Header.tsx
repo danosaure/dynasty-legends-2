@@ -11,11 +11,10 @@ import Drawer from '@mui/material/Drawer';
 
 export type AppHeaderProps = {
   menu: ReactNode;
-  forceMenuOpen?: boolean;
 };
 
-export const AppHeader = ({ menu, forceMenuOpen }: AppHeaderProps) => {
-  const [showMenu, setShowMenu] = useState<boolean>(forceMenuOpen ?? false);
+export const AppHeader = ({ menu }: AppHeaderProps) => {
+  const [showMenu, setShowMenu] = useState<boolean>(false);
 
   const hideMenu = () => setShowMenu(false);
 

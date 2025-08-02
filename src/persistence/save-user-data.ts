@@ -3,7 +3,7 @@ import { STORE_NAMES } from './constants';
 import { dbOpen } from './db-open';
 import type { PersistenceUserDataType } from './types/user-data-type';
 
-export const saveUserDataByUsername = async (username: string, userData: PersistenceUserDataType): Promise<void> => {
+export const saveUserData = async (userData: PersistenceUserDataType): Promise<void> => {
   let db: IDBDatabase | null = null;
 
   try {
@@ -13,7 +13,7 @@ export const saveUserDataByUsername = async (username: string, userData: Persist
   } finally {
     if (db) {
       db.close();
-      console.log(`  saveUserDataByUsername(username=${username}): db closed.`);
+      console.log(`  saveUserData(username=${userData.username}): db closed.`);
     }
   }
 };

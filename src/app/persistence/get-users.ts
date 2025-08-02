@@ -10,8 +10,6 @@ export const getUsers = async (): Promise<PersistenceUserDataType[]> => {
 
     const dbUsersData = await getAllDataFromDatabaseObjectStore<PersistenceUserDataType>(db, STORE_NAMES.USER_DATA);
 
-    console.log(`dbUsersData=`, dbUsersData);
-
     return dbUsersData;
   } finally {
     if (db) {

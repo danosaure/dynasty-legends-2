@@ -30,7 +30,7 @@ export const UserRow = ({ user, onUsernameChange, onDeleteClick }: UserRowProps)
     setEditMode(false);
   };
 
-  const isCurrentUser = selectedUser.username === user.username;
+  const isCurrentUser = selectedUser?.id === user.id;
 
   const usernameJSX = editMode ? (
     <UsernameEditor username={user.username} onDone={onDone} onCancel={cancelEdit} />

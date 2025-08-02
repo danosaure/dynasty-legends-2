@@ -1,5 +1,5 @@
 import { type ReactNode, useEffect, useState } from 'react';
-import { Outlet } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
@@ -8,23 +8,26 @@ import { AppHeader } from './header';
 import { getUsers } from './persistence';
 
 export const AppLayout = () => {
+  const navigate = useNavigate();
+
   const [menu, setMenu] = useState<ReactNode>(null);
-  const [forceOpen, setForceOpen] = useState<boolean>(false);
   const [doneLoading, setDoneLoading] = useState<boolean>(false);
   const [appContextData, setAppContextData] = useState<AppContextType>(DEFAULT_APP_CONTEXT);
   const [username, setUsername] = useState<string>('');
 
   useEffect(() => {
-    setDoneLoading(false);
     (async () => {
       const users = await getUsers();
 
       if (!users.length) {
-        setForceOpen(true);
+        if (!doneLoading) {
+          navigate('/users');
+        }
       } else {
         setAppContextData({
           setMenu,
           setUsername,
+          refreshApp: () => setDoneLoading(false),
           users: users.map((user) => ({ id: user.id, username: user.username })),
           user: users.find((user) => user.username === username) ?? users[0],
         });
@@ -32,7 +35,7 @@ export const AppLayout = () => {
 
       setDoneLoading(true);
     })();
-  }, [username]);
+  }, [username, navigate, doneLoading]);
 
   if (!doneLoading) {
     return null;
@@ -42,7 +45,7 @@ export const AppLayout = () => {
     <AppContext.Provider value={appContextData}>
       <Container maxWidth="lg" sx={{ maxWidth: '1000px !important', paddingLeft: '4px', paddingRight: '4px' }}>
         <Grid container size={{ xs: 12 }} direction={'column'}>
-          <AppHeader menu={menu} forceMenuOpen={forceOpen} />
+          <AppHeader menu={menu} />
           <Outlet />
         </Grid>
       </Container>
