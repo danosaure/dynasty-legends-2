@@ -10,7 +10,7 @@ export const getUsers = async (): Promise<PersistenceUserDataType[]> => {
 
     const dbUsersData = await getAllDataFromDatabaseObjectStore<PersistenceUserDataType>(db, STORE_NAMES.USER_DATA);
 
-    return dbUsersData;
+    return dbUsersData.filter((userData) => !userData.__archived);
   } finally {
     if (db) {
       db.close();

@@ -13,7 +13,7 @@ export const AppLayout = () => {
   const [menu, setMenu] = useState<ReactNode>(null);
   const [doneLoading, setDoneLoading] = useState<boolean>(false);
   const [appContextData, setAppContextData] = useState<AppContextType>(DEFAULT_APP_CONTEXT);
-  const [username, setUsername] = useState<string>('');
+  const [currentUserId, setCurrentUserId] = useState<string>('');
 
   useEffect(() => {
     (async () => {
@@ -24,18 +24,30 @@ export const AppLayout = () => {
           navigate('/users');
         }
       } else {
+        users.sort((a, b) => {
+          if (a.username === b.username) {
+            return a.id.localeCompare(b.id);
+          } else if (a.username === '') {
+            return 1;
+          } else if (b.username === '') {
+            return -1;
+          } else {
+            return a.username.localeCompare(b.username);
+          }
+        });
+
         setAppContextData({
           setMenu,
-          setUsername,
+          setCurrentUserId,
           refreshApp: () => setDoneLoading(false),
           users: users.map((user) => ({ id: user.id, username: user.username })),
-          user: users.find((user) => user.username === username) ?? users[0],
+          user: users.find((user) => user.id === currentUserId) ?? users[0],
         });
       }
 
       setDoneLoading(true);
     })();
-  }, [username, navigate, doneLoading]);
+  }, [currentUserId, navigate, doneLoading]);
 
   if (!doneLoading) {
     return null;

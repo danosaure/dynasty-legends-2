@@ -17,7 +17,7 @@ export type UserRowProps = {
 };
 
 export const UserRow = ({ user, onUsernameChange, onDeleteClick }: UserRowProps) => {
-  const { user: selectedUser, setUsername } = useAppContext();
+  const { user: selectedUser, setCurrentUserId } = useAppContext();
 
   const [editMode, setEditMode] = useState<boolean>(false);
 
@@ -44,7 +44,7 @@ export const UserRow = ({ user, onUsernameChange, onDeleteClick }: UserRowProps)
         <WrappedIconButton
           Icon={PersonIcon}
           label={isCurrentUser ? `Current user` : `Switch to ${user.username}`}
-          onClick={() => setUsername(user.username)}
+          onClick={() => setCurrentUserId(user.id)}
           withTooltip="right"
           selected={isCurrentUser}
         />

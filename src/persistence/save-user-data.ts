@@ -13,7 +13,6 @@ export const saveUserData = async (userData: PersistenceUserDataType): Promise<v
   } finally {
     if (db) {
       db.close();
-      console.log(`  saveUserData(username=${userData.username}): db closed.`);
     }
   }
 };

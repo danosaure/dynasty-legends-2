@@ -18,7 +18,7 @@ const appContextData: AppContextType = {
   users,
   user: users[0],
   refreshApp: fn(),
-  setUsername: fn(),
+  setCurrentUserId: fn(),
   setMenu: fn(),
 } as const;
 

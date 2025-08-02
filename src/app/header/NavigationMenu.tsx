@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import MapIcon from '@mui/icons-material/Map';
@@ -11,6 +11,7 @@ import { useTheme } from '@mui/material/styles';
 
 import { useAppContext } from '../Context';
 import type { MaterialUiIconType } from '../types';
+import { Username } from '../users/Username';
 
 export type AppHeaderNavigationMenuProps = {
   hideMenu: () => void;
@@ -27,10 +28,10 @@ export const AppHeaderNavigationMenu = ({ hideMenu }: AppHeaderNavigationMenuPro
     navigate(to);
   };
 
-  const NAVIGATION_MENU: [string, string, MaterialUiIconType, string | null][] = [
+  const NAVIGATION_MENU: [string, string | ReactNode, MaterialUiIconType, string | null][] = [
     ['/officers', 'Officers', MilitaryTechIcon, null],
     ['/hanzhong', 'Hanzhong', MapIcon, null],
-    ['/users', user?.username || 'NO USERNAME', ManageAccountsIcon, 'Manage users'],
+    ['/users', <Username username={user?.username} />, ManageAccountsIcon, 'Manage users'],
   ];
 
   const navigationMenu = NAVIGATION_MENU.map((item): ReactNode => {

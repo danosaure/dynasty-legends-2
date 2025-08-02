@@ -8,7 +8,7 @@ export const Username = ({ username }: UsernameProps) => {
   if (!username) {
     return (
       <Typography color="warning" sx={{ fontStyle: 'italic' }}>
-        NO NAME
+        No Username
       </Typography>
     );
   }

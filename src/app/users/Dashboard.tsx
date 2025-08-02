@@ -8,26 +8,42 @@ import { useAppContext } from '../Context';
 import { PaperWrapper } from '../shared';
 import { UsersRows } from './UsersRows';
 import { createUser } from '../persistence';
+import { archiveUserData, getUserData, saveUserData } from '../../persistence';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import { Username } from './Username';
+import DialogActions from '@mui/material/DialogActions';
 
 export const UserDashboard = () => {
   const { users, refreshApp } = useAppContext();
   const [deleteId, setDeleteId] = useState<string | null>(null);
 
-  console.log(`<UserDashboard>: users=`, users);
-
-  const onUsernameChange = (id: string, username: string) => {
-    if (isStorybookTest()) {
-      console.log(`Need to save id="${id}" with new username="${username}".`);
-    } else {
-      console.log(`Add interaction with IndexedDB.`);
+  const onUsernameChange = async (id: string, username: string): Promise<void> => {
+    if (!isStorybookTest()) {
+      const dbUserData = await getUserData(id);
+      if (dbUserData) {
+        dbUserData.username = username;
+        await saveUserData(dbUserData);
+        refreshApp();
+      }
     }
   };
 
   const onCreateUserClick = async () => {
-    console.log(`Create a new User.`);
     await createUser();
     refreshApp();
   };
+
+  const archiveUser = async (): Promise<void> => {
+    if (deleteId && !isStorybookTest()) {
+      await archiveUserData(deleteId);
+      refreshApp();
+    }
+  };
+
+  const onDialogClose = () => setDeleteId(null);
 
   return (
     <Grid container direction={'column'} spacing={2}>
@@ -37,6 +53,24 @@ export const UserDashboard = () => {
       <Button variant="contained" color="primary" startIcon={<PersonAddIcon />} onClick={onCreateUserClick}>
         New User
       </Button>
+
+      <Dialog open={deleteId !== null} onClose={onDialogClose} aria-labelledby="user-dashboard--delete-dialog--title">
+        <DialogTitle id="user-dashboard--delete-dialog--title">Delete User</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="user-dashboard--delete-dialog--description">
+            Are you sure you want to delete user
+            <Username username={users.find((user) => user.id === deleteId)?.username || ''} />
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button variant="contained" color="primary" onClick={onDialogClose}>
+            Cancel
+          </Button>
+          <Button variant="outlined" color="error" onClick={archiveUser}>
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Grid>
   );
 };
