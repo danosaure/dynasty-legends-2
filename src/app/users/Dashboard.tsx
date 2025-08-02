@@ -18,15 +18,13 @@ export const UserDashboard = () => {
   console.log(`ID to delete="${deleteId}".`);
 
   return (
-    <PaperWrapper sx={{ p: 2 }}>
-      <Grid container direction={'column'} spacing={2}>
-        <PaperWrapper sx={{ p: 2 }}>
-          <UsersRows users={users} onUsernameChange={onUsernameChange} onDeleteClick={setDeleteId} />
-        </PaperWrapper>
-        <Button variant="contained" color="primary" startIcon={<PersonAddIcon />}>
-          New User
-        </Button>
-      </Grid>
-    </PaperWrapper>
+    <Grid container direction={'column'} spacing={2}>
+      <PaperWrapper sx={{ p: 2 }}>
+        <UsersRows users={users} onUsernameChange={onUsernameChange} onDeleteClick={setDeleteId} />
+      </PaperWrapper>
+      <Button variant="contained" color="primary" startIcon={<PersonAddIcon />}>
+        New User
+      </Button>
+    </Grid>
   );
 };

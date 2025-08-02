@@ -11,6 +11,7 @@ const users: AppContextBaseUser[] = [
   { id: 'foo4', username: 'bar4' },
   { id: 'foo5', username: 'bar5' },
   { id: 'foo6', username: 'bar6' },
+  { id: 'no-username', username: '' },
 ];
 
 const appContextData: AppContextType = {
@@ -31,7 +32,6 @@ const meta = {
       </AppContext.Provider>
     ),
   ],
-
   args: {},
 } satisfies Meta<typeof UserDashboard>;
 

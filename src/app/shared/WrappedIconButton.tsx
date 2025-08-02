@@ -12,12 +12,15 @@ export type WrappedIconButtonProps = {
   withTooltip?: boolean;
   small?: boolean;
   sx?: SxProps;
+  selected?: boolean;
 };
 
-export const WrappedIconButton = ({ label, disabled, onClick, Icon, withTooltip, small, sx }: WrappedIconButtonProps) => {
+export const WrappedIconButton = ({ label, disabled, onClick, Icon, withTooltip, small, sx, selected }: WrappedIconButtonProps) => {
   let iconColor: MaterialUiIconColorType = 'action';
   if (disabled) {
     iconColor = 'disabled';
+  } else if (selected) {
+    iconColor = 'success';
   } else if (onClick) {
     iconColor = 'primary';
   }

@@ -2,10 +2,27 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { UserRow, type UserRowProps } from './UserRow';
 import { expect, fn } from 'storybook/test';
+import { AppContext, type AppContextBaseUser, type AppContextType } from '../Context';
+
+const users: AppContextBaseUser[] = [
+  { id: 'foo1', username: 'bar1' },
+  { id: 'foo2', username: 'bar2' },
+  { id: 'foo3', username: 'bar3' },
+  { id: 'foo4', username: 'bar4' },
+  { id: 'foo5', username: 'bar5' },
+  { id: 'foo6', username: 'bar6' },
+  { id: 'no-username', username: '' },
+];
+
+const appContextData: AppContextType = {
+  users,
+  user: users[0],
+  setUsername: fn(),
+  setMenu: fn(),
+} as const;
 
 const defaultProps: UserRowProps = {
-  user: { id: 'foo-bar', username: 'Some username' },
-
+  user: appContextData.user,
   onUsernameChange: fn(),
   onDeleteClick: fn(),
 };
@@ -14,6 +31,14 @@ const meta = {
   title: 'user-management/UserRow',
   component: UserRow,
   tags: ['autodocs'],
+  decorators: [
+    (Story) => (
+      <AppContext.Provider value={appContextData}>
+        <Story />
+      </AppContext.Provider>
+    ),
+  ],
+
   args: {
     ...defaultProps,
   },
@@ -32,14 +57,14 @@ Default.storyName = 'Base';
 
 export const NoUsername: Story = {
   args: {
-    user: { id: 'foo-foo', username: '' },
+    user: { id: 'no-username', username: '' },
   },
 };
 NoUsername.storyName = 'No username';
 
 export const Automated: Story = {
   args: {
-    user: { id: 'foo-foo', username: '' },
+    user: appContextData.user,
   },
   play: async ({ canvas, userEvent, args }) => {
     const editButton = canvas.getByRole('button', { name: 'Edit' });
