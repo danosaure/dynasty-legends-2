@@ -9,14 +9,6 @@ export type ActionsMenuProps = {
 
 export const ActionsMenu = ({ isUserDataModified, onSave }: ActionsMenuProps) => {
   return (
-    <>
-      <WrappedIconButton
-        label="Save changes"
-        disabled={!isUserDataModified}
-        onClick={onSave}
-        Icon={SaveIcon}
-        withTooltip="bottom"
-      />
-    </>
+    <WrappedIconButton label="Save changes" disabled={!isUserDataModified} onClick={onSave} Icon={SaveIcon} withTooltip="bottom" />
   );
 };
