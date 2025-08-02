@@ -74,20 +74,32 @@ WithOnClick.storyName = 'with onClick';
 export const TooltipBase: Story = {
   args: {
     ...defaultProps,
-    withTooltip: true,
+    withTooltip: 'bottom',
   },
   play: async ({ canvas, userEvent }) => {
     const button = canvas.getByRole('button');
     await userEvent.hover(button);
   },
 };
-TooltipBase.storyName = 'tooltip: base';
+TooltipBase.storyName = 'tooltip: on the bottom';
+
+export const TooltipRight: Story = {
+  args: {
+    ...defaultProps,
+    withTooltip: 'right',
+  },
+  play: async ({ canvas, userEvent }) => {
+    const button = canvas.getByRole('button');
+    await userEvent.hover(button);
+  },
+};
+TooltipRight.storyName = 'tooltip: on the right';
 
 export const TooltipDisabled: Story = {
   args: {
     ...defaultProps,
     disabled: true,
-    withTooltip: true,
+    withTooltip: 'right',
   },
 };
 TooltipDisabled.storyName = 'tooltip: disabled';
@@ -96,7 +108,7 @@ export const TooltipWithOnClick: Story = {
   args: {
     ...defaultProps,
     onClick: fn(),
-    withTooltip: true,
+    withTooltip: 'top',
   },
   play: async ({ canvas, userEvent, args }) => {
     const button = canvas.getByRole('button');

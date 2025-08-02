@@ -7,7 +7,7 @@ import { PaperWrapper } from '../shared';
 import { ActionsMenu } from './actions-menu';
 import { HANZHONG_DATA } from './data';
 import { HanzhongContext } from './HanzhongContext';
-import { getHanzhongUserDataByUsername, saveHanzhongUserDataByUsername } from './persistence';
+import { saveHanzhongUserData } from './persistence';
 import { Progress } from './Progress';
 import { ResourceIncomes } from './ResourceIncomes';
 import { HanzhongSidePanelTabs } from './side-panel-tabs';
@@ -17,19 +17,11 @@ import { DEFAULT_HANZHONG_CONTEXT_DATA, initializeEarnings } from './utils';
 import { useAppContext } from '../Context';
 
 export const HanzhongLayout = () => {
-  const { setMenu } = useAppContext();
+  const { setMenu, user } = useAppContext();
+  const [userData, setUserData] = useState<HanzhongUserDataType>(user.hanzhong ?? {});
 
-  const [username] = useState<string>('');
-  const [userData, setUserData] = useState<HanzhongUserDataType>({});
   const [isUserDataModified, setIsUserDataModified] = useState<boolean>(false);
   const [hanzhongContextData, setHanzhongContextData] = useState<HanzhongContextType>(DEFAULT_HANZHONG_CONTEXT_DATA);
-
-  useEffect(() => {
-    (async () => {
-      const userData = await getHanzhongUserDataByUsername(username);
-      setUserData(userData);
-    })();
-  }, [username]);
 
   useEffect(() => {
     const bonuses: HanzhongBonusType = initializeEarnings(HANZHONG_DATA, userData);
@@ -51,13 +43,13 @@ export const HanzhongLayout = () => {
 
   useEffect(() => {
     const onSave = async (): Promise<void> => {
-      await saveHanzhongUserDataByUsername(username, userData);
+      await saveHanzhongUserData(user.id, userData);
       setIsUserDataModified(false);
     };
 
     setMenu(<ActionsMenu isUserDataModified={isUserDataModified} onSave={onSave} />);
     return () => setMenu(null);
-  }, [isUserDataModified, setMenu, username, userData]);
+  }, [isUserDataModified, setMenu, userData, user.id]);
 
   return (
     <HanzhongContext.Provider value={hanzhongContextData}>

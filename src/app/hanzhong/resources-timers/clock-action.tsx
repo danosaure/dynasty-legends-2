@@ -22,5 +22,5 @@ export const HanzhongClockAction = () => {
 
   const Icon = showClocks ? AlarmOffIcon : AlarmIcon;
 
-  return <WrappedIconButton label="Show Clocks" onClick={onClick} Icon={Icon} withTooltip />;
+  return <WrappedIconButton label="Show Clocks" onClick={onClick} Icon={Icon} withTooltip="bottom" />;
 };

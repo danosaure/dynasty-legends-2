@@ -8,4 +8,4 @@ export const INDICES_NAMES = {
   [STORE_NAMES.USER_DATA]: {
     USERNAME: 'users_data--username',
   },
-};
+} as const;

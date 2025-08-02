@@ -1,21 +1,57 @@
-import { Outlet } from 'react-router';
+import { type ReactNode, useEffect, useState } from 'react';
+import { Outlet, useNavigate } from 'react-router';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
+import { AppContext, DEFAULT_APP_CONTEXT, type AppContextType } from './Context';
 import { AppHeader } from './header';
-import { AppContext, type AppContextType, DEFAULT_APP_CONTEXT } from './Context';
-import { type ReactNode, useMemo, useState } from 'react';
+import { getUsers } from './persistence';
 
 export const AppLayout = () => {
-  const [menu, setMenu] = useState<ReactNode>(null);
+  const navigate = useNavigate();
 
-  const appContextData: AppContextType = useMemo<AppContextType>(
-    () => ({
-      ...DEFAULT_APP_CONTEXT,
-      setMenu,
-    }),
-    []
-  );
+  const [menu, setMenu] = useState<ReactNode>(null);
+  const [doneLoading, setDoneLoading] = useState<boolean>(false);
+  const [appContextData, setAppContextData] = useState<AppContextType>(DEFAULT_APP_CONTEXT);
+  const [currentUserId, setCurrentUserId] = useState<string>('');
+
+  useEffect(() => {
+    (async () => {
+      const users = await getUsers();
+
+      if (!users.length) {
+        if (!doneLoading) {
+          navigate('/users');
+        }
+      } else {
+        users.sort((a, b) => {
+          if (a.username === b.username) {
+            return a.id.localeCompare(b.id);
+          } else if (a.username === '') {
+            return 1;
+          } else if (b.username === '') {
+            return -1;
+          } else {
+            return a.username.localeCompare(b.username);
+          }
+        });
+
+        setAppContextData({
+          setMenu,
+          setCurrentUserId,
+          refreshApp: () => setDoneLoading(false),
+          users: users.map((user) => ({ id: user.id, username: user.username })),
+          user: users.find((user) => user.id === currentUserId) ?? users[0],
+        });
+      }
+
+      setDoneLoading(true);
+    })();
+  }, [currentUserId, navigate, doneLoading]);
+
+  if (!doneLoading) {
+    return null;
+  }
 
   return (
     <AppContext.Provider value={appContextData}>
