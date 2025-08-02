@@ -1,19 +1,23 @@
+import type { ReactNode } from 'react';
+import { useLocation, useNavigate } from 'react-router';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import MapIcon from '@mui/icons-material/Map';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import type { MaterialUiIconType } from '../types';
-import type { ReactNode } from 'react';
 import { useTheme } from '@mui/material/styles';
-import { useLocation, useNavigate } from 'react-router';
+
+import { useAppContext } from '../Context';
+import type { MaterialUiIconType } from '../types';
 
 export type AppHeaderNavigationMenuProps = {
   hideMenu: () => void;
 };
 
 export const AppHeaderNavigationMenu = ({ hideMenu }: AppHeaderNavigationMenuProps) => {
+  const { user } = useAppContext();
   const theme = useTheme();
   const location = useLocation();
   const navigate = useNavigate();
@@ -23,13 +27,14 @@ export const AppHeaderNavigationMenu = ({ hideMenu }: AppHeaderNavigationMenuPro
     navigate(to);
   };
 
-  const NAVIGATION_MENU: [string, string, MaterialUiIconType][] = [
-    ['/officers', 'Officers', MilitaryTechIcon],
-    ['/hanzhong', 'Hanzhong', MapIcon],
+  const NAVIGATION_MENU: [string, string, MaterialUiIconType, string | null][] = [
+    ['/officers', 'Officers', MilitaryTechIcon, null],
+    ['/hanzhong', 'Hanzhong', MapIcon, null],
+    ['/users', user?.username || 'NO USERNAME', ManageAccountsIcon, 'Manage users'],
   ];
 
-  const navigationMenu = NAVIGATION_MENU.map((item: [string, string, MaterialUiIconType]): ReactNode => {
-    const [to, label, Icon] = item;
+  const navigationMenu = NAVIGATION_MENU.map((item): ReactNode => {
+    const [to, label, Icon, secondary] = item;
     const isSection = location.pathname.startsWith(to);
     const color = isSection ? theme.palette.success.main : theme.palette.primary.main;
     const borderLeft = `3px solid ${isSection ? theme.palette.success.main : 'transparent'}`;
@@ -39,7 +44,7 @@ export const AppHeaderNavigationMenu = ({ hideMenu }: AppHeaderNavigationMenuPro
         <ListItemIcon>
           <Icon sx={{ color }} />
         </ListItemIcon>
-        <ListItemText primary={label} />
+        <ListItemText primary={label} secondary={secondary} />
       </ListItemButton>
     );
   });

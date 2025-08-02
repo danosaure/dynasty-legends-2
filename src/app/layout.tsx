@@ -25,8 +25,8 @@ export const AppLayout = () => {
         setAppContextData({
           setMenu,
           setUsername,
-          usernames: users.map((user) => user.username),
-          user: users.find((user) => user.username === username),
+          users: users.map((user) => ({ id: user.id, username: user.username })),
+          user: users.find((user) => user.username === username) ?? users[0],
         });
       }
 
