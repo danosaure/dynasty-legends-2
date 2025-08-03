@@ -25,7 +25,7 @@ export const OfficersAptitudeSelector = ({ selected, onSelect }: OfficersAptitud
                 onClick={() => onSelect(isSelected ? '' : aptitude.id)}
                 variant="outlined"
                 sx={{
-                  backgroundColor: aptitude.color,
+                  backgroundColor: aptitude.palette.background.default,
                   color: isSelected ? theme.palette.success.main : theme.palette.text.primary,
                   fontWeight: isSelected ? 'bold' : 'inherit',
                 }}
