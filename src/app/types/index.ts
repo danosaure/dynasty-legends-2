@@ -6,4 +6,5 @@ export type { MaterialUiIconColorType } from './MaterialUiIconColorType';
 export type { MaterialUiIconType } from './MaterialUiIconType';
 export type { OfficerType } from './officer';
 export type * from './officer-type';
+export type { PotentialUserDataRecord, PotentialUserDataValue } from './potential-user-data';
 export type { PotentiallyUnknownNumberType } from './potentially-unknown-number-type';
