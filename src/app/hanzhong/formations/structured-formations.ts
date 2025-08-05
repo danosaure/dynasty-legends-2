@@ -12,6 +12,7 @@ export type StructuredFormationsTeam = {
 };
 
 export type StructuredFormationsFormation = {
+  id: string;
   name: string;
   techId: string;
   team1: StructuredFormationsTeam;
@@ -27,6 +28,7 @@ export type StructuredFormations = {
 
 export const STRUCTURED_FORMATIONS: StructuredFormations = {
   vanguardCamp: {
+    id: sanitizeId('Vanguard Camp'),
     name: 'Vanguard Camp',
     techId: HANZHONG_TECH_IDS.SPECIAL_TRAINING__VANGUARD_CAMP,
     team1: {
@@ -62,6 +64,7 @@ export const STRUCTURED_FORMATIONS: StructuredFormations = {
   },
 
   valiantCavalry: {
+    id: sanitizeId('Valiant Cavalry'),
     name: 'Valiant Cavalry',
     techId: HANZHONG_TECH_IDS.SPECIAL_TRAINING__VALIANT_CAVALRY,
     team1: {
@@ -97,6 +100,7 @@ export const STRUCTURED_FORMATIONS: StructuredFormations = {
   },
 
   royalGuards: {
+    id: sanitizeId('Royal Guards'),
     name: 'Royal Guards',
     techId: HANZHONG_TECH_IDS.SPECIAL_TRAINING__ROYAL_GUARDS,
     team1: {
