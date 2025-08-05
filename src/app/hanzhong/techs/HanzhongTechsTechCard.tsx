@@ -26,7 +26,7 @@ export const HanzhongTechsTechCard = ({ id, assetImage, label, value, maxValue }
     <CardWrapper
       sx={{
         backgroundColor: 'rgba(255, 255, 255, 0.7)',
-        width: { xs: '180px', md: '130px', lg: '150px' },
+        width: { xs: '180px', md: '125px' },
       }}
       cardContentSx={{ 'p': '5px', '&:last-child': { pb: '1px' } }}
     >
@@ -44,10 +44,10 @@ export const HanzhongTechsTechCard = ({ id, assetImage, label, value, maxValue }
               sx={{
                 p: 0,
                 position: 'absolute',
-                top: { xs: -15, md: -10 },
+                top: { xs: -12, md: -10 },
                 borderRadius: '20px',
                 lineHeight: 0,
-                left: { xs: -10, md: -15 },
+                left: { xs: -12, md: -15 },
               }}
             >
               <WrappedIconButton label="Show details" Icon={InfoOutlineIcon} onClick={() => displayTechId(id)} small />
@@ -56,9 +56,7 @@ export const HanzhongTechsTechCard = ({ id, assetImage, label, value, maxValue }
         </Grid>
         <Grid size={{ xs: 'grow', md: 12 }}>
           <ValueAdjuster value={value} maxValue={maxValue} onChange={(newValue: number) => onChange(id, newValue)} />
-          <Typography sx={{ textAlign: 'center' }} variant="body2">
-            {label}
-          </Typography>
+          <Typography sx={{ textAlign: 'center', fontSize: { xs: '9px', md: '13px' } }}>{label}</Typography>
         </Grid>
       </Grid>
     </CardWrapper>

@@ -58,7 +58,7 @@ export const HanzhongTimerDisplay = ({ minutes, small }: HanzhongTimerDisplayPro
   const color = convertMinutesToColor(minutes);
   const timeString = convertMinutesToString(minutes);
 
-  const fontSize = small ? { xs: '9px', sm: '13px' } : { xs: '12px', sm: '16px' };
+  const fontSize = small ? { xs: '9px', md: '13px' } : { xs: '11px', md: '15px' };
 
   return (
     <Typography color={color} sx={{ fontSize }}>
