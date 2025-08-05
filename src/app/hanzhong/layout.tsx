@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Outlet } from 'react-router';
 import Grid from '@mui/material/Grid';
 
 import { PaperWrapper } from '../shared';
 
 import { ActionsMenu } from './actions-menu';
-import { HANZHONG_DATA } from './data';
 import { HanzhongContext } from './HanzhongContext';
 import { saveHanzhongUserData } from './persistence';
 import { Progress } from './Progress';
@@ -15,20 +14,30 @@ import { TacticalBonuses } from './TacticalBonuses';
 import type { HanzhongBonusType, HanzhongContextType, HanzhongUserDataType } from './types';
 import { DEFAULT_HANZHONG_CONTEXT_DATA, initializeEarnings } from './utils';
 import { useAppContext } from '../Context';
+import type { HanzhongFormationsUserData } from './formations/types';
 
 export const HanzhongLayout = () => {
   const { setMenu, user } = useAppContext();
   const [userData, setUserData] = useState<HanzhongUserDataType>(user.hanzhong ?? {});
+  const [formationsUserData, setFormationsUserData] = useState<HanzhongFormationsUserData>({ ...user.formations });
 
   const [isUserDataModified, setIsUserDataModified] = useState<boolean>(false);
   const [hanzhongContextData, setHanzhongContextData] = useState<HanzhongContextType>(DEFAULT_HANZHONG_CONTEXT_DATA);
 
-  useEffect(() => {
-    const bonuses: HanzhongBonusType = initializeEarnings(HANZHONG_DATA, userData);
+  const bonuses = useMemo<HanzhongBonusType>(() => initializeEarnings(userData), [userData]);
 
+  useEffect(() => {
     const onChange = (key: string, value: number) => {
       setUserData({
         ...userData,
+        [key]: value,
+      });
+      setIsUserDataModified(true);
+    };
+
+    const onChangeFormations = (key: string, value: number | string) => {
+      setFormationsUserData({
+        ...formationsUserData,
         [key]: value,
       });
       setIsUserDataModified(true);
@@ -38,18 +47,20 @@ export const HanzhongLayout = () => {
       user: userData,
       bonuses,
       onChange,
+      formationsUserData,
+      onChangeFormations,
     });
-  }, [userData]);
+  }, [userData, formationsUserData, bonuses]);
 
   useEffect(() => {
     const onSave = async (): Promise<void> => {
-      await saveHanzhongUserData(user.id, userData);
+      await saveHanzhongUserData(user.id, userData, formationsUserData);
       setIsUserDataModified(false);
     };
 
     setMenu(<ActionsMenu isUserDataModified={isUserDataModified} onSave={onSave} />);
     return () => setMenu(null);
-  }, [isUserDataModified, setMenu, userData, user.id]);
+  }, [isUserDataModified, setMenu, userData, formationsUserData, user.id]);
 
   return (
     <HanzhongContext.Provider value={hanzhongContextData}>

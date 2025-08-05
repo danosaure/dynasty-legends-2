@@ -1,10 +1,12 @@
+import Person4Icon from '@mui/icons-material/Person4';
+import Person4OutlinedIcon from '@mui/icons-material/Person4Outlined';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 
 import { getAptitudeById, getFactionById, getOfficerTypeById } from '../data';
-import { CardWrapper } from '../shared';
+import { CardWrapper, WrappedIconButton } from '../shared';
 import type { OfficerType, OfficerTypeType } from '../types';
 import { assetPath } from '../utils';
 
@@ -13,9 +15,18 @@ export type OfficerCardProps = {
   selectedFaction: string;
   selectedAptitude: string;
   selectedOfficerType: string;
+  onRosterUpdated: (id: string) => void;
+  inRoster: boolean;
 };
 
-export const OfficerCard = ({ officer, selectedFaction, selectedAptitude, selectedOfficerType }: OfficerCardProps) => {
+export const OfficerCard = ({
+  officer,
+  selectedFaction,
+  selectedAptitude,
+  selectedOfficerType,
+  onRosterUpdated,
+  inRoster,
+}: OfficerCardProps) => {
   const faction = getFactionById(officer.factionId);
   const aptitude = getAptitudeById(officer.aptitudeId);
   const officerTypes: OfficerTypeType[] = officer.officerTypeIds.map<OfficerTypeType>((officerTypeId) =>
@@ -27,10 +38,15 @@ export const OfficerCard = ({ officer, selectedFaction, selectedAptitude, select
     (selectedAptitude === '' || selectedAptitude === officer.aptitudeId) &&
     (selectedOfficerType === '' || officer.officerTypeIds.includes(selectedOfficerType));
 
-  const opacity = isVisible ? 1 : 0.2;
+  const rosterOpacity = inRoster ? 1 : 0.75;
+  const opacity = isVisible ? rosterOpacity : 0.2;
+
+  const rosterData = inRoster
+    ? { label: 'Remove from roster', Icon: Person4Icon, onClick: () => onRosterUpdated(officer.id) }
+    : { label: 'Add to roster', Icon: Person4OutlinedIcon, onClick: () => onRosterUpdated(officer.id) };
 
   return (
-    <CardWrapper sx={{ backgroundColor: aptitude?.color, opacity }}>
+    <CardWrapper sx={{ backgroundColor: aptitude?.palette.background.default, opacity }}>
       <Grid container size={12} spacing={1}>
         <Grid size="auto">
           <Box sx={{ width: '100%', maxWidth: { xs: '30px', sm: '50px' } }}>
@@ -39,28 +55,38 @@ export const OfficerCard = ({ officer, selectedFaction, selectedAptitude, select
         </Grid>
         <Grid size="grow" container direction={'row'} spacing={0}>
           <Grid size={3}>
-            <Tooltip title={faction?.name}>
+            <Tooltip title={faction?.name} placement="top-end">
               <Box sx={{ height: { xs: '17px', sm: '25px' } }}>
                 <img src={assetPath(faction?.avatar.path)} alt={faction?.name} height={'100%'} />
               </Box>
             </Tooltip>
           </Grid>
           <Grid size={4}>
-            <Typography sx={{ backgroundColor: aptitude?.color, fontSize: { xs: '10px', sm: '14px' } }}>
-              Apt {aptitude?.name}
-            </Typography>
+            <Typography sx={{ fontSize: { xs: '10px', sm: '14px' } }}>Apt {aptitude?.name}</Typography>
           </Grid>
           <Grid size={5} container spacing={0.7} sx={{ alignContent: 'center', justifyContent: 'flex-end' }}>
             {officerTypes.map((officerType) => (
               <Box key={officerType.name} sx={{ height: { xs: '16px', sm: '20px', md: '24px' } }}>
-                <Tooltip title={officerType?.name}>
+                <Tooltip title={officerType?.name} placement="top-start">
                   <img src={assetPath(officerType?.avatar.path)} alt={officerType?.name} height={'100%'} />
                 </Tooltip>
               </Box>
             ))}
           </Grid>
-          <Grid size={12}>
-            <Typography sx={{ fontSize: { xs: '14px', sm: '16px' } }}>{officer.name}</Typography>
+          <Grid container size={12} sx={{ alignItems: 'center', justifyContent: 'center' }}>
+            <Grid size="grow">
+              <Typography sx={{ fontSize: { xs: '12px', sm: '16px' } }}>{officer.name}</Typography>
+            </Grid>
+            <Grid size="auto">
+              <WrappedIconButton
+                label={rosterData.label}
+                Icon={rosterData.Icon}
+                withTooltip="bottom-start"
+                small
+                onClick={rosterData.onClick}
+                palette={aptitude.palette}
+              />
+            </Grid>
           </Grid>
         </Grid>
       </Grid>

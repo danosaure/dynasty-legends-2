@@ -30,7 +30,7 @@ export const HanzhongTechsWarTier = ({ info }: HanzhongTechsWarTierProps) => {
           />
         </Grid>
 
-        <Grid container size="grow" spacing={1}>
+        <Grid container size="grow" spacing={0.5}>
           {info.techs.map((tech: HanzhongTechType) => (
             <HanzhongTechsTech key={tech.id} info={tech} value={user[tech.id] ?? 0} />
           ))}

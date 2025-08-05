@@ -1,18 +1,11 @@
 import type { ReactNode } from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#C38900',
-    },
-  },
-});
+import { ThemeProvider } from '@mui/material/styles';
+import { DEFAULT_THEME } from './constants';
 
 export type AppThemeProviderProps = {
   children: ReactNode;
 };
 
 export const AppThemeProvider = ({ children }: AppThemeProviderProps) => {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return <ThemeProvider theme={DEFAULT_THEME}>{children}</ThemeProvider>;
 };

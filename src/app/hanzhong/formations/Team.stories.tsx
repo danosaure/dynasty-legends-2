@@ -2,10 +2,14 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { fn } from 'storybook/test';
 
-import { HanzhongFormationsTeam, type HanzhongFormationsTeamProps } from './formations-team';
-import { HanzhongContext } from './HanzhongContext';
-import { DEFAULT_HANZHONG_CONTEXT_DATA } from './utils';
-import type { HanzhongContextType } from './types';
+import { HanzhongContext } from '../HanzhongContext';
+import type { HanzhongContextType } from '../types';
+import { DEFAULT_HANZHONG_CONTEXT_DATA } from '../utils';
+
+import { HanzhongFormationsTeam, type HanzhongFormationsTeamProps } from './Team';
+import { STRUCTURED_FORMATIONS } from './structured-formations';
+
+const INFO = STRUCTURED_FORMATIONS.vanguardCamp.team1;
 
 const hanzhongContextData: HanzhongContextType = {
   ...DEFAULT_HANZHONG_CONTEXT_DATA,
@@ -13,10 +17,8 @@ const hanzhongContextData: HanzhongContextType = {
 } as const;
 
 const defaultProps: HanzhongFormationsTeamProps = {
-  team: [
-    { id: 'abc', tacticalPoints: 50 },
-    { id: 'def', tacticalPoints: 20 },
-  ],
+  team: INFO,
+  onClick: fn(),
 };
 
 const meta = {

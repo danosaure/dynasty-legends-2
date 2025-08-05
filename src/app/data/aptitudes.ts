@@ -1,5 +1,6 @@
 import { sanitizeId } from '../../utils';
 import type { AptitudeType, AptitudeValueType } from '../types';
+import { createThemeFromBackground } from '../utils';
 
 type DataType = [AptitudeValueType, number, string];
 
@@ -27,7 +28,7 @@ const RAW: AptitudeType[] = DATA.map((infos: DataType) => {
     id: sanitizeId(`aptitude--${aptitude}`),
     name: String(displayAptitude),
     aptitude,
-    color,
+    palette: createThemeFromBackground(color).palette,
   };
 });
 

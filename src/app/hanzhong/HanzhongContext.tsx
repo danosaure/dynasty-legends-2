@@ -8,6 +8,8 @@ export const HanzhongContext = createContext<HanzhongContextType>({
   user: {},
   bonuses: {},
   onChange: () => {},
+  formationsUserData: {},
+  onChangeFormations: () => {},
 });
 
 HanzhongContext.displayName = 'HanzhongContext';

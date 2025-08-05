@@ -1,11 +1,11 @@
 import { HANZHONG_TECH_IDS } from '../constants/items-ids';
+import { HANZHONG_CITIES, HANZHONG_TERRITORIES, HANZHONG_WAR_TIERS } from '../data';
 import type {
   HanzhongBonusType,
   HanzhongCityType,
   HanzhongTechType,
   HanzhongTerritoryLevelType,
   HanzhongTerritoryResourceType,
-  HanzhongType,
   HanzhongUserDataType,
   HanzhongWarTierType,
 } from '../types';
@@ -17,35 +17,32 @@ const SPECIAL_TRAINING_KEYS = [
   HANZHONG_TECH_IDS.SPECIAL_TRAINING__ROYAL_GUARDS,
 ];
 
-export const initializeEarnings = (hanzhongData: HanzhongType, userData: HanzhongUserDataType): HanzhongBonusType => {
+export const initializeEarnings = (userData: HanzhongUserDataType): HanzhongBonusType => {
   let bonuses: HanzhongBonusType = {
     territoryCap: 10, // Default.
   };
 
-  bonuses = hanzhongData.cities.reduce((cumul: HanzhongBonusType, city: HanzhongCityType) => {
+  bonuses = HANZHONG_CITIES.reduce((cumul: HanzhongBonusType, city: HanzhongCityType) => {
     if (userData[city.id] === 1) {
       return addHanzhongBonuses(cumul, city.earnings);
     }
     return cumul;
   }, bonuses);
 
-  bonuses = hanzhongData.territories.levels.reduce(
-    (cumul: HanzhongBonusType, level: HanzhongTerritoryLevelType): HanzhongBonusType => {
-      return level.earnings.reduce(
-        (territoryLevelEarnings: HanzhongBonusType, territoryLevel: HanzhongTerritoryResourceType): HanzhongBonusType => {
-          const territoryCount = userData[territoryLevel.id] ?? 0;
-          if (territoryCount) {
-            return addHanzhongBonuses(territoryLevelEarnings, territoryLevel.earnings, territoryCount);
-          }
-          return territoryLevelEarnings;
-        },
-        cumul
-      );
-    },
-    bonuses
-  );
+  bonuses = HANZHONG_TERRITORIES.levels.reduce((cumul: HanzhongBonusType, level: HanzhongTerritoryLevelType): HanzhongBonusType => {
+    return level.earnings.reduce(
+      (territoryLevelEarnings: HanzhongBonusType, territoryLevel: HanzhongTerritoryResourceType): HanzhongBonusType => {
+        const territoryCount = userData[territoryLevel.id] ?? 0;
+        if (territoryCount) {
+          return addHanzhongBonuses(territoryLevelEarnings, territoryLevel.earnings, territoryCount);
+        }
+        return territoryLevelEarnings;
+      },
+      cumul
+    );
+  }, bonuses);
 
-  bonuses = hanzhongData.warTiers.reduce((cumul: HanzhongBonusType, warTier: HanzhongWarTierType): HanzhongBonusType => {
+  bonuses = HANZHONG_WAR_TIERS.reduce((cumul: HanzhongBonusType, warTier: HanzhongWarTierType): HanzhongBonusType => {
     return warTier.techs.reduce((techCumul: HanzhongBonusType, tech: HanzhongTechType): HanzhongBonusType => {
       if (SPECIAL_TRAINING_KEYS.includes(tech.id)) {
         return techCumul;
