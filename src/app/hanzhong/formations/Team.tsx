@@ -12,7 +12,7 @@ export type HanzhongFormationsTeamProps = {
 export const HanzhongFormationsTeam = ({ team }: HanzhongFormationsTeamProps) => {
   return (
     <PaperWrapper>
-      <Grid container spacing={1} sx={{ p: 1 }} direction={{ xs: 'row', md: 'column' }}>
+      <Grid size="auto" container spacing={1} sx={{ p: 1 }} direction={{ xs: 'row', sm: 'column' }}>
         <HanzhongFormationsCharacter label="Chief" info={team.chief} />
         <HanzhongFormationsCharacter label="Lieutenant" info={team.lieutenant} />
       </Grid>
