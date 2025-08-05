@@ -13,9 +13,10 @@ import type { StructuredFormationsOfficer } from './structured-formations';
 export type HanzhongFormationsCharacterPops = {
   label: string;
   info: StructuredFormationsOfficer;
+  onClick: (id: string) => void;
 };
 
-export const HanzhongFormationsCharacter = ({ label, info }: HanzhongFormationsCharacterPops) => {
+export const HanzhongFormationsCharacter = ({ label, info, onClick }: HanzhongFormationsCharacterPops) => {
   const { onChangeFormations, formationsUserData } = useHanzhongContext();
   const fieldValueChanged = (newValue: number) => onChangeFormations(info.tacticalPoints, newValue);
 
@@ -28,7 +29,7 @@ export const HanzhongFormationsCharacter = ({ label, info }: HanzhongFormationsC
 
   return (
     <Grid container direction="row" spacing={0}>
-      <IconButton sx={{ width: '30px' }}>
+      <IconButton sx={{ width: '30px' }} onClick={() => onClick(info.officer)}>
         <Avatar alt={name} src={image} sx={{ width: '25px', height: '25px' }} />
       </IconButton>
       <Box sx={{ width: '70px' }}>

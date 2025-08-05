@@ -135,3 +135,30 @@ export const STRUCTURED_FORMATIONS: StructuredFormations = {
     },
   },
 } as const;
+
+export type StructuredFormationsKeys = {
+  officers: string[];
+  tacticalPoints: string[];
+};
+
+export const STRUCTURED_FORMATIONS_KEYS = [
+  STRUCTURED_FORMATIONS.vanguardCamp,
+  STRUCTURED_FORMATIONS.valiantCavalry,
+  STRUCTURED_FORMATIONS.royalGuards,
+].reduce<StructuredFormationsKeys>(
+  (formationCumul, formation) =>
+    [formation.team1, formation.team2, formation.team3].reduce<StructuredFormationsKeys>(
+      (teamCumul, team) =>
+        [team.chief, team.lieutenant].reduce<StructuredFormationsKeys>(
+          (cumulOfficer, officer) => ({
+            officers: cumulOfficer.officers.concat([officer.officer]),
+            tacticalPoints: cumulOfficer.tacticalPoints.concat([officer.tacticalPoints]),
+          }),
+          teamCumul
+        ),
+
+      formationCumul
+    ),
+
+  { officers: [], tacticalPoints: [] }
+);
