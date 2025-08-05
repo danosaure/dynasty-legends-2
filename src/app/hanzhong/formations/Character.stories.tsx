@@ -7,15 +7,20 @@ import type { HanzhongContextType } from '../types';
 import { DEFAULT_HANZHONG_CONTEXT_DATA } from '../utils';
 
 import { HanzhongFormationsCharacter, type HanzhongFormationsCharacterPops } from './Character';
+import { STRUCTURED_FORMATIONS } from './structured-formations';
+
+const INFO = STRUCTURED_FORMATIONS.vanguardCamp.team1.chief;
 
 const hanzhongContextData: HanzhongContextType = {
   ...DEFAULT_HANZHONG_CONTEXT_DATA,
+  formationsUserData: { [INFO.tacticalPoints]: 25 },
   onChange: fn(),
 } as const;
 
 const defaultProps: HanzhongFormationsCharacterPops = {
-  info: { id: 'abc', tacticalPoints: 50 },
-  rank: 'general',
+  info: INFO,
+  label: 'Chief',
+  onClick: fn(),
 };
 
 const meta = {
@@ -44,27 +49,3 @@ export const Default: Story = {
   },
 };
 Default.storyName = 'general';
-
-export const Negative: Story = {
-  args: {
-    ...defaultProps,
-    info: { id: 'abc', tacticalPoints: -50 },
-  },
-};
-Negative.storyName = 'general negative';
-
-export const LtDefault: Story = {
-  args: {
-    info: { id: 'abc', tacticalPoints: 20 },
-    rank: 'lieutenant',
-  },
-};
-LtDefault.storyName = 'lieutenant';
-
-export const LtNegative: Story = {
-  args: {
-    info: { id: 'abc', tacticalPoints: -20 },
-    rank: 'lieutenant',
-  },
-};
-LtNegative.storyName = 'lieutenant';
