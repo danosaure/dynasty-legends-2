@@ -1,20 +1,19 @@
+import { useMemo } from 'react';
 import { useNavigate } from 'react-router';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import Grid from '@mui/material/Grid';
-import IconButton from '@mui/material/IconButton';
 import { useTheme } from '@mui/material/styles';
 
-import { getAptitudeById, OFFICERS } from '../../data';
-import { assetPath, getStringValue } from '../../utils';
+import { useAppContext } from '../../Context';
+import { OFFICERS } from '../../data';
+import { OfficerAvatar } from '../../shared';
+import { getStringValue } from '../../utils';
 import { useHanzhongContext } from '../HanzhongContext';
 
 import { STRUCTURED_FORMATIONS_KEYS } from './structured-formations';
-import { useAppContext } from '../../Context';
-import { useMemo } from 'react';
 
 export type HanzhongFormationsCharacterSelectorProps = {
   formationCharacterId: string;
@@ -50,29 +49,17 @@ export const HanzhongFormationsCharacterSelector = ({
         <Grid container spacing={1}>
           {OFFICERS.map((officer) => {
             const isAlreadyInFormation = otherSelectedOfficers.has(officer.id);
-            const selectableOpacity = roster[officer.id] ? 1 : 0.6;
-            const aptitude = getAptitudeById(officer.aptitudeId);
 
             return (
-              <Grid
+              <OfficerAvatar
                 key={officer.id}
-                sx={{
-                  backgroundColor: aptitude.palette.background.default,
-                  opacity: isAlreadyInFormation ? 0.2 : selectableOpacity,
-                  borderRadius: '12px',
-                }}
-              >
-                <IconButton
-                  sx={{
-                    width: '30px',
-                    border: `3px solid ${officer.id === currentSelectedOfficer ? theme.palette.success.main : 'transparent'}`,
-                  }}
-                  onClick={() => onSelect(officer.id)}
-                  disabled={isAlreadyInFormation}
-                >
-                  <Avatar alt={officer.name} src={assetPath(officer.avatar.path)} sx={{ width: '30px', height: '30px' }} />
-                </IconButton>
-              </Grid>
+                officerId={officer.id}
+                roster={roster}
+                disabled={isAlreadyInFormation}
+                selectedOfficerId={currentSelectedOfficer}
+                selectedColor={theme.palette.success.main}
+                onClick={() => onSelect(officer.id)}
+              />
             );
           })}
         </Grid>

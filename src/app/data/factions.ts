@@ -11,10 +11,10 @@ export const FACTION_KEYS: Record<string, FactionNameType> = {
 } as const;
 
 const DATA: DataType[] = [
-  [FACTION_KEYS.WEI, '#466D97'],
-  [FACTION_KEYS.SHU, '#66875D'],
-  [FACTION_KEYS.WU, '#A95B4A'],
-  [FACTION_KEYS.OTHER, '#C88767'],
+  [FACTION_KEYS.WEI, '#8DBEDC '],
+  [FACTION_KEYS.SHU, '#A8CE9B'],
+  [FACTION_KEYS.WU, '#FF5D5D'],
+  [FACTION_KEYS.OTHER, '#D99784'],
 ];
 
 const avatar = (name: string, active: boolean): string => `data/factions/${sanitizeId(name)}${active ? '--active' : ''}.png`;
