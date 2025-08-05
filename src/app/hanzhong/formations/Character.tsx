@@ -1,13 +1,14 @@
+import Avatar from '@mui/material/Avatar';
+import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
 
+import { getOfficerById } from '../../data';
 import { DebouncedInputField } from '../../shared';
+import { assetPath, getNumberValue, getStringValue } from '../../utils';
 import { useHanzhongContext } from '../HanzhongContext';
 
 import type { StructuredFormationsOfficer } from './structured-formations';
-import { assetPath, getNumberValue, getStringValue } from '../../utils';
-import Avatar from '@mui/material/Avatar';
-import { getOfficerById } from '../../data';
-import Box from '@mui/material/Box';
 
 export type HanzhongFormationsCharacterPops = {
   label: string;
@@ -26,13 +27,16 @@ export const HanzhongFormationsCharacter = ({ label, info }: HanzhongFormationsC
   const image = officer?.avatar.path ? assetPath(officer.avatar.path) : '';
 
   return (
-    <Grid container direction="row" spacing={1}>
-      <Avatar alt={name} src={image} sx={{ width: '25px', height: '25px' }} />
+    <Grid container direction="row" spacing={0}>
+      <IconButton sx={{ width: '30px' }}>
+        <Avatar alt={name} src={image} sx={{ width: '25px', height: '25px' }} />
+      </IconButton>
       <Box sx={{ width: '70px' }}>
         <DebouncedInputField
           label={label}
           value={getNumberValue(formationsUserData, info.tacticalPoints, 0)}
           onChange={fieldValueChanged}
+          small
         />
       </Box>
     </Grid>

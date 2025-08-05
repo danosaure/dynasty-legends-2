@@ -11,10 +11,14 @@ export type HanzhongFormationsTeamProps = {
 
 export const HanzhongFormationsTeam = ({ team }: HanzhongFormationsTeamProps) => {
   return (
-    <PaperWrapper>
-      <Grid size="auto" container spacing={1} sx={{ p: 1 }} direction={{ xs: 'row', sm: 'column' }}>
-        <HanzhongFormationsCharacter label="Chief" info={team.chief} />
-        <HanzhongFormationsCharacter label="Lieutenant" info={team.lieutenant} />
+    <PaperWrapper sx={{ p: '5px' }}>
+      <Grid container spacing={0.5} sx={{ p: 1 }} direction={{ xs: 'row', md: 'column' }}>
+        <Grid size={6}>
+          <HanzhongFormationsCharacter label="Chief" info={team.chief} />
+        </Grid>
+        <Grid size={6}>
+          <HanzhongFormationsCharacter label="Lieutenant" info={team.lieutenant} />
+        </Grid>
       </Grid>
     </PaperWrapper>
   );
