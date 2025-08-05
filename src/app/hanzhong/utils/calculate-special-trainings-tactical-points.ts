@@ -2,13 +2,13 @@ import { calculateSpecialTrainingBonus } from './calculate-special-training-bonu
 import type { HanzhongBonusType, HanzhongInfoDataType, HanzhongUserDataType } from '../types';
 import { calculateTacticalPoints } from './calculate-tactical-points';
 import { calculateUserFormationTacticalPoints } from './calculate-user-formation-tactical-points';
-import { HANZHONG_DATA } from '../data';
+import { STRUCTURED_FORMATIONS } from '../formations/structured-formations';
 
 export const calculateSpecialTrainingsTacticalPoints = (
   user: HanzhongUserDataType,
   bonuses: HanzhongBonusType
 ): HanzhongInfoDataType[] =>
-  HANZHONG_DATA.formations.map((formation) => {
+  STRUCTURED_FORMATIONS.map((formation) => {
     const formationBonuses = calculateSpecialTrainingBonus(user, bonuses, formation.techId);
     const specialTrainingTacticalPoints = calculateTacticalPoints(formationBonuses);
     const userFormationTacticalPoints = calculateUserFormationTacticalPoints(user, formation.id);

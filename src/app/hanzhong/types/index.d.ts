@@ -19,6 +19,5 @@ export { type HanzhongTerritoryResourceType } from './hanzhong-territory-resourc
 export { type HanzhongType } from './hanzhong-type';
 export { type HanzhongWarTierTaskType } from './hanzhong-war-tier-task-type';
 export { type HanzhongWarTierType } from './hanzhong-war-tier-type';
-export type * from './formations';
 export { type HanzhongUserDataType } from './UserData';
 export { type HanzhongContextType } from './Context';

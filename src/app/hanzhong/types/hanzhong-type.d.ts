@@ -1,4 +1,3 @@
-import type { HanzhongFormationStructureType } from '../constants';
 import type { HanzhongBanditsType } from './hanzhong-bandits-type';
 import type { HanzhongCityType } from './hanzhong-city-type';
 import type { HanzhongTerritoryType } from './hanzhong-territory-type';
@@ -9,5 +8,4 @@ export type HanzhongType = {
   territories: HanzhongTerritoryType;
   warTiers: HanzhongWarTierType[];
   bandits: HanzhongBanditsType;
-  formations: HanzhongFormationStructureType;
 };
