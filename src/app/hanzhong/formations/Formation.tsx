@@ -31,7 +31,7 @@ export const HanzhongFormationsFormation = ({ formation, onClick }: HanzhongForm
   return (
     <PaperWrapper sx={{ p: '5px', backgroundColor }}>
       <Typography sx={{ pb: 1 }}>{formation.name}</Typography>
-      <Grid container spacing={2} direction="column">
+      <Grid container spacing={1} direction="column">
         <HanzhongFormationsTeam team={formation.team1} onClick={onClick} />
         <HanzhongFormationsTeam team={formation.team2} onClick={onClick} />
         <HanzhongFormationsTeam team={formation.team3} onClick={onClick} />
