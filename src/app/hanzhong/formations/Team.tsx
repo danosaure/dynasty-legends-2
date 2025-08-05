@@ -12,8 +12,8 @@ export type HanzhongFormationsTeamProps = {
 
 export const HanzhongFormationsTeam = ({ team, onClick }: HanzhongFormationsTeamProps) => {
   return (
-    <PaperWrapper sx={{ p: '5px' }}>
-      <Grid container spacing={0.5} sx={{ p: 1 }} direction={{ xs: 'row', md: 'column' }}>
+    <PaperWrapper sx={{ p: 0 }}>
+      <Grid container spacing={3} sx={{ p: '5px' }} direction="row">
         <Grid size={6}>
           <HanzhongFormationsCharacter label="Chief" info={team.chief} onClick={onClick} />
         </Grid>

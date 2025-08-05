@@ -28,7 +28,7 @@ export const HanzhongFormationsCharacter = ({ label, info, onClick }: HanzhongFo
   const image = officer?.avatar.path ? assetPath(officer.avatar.path) : '';
 
   return (
-    <Grid container direction="row" spacing={0}>
+    <Grid container direction="row" spacing={1} sx={{ p: 0 }}>
       <IconButton sx={{ width: '30px' }} onClick={() => onClick(info.officer)}>
         <Avatar alt={name} src={image} sx={{ width: '25px', height: '25px' }} />
       </IconButton>
