@@ -6,9 +6,10 @@ import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 
 import { getAptitudeById, getFactionById, getOfficerTypeById } from '../data';
-import { CardWrapper, WrappedIconButton } from '../shared';
+import { CardWrapper, OfficerAvatar, WrappedIconButton } from '../shared';
 import type { OfficerType, OfficerTypeType } from '../types';
 import { assetPath } from '../utils';
+import type { OfficersRosterData } from './types';
 
 export type OfficerCardProps = {
   officer: OfficerType;
@@ -16,7 +17,7 @@ export type OfficerCardProps = {
   selectedAptitude: string;
   selectedOfficerType: string;
   onRosterUpdated: (id: string) => void;
-  inRoster: boolean;
+  roster: OfficersRosterData;
 };
 
 export const OfficerCard = ({
@@ -25,7 +26,7 @@ export const OfficerCard = ({
   selectedAptitude,
   selectedOfficerType,
   onRosterUpdated,
-  inRoster,
+  roster,
 }: OfficerCardProps) => {
   const faction = getFactionById(officer.factionId);
   const aptitude = getAptitudeById(officer.aptitudeId);
@@ -38,6 +39,7 @@ export const OfficerCard = ({
     (selectedAptitude === '' || selectedAptitude === officer.aptitudeId) &&
     (selectedOfficerType === '' || officer.officerTypeIds.includes(selectedOfficerType));
 
+  const inRoster = roster[officer.id];
   const rosterOpacity = inRoster ? 1 : 0.75;
   const opacity = isVisible ? rosterOpacity : 0.2;
 
@@ -46,12 +48,10 @@ export const OfficerCard = ({
     : { label: 'Add to roster', Icon: Person4OutlinedIcon, onClick: () => onRosterUpdated(officer.id) };
 
   return (
-    <CardWrapper sx={{ backgroundColor: aptitude?.palette.background.default, opacity }}>
+    <CardWrapper sx={{ backgroundColor: faction.color, opacity }}>
       <Grid container size={12} spacing={1}>
         <Grid size="auto">
-          <Box sx={{ width: '100%', maxWidth: { xs: '30px', sm: '50px' } }}>
-            <img src={assetPath(officer.avatar.path)} alt={officer.name} width="100%" />
-          </Box>
+          <OfficerAvatar officerId={officer.id} roster={roster} />
         </Grid>
         <Grid size="grow" container direction={'row'} spacing={0}>
           <Grid size={3}>

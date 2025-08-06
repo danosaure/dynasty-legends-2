@@ -25,14 +25,13 @@ export const HanzhongFormationsCharacter = ({ label, info, onClick }: HanzhongFo
 
   return (
     <Grid container direction="row" spacing={1} sx={{ p: 0 }}>
-      <OfficerAvatar officerId={officerId} roster={roster} onClick={() => onClick(info.officer)} />
+      <OfficerAvatar officerId={officerId} roster={roster} onClick={() => onClick(info.officer)} small />
 
-      <Box sx={{ width: '70px' }}>
+      <Box sx={{ width: '75px' }}>
         <DebouncedInputField
           label={label}
           value={getNumberValue(formationsUserData, info.tacticalPoints, 0)}
           onChange={fieldValueChanged}
-          small
         />
       </Box>
     </Grid>

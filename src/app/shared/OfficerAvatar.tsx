@@ -12,7 +12,8 @@ export type OfficerAvatarProps = {
   disabled?: boolean;
   selectedOfficerId?: string;
   selectedColor?: string;
-  onClick: () => void;
+  onClick?: () => void;
+  small?: boolean;
 };
 
 export const OfficerAvatar = ({
@@ -22,36 +23,43 @@ export const OfficerAvatar = ({
   selectedOfficerId,
   selectedColor = 'transparent',
   disabled,
+  small,
 }: OfficerAvatarProps) => {
   const officer = officerId ? getOfficerById(officerId) : undefined;
   const aptitudeColor = officer ? getAptitudeById(officer.aptitudeId).palette.background.default : 'transparent';
   const factionColor = officer ? getFactionById(officer.factionId).color : 'transparent';
 
-  const inRosterOpacity = roster[officerId ?? ''] ? 1 : 0.6;
+  const inRosterOpacity = roster[officerId] ? 1 : 0.6;
+
+  const size = small ? '27px' : '32px';
+
+  const avatar = (
+    <Avatar
+      alt={officer?.name}
+      src={assetPath(officer?.avatar.path)}
+      sx={{ width: size, height: size, border: `3px solid ${aptitudeColor}` }}
+    />
+  );
+
+  const iconButton = onClick ? (
+    <IconButton sx={{ width: size }} onClick={() => onClick()} disabled={disabled}>
+      {avatar}
+    </IconButton>
+  ) : (
+    avatar
+  );
 
   return (
     <Box
-      key={officer?.id}
       sx={{
         backgroundColor: factionColor,
         opacity: disabled ? 0.2 : inRosterOpacity,
-        borderRadius: '12px',
+        borderRadius: 'calc(12px / 2)',
+        border: `2px solid ${officerId === selectedOfficerId ? selectedColor : 'transparent'}`,
+        // height: '50px',
       }}
     >
-      <IconButton
-        sx={{
-          width: '30px',
-          border: `3px solid ${officer?.id === selectedOfficerId ? selectedColor : 'transparent'}`,
-        }}
-        onClick={() => onClick()}
-        disabled={disabled}
-      >
-        <Avatar
-          alt={officer?.name}
-          src={assetPath(officer?.avatar.path)}
-          sx={{ width: '30px', height: '30px', border: `2px solid ${aptitudeColor}` }}
-        />
-      </IconButton>
+      {iconButton}
     </Box>
   );
 };
