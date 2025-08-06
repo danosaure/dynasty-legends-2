@@ -8,6 +8,9 @@ import Grid from '@mui/material/Grid';
 import { useTheme } from '@mui/material/styles';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import DeleteIcon from '@mui/icons-material/Delete';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 import { useAppContext } from '../../Context';
 import { OFFICERS } from '../../data';
@@ -16,6 +19,7 @@ import { getStringValue } from '../../utils';
 import { useHanzhongContext } from '../HanzhongContext';
 
 import { STRUCTURED_FORMATIONS_KEYS } from './structured-formations';
+import ButtonGroup from '@mui/material/ButtonGroup';
 
 export type HanzhongFormationsCharacterSelectorProps = {
   formationCharacterId: string;
@@ -74,25 +78,30 @@ export const HanzhongFormationsCharacterSelector = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={() => setShowAllOfficers(!showAllOfficers)}>
-          All {showAllOfficers ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon />}
+          {showAllOfficers ? <CheckBoxIcon sx={{ fontSize: '1em' }} /> : <CheckBoxOutlineBlankIcon sx={{ fontSize: '1em' }} />}
+          All
         </Button>
 
         {currentSelectedOfficer ? (
-          <>
-            <Button onClick={() => onSelect(currentSelectedOfficer)} color="success" variant="contained">
+          <ButtonGroup>
+            <Button onClick={() => onSelect(currentSelectedOfficer)} color="primary" variant="contained">
+              <ThumbUpIcon sx={{ fontSize: '1em' }} />
               Keep
             </Button>
             <Button onClick={() => onSelect('')} color="error" variant="outlined">
+              <DeleteIcon sx={{ fontSize: '1em' }} />
               Remove
             </Button>
-          </>
+          </ButtonGroup>
         ) : (
-          <Button onClick={() => onSelect(currentSelectedOfficer)} color="success" variant="contained">
+          <Button onClick={() => onSelect(currentSelectedOfficer)} color="primary" variant="contained">
             Cancel
           </Button>
         )}
 
-        <Button onClick={() => navigate('/officers')}>Roster</Button>
+        <Button onClick={() => navigate('/officers')}>
+          <ManageAccountsIcon sx={{ fontSize: '1em' }} /> Roster
+        </Button>
       </DialogActions>
     </Dialog>
   );
