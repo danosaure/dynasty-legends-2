@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import { HANZHONG_CITY_IDS, HANZHONG_TERRITORY_IDS } from './constants';
-import type { HanzhongInfoDataType } from './types';
-import { sumValuesFromUserByPrefix } from './utils';
+import { useEffect, useMemo, useState } from 'react';
 
+import { HANZHONG_TERRITORY_IDS } from './constants';
+import { countOccupiedCities, HANZHONG_DATA, numberOfCities } from './data';
 import { useHanzhongContext } from './HanzhongContext';
 import { HanzhongInfosDisplay } from './HanzhongInfosDisplay';
-import { HANZHONG_DATA } from './data';
+import type { HanzhongInfoDataType } from './types';
+import { sumValuesFromUserByPrefix } from './utils';
 
 export const Progress = () => {
   const { bonuses, user } = useHanzhongContext();
@@ -19,9 +19,8 @@ export const Progress = () => {
     (sum, territoryId): number => sum + (user[territoryId] ?? 0),
     0
   );
-  const citiesIDs = Object.values(HANZHONG_CITY_IDS);
 
-  const cities: number = citiesIDs.reduce((sum, cityId): number => sum + (user[cityId] ?? 0), 0);
+  const cities: number = useMemo(() => countOccupiedCities(user), [user]);
 
   const items: HanzhongInfoDataType[] = [
     {
@@ -32,7 +31,7 @@ export const Progress = () => {
     {
       label: 'Cities',
       value: cities,
-      maxValue: citiesIDs.length,
+      maxValue: numberOfCities(),
     },
     {
       label: 'Bandits',

@@ -101,14 +101,4 @@ export const HANZHONG_TECH_IDS = {
   DILIGENT_WARRIOR_3: 'hanzhong--tech--diligent-warrior-3',
 };
 
-export const HANZHONG_CITY_IDS = {
-  YANGPING_PASS: 'hanzhong--city--yangping-pass',
-  NORTH_SUMMIT: 'hanzhong--city--north-summit',
-  MAMING_PAVILION: 'hanzhong--city--maming-pavilion',
-  MIANYANG_COUNTY: 'hanzhong--city--mianyang-county',
-  MOUNT_DINGJUN: 'hanzhong--city--mount-dingjun',
-  HANSHUI_TRAIL: 'hanzhong--city--hanshui-trail',
-  HANZHONG_CITY: 'hanzhong--city--hanzhong-city',
-};
-
 export type HanzhongFormationTeamType = [string, string];

@@ -3,17 +3,16 @@ import Grid from '@mui/material/Grid';
 import { TitleTypographyWrapper } from '../shared';
 
 import { HanzhongCity } from './City';
-import { HANZHONG_CITY_IDS } from './constants/items-ids';
-import { findCityById } from './utils/find-city-by-id';
+import { getCityByName } from './data';
 
 export const HanzhongCities = () => {
-  const topNorthCity = findCityById(HANZHONG_CITY_IDS.NORTH_SUMMIT);
-  const northCity = findCityById(HANZHONG_CITY_IDS.MOUNT_DINGJUN);
-  const westCity = findCityById(HANZHONG_CITY_IDS.YANGPING_PASS);
-  const centerCity = findCityById(HANZHONG_CITY_IDS.HANZHONG_CITY);
-  const eastCity = findCityById(HANZHONG_CITY_IDS.MAMING_PAVILION);
-  const southCity = findCityById(HANZHONG_CITY_IDS.HANSHUI_TRAIL);
-  const bottomSouthCity = findCityById(HANZHONG_CITY_IDS.MIANYANG_COUNTY);
+  const topNorthCity = getCityByName('North Summit');
+  const northCity = getCityByName('Mount Dingjun');
+  const westCity = getCityByName('Yangping Pass');
+  const centerCity = getCityByName('Hanzhong City');
+  const eastCity = getCityByName('Maming Pavilion');
+  const southCity = getCityByName('Hanshui Trail');
+  const bottomSouthCity = getCityByName('Mianyang County');
 
   const lastCell = <Grid size={{ md: 3, lg: 6 }} sx={{ display: { xs: 'none', md: 'block' } }} />;
 
