@@ -10,7 +10,7 @@ const defaultProps: OfficerCardProps = {
   selectedFaction: '',
   selectedAptitude: '',
   selectedOfficerType: '',
-  inRoster: false,
+  roster: {},
   onRosterUpdated: fn(),
 };
 
