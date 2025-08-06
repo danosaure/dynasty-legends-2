@@ -6,4 +6,13 @@ export const DEFAULT_THEME = createTheme({
       main: '#C38900',
     },
   },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+        },
+      },
+    },
+  },
 });
