@@ -59,7 +59,7 @@ export const OfficersLayout = () => {
               selectedAptitude={selectedAptitude}
               selectedOfficerType={selectedOfficerType}
               onRosterUpdated={updateRoster}
-              inRoster={userOfficers[officer.id]}
+              roster={userOfficers}
             />
           </Grid>
         ))}
