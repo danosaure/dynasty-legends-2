@@ -10,6 +10,7 @@ export const areRequirementsSatified = (
   requirementsCache: RequirementsCache
 ): boolean => {
   const savedValue = requirementsCache[id];
+
   if (savedValue === undefined) {
     const requirementsSatisfied = requirements.reduce<boolean>((stillValid, requirement) => {
       if (!stillValid) {

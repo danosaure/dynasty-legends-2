@@ -6,5 +6,5 @@ export const DEFAULT_HANZHONG_CONTEXT_DATA: HanzhongContextType = {
   onChange: () => {},
   formationsUserData: {},
   onChangeFormations: () => {},
-  requirementsCache: {},
+  cache: { requirements: {} },
 };

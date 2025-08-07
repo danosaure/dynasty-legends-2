@@ -15,7 +15,6 @@ import type { HanzhongBonusType, HanzhongContextType, HanzhongUserDataType } fro
 import { DEFAULT_HANZHONG_CONTEXT_DATA, initializeEarnings } from './utils';
 import { useAppContext } from '../Context';
 import type { HanzhongFormationsUserData } from './formations/types';
-import type { RequirementsCache } from './requirements/RequirementsCache';
 
 export const HanzhongLayout = () => {
   const { setMenu, user } = useAppContext();
@@ -23,7 +22,7 @@ export const HanzhongLayout = () => {
   const [formationsUserData, setFormationsUserData] = useState<HanzhongFormationsUserData>({ ...user.formations });
 
   const [isUserDataModified, setIsUserDataModified] = useState<boolean>(false);
-  const [hanzhongContextData, setHanzhongContextData] = useState<HanzhongContextType>(DEFAULT_HANZHONG_CONTEXT_DATA);
+  const [hanzhongContextData, setHanzhongContextData] = useState<HanzhongContextType>({ ...DEFAULT_HANZHONG_CONTEXT_DATA });
 
   const bonuses = useMemo<HanzhongBonusType>(() => initializeEarnings(userData), [userData]);
 
@@ -50,7 +49,7 @@ export const HanzhongLayout = () => {
       onChange,
       formationsUserData,
       onChangeFormations,
-      requirementsCache: {} as RequirementsCache,
+      cache: { requirements: {} },
     });
   }, [userData, formationsUserData, bonuses]);
 

@@ -20,7 +20,7 @@ export const HanzhongContextUserCheckbox = ({ id }: HanzhongContextUserCheckboxP
 
   const checkboxChanged = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(id, e.target.checked ? 1 : 0);
-    // setChecked(e.target.checked);
+    setChecked(e.target.checked);
   };
 
   return <Checkbox checked={checked} onChange={checkboxChanged} style={{ color: theme.palette.primary.main }} />;

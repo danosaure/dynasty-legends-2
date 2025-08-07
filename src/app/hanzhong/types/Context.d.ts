@@ -1,4 +1,4 @@
-import type { RequirementsCache } from '../requirements/RequirementsCache';
+import type { HanzhongContextCache } from './ContextCache';
 import type { HanzhongBonusType } from './hanzhong-bonus-type';
 import type { HanzhongContextOnChangeType } from './hanzhong-context-on-change-type';
 import type { HanzhongUserDataType } from './hanzhong-user-data-type';
@@ -11,5 +11,5 @@ export type HanzhongContextType = {
   onChange: HanzhongContextOnChangeType;
   formationsUserData: HanzhongFormationsUserData;
   onChangeFormations: HanzhongContextOnChangeFormationType;
-  requirementsCache: RequirementsCache;
+  cache: HanzhongContextCache;
 };
