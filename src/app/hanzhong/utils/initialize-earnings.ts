@@ -1,5 +1,6 @@
+import { calculateEarningsFromCities } from '../cities';
 import { HANZHONG_TECH_IDS } from '../constants/items-ids';
-import { calculateEarningsFromCities, HANZHONG_TERRITORIES, HANZHONG_WAR_TIERS } from '../data';
+import { HANZHONG_TERRITORIES, HANZHONG_WAR_TIERS } from '../data';
 import type {
   HanzhongBonusType,
   HanzhongTechType,

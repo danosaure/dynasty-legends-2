@@ -1,5 +1,5 @@
+import type { CacheType } from '../types';
 import { HANZHONG_CITIES } from './data';
-import type { CacheType } from './CacheType';
 
 export const __CACHE_BY_ID: CacheType = HANZHONG_CITIES.reduce<CacheType>(
   (citiesCache, city) =>

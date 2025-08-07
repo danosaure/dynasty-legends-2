@@ -1,5 +1,5 @@
 import type { HanzhongUserDataType } from '../../types';
-import { HANZHONG_CITIES } from './data';
+import { HANZHONG_CITIES } from '../data';
 import { isCityOccupied } from './is-city-occupied';
 
 export const countOccupiedCities = (userData: HanzhongUserDataType): number =>

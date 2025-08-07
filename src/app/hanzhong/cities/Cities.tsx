@@ -1,9 +1,8 @@
 import Grid from '@mui/material/Grid';
 
-import { TitleTypographyWrapper } from '../shared';
-
+import { TitleTypographyWrapper } from '../../shared';
 import { HanzhongCity } from './City';
-import { getCityByName } from './data';
+import { getCityByName } from './utils';
 
 export const HanzhongCities = () => {
   const topNorthCity = getCityByName('North Summit');

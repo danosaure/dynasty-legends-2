@@ -1,8 +1,8 @@
 import Grid from '@mui/material/Grid';
 
-import { CardWrapper } from '../shared';
-import { HanzhongContextUserCheckbox } from './ContextCheckbox';
-import type { HanzhongCityType } from './data';
+import { CardWrapper } from '../../shared';
+import type { HanzhongCityType } from './types';
+import { HanzhongContextUserCheckbox } from '../ContextCheckbox';
 // import { useHanzhongContext } from './HanzhongContext';
 
 export type HanzhongCityProps = {

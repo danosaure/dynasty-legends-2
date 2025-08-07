@@ -1,4 +1,4 @@
-import { areCityRequirementsSatisfied } from '../data';
+import { areCityRequirementsSatisfied } from '../cities';
 import type { HanzhongUserDataType } from '../types';
 import type { HanzhongRequirement } from './HanzhongRequirement';
 import type { RequirementsCache } from './RequirementsCache';

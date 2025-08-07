@@ -1,11 +1,13 @@
 import { useEffect, useMemo, useState } from 'react';
 
 import { HANZHONG_TERRITORY_IDS } from './constants';
-import { countOccupiedCities, HANZHONG_DATA, numberOfCities } from './data';
+import { HANZHONG_DATA } from './data';
 import { useHanzhongContext } from './HanzhongContext';
 import { HanzhongInfosDisplay } from './HanzhongInfosDisplay';
 import type { HanzhongInfoDataType } from './types';
 import { sumValuesFromUserByPrefix } from './utils';
+import { countOccupiedCities } from './cities';
+import { numberOfCities } from './cities';
 
 export const Progress = () => {
   const { bonuses, user } = useHanzhongContext();

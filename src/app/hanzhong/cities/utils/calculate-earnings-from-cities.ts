@@ -1,6 +1,6 @@
 import type { HanzhongBonusType, HanzhongUserDataType } from '../../types';
 import { addHanzhongBonuses } from '../../utils';
-import { HANZHONG_CITIES } from './data';
+import { HANZHONG_CITIES } from '../data';
 import { isCityOccupied } from './is-city-occupied';
 
 export const calculateEarningsFromCities = (userData: HanzhongUserDataType): HanzhongBonusType =>

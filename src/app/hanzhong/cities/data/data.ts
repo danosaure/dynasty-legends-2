@@ -1,6 +1,6 @@
-import { baseInfo } from '../base-info';
-import { cityIdByName } from './city-id-by-name';
-import type { HanzhongCityType } from './HanzhongCity';
+import { baseInfo } from '../../data/base-info';
+import type { HanzhongCityType } from '../types';
+import { cityIdByName } from '../utils/city-id-by-name';
 
 const HANZHONG__CITY__YANGPING_PASS: HanzhongCityType = {
   ...baseInfo('Yangping Pass', cityIdByName),
