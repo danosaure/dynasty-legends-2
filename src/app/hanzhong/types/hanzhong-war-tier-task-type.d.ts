@@ -1,7 +1,7 @@
 import type { BaseIdAndName } from '../../types';
-import type { HanzhongRequirements } from './hanzhong-requirements';
+import type { HanzhongRequirement } from '../requirements';
 
 export type HanzhongWarTierTaskType = BaseIdAndName & {
   description: string;
-  requirements?: HanzhongRequirements;
+  requirements?: HanzhongRequirement[];
 };

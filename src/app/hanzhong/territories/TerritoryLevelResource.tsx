@@ -1,9 +1,9 @@
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
-import { CardWrapper, ValueAdjuster } from '../shared';
+import { CardWrapper, ValueAdjuster } from '../../shared';
 
-import { useHanzhongContext } from './HanzhongContext';
+import { useHanzhongContext } from '../HanzhongContext';
 
 export type TerritoryLevelResourceProps = {
   label: string;

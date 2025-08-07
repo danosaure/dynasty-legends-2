@@ -1,4 +1,5 @@
 import { areCityRequirementsSatisfied } from '../cities';
+import { areTerritoryRequirementsSatisfied } from '../territories';
 import type { HanzhongUserDataType } from '../types';
 import type { HanzhongRequirement } from './HanzhongRequirement';
 import type { RequirementsCache } from './RequirementsCache';
@@ -19,8 +20,10 @@ export const areRequirementsSatified = (
 
       if (requirement.section === 'cities') {
         return areCityRequirementsSatisfied(userData, requirement, requirementsCache);
+      } else if (requirement.section === 'territories') {
+        return areTerritoryRequirementsSatisfied(userData, requirement, requirementsCache);
       } else {
-        console.error(`areRequirementsSatified(id="${id}"): need to handle requirement.section="${requirement.section}".`);
+        console.log(`areRequirementsSatified(id="${id}"): need to handle requirement.section="${requirement.section}".`);
         return false;
       }
     }, true);

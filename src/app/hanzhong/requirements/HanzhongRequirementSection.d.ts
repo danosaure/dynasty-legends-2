@@ -1,1 +1,1 @@
-export type HanzhongRequirementSection = 'cities';
+export type HanzhongRequirementSection = 'cities' | 'territories';

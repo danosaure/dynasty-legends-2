@@ -1,3 +1,4 @@
+import { HANZHONG_TERRITORY_IDS } from '../../constants';
 import { baseInfo } from '../../data/base-info';
 import type { HanzhongWarTierTaskType } from '../../types';
 import { warTierTaskIdByName } from '../utils';
@@ -5,6 +6,24 @@ import { warTierTaskIdByName } from '../utils';
 const LOGGING_PIONEER: HanzhongWarTierTaskType = {
   ...baseInfo('Logging Pioneer', warTierTaskIdByName),
   description: 'Occupy 2 Lumber territories',
+  requirements: [
+    {
+      section: 'territories',
+      type: 'sum',
+      value: 2,
+      requirementIds: [
+        HANZHONG_TERRITORY_IDS.LUMBER_MILL__1,
+        HANZHONG_TERRITORY_IDS.LUMBER_MILL__2,
+        HANZHONG_TERRITORY_IDS.LUMBER_MILL__3,
+        HANZHONG_TERRITORY_IDS.LUMBER_MILL__4,
+        HANZHONG_TERRITORY_IDS.LUMBER_MILL__5,
+        HANZHONG_TERRITORY_IDS.LUMBER_MILL__6,
+        HANZHONG_TERRITORY_IDS.LUMBER_MILL__7,
+        HANZHONG_TERRITORY_IDS.LUMBER_MILL__8,
+        HANZHONG_TERRITORY_IDS.LUMBER_MILL__9,
+      ],
+    },
+  ],
 } as const;
 
 const FARMING_PIONEER: HanzhongWarTierTaskType = {
@@ -20,8 +39,8 @@ const MINING_PIONEER: HanzhongWarTierTaskType = {
 const FREE_PATHS: HanzhongWarTierTaskType = {
   ...baseInfo('Free Paths', warTierTaskIdByName),
   description: 'Upgrade Tech Free Paths to Lv.1',
-  requirements: [1, 'hanzhong--tech--free-paths'],
 } as const;
+
 const BANDITS_TERMINATOR_I: HanzhongWarTierTaskType = {
   ...baseInfo('Bandits Terminator I', warTierTaskIdByName),
   description: 'Defeat Bandits 1 times',

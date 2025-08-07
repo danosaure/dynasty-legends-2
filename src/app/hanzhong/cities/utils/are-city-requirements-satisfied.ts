@@ -26,6 +26,6 @@ export const areCityRequirementsSatisfied = (
     return false;
   }
 
-  console.error(`areCityRequirementsSatisfied(): Need to implement type="${requirement.type}".`);
+  console.log(`areCityRequirementsSatisfied(): Need to implement type="${requirement.type}".`);
   return false;
 };
