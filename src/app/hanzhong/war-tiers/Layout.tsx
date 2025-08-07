@@ -1,6 +1,6 @@
-import { TitleTypographyWrapper } from '../shared';
+import { TitleTypographyWrapper } from '../../shared';
 
-export const HanzhongWarTiers = () => {
+export const HanzhongWarTiersLayout = () => {
   return (
     <>
       <TitleTypographyWrapper variant="TITLE">War Tiers</TitleTypographyWrapper>

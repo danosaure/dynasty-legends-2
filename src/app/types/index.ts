@@ -1,4 +1,5 @@
 export type * from './aptitude';
+export type { BaseIdAndName } from './BaseIdAndName';
 export type { BaseIDType } from './base-id-type';
 export type * from './faction';
 export type { IconType } from './icon-type';

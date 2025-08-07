@@ -2,9 +2,10 @@ import Grid from '@mui/material/Grid';
 
 import { PaperWrapper } from '../../shared';
 import { useHanzhongContext } from '../HanzhongContext';
-import type { HanzhongTechType, HanzhongWarTierType } from '../types';
+import type { HanzhongTechType } from '../types';
 
 import { HanzhongTechsTech } from './HanzhongTechsTech';
+import type { HanzhongWarTierType } from '../war-tiers';
 
 export interface HanzhongTechsWarTierProps {
   info: HanzhongWarTierType;

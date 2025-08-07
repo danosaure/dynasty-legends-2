@@ -1,1 +1,5 @@
-export const sanitizeId = (id: string): string => id.toLowerCase().replaceAll(' ', '-').replaceAll(/---+/g, '--');
+export const sanitizeId = (id: string): string =>
+  id
+    .toLowerCase()
+    .replaceAll(/[ \\.]/g, '-')
+    .replaceAll(/---+/g, '--');

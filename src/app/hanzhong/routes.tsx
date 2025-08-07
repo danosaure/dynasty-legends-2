@@ -3,12 +3,12 @@ import { Navigate, Route } from 'react-router';
 import { Hanzhong404 } from './404';
 import { HanzhongBandits } from './bandits';
 import { HanzhongCities } from './cities';
-import { HanzhongFormations } from './formations';
-import { HanzhongTechs } from './techs';
-import { HanzhongLayout } from './layout';
-import { HanzhongTerritories } from './Territories';
-import { HanzhongWarTiers } from './war-tiers';
 import { HANZHONG_ROUTES } from './constants';
+import { HanzhongFormations } from './formations';
+import { HanzhongLayout } from './layout';
+import { HanzhongTechs } from './techs';
+import { HanzhongTerritories } from './Territories';
+import { HanzhongWarTiersLayout } from './war-tiers';
 
 export const HanzhongRoutes = (
   <Route Component={HanzhongLayout}>
@@ -18,7 +18,7 @@ export const HanzhongRoutes = (
     <Route path={HANZHONG_ROUTES.FORMATIONS} Component={HanzhongFormations} />
     <Route path={HANZHONG_ROUTES.TECHS} Component={HanzhongTechs} />
     <Route path={HANZHONG_ROUTES.TERRITORIES} Component={HanzhongTerritories} />
-    <Route path={HANZHONG_ROUTES.WAR_TIERS} Component={HanzhongWarTiers} />
+    <Route path={HANZHONG_ROUTES.WAR_TIERS} Component={HanzhongWarTiersLayout} />
     <Route path="*" Component={Hanzhong404} />
   </Route>
 );

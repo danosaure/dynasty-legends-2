@@ -59,16 +59,6 @@ export const HANZHONG_TERRITORY_IDS = {
   IRON_MINE__9: `${HANZHONG_TERRITORY}--${IRON_MINE}--${LEVEL_9}`,
 };
 
-export const HANZHONG_WAR_TIER_IDS = {
-  LV1: 'Hanzhong_WarTier_1',
-  LV2: 'Hanzhong_WarTier_2',
-  LV3: 'Hanzhong_WarTier_3',
-  LV4: 'Hanzhong_WarTier_4',
-  LV5: 'Hanzhong_WarTier_5',
-  LV6: 'Hanzhong_WarTier_6',
-  LV7: 'Hanzhong_WarTier_7',
-};
-
 const HANZHONG_TECH = `${SECTION}--tech`;
 export const HANZHONG_TECH_IDS = {
   //  ----- War Tier 1 -----

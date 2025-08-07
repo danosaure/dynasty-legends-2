@@ -1,6 +1,7 @@
 import { HANZHONG_DATA } from './hanzhong-data';
-import type { HanzhongBanditAttackType, HanzhongTechType, HanzhongTerritoryLevelType, HanzhongWarTierType } from '../types';
+import type { HanzhongBanditAttackType, HanzhongTechType, HanzhongTerritoryLevelType } from '../types';
 import type { BaseIDType } from '../../types';
+import { HANZHONG_WAR_TIERS, type HanzhongWarTierType } from '../war-tiers';
 
 type CacheBanditsType = Record<string, HanzhongBanditAttackType>;
 type CacheTechsType = Record<string, HanzhongTechType>;
@@ -24,7 +25,7 @@ const CACHE: CacheType = {
     {} as CacheBanditsType
   ),
 
-  techs: HANZHONG_DATA.warTiers.reduce<CacheTechsType>(
+  techs: HANZHONG_WAR_TIERS.reduce<CacheTechsType>(
     (warTiersTechs, warTier: HanzhongWarTierType) =>
       warTier.techs.reduce<CacheTechsType>(
         (techs: CacheTechsType, tech: HanzhongTechType) =>
@@ -46,7 +47,7 @@ const CACHE: CacheType = {
     {} as CacheTerritoriesType
   ),
 
-  warTiers: HANZHONG_DATA.warTiers.reduce<CacheWarTiersType>(
+  warTiers: HANZHONG_WAR_TIERS.reduce<CacheWarTiersType>(
     (warTiers, warTier: HanzhongWarTierType) =>
       ({
         ...warTiers,

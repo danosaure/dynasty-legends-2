@@ -9,7 +9,7 @@ import { NO_TECH_ID } from './constants';
 import { HanzhongTechsContext, type HanzhongTechsContextType } from './context';
 import { HanzhongTechsWarTier } from './HanzhongTechsWarTier';
 import { HanzhongTechsTechInfo } from './info';
-import { HANZHONG_DATA } from '../data';
+import { HANZHONG_WAR_TIERS } from '../war-tiers';
 
 export const HanzhongTechs = () => {
   const [techId, setTechId] = useState<string>(NO_TECH_ID);
@@ -40,7 +40,7 @@ export const HanzhongTechs = () => {
       <Grid size={12}>
         <HanzhongResourcesBar />
       </Grid>
-      {HANZHONG_DATA.warTiers.map((hanzhongWarTier) => (
+      {HANZHONG_WAR_TIERS.map((hanzhongWarTier) => (
         <HanzhongTechsWarTier key={hanzhongWarTier.id} info={hanzhongWarTier} />
       ))}
 
