@@ -3,13 +3,13 @@ import Grid from '@mui/material/Grid';
 import { TitleTypographyWrapper } from '../shared';
 
 import { HanzhongBandit } from './Bandit';
-import { HANZHONG_DATA } from './data';
+import { HANZHONG_BANDITS } from './data';
 import type { HanzhongBanditAttackType } from './types';
 
 export const HanzhongBandits = () => {
   const grid = [1, 2, 3, 4, 5, 6, 7].map((day) => {
     const attacks = [1, 2].map((attack) => {
-      const bandit = HANZHONG_DATA.bandits.attacks.find(
+      const bandit = HANZHONG_BANDITS.attacks.find(
         (anAttack: HanzhongBanditAttackType) => anAttack.day === day && anAttack.attack === attack
       );
       return bandit;

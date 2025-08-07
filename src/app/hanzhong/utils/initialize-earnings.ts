@@ -1,8 +1,8 @@
+import { calculateEarningsFromCities } from '../cities';
 import { HANZHONG_TECH_IDS } from '../constants/items-ids';
-import { HANZHONG_CITIES, HANZHONG_TERRITORIES, HANZHONG_WAR_TIERS } from '../data';
+import { HANZHONG_TERRITORIES, HANZHONG_WAR_TIERS } from '../data';
 import type {
   HanzhongBonusType,
-  HanzhongCityType,
   HanzhongTechType,
   HanzhongTerritoryLevelType,
   HanzhongTerritoryResourceType,
@@ -22,12 +22,7 @@ export const initializeEarnings = (userData: HanzhongUserDataType): HanzhongBonu
     territoryCap: 10, // Default.
   };
 
-  bonuses = HANZHONG_CITIES.reduce((cumul: HanzhongBonusType, city: HanzhongCityType) => {
-    if (userData[city.id] === 1) {
-      return addHanzhongBonuses(cumul, city.earnings);
-    }
-    return cumul;
-  }, bonuses);
+  bonuses = addHanzhongBonuses(bonuses, calculateEarningsFromCities(userData));
 
   bonuses = HANZHONG_TERRITORIES.levels.reduce((cumul: HanzhongBonusType, level: HanzhongTerritoryLevelType): HanzhongBonusType => {
     return level.earnings.reduce(

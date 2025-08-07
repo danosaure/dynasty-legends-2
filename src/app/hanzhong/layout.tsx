@@ -22,7 +22,7 @@ export const HanzhongLayout = () => {
   const [formationsUserData, setFormationsUserData] = useState<HanzhongFormationsUserData>({ ...user.formations });
 
   const [isUserDataModified, setIsUserDataModified] = useState<boolean>(false);
-  const [hanzhongContextData, setHanzhongContextData] = useState<HanzhongContextType>(DEFAULT_HANZHONG_CONTEXT_DATA);
+  const [hanzhongContextData, setHanzhongContextData] = useState<HanzhongContextType>({ ...DEFAULT_HANZHONG_CONTEXT_DATA });
 
   const bonuses = useMemo<HanzhongBonusType>(() => initializeEarnings(userData), [userData]);
 
@@ -49,6 +49,7 @@ export const HanzhongLayout = () => {
       onChange,
       formationsUserData,
       onChangeFormations,
+      cache: { requirements: {} },
     });
   }, [userData, formationsUserData, bonuses]);
 

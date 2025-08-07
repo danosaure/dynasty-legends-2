@@ -1,22 +1,14 @@
 import { HANZHONG_DATA } from './hanzhong-data';
-import type {
-  HanzhongBanditAttackType,
-  HanzhongCityType,
-  HanzhongTechType,
-  HanzhongTerritoryLevelType,
-  HanzhongWarTierType,
-} from '../types';
+import type { HanzhongBanditAttackType, HanzhongTechType, HanzhongTerritoryLevelType, HanzhongWarTierType } from '../types';
 import type { BaseIDType } from '../../types';
 
 type CacheBanditsType = Record<string, HanzhongBanditAttackType>;
-type CacheCitiesType = Record<string, HanzhongCityType>;
 type CacheTechsType = Record<string, HanzhongTechType>;
 type CacheTerritoriesType = Record<string, HanzhongTerritoryLevelType>;
 type CacheWarTiersType = Record<string, HanzhongWarTierType>;
 
 type CacheType = {
   bandits: CacheBanditsType;
-  cities: CacheCitiesType;
   techs: CacheTechsType;
   territories: CacheTerritoriesType;
   warTiers: CacheWarTiersType;
@@ -30,15 +22,6 @@ const CACHE: CacheType = {
         [attack.id]: attack,
       } as const),
     {} as CacheBanditsType
-  ),
-
-  cities: HANZHONG_DATA.cities.reduce<CacheCitiesType>(
-    (cities, city: HanzhongCityType) =>
-      ({
-        ...cities,
-        [city.id]: city,
-      } as const),
-    {} as CacheCitiesType
   ),
 
   techs: HANZHONG_DATA.warTiers.reduce<CacheTechsType>(
@@ -79,9 +62,6 @@ const getObjectById = <T>(obj: Record<string, BaseIDType>, id: string): T | null
 export const getBanditById = (id: string): HanzhongBanditAttackType | null =>
   getObjectById<HanzhongBanditAttackType>(CACHE.bandits, id);
 export const getBanditKeys = (): string[] => getKeysFromObject(CACHE.bandits);
-
-export const getCityById = (id: string): HanzhongCityType | null => getObjectById<HanzhongCityType>(CACHE.cities, id);
-export const getCityKeys = (): string[] => getKeysFromObject(CACHE.cities);
 
 export const getTechById = (id: string): HanzhongTechType | null => getObjectById<HanzhongTechType>(CACHE.techs, id);
 export const getTechKeys = (): string[] => getKeysFromObject(CACHE.techs);
