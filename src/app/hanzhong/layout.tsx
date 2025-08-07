@@ -15,6 +15,7 @@ import type { HanzhongBonusType, HanzhongContextType, HanzhongUserDataType } fro
 import { DEFAULT_HANZHONG_CONTEXT_DATA, initializeEarnings } from './utils';
 import { useAppContext } from '../Context';
 import type { HanzhongFormationsUserData } from './formations/types';
+import type { RequirementsCache } from './requirements/RequirementsCache';
 
 export const HanzhongLayout = () => {
   const { setMenu, user } = useAppContext();
@@ -49,6 +50,7 @@ export const HanzhongLayout = () => {
       onChange,
       formationsUserData,
       onChangeFormations,
+      requirementsCache: {} as RequirementsCache,
     });
   }, [userData, formationsUserData, bonuses]);
 

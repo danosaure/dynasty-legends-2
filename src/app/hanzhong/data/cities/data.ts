@@ -1,8 +1,8 @@
 import { baseInfo } from '../base-info';
 import { cityIdByName } from './city-id-by-name';
-import type { HanzhongCity } from './HanzhongCity';
+import type { HanzhongCityType } from './HanzhongCity';
 
-const HANZHONG__CITY__YANGPING_PASS: HanzhongCity = {
+const HANZHONG__CITY__YANGPING_PASS: HanzhongCityType = {
   ...baseInfo('Yangping Pass', cityIdByName),
   position: '(61,106)',
   tacticalPoints: 2000000,
@@ -14,7 +14,7 @@ const HANZHONG__CITY__YANGPING_PASS: HanzhongCity = {
   },
 } as const;
 
-const HANZHONG__CITY__NORTH_SUMMIT: HanzhongCity = {
+const HANZHONG__CITY__NORTH_SUMMIT: HanzhongCityType = {
   ...baseInfo('North Summit', cityIdByName),
   position: '(52,74)',
   tacticalPoints: 2000000,
@@ -26,7 +26,7 @@ const HANZHONG__CITY__NORTH_SUMMIT: HanzhongCity = {
   },
 } as const;
 
-const HANZHONG__CITY__MAMING_PAVILION: HanzhongCity = {
+const HANZHONG__CITY__MAMING_PAVILION: HanzhongCityType = {
   ...baseInfo('Maming Pavilion', cityIdByName),
   position: '(90,63)',
   tacticalPoints: 2000000,
@@ -38,7 +38,7 @@ const HANZHONG__CITY__MAMING_PAVILION: HanzhongCity = {
   },
 } as const;
 
-const HANZHONG__CITY__MIANYANG_COUNTY: HanzhongCity = {
+const HANZHONG__CITY__MIANYANG_COUNTY: HanzhongCityType = {
   ...baseInfo('Mianyang County', cityIdByName),
   position: '(99,96)',
   tacticalPoints: 2000000,
@@ -50,7 +50,7 @@ const HANZHONG__CITY__MIANYANG_COUNTY: HanzhongCity = {
   },
 } as const;
 
-const HANZHONG__CITY__MOUNT_DINGJUN: HanzhongCity = {
+const HANZHONG__CITY__MOUNT_DINGJUN: HanzhongCityType = {
   ...baseInfo('Mount Dingjun', cityIdByName),
   position: '(63,81)',
   tacticalPoints: 5000000,
@@ -62,7 +62,7 @@ const HANZHONG__CITY__MOUNT_DINGJUN: HanzhongCity = {
   },
 } as const;
 
-const HANZHONG__CITY__HANSHUI_TRAIL: HanzhongCity = {
+const HANZHONG__CITY__HANSHUI_TRAIL: HanzhongCityType = {
   ...baseInfo('Hanshui Trail', cityIdByName),
   position: '(87,91)',
   tacticalPoints: 5000000,
@@ -74,7 +74,7 @@ const HANZHONG__CITY__HANSHUI_TRAIL: HanzhongCity = {
   },
 } as const;
 
-const HANZHONG__CITY__HANZHONG_CITY: HanzhongCity = {
+const HANZHONG__CITY__HANZHONG_CITY: HanzhongCityType = {
   ...baseInfo('Hanzhong City', cityIdByName),
   position: '(75,85)',
   tacticalPoints: 140000000,
@@ -84,9 +84,17 @@ const HANZHONG__CITY__HANZHONG_CITY: HanzhongCity = {
     grainsRate: 720,
     ironRate: 720,
   },
+  requirements: [
+    {
+      type: 'count',
+      section: 'cities',
+      requirementIds: [cityIdByName('Mount Dingjun'), cityIdByName('Hanshui Trail')],
+      value: 1,
+    },
+  ],
 } as const;
 
-export const HANZHONG_CITIES: HanzhongCity[] = [
+export const HANZHONG_CITIES: HanzhongCityType[] = [
   HANZHONG__CITY__YANGPING_PASS,
   HANZHONG__CITY__NORTH_SUMMIT,
   HANZHONG__CITY__MAMING_PAVILION,

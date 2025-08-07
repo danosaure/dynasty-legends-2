@@ -10,6 +10,7 @@ export const HanzhongContext = createContext<HanzhongContextType>({
   onChange: () => {},
   formationsUserData: {},
   onChangeFormations: () => {},
+  requirementsCache: {},
 });
 
 HanzhongContext.displayName = 'HanzhongContext';
