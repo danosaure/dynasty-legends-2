@@ -78,7 +78,7 @@ const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
   icon: {
     path: warTierAssetPath('lv7'),
   },
-  tasks: [],
+  tasks: WAR_TIER_TASKS[7],
   techs: HANZHONG_WAR_TIER_7_TECHS,
 } as const;
 

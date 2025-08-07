@@ -18,7 +18,6 @@ export const HanzhongTechsWarTier = ({ info }: HanzhongTechsWarTierProps) => {
     <PaperWrapper sx={{ width: '100%' }}>
       <Grid
         container
-        size={{ xs: 12 }}
         style={{ backgroundColor: info.bg, padding: '5px' }}
         sx={{ alignItems: 'flex-start', justifyContent: 'flex-start' }}
         spacing={0}
