@@ -1,11 +1,7 @@
 import type { HanzhongUserDataType } from '../types';
-import type { HanzhongRequirement } from './HanzhongRequirement';
-import type { HanzhongRequirementCheckResult } from './RequirementCheckResult';
-import type { RequirementsCache } from './RequirementsCache';
+import type { HanzhongRequirement, HanzhongRequirementCheckResult, RequirementsCache } from './types';
 
-import { areCityRequirementsSatisfied } from '../cities';
-import { areTerritoryRequirementsSatisfied } from '../territories';
-import { areWarTierRequirementsSatisfied } from '../war-tiers';
+import { areCityRequirementsSatisfied, areTerritoryRequirementsSatisfied, areWarTierRequirementsSatisfied } from './validators';
 
 export const areRequirementsSatified = (
   id: string,

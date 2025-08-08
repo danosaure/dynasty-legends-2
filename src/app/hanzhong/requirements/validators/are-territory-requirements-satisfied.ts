@@ -1,8 +1,6 @@
-import { getNumberValue } from '../../utils';
-import type { RequirementsCache } from '../requirements';
-import type { HanzhongRequirementCheckResult } from '../requirements/RequirementCheckResult';
-import type { HanzhongUserDataType } from '../types';
-import type { HanzhongTerritoryRequirement } from './TerritoryRequirement';
+import { getNumberValue } from '../../../utils';
+import type { HanzhongUserDataType } from '../../types';
+import type { HanzhongRequirementCheckResult, HanzhongTerritoryRequirement, RequirementsCache } from '../types';
 
 export const areTerritoryRequirementsSatisfied = (
   userData: HanzhongUserDataType,

@@ -4,10 +4,9 @@ import { CardWrapper } from '../../shared';
 import type { HanzhongCityType } from './types';
 import { HanzhongContextUserCheckbox } from '../ContextCheckbox';
 import { useHanzhongContext } from '../HanzhongContext';
-import { areRequirementsSatified } from '../requirements';
+import { areRequirementsSatified, type HanzhongRequirementCheckResult } from '../requirements';
 import { useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
-import type { HanzhongRequirementCheckResult } from '../requirements/RequirementCheckResult';
 
 export type HanzhongCityProps = {
   city: HanzhongCityType;

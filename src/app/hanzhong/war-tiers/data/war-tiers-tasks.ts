@@ -1,6 +1,6 @@
 import { HANZHONG_TERRITORY_IDS } from '../../constants';
 import { baseInfo } from '../../data/base-info';
-import type { HanzhongTerritoryRequirement } from '../../territories/TerritoryRequirement';
+import type { HanzhongTerritoryRequirement } from '../../requirements';
 import { warTierTaskIdByName } from '../utils';
 import type { HanzhongWarTierTaskType } from './WarTierTaskType';
 

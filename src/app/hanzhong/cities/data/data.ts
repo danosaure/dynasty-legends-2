@@ -1,6 +1,6 @@
 import { baseInfo } from '../../data/base-info';
+import type { HanzhongCityRequirement } from '../../requirements';
 import type { HanzhongCityType } from '../types';
-import type { HanzhongCityRequirement } from '../types/CityRequirement';
 import { cityIdByName } from '../utils/city-id-by-name';
 
 const requirementsForExternalCities: HanzhongCityRequirement[] = [

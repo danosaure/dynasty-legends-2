@@ -1,6 +1,7 @@
 import { areRequirementsSatified, type HanzhongRequirementCheckResult, type RequirementsCache } from '../../requirements';
 import type { HanzhongUserDataType } from '../../types';
-import { getWarTierById, type HanzhongWarTierRequirement, type HanzhongWarTierTaskType, type HanzhongWarTierType } from '../data';
+import { getWarTierById, type HanzhongWarTierTaskType, type HanzhongWarTierType } from '../../war-tiers';
+import type { HanzhongWarTierRequirement } from './HanzhongWarTierRequirement';
 
 export const areWarTierRequirementsSatisfied = (
   userData: HanzhongUserDataType,

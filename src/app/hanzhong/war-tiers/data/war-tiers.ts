@@ -1,8 +1,8 @@
 import { baseInfo } from '../../data/base-info';
+import type { HanzhongWarTierRequirement } from '../../requirements/validators';
 import { HANZHONG_WAR_TIER_TECHS } from '../../techs';
 
 import { warTierAssetPath, warTierIdByName } from '../utils';
-import type { HanzhongWarTierRequirement } from './HanzhongWarTierRequirement';
 import type { HanzhongWarTierType } from './HanzhongWarTierType';
 import { WAR_TIER_TASKS } from './war-tiers-tasks';
 
