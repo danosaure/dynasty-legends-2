@@ -1,4 +1,5 @@
 import { areRequirementsSatified, type HanzhongRequirement, type RequirementsCache } from '../../requirements';
+import type { HanzhongRequirementCheckResult } from '../../requirements/RequirementCheckResult';
 import type { HanzhongUserDataType } from '../../types';
 import { getCityById } from './get-city-by-id';
 
@@ -8,12 +9,12 @@ export const areCityRequirementsSatisfied = (
   userData: HanzhongUserDataType,
   requirement: HanzhongRequirement,
   requirementsCache: RequirementsCache
-): boolean => {
+): HanzhongRequirementCheckResult => {
   if (requirement.type == 'count') {
-    const count = requirement.requirementIds.reduce<number>((sum, cityId) => sum + (isCityOccupied(cityId, userData) ? 1 : 0), 0);
+    const value = requirement.requirementIds.reduce<number>((sum, cityId) => sum + (isCityOccupied(cityId, userData) ? 1 : 0), 0);
 
-    if (count >= requirement.value) {
-      // If the condition is satisfied... Let's validate that each element doesn't have their own requirements.
+    if (value >= requirement.value) {
+      // If the condition is satisfied... Let's validate that each element satisfies their own requirements.
       const subrequirementsChecks = requirement.requirementIds.map((cityId) => {
         const city = getCityById(cityId);
         if (city.requirements) {
@@ -21,11 +22,15 @@ export const areCityRequirementsSatisfied = (
         }
       });
 
-      return !subrequirementsChecks.includes(false);
+      return {
+        satisfies: subrequirementsChecks.filter((check) => check?.satisfies === false).length === 0,
+        value,
+      };
     }
-    return false;
+
+    return { satisfies: value >= requirement.value, value };
   }
 
   console.log(`areCityRequirementsSatisfied(): Need to implement type="${requirement.type}".`);
-  return false;
+  return { satisfies: false, value: -1 };
 };

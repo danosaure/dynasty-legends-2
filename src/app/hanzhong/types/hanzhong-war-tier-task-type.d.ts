@@ -3,5 +3,5 @@ import type { HanzhongRequirement } from '../requirements';
 
 export type HanzhongWarTierTaskType = BaseIdAndName & {
   description: string;
-  requirements?: HanzhongRequirement[];
+  requirement?: HanzhongRequirement;
 };

@@ -6,6 +6,7 @@ import { PaperWrapper } from '../../shared';
 import { useHanzhongContext } from '../HanzhongContext';
 import { areRequirementsSatified } from '../requirements';
 import type { HanzhongWarTierTaskType } from '../types';
+import Box from '@mui/material/Box';
 
 export type HanzhongWarTierTaskProps = {
   task: HanzhongWarTierTaskType;
@@ -17,14 +18,32 @@ export const HanzhongWarTierTask = ({ task }: HanzhongWarTierTaskProps) => {
 
   console.log(`<HanzhongWarTierTask>: cache.requirements=`, cache.requirements);
   const isDone = useMemo(
-    () => (task.requirements ? areRequirementsSatified(task.id, user, task.requirements, cache.requirements) : true),
-    [task.id, task.requirements, user, cache.requirements]
+    () =>
+      task.requirement
+        ? areRequirementsSatified(task.id, user, [task.requirement], cache.requirements)
+        : { satisfies: true, value: -1 },
+    [task.id, task.requirement, user, cache.requirements]
   );
 
-  const border = `3px solid ${isDone ? 'transparent' : theme.palette.error.main}`;
+  const border = `3px solid ${isDone.satisfies ? 'transparent' : theme.palette.error.main}`;
+  const value =
+    isDone.value === -1 ? null : (
+      <Typography color={isDone.satisfies ? 'success' : 'error'} sx={{ display: 'inline' }} variant="body1">
+        {isDone.value}
+      </Typography>
+    );
+  const required = task.requirement?.value ? (
+    <Typography color="info" sx={{ display: 'inline' }} variant="body2">
+      /{task.requirement.value}
+    </Typography>
+  ) : null;
 
   return (
-    <PaperWrapper sx={{ width: '100%', p: 1, border }}>
+    <PaperWrapper sx={{ width: '100%', p: 1, border, position: 'relative' }}>
+      <Box sx={{ position: 'absolute', top: 1, right: 1 }}>
+        {value}
+        {required}
+      </Box>
       <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
         {task.name}
       </Typography>

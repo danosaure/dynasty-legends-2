@@ -1,1 +1,3 @@
-export type RequirementsCache = Record<string, boolean>;
+import type { HanzhongRequirementCheckResult } from './RequirementCheckResult';
+
+export type RequirementsCache = Record<string, HanzhongRequirementCheckResult>;

@@ -1,34 +1,49 @@
 import { HANZHONG_TERRITORY_IDS } from '../../constants';
 import { baseInfo } from '../../data/base-info';
+import type { HanzhongTerritoryRequirement } from '../../territories/TerritoryRequirement';
 import type { HanzhongWarTierTaskType } from '../../types';
 import { warTierTaskIdByName } from '../utils';
 
 const LOGGING_PIONEER: HanzhongWarTierTaskType = {
   ...baseInfo('Logging Pioneer', warTierTaskIdByName),
   description: 'Occupy 2 Lumber territories',
-  requirements: [
-    {
-      section: 'territories',
-      type: 'sum',
-      value: 2,
-      requirementIds: [
-        HANZHONG_TERRITORY_IDS.LUMBER_MILL__1,
-        HANZHONG_TERRITORY_IDS.LUMBER_MILL__2,
-        HANZHONG_TERRITORY_IDS.LUMBER_MILL__3,
-        HANZHONG_TERRITORY_IDS.LUMBER_MILL__4,
-        HANZHONG_TERRITORY_IDS.LUMBER_MILL__5,
-        HANZHONG_TERRITORY_IDS.LUMBER_MILL__6,
-        HANZHONG_TERRITORY_IDS.LUMBER_MILL__7,
-        HANZHONG_TERRITORY_IDS.LUMBER_MILL__8,
-        HANZHONG_TERRITORY_IDS.LUMBER_MILL__9,
-      ],
-    },
-  ],
+  requirement: {
+    section: 'territories',
+    type: 'sum',
+    value: 2,
+    requirementIds: [
+      HANZHONG_TERRITORY_IDS.LUMBER_MILL__1,
+      HANZHONG_TERRITORY_IDS.LUMBER_MILL__2,
+      HANZHONG_TERRITORY_IDS.LUMBER_MILL__3,
+      HANZHONG_TERRITORY_IDS.LUMBER_MILL__4,
+      HANZHONG_TERRITORY_IDS.LUMBER_MILL__5,
+      HANZHONG_TERRITORY_IDS.LUMBER_MILL__6,
+      HANZHONG_TERRITORY_IDS.LUMBER_MILL__7,
+      HANZHONG_TERRITORY_IDS.LUMBER_MILL__8,
+      HANZHONG_TERRITORY_IDS.LUMBER_MILL__9,
+    ],
+  } as HanzhongTerritoryRequirement,
 } as const;
 
 const FARMING_PIONEER: HanzhongWarTierTaskType = {
   ...baseInfo('Farming Pioneer', warTierTaskIdByName),
   description: 'Occupy 2 Grains territories',
+  requirement: {
+    section: 'territories',
+    type: 'sum',
+    value: 2,
+    requirementIds: [
+      HANZHONG_TERRITORY_IDS.GRANARY__1,
+      HANZHONG_TERRITORY_IDS.GRANARY__2,
+      HANZHONG_TERRITORY_IDS.GRANARY__3,
+      HANZHONG_TERRITORY_IDS.GRANARY__4,
+      HANZHONG_TERRITORY_IDS.GRANARY__5,
+      HANZHONG_TERRITORY_IDS.GRANARY__6,
+      HANZHONG_TERRITORY_IDS.GRANARY__7,
+      HANZHONG_TERRITORY_IDS.GRANARY__8,
+      HANZHONG_TERRITORY_IDS.GRANARY__9,
+    ],
+  } as HanzhongTerritoryRequirement,
 } as const;
 
 const MINING_PIONEER: HanzhongWarTierTaskType = {

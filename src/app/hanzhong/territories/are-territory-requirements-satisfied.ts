@@ -1,18 +1,23 @@
 import { getNumberValue } from '../../utils';
-import type { HanzhongRequirement, RequirementsCache } from '../requirements';
+import type { RequirementsCache } from '../requirements';
+import type { HanzhongRequirementCheckResult } from '../requirements/RequirementCheckResult';
 import type { HanzhongUserDataType } from '../types';
+import type { HanzhongTerritoryRequirement } from './TerritoryRequirement';
 
 export const areTerritoryRequirementsSatisfied = (
   userData: HanzhongUserDataType,
-  requirement: HanzhongRequirement,
+  requirement: HanzhongTerritoryRequirement,
   requirementsCache: RequirementsCache
-): boolean => {
+): HanzhongRequirementCheckResult => {
   if (requirement.type == 'sum') {
-    const count = requirement.requirementIds.reduce<number>((sum, territoryId) => sum + getNumberValue(userData, territoryId), 0);
-    return count >= requirement.value;
+    const value = requirement.requirementIds.reduce<number>((sum, territoryId) => sum + getNumberValue(userData, territoryId), 0);
+    return {
+      satisfies: value >= requirement.value,
+      value,
+    };
   }
 
   console.log(`requirementsCache=`, requirementsCache);
   console.log(`areCityRequirementsSatisfied(): Need to implement type="${requirement.type}".`);
-  return false;
+  return { satisfies: false, value: -1 };
 };

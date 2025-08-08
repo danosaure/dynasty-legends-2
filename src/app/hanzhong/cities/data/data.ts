@@ -1,9 +1,9 @@
 import { baseInfo } from '../../data/base-info';
-import type { HanzhongRequirement } from '../../requirements';
 import type { HanzhongCityType } from '../types';
+import type { HanzhongCityRequirement } from '../types/CityRequirement';
 import { cityIdByName } from '../utils/city-id-by-name';
 
-const requirementsForExternalCities: HanzhongRequirement[] = [
+const requirementsForExternalCities: HanzhongCityRequirement[] = [
   {
     type: 'count',
     section: 'cities',
@@ -17,7 +17,7 @@ const requirementsForExternalCities: HanzhongRequirement[] = [
   },
 ];
 
-const requirementsForInnerCities: HanzhongRequirement[] = [
+const requirementsForInnerCities: HanzhongCityRequirement[] = [
   {
     type: 'count',
     section: 'cities',

@@ -7,6 +7,7 @@ import { useHanzhongContext } from '../HanzhongContext';
 import { areRequirementsSatified } from '../requirements';
 import { useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
+import type { HanzhongRequirementCheckResult } from '../requirements/RequirementCheckResult';
 
 export type HanzhongCityProps = {
   city: HanzhongCityType;
@@ -15,16 +16,16 @@ export type HanzhongCityProps = {
 export const HanzhongCity = ({ city }: HanzhongCityProps) => {
   const theme = useTheme();
   const { user, cache } = useHanzhongContext();
-  const [available, setAvailable] = useState<boolean>(true);
+  const [check, setCheck] = useState<HanzhongRequirementCheckResult>({ satisfies: true, value: 0 });
 
   useEffect(() => {
     if (city.requirements) {
       const requirementSatisfied = areRequirementsSatified(city.id, user, city.requirements, cache.requirements);
-      setAvailable(requirementSatisfied);
+      setCheck(requirementSatisfied);
     }
-  }, [user, cache.requirements, setAvailable, city.id, city.requirements]);
+  }, [user, cache.requirements, setCheck, city.id, city.requirements]);
 
-  const border = `3px solid ${available ? 'transparent' : theme.palette.error.main}`;
+  const border = `3px solid ${check.satisfies ? 'transparent' : theme.palette.error.main}`;
 
   return (
     <CardWrapper sx={{ border }}>
