@@ -1,6 +1,6 @@
-import { mapTableToResourcesAndBonuses } from './utils';
-import type { HanzhongTechType } from '../types';
 import { HANZHONG_TECH_IDS } from '../constants/items-ids';
+import { mapTableToResourcesAndBonuses } from '../data/utils';
+import type { HanzhongTechType } from '../types';
 
 const assetPath = (f: string): string => `hanzhong/tech/${f}.png`;
 
@@ -501,3 +501,34 @@ export const HANZHONG_WAR_TIER_6_TECHS: HanzhongTechType[] = [
 ];
 
 export const HANZHONG_WAR_TIER_7_TECHS: HanzhongTechType[] = [HANZHONG_TECH_DILIGENT_WARRIOR_3];
+
+export const HANZHONG_WAR_TIER_TECHS: Record<number, HanzhongTechType[]> = {
+  [1]: HANZHONG_WAR_TIER_1_TECHS,
+  [2]: HANZHONG_WAR_TIER_2_TECHS,
+  [3]: HANZHONG_WAR_TIER_3_TECHS,
+  [4]: HANZHONG_WAR_TIER_4_TECHS,
+  [5]: HANZHONG_WAR_TIER_5_TECHS,
+  [6]: HANZHONG_WAR_TIER_6_TECHS,
+  [7]: HANZHONG_WAR_TIER_7_TECHS,
+} as const;
+
+const __TECHS: HanzhongTechType[] = ([] as HanzhongTechType[])
+  .concat(HANZHONG_WAR_TIER_1_TECHS)
+  .concat(HANZHONG_WAR_TIER_2_TECHS)
+  .concat(HANZHONG_WAR_TIER_3_TECHS)
+  .concat(HANZHONG_WAR_TIER_4_TECHS)
+  .concat(HANZHONG_WAR_TIER_5_TECHS)
+  .concat(HANZHONG_WAR_TIER_6_TECHS)
+  .concat(HANZHONG_WAR_TIER_7_TECHS);
+
+type __CacheRecord = Record<string, HanzhongTechType>;
+const __CACHED_TECHS_BY_ID: __CacheRecord = __TECHS.reduce<__CacheRecord>(
+  (cache: __CacheRecord, tech: HanzhongTechType) =>
+    ({
+      ...cache,
+      [tech.id]: tech,
+    } as const),
+  {} as __CacheRecord
+);
+
+export const getTechById = (id: string): HanzhongTechType => __CACHED_TECHS_BY_ID[id];

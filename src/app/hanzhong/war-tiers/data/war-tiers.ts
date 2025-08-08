@@ -1,14 +1,8 @@
 import { baseInfo } from '../../data/base-info';
-import {
-  HANZHONG_WAR_TIER_1_TECHS,
-  HANZHONG_WAR_TIER_2_TECHS,
-  HANZHONG_WAR_TIER_3_TECHS,
-  HANZHONG_WAR_TIER_4_TECHS,
-  HANZHONG_WAR_TIER_5_TECHS,
-  HANZHONG_WAR_TIER_6_TECHS,
-  HANZHONG_WAR_TIER_7_TECHS,
-} from '../../data/hanzhong-techs';
+import { HANZHONG_WAR_TIER_TECHS } from '../../techs';
+
 import { warTierAssetPath, warTierIdByName } from '../utils';
+import type { HanzhongWarTierRequirement } from './HanzhongWarTierRequirement';
 import type { HanzhongWarTierType } from './HanzhongWarTierType';
 import { WAR_TIER_TASKS } from './war-tiers-tasks';
 
@@ -19,7 +13,7 @@ const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
     path: warTierAssetPath('lv1'),
   },
   tasks: WAR_TIER_TASKS[1],
-  techs: HANZHONG_WAR_TIER_1_TECHS,
+  techs: HANZHONG_WAR_TIER_TECHS[1],
 } as const;
 
 const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
@@ -29,7 +23,13 @@ const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
     path: warTierAssetPath('lv2'),
   },
   tasks: WAR_TIER_TASKS[2],
-  techs: HANZHONG_WAR_TIER_2_TECHS,
+  techs: HANZHONG_WAR_TIER_TECHS[2],
+  requirement: {
+    section: 'warTiers',
+    type: 'completed',
+    value: 1,
+    requirementIds: [warTierIdByName('War Tier Lv.1')],
+  } as HanzhongWarTierRequirement,
 } as const;
 
 const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
@@ -39,7 +39,13 @@ const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
     path: warTierAssetPath('lv3'),
   },
   tasks: WAR_TIER_TASKS[3],
-  techs: HANZHONG_WAR_TIER_3_TECHS,
+  techs: HANZHONG_WAR_TIER_TECHS[3],
+  requirement: {
+    section: 'warTiers',
+    type: 'completed',
+    value: 1,
+    requirementIds: [warTierIdByName('War Tier Lv.2')],
+  } as HanzhongWarTierRequirement,
 } as const;
 
 const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
@@ -49,7 +55,13 @@ const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
     path: warTierAssetPath('lv4'),
   },
   tasks: WAR_TIER_TASKS[4],
-  techs: HANZHONG_WAR_TIER_4_TECHS,
+  techs: HANZHONG_WAR_TIER_TECHS[4],
+  requirement: {
+    section: 'warTiers',
+    type: 'completed',
+    value: 1,
+    requirementIds: [warTierIdByName('War Tier Lv.3')],
+  } as HanzhongWarTierRequirement,
 } as const;
 
 const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
@@ -59,7 +71,13 @@ const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
     path: warTierAssetPath('lv5'),
   },
   tasks: WAR_TIER_TASKS[5],
-  techs: HANZHONG_WAR_TIER_5_TECHS,
+  techs: HANZHONG_WAR_TIER_TECHS[5],
+  requirement: {
+    section: 'warTiers',
+    type: 'completed',
+    value: 1,
+    requirementIds: [warTierIdByName('War Tier Lv.4')],
+  } as HanzhongWarTierRequirement,
 } as const;
 
 const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
@@ -69,7 +87,13 @@ const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
     path: warTierAssetPath('lv6'),
   },
   tasks: WAR_TIER_TASKS[6],
-  techs: HANZHONG_WAR_TIER_6_TECHS,
+  techs: HANZHONG_WAR_TIER_TECHS[6],
+  requirement: {
+    section: 'warTiers',
+    type: 'completed',
+    value: 1,
+    requirementIds: [warTierIdByName('War Tier Lv.5')],
+  } as HanzhongWarTierRequirement,
 } as const;
 
 const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
@@ -79,7 +103,13 @@ const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
     path: warTierAssetPath('lv7'),
   },
   tasks: WAR_TIER_TASKS[7],
-  techs: HANZHONG_WAR_TIER_7_TECHS,
+  techs: HANZHONG_WAR_TIER_TECHS[7],
+  requirement: {
+    section: 'warTiers',
+    type: 'completed',
+    value: 1,
+    requirementIds: [warTierIdByName('War Tier Lv.6')],
+  } as HanzhongWarTierRequirement,
 } as const;
 
 export const HANZHONG_WAR_TIERS: HanzhongWarTierType[] = [

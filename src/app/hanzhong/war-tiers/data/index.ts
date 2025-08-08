@@ -1,4 +1,6 @@
 export type { HanzhongWarTierType } from './HanzhongWarTierType';
+export type { HanzhongWarTierRequirement } from './HanzhongWarTierRequirement';
+export type { HanzhongWarTierTaskType } from './WarTierTaskType';
 
 export { HANZHONG_WAR_TIERS } from './war-tiers';
-export { getWarTierIdById, getWarTierIdByName, getWarTierTaskById } from './cache';
+export { getWarTierById, getWarTierIdByName, getWarTierTaskById } from './cache';

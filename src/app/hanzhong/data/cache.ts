@@ -1,18 +1,13 @@
 import { HANZHONG_DATA } from './hanzhong-data';
-import type { HanzhongBanditAttackType, HanzhongTechType, HanzhongTerritoryLevelType } from '../types';
+import type { HanzhongBanditAttackType, HanzhongTerritoryLevelType } from '../types';
 import type { BaseIDType } from '../../types';
-import { HANZHONG_WAR_TIERS, type HanzhongWarTierType } from '../war-tiers';
 
 type CacheBanditsType = Record<string, HanzhongBanditAttackType>;
-type CacheTechsType = Record<string, HanzhongTechType>;
 type CacheTerritoriesType = Record<string, HanzhongTerritoryLevelType>;
-type CacheWarTiersType = Record<string, HanzhongWarTierType>;
 
 type CacheType = {
   bandits: CacheBanditsType;
-  techs: CacheTechsType;
   territories: CacheTerritoriesType;
-  warTiers: CacheWarTiersType;
 };
 
 const CACHE: CacheType = {
@@ -25,19 +20,6 @@ const CACHE: CacheType = {
     {} as CacheBanditsType
   ),
 
-  techs: HANZHONG_WAR_TIERS.reduce<CacheTechsType>(
-    (warTiersTechs, warTier: HanzhongWarTierType) =>
-      warTier.techs.reduce<CacheTechsType>(
-        (techs: CacheTechsType, tech: HanzhongTechType) =>
-          ({
-            ...techs,
-            [tech.id]: tech,
-          } as const),
-        warTiersTechs
-      ),
-    {} as CacheTechsType
-  ),
-
   territories: HANZHONG_DATA.territories.levels.reduce<CacheTerritoriesType>(
     (territories: CacheTerritoriesType, level: HanzhongTerritoryLevelType) =>
       ({
@@ -45,15 +27,6 @@ const CACHE: CacheType = {
         [level.id]: level,
       } as const),
     {} as CacheTerritoriesType
-  ),
-
-  warTiers: HANZHONG_WAR_TIERS.reduce<CacheWarTiersType>(
-    (warTiers, warTier: HanzhongWarTierType) =>
-      ({
-        ...warTiers,
-        [warTier.id]: warTier,
-      } as const),
-    {} as CacheWarTiersType
   ),
 };
 
@@ -63,9 +36,3 @@ const getObjectById = <T>(obj: Record<string, BaseIDType>, id: string): T | null
 export const getBanditById = (id: string): HanzhongBanditAttackType | null =>
   getObjectById<HanzhongBanditAttackType>(CACHE.bandits, id);
 export const getBanditKeys = (): string[] => getKeysFromObject(CACHE.bandits);
-
-export const getTechById = (id: string): HanzhongTechType | null => getObjectById<HanzhongTechType>(CACHE.techs, id);
-export const getTechKeys = (): string[] => getKeysFromObject(CACHE.techs);
-
-export const getWarTierById = (id: string): HanzhongWarTierType | null => getObjectById<HanzhongWarTierType>(CACHE.warTiers, id);
-export const getWarTierKeys = (): string[] => getKeysFromObject(CACHE.techs);

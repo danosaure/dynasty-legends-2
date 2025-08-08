@@ -1,8 +1,8 @@
 import { HANZHONG_TERRITORY_IDS } from '../../constants';
 import { baseInfo } from '../../data/base-info';
 import type { HanzhongTerritoryRequirement } from '../../territories/TerritoryRequirement';
-import type { HanzhongWarTierTaskType } from '../../types';
 import { warTierTaskIdByName } from '../utils';
+import type { HanzhongWarTierTaskType } from './WarTierTaskType';
 
 const LOGGING_PIONEER: HanzhongWarTierTaskType = {
   ...baseInfo('Logging Pioneer', warTierTaskIdByName),

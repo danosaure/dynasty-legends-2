@@ -5,8 +5,8 @@ import Typography from '@mui/material/Typography';
 import { PaperWrapper } from '../../shared';
 import { useHanzhongContext } from '../HanzhongContext';
 import { areRequirementsSatified } from '../requirements';
-import type { HanzhongWarTierTaskType } from '../types';
 import Box from '@mui/material/Box';
+import type { HanzhongWarTierTaskType } from './data';
 
 export type HanzhongWarTierTaskProps = {
   task: HanzhongWarTierTaskType;
@@ -16,7 +16,6 @@ export const HanzhongWarTierTask = ({ task }: HanzhongWarTierTaskProps) => {
   const theme = useTheme();
   const { user, cache } = useHanzhongContext();
 
-  console.log(`<HanzhongWarTierTask>: cache.requirements=`, cache.requirements);
   const isDone = useMemo(
     () =>
       task.requirement
@@ -25,7 +24,7 @@ export const HanzhongWarTierTask = ({ task }: HanzhongWarTierTaskProps) => {
     [task.id, task.requirement, user, cache.requirements]
   );
 
-  const border = `3px solid ${isDone.satisfies ? 'transparent' : theme.palette.error.main}`;
+  const border = `3px solid ${isDone.satisfies ? theme.palette.success.main : theme.palette.error.main}`;
   const value =
     isDone.value === -1 ? null : (
       <Typography color={isDone.satisfies ? 'success' : 'error'} sx={{ display: 'inline' }} variant="body1">

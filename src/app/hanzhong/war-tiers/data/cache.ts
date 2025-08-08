@@ -1,4 +1,4 @@
-import type { HanzhongWarTierTaskType } from '../../types';
+import type { HanzhongWarTierTaskType } from './WarTierTaskType';
 import type { HanzhongWarTierType } from './HanzhongWarTierType';
 import { HANZHONG_WAR_TIERS } from './war-tiers';
 import { WAR_TIER_TASKS } from './war-tiers-tasks';
@@ -13,7 +13,7 @@ const __CACHE__WAR_TIER__BY_ID: WarTierCache = HANZHONG_WAR_TIERS.reduce<WarTier
   {}
 );
 
-export const getWarTierIdById = (id: string): HanzhongWarTierType => __CACHE__WAR_TIER__BY_ID[id];
+export const getWarTierById = (id: string): HanzhongWarTierType => __CACHE__WAR_TIER__BY_ID[id];
 
 export const __CACHE__WAR_TIER__BY_NAME: WarTierCache = HANZHONG_WAR_TIERS.reduce<WarTierCache>(
   (cache, warTier) =>

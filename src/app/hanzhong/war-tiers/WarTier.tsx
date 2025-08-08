@@ -1,10 +1,12 @@
 import Grid from '@mui/material/Grid';
-import type { HanzhongWarTierType } from './data';
+import type { HanzhongWarTierTaskType, HanzhongWarTierType } from './data';
 import { PaperWrapper } from '../../shared';
-import type { HanzhongTechType, HanzhongWarTierTaskType } from '../types';
+import type { HanzhongTechType } from '../types';
 import { HanzhongTechsTech } from '../techs/HanzhongTechsTech';
 import { useHanzhongContext } from '../HanzhongContext';
 import { HanzhongWarTierTask } from './WarTierTask';
+import { useTheme } from '@mui/material/styles';
+import { areRequirementsSatified } from '../requirements';
 
 export type HanzhongWarTierProps = {
   warTier: HanzhongWarTierType;
@@ -12,14 +14,31 @@ export type HanzhongWarTierProps = {
 };
 
 export const HanzhongWarTier = ({ warTier, techs }: HanzhongWarTierProps) => {
-  const { user } = useHanzhongContext();
+  const theme = useTheme();
+  const { user, cache } = useHanzhongContext();
 
   const content = techs
     ? warTier.techs.map((tech: HanzhongTechType) => <HanzhongTechsTech key={tech.id} info={tech} value={user[tech.id] ?? 0} />)
     : warTier.tasks.map((task: HanzhongWarTierTaskType) => <HanzhongWarTierTask key={task.id} task={task} />);
 
+  let borderColor: string = theme.palette.primary.main;
+  if (warTier.requirement) {
+    const check = areRequirementsSatified(warTier.id, user, [warTier.requirement], cache.requirements);
+    if (check.satisfies) {
+      // Satisfies the previous war tier level. Has it completed all tasks of the current?
+      const tasksChecks = warTier.tasks.map<HanzhongWarTierTaskType>((task: HanzhongWarTierTaskType) =>
+        task.requirement
+          ? areRequirementsSatified(task.id, user, [task.requirement], cache.requirements)
+          : { satisfies: true, value: -1 }
+      );
+      console.log(`<HanzhongWarTier>: tasksChecks=`, tasksChecks);
+    } else {
+      borderColor = theme.palette.error.main;
+    }
+  }
+
   return (
-    <PaperWrapper sx={{ width: '100%' }}>
+    <PaperWrapper sx={{ width: '100%', border: `3px solid ${borderColor}` }}>
       <Grid
         container
         style={{ backgroundColor: warTier.bg, padding: '5px' }}
