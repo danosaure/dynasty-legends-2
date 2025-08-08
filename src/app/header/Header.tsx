@@ -8,12 +8,15 @@ import Typography from '@mui/material/Typography';
 import { WrappedIconButton } from '../shared';
 import { AppHeaderMenu } from './Menu';
 import Drawer from '@mui/material/Drawer';
+import { Username } from '../users/Username';
+import { useAppContext } from '../Context';
 
 export type AppHeaderProps = {
   menu: ReactNode;
 };
 
 export const AppHeader = ({ menu }: AppHeaderProps) => {
+  const { user } = useAppContext();
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   const hideMenu = () => setShowMenu(false);
@@ -31,7 +34,9 @@ export const AppHeader = ({ menu }: AppHeaderProps) => {
         </Typography>
       </Grid>
       <Grid size="grow" justifyContent={'flex-end'}>
-        <Stack direction="row" spacing={0} justifyContent={'flex-end'}>
+        <Stack direction="row" spacing={0} justifyContent={'flex-end'} alignItems={'center'}>
+          <Username username={user?.username} icon small />
+
           {menu}
 
           <WrappedIconButton Icon={MenuIcon} label="Menu" onClick={() => setShowMenu(true)} />
