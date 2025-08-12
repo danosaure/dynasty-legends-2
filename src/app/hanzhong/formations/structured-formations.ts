@@ -1,5 +1,5 @@
 import { sanitizeId } from '../../../utils';
-import { HANZHONG_TECH_IDS } from '../constants';
+import { HANZHONG_TECH_IDS } from '../techs';
 
 export type StructuredFormationsOfficer = {
   tacticalPoints: string;

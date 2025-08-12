@@ -5,7 +5,6 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Grid from '@mui/material/Grid';
 
-import type { HanzhongTechType } from '../../types';
 import { NO_TECH_ID } from '../constants';
 import { useHanzhongTechsContext } from '../context';
 import { HanzhongTechsTechCardImage } from '../HanzhongTechsTechCardImage';
@@ -14,7 +13,8 @@ import { generateLevelsToDisplay } from './generate-levels-to-display';
 import type { HanzhongTechsTechLevelDisplayType } from './types';
 import { HanzhongTechsTechInfoLevel } from './level';
 import Typography from '@mui/material/Typography';
-import { getTechById } from '../data';
+import { getTechById } from '../techs-data';
+import type { HanzhongTechType } from '../TechType';
 
 export type HanzhongTechsTechInfoProps = {
   onClose: () => void;
@@ -23,6 +23,10 @@ export type HanzhongTechsTechInfoProps = {
 export const HanzhongTechsTechInfo = ({ onClose }: HanzhongTechsTechInfoProps) => {
   const { user } = useHanzhongContext();
   const { techId } = useHanzhongTechsContext();
+
+  if (!techId) {
+    return null;
+  }
 
   const tech: HanzhongTechType | null = getTechById(techId);
 

@@ -7,8 +7,8 @@ import { HANZHONG_ROUTES } from './constants';
 import { HanzhongFormations } from './formations';
 import { HanzhongLayout } from './layout';
 import { HanzhongTechs } from './techs';
-import { HanzhongWarTiersLayout } from './war-tiers';
 import { HanzhongTerritories } from './territories';
+import { HanzhongWarTiersLayout } from './war-tiers';
 
 export const HanzhongRoutes = (
   <Route Component={HanzhongLayout}>

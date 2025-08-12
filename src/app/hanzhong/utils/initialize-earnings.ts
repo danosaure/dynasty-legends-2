@@ -1,13 +1,8 @@
 import { calculateEarningsFromCities } from '../cities';
-import { HANZHONG_TECH_IDS } from '../constants/items-ids';
-import { HANZHONG_TERRITORIES } from '../data';
-import type {
-  HanzhongBonusType,
-  HanzhongTechType,
-  HanzhongTerritoryLevelType,
-  HanzhongTerritoryResourceType,
-  HanzhongUserDataType,
-} from '../types';
+import { HANZHONG_TECH_IDS, type HanzhongTechType } from '../techs';
+import { HANZHONG_TERRITORIES, type HanzhongTerritoryLevelType, type HanzhongTerritoryResourceType } from '../territories';
+
+import type { HanzhongBonusType, HanzhongUserDataType } from '../types';
 import { addHanzhongBonuses } from '../utils';
 import { HANZHONG_WAR_TIERS, type HanzhongWarTierType } from '../war-tiers';
 
@@ -15,7 +10,7 @@ const SPECIAL_TRAINING_KEYS = [
   HANZHONG_TECH_IDS.SPECIAL_TRAINING__VANGUARD_CAMP,
   HANZHONG_TECH_IDS.SPECIAL_TRAINING__VALIANT_CAVALRY,
   HANZHONG_TECH_IDS.SPECIAL_TRAINING__ROYAL_GUARDS,
-];
+] as const;
 
 export const initializeEarnings = (userData: HanzhongUserDataType): HanzhongBonusType => {
   let bonuses: HanzhongBonusType = {

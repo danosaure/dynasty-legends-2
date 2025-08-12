@@ -1,4 +1,4 @@
-import type { HanzhongTechResourceType } from '../../types';
+import type { HanzhongTechResourceType } from '../TechResourceType';
 
 export const sumTechResources = (a: HanzhongTechResourceType, b: HanzhongTechResourceType): HanzhongTechResourceType =>
   ({

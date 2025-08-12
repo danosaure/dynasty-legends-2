@@ -1,35 +1,51 @@
+import { isBanditRequirementSatisfied } from '../bandits/is-requirement-satisfied';
+import { isCityRequirementSatisfied } from '../cities/is-requirement-satisfied';
+import { isTechRequirementSatisfied } from '../techs/is-requirement-satisfied';
+import { isTerritoryRequirementSatisfied } from '../territories/is-requirement-satisfied';
 import type { HanzhongUserDataType } from '../types';
-import type { HanzhongRequirement, HanzhongRequirementCheckResult, RequirementsCache } from './types';
+import { isWarTierRequirementSatisfied } from '../war-tiers/is-requirement-satisfied';
+import type { HanzhongRequirementsCache } from './Cache';
+import type { HanzhongRequirementCheckResult } from './CheckResult';
+import type { HanzhongRequirement } from './Requirement';
+import type { HanzhongRequirementValidator } from './Validator';
+import { VALIDATOR_RESPONSES } from './validator-responses';
 
-import { areCityRequirementsSatisfied, areTerritoryRequirementsSatisfied, areWarTierRequirementsSatisfied } from './validators';
+const validators: Record<string, HanzhongRequirementValidator> = {
+  bandits: isBanditRequirementSatisfied,
+  cities: isCityRequirementSatisfied,
+  techs: isTechRequirementSatisfied,
+  territories: isTerritoryRequirementSatisfied,
+  warTiers: isWarTierRequirementSatisfied,
+} as const;
 
 export const areRequirementsSatified = (
   id: string,
-  userData: HanzhongUserDataType,
   requirements: HanzhongRequirement[],
-  requirementsCache: RequirementsCache
+  userData: HanzhongUserDataType,
+  requirementsCache: HanzhongRequirementsCache
 ): HanzhongRequirementCheckResult => {
   if (requirementsCache[id] === undefined) {
-    const requirementsSatisfied: HanzhongRequirementCheckResult = requirements.reduce<HanzhongRequirementCheckResult>(
-      (doneChecking, requirement) => {
-        if (!doneChecking.satisfies) {
-          return doneChecking;
-        }
+    if (!requirements || requirements.length === 0) {
+      requirementsCache[id] = VALIDATOR_RESPONSES.NO_REQUIREMENTS;
+    } else {
+      const requirementsSatisfied: HanzhongRequirementCheckResult = requirements.reduce<HanzhongRequirementCheckResult>(
+        (doneChecking, requirement) => {
+          if (!doneChecking.satisfies) {
+            return doneChecking;
+          }
 
-        if (requirement.section === 'cities') {
-          return areCityRequirementsSatisfied(userData, requirement, requirementsCache);
-        } else if (requirement.section === 'territories') {
-          return areTerritoryRequirementsSatisfied(userData, requirement, requirementsCache);
-        } else if (requirement.section === 'warTiers') {
-          return areWarTierRequirementsSatisfied(userData, requirement, requirementsCache);
-        } else {
-          return { satisfies: false, value: -1 } as HanzhongRequirementCheckResult;
-        }
-      },
-      { satisfies: true, value: -1 } as HanzhongRequirementCheckResult
-    );
+          const validator = validators[requirement.section];
+          if (!validator) {
+            return VALIDATOR_RESPONSES.UNKNOWN_SECTION;
+          }
 
-    requirementsCache[id] = requirementsSatisfied;
+          return validator(requirement, userData, requirementsCache);
+        },
+        VALIDATOR_RESPONSES.INITIAL_VALUE
+      );
+
+      requirementsCache[id] = requirementsSatisfied;
+    }
   }
 
   return requirementsCache[id];

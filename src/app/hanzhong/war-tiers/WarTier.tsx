@@ -1,12 +1,12 @@
 import Grid from '@mui/material/Grid';
-import type { HanzhongWarTierTaskType, HanzhongWarTierType } from './data';
 import { PaperWrapper } from '../../shared';
-import type { HanzhongTechType } from '../types';
 import { HanzhongTechsTech } from '../techs/HanzhongTechsTech';
 import { useHanzhongContext } from '../HanzhongContext';
-import { HanzhongWarTierTask } from './WarTierTask';
 import { useTheme } from '@mui/material/styles';
-import { areRequirementsSatified } from '../requirements';
+import { areRequirementsSatified, VALIDATOR_RESPONSES, type HanzhongRequirementCheckResult } from '../requirements';
+import { HanzhongWarTierTask, type HanzhongWarTierTaskType } from '../war-tier-tasks';
+import type { HanzhongWarTierType } from './WarTierType';
+import type { HanzhongTechType } from '../techs';
 
 export type HanzhongWarTierProps = {
   warTier: HanzhongWarTierType;
@@ -23,13 +23,13 @@ export const HanzhongWarTier = ({ warTier, techs }: HanzhongWarTierProps) => {
 
   let borderColor: string = theme.palette.primary.main;
   if (warTier.requirement) {
-    const check = areRequirementsSatified(warTier.id, user, [warTier.requirement], cache.requirements);
+    const check = areRequirementsSatified(warTier.id, [warTier.requirement], user, cache.requirements);
     if (check.satisfies) {
       // Satisfies the previous war tier level. Has it completed all tasks of the current?
-      const tasksChecks = warTier.tasks.map<HanzhongWarTierTaskType>((task: HanzhongWarTierTaskType) =>
+      const tasksChecks = warTier.tasks.map<HanzhongRequirementCheckResult>((task) =>
         task.requirement
-          ? areRequirementsSatified(task.id, user, [task.requirement], cache.requirements)
-          : { satisfies: true, value: -1 }
+          ? areRequirementsSatified(task.id, [task.requirement], user, cache.requirements)
+          : VALIDATOR_RESPONSES.ASSUME_DONE
       );
       console.log(`<HanzhongWarTier>: tasksChecks=`, tasksChecks);
     } else {

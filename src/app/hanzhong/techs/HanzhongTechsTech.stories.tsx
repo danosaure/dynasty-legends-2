@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { HanzhongTechsTech, type HanzhongTechsTechProps } from './HanzhongTechsTech';
-import { HANZHONG_TECH_ATTACK_TRAINING_1 } from './data';
+import { HANZHONG_TECH_ATTACK_TRAINING_1 } from './techs-data';
 
 const defaultProps: HanzhongTechsTechProps = {
   info: HANZHONG_TECH_ATTACK_TRAINING_1,

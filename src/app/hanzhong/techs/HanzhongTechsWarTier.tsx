@@ -2,7 +2,6 @@ import Grid from '@mui/material/Grid';
 
 import { PaperWrapper } from '../../shared';
 import { useHanzhongContext } from '../HanzhongContext';
-import type { HanzhongTechType } from '../types';
 
 import { HanzhongTechsTech } from './HanzhongTechsTech';
 import type { HanzhongWarTierType } from '../war-tiers';
@@ -31,7 +30,7 @@ export const HanzhongTechsWarTier = ({ info }: HanzhongTechsWarTierProps) => {
         </Grid>
 
         <Grid container size="grow" spacing={0.5}>
-          {info.techs.map((tech: HanzhongTechType) => (
+          {info.techs.map((tech) => (
             <HanzhongTechsTech key={tech.id} info={tech} value={user[tech.id] ?? 0} />
           ))}
         </Grid>

@@ -1,0 +1,7 @@
+export const VALIDATOR_RESPONSE_VALUES: Record<string, number> = {
+  INITIAL_VALUE: -1,
+  UNKNOWN_SECTION: -2,
+  NO_REQUIREMENTS: -100,
+  UNKNOWN_REQUIREMENT_TYPE: -200,
+  ASSUME_DONE: -500,
+} as const;

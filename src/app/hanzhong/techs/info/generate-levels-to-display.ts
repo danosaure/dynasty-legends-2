@@ -1,5 +1,4 @@
-import type { HanzhongTechLevelType } from '../../types';
-
+import type { HanzhongTechLevelType } from '../TechLevelType';
 import { calculateDeltaBonuses } from './calculate-delta-bonuses';
 import { sumTechResources } from './sum-tech-resources';
 import type { HanzhongTechsTechLevelDisplayType } from './types';

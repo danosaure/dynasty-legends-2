@@ -1,5 +1,4 @@
-import { getTechById } from '../techs';
-import type { HanzhongTechResourceType } from '../types';
+import { getTechById, type HanzhongTechResourceType } from '../techs';
 
 export const findResourcesNeededByTechIdAndLevel = (techId: string, level: number): HanzhongTechResourceType | -1 | null => {
   const tech = getTechById(techId);

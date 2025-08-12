@@ -1,6 +1,6 @@
-import type { HanzhongTechResourceType } from '../../../types';
 import { HanzhongTechsTechInfoLevelInfoItem } from './LevelInfoItem';
 import { LABEL_BY_RESOURCE_ATTRIBUTE } from '../../constants';
+import type { HanzhongTechResourceType } from '../../TechResourceType';
 
 export type HanzhongTechsTechInfoLevelResourcesProps = {
   resources: HanzhongTechResourceType;

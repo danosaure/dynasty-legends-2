@@ -1,4 +1,4 @@
-export { HANZHONG_BANDITS } from './hanzhong-bandits';
-export { HANZHONG_DATA } from './hanzhong-data';
-export { HANZHONG_TERRITORIES } from './hanzhong-territories';
-export * from './cache';
+export type { BaseInfo, BaseInfoIdFn } from './base-info';
+
+export { baseInfo } from './base-info';
+export { mapTableToResourcesAndBonuses } from './map-table-to-resources-and-bonuses';
