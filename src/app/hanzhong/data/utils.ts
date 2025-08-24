@@ -1,9 +1,8 @@
-import type { PotentiallyUnknownNumberType } from '../../types';
 import type { HanzhongBonusType, HanzhongTechLevelType } from '../types';
 
 type bonusKeys = keyof HanzhongBonusType;
 
-export const mapTableToResourcesAndBonuses = (bonuses: bonusKeys[], data: PotentiallyUnknownNumberType[][]) =>
+export const mapTableToResourcesAndBonuses = (bonuses: bonusKeys[], data: number[][]) =>
   data.map(
     ([lumber, grains, iron, ...bonusData]): HanzhongTechLevelType => ({
       resources: {

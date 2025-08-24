@@ -30,12 +30,6 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
           earnings: { ironRate: 60 },
         },
       ],
-      team: {
-        green: 489425,
-        orange: [null, null],
-        red: null,
-        factionBonus: null,
-      },
       /*
       features: [
         "Increases the garrison's damage taken by 20%."
@@ -59,12 +53,6 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
           earnings: { ironRate: 120 },
         },
       ],
-      team: {
-        green: 489425,
-        orange: [null, 489425],
-        red: null,
-        factionBonus: null,
-      },
       /*
       features: [
         "Increases the garrison's damage taken by 20%."
@@ -88,12 +76,6 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
           earnings: { ironRate: 180 },
         },
       ],
-      team: {
-        green: 701068,
-        orange: [699201, 556621],
-        red: 491267,
-        factionBonus: 491267,
-      },
     },
     {
       id: HANZHONG_TERRITORY_LEVEL_IDS.LEVEL__4,
@@ -112,12 +94,6 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
           earnings: { ironRate: 240 },
         },
       ],
-      team: {
-        green: 1641266,
-        orange: [1472552, 1172380],
-        red: 941080,
-        factionBonus: 1472552,
-      },
     },
     {
       id: HANZHONG_TERRITORY_LEVEL_IDS.LEVEL__5,
@@ -136,12 +112,6 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
           earnings: { ironRate: 300 },
         },
       ],
-      team: {
-        green: 2764530,
-        orange: [2327514, 1902304],
-        red: 1899346,
-        factionBonus: 2327514,
-      },
     },
     {
       id: HANZHONG_TERRITORY_LEVEL_IDS.LEVEL__6,
@@ -160,12 +130,6 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
           earnings: { ironRate: 360 },
         },
       ],
-      team: {
-        green: 4150360,
-        orange: [4097498, 3946037],
-        red: 2766346,
-        factionBonus: 3445898,
-      },
     },
     {
       id: HANZHONG_TERRITORY_LEVEL_IDS.LEVEL__7,
@@ -184,12 +148,6 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
           earnings: { ironRate: 420 },
         },
       ],
-      team: {
-        green: 7432568,
-        orange: [null, 6291460],
-        red: 6291460,
-        factionBonus: 6700996,
-      },
     },
     {
       id: HANZHONG_TERRITORY_LEVEL_IDS.LEVEL__8,
@@ -208,12 +166,6 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
           earnings: { ironRate: 480 },
         },
       ],
-      team: {
-        green: 11816536,
-        orange: [10111904, 7510353],
-        red: 7425451,
-        factionBonus: 10025056,
-      },
     },
     {
       id: HANZHONG_TERRITORY_LEVEL_IDS.LEVEL__9,
@@ -232,12 +184,6 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
           earnings: { ironRate: 540 },
         },
       ],
-      team: {
-        green: 13796665,
-        orange: [13391665, 10025056],
-        red: -1,
-        factionBonus: 11818474,
-      },
     },
   ],
 };
