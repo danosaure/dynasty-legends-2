@@ -3,7 +3,7 @@ import type { SxProps } from '@mui/material/styles';
 
 export type HanzhongTechsTechInfoLevelInfoItemProps = {
   label: string;
-  value: number;
+  value: number | string;
   bold?: boolean;
 };
 
