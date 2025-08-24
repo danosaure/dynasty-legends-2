@@ -20,7 +20,7 @@ export const isTerritoryRequirementSatisfied: HanzhongRequirementValidator = (
 ): HanzhongRequirementCheckResult => {
   if (requirement.section === 'territories') {
     if (requirement.type === 'plunder') {
-      return VALIDATOR_RESPONSES.ASSUME_DONE;
+      return { requirement, ...VALIDATOR_RESPONSES.ASSUME_DONE };
     } else if (requirement.type === 'level') {
       const value = HANZHONG_TERRITORIES.levels
         .slice(requirement.level - 1)
@@ -32,17 +32,17 @@ export const isTerritoryRequirementSatisfied: HanzhongRequirementValidator = (
             ),
           0
         );
-      return { satisfies: value >= requirement.value, value };
+      return { requirement, satisfies: value >= requirement.value, value };
     } else if (['Lumber', 'Grains', 'Iron'].includes(requirement.type)) {
       const record = IDS_BY_TYPE[requirement.type];
       let value: number = 0;
       for (let level = 1; level <= 9; level++) {
         value += getNumberValue(userData, record[level]);
       }
-      return { satisfies: value >= requirement.value, value };
+      return { requirement, satisfies: value >= requirement.value, value };
     }
-    return VALIDATOR_RESPONSES.UNKNOWN_REQUIREMENT_TYPE;
+    return { requirement, ...VALIDATOR_RESPONSES.UNKNOWN_REQUIREMENT_TYPE };
   }
 
-  return VALIDATOR_RESPONSES.UNKNOWN_SECTION;
+  return { requirement, ...VALIDATOR_RESPONSES.UNKNOWN_SECTION };
 };

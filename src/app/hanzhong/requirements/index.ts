@@ -4,3 +4,4 @@ export { VALIDATOR_RESPONSES } from './validator-responses';
 export type { HanzhongRequirementCheckResult } from './CheckResult';
 export type { HanzhongRequirementsCache } from './Cache';
 export type { HanzhongRequirementValidator } from './Validator';
+export type { HanzhongRequirementBase } from './BaseRequirement';

@@ -23,20 +23,20 @@ export const isWarTierRequirementSatisfied: HanzhongRequirementValidator = (
       if (task.requirement) {
         return areRequirementsSatified(task.id, [task.requirement], userData, requirementsCache);
       }
-      return VALIDATOR_RESPONSES.NO_REQUIREMENTS;
+      return { requirement, ...VALIDATOR_RESPONSES.NO_REQUIREMENTS };
     });
 
     const anyInvalidCheck = previousTierTasksSatisfied.filter((check) => !check.satisfies).length > 0;
 
     if (anyInvalidCheck) {
-      return { satisfies: false, value: -1 };
+      return { requirement, satisfies: false, value: -1 };
     }
 
     if (previousTier.requirement) {
       return areRequirementsSatified(previousTier.id, [previousTier.requirement], userData, requirementsCache);
     }
 
-    return { satisfies: true, value: -1 };
+    return { requirement, satisfies: true, value: -1 };
   }
-  return VALIDATOR_RESPONSES.UNKNOWN_SECTION;
+  return { requirement, ...VALIDATOR_RESPONSES.UNKNOWN_SECTION };
 };

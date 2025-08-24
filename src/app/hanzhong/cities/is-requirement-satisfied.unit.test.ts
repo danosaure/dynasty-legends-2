@@ -14,6 +14,7 @@ describe('areCityRequirementsSatisfied()', () => {
     const requirement: HanzhongCityRequirement = {
       section: 'cities',
       type: 'hanzhong',
+      value: 1,
     };
 
     it('returns false when no cities are occupied', () => {

@@ -29,7 +29,7 @@ export const isCityRequirementSatisfied: HanzhongRequirementValidator = (
       cityNames = requirement.cityNames;
       countRequired = requirement.value;
     } else {
-      return VALIDATOR_RESPONSES.UNKNOWN_REQUIREMENT_TYPE;
+      return { requirement, ...VALIDATOR_RESPONSES.UNKNOWN_REQUIREMENT_TYPE };
     }
 
     const value = cityNames.reduce<number>(
@@ -37,8 +37,8 @@ export const isCityRequirementSatisfied: HanzhongRequirementValidator = (
       0
     );
 
-    return { satisfies: value >= countRequired, value };
+    return { requirement, satisfies: value >= countRequired, value };
   }
 
-  return VALIDATOR_RESPONSES.UNKNOWN_SECTION;
+  return { requirement, ...VALIDATOR_RESPONSES.UNKNOWN_SECTION };
 };

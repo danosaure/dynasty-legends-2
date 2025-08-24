@@ -29,9 +29,9 @@ export const HanzhongWarTier = ({ warTier, techs }: HanzhongWarTierProps) => {
       const tasksChecks = warTier.tasks.map<HanzhongRequirementCheckResult>((task) =>
         task.requirement
           ? areRequirementsSatified(task.id, [task.requirement], user, cache.requirements)
-          : VALIDATOR_RESPONSES.ASSUME_DONE
+          : { requirement: task.requirement, ...VALIDATOR_RESPONSES.ASSUME_DONE }
       );
-      console.log(`<HanzhongWarTier>: tasksChecks=`, tasksChecks);
+      console.log(`<HanzhongWarTier>: warTier.id="${warTier.id}": tasksChecks=`, tasksChecks);
     } else {
       borderColor = theme.palette.error.main;
     }

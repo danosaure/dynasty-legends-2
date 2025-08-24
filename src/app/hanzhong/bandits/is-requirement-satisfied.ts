@@ -19,7 +19,7 @@ export const isBanditRequirementSatisfied: HanzhongRequirementValidator = (
       0
     );
 
-    return { satisfies: value >= requirement.value, value };
+    return { requirement, satisfies: value >= requirement.value, value };
   }
-  return VALIDATOR_RESPONSES.UNKNOWN_SECTION;
+  return { requirement, ...VALIDATOR_RESPONSES.UNKNOWN_SECTION };
 };

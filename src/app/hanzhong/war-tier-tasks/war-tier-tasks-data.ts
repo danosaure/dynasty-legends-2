@@ -49,6 +49,7 @@ const BANDITS_TERMINATOR_I: HanzhongWarTierTaskType = {
   description: 'Defeat Bandits 1 times',
   requirement: {
     section: 'bandits',
+    type: 'count',
     value: 1,
   },
 } as const;
@@ -107,6 +108,7 @@ const BANDITS_TERMINATOR_II: HanzhongWarTierTaskType = {
   description: 'Defeat Bandits 2 times',
   requirement: {
     section: 'bandits',
+    type: 'count',
     value: 2,
   },
 } as const;
@@ -204,6 +206,7 @@ const BANDITS_TERMINATOR_III: HanzhongWarTierTaskType = {
   description: 'Defeat Bandits 4 times',
   requirement: {
     section: 'bandits',
+    type: 'count',
     value: 4,
   },
 } as const;
@@ -295,6 +298,7 @@ const BANDITS_TERMINATOR_IV: HanzhongWarTierTaskType = {
   description: 'Defeat Bandits 6 times',
   requirement: {
     section: 'bandits',
+    type: 'count',
     value: 6,
   },
 } as const;
@@ -354,6 +358,7 @@ const PACIFICATOR: HanzhongWarTierTaskType = {
   requirement: {
     section: 'cities',
     type: 'hanzhong',
+    value: 1,
   },
 } as const;
 

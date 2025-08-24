@@ -6,6 +6,7 @@ import type { HanzhongWarTierTaskRequirement } from '../war-tier-tasks';
 import type { HanzhongWarTierRequirement } from '../war-tiers';
 
 export type HanzhongRequirement =
+  | { section: 'EMPTY' }
   | HanzhongBanditRequirement
   | HanzhongCityRequirement
   | HanzhongTerritoryRequirement

@@ -1,4 +1,6 @@
-export type HanzhongTechBaseRequirement = {
+import type { HanzhongRequirementBase } from '../requirements';
+
+export type HanzhongTechBaseRequirement = HanzhongRequirementBase & {
   section: 'techs';
 };
 

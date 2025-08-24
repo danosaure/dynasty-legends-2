@@ -26,7 +26,7 @@ export const areRequirementsSatified = (
 ): HanzhongRequirementCheckResult => {
   if (requirementsCache[id] === undefined) {
     if (!requirements || requirements.length === 0) {
-      requirementsCache[id] = VALIDATOR_RESPONSES.NO_REQUIREMENTS;
+      requirementsCache[id] = { requirement: {}, ...VALIDATOR_RESPONSES.NO_REQUIREMENTS };
     } else {
       const requirementsSatisfied: HanzhongRequirementCheckResult = requirements.reduce<HanzhongRequirementCheckResult>(
         (doneChecking, requirement) => {
@@ -36,12 +36,12 @@ export const areRequirementsSatified = (
 
           const validator = validators[requirement.section];
           if (!validator) {
-            return VALIDATOR_RESPONSES.UNKNOWN_SECTION;
+            return { requirement, ...VALIDATOR_RESPONSES.UNKNOWN_SECTION };
           }
 
           return validator(requirement, userData, requirementsCache);
         },
-        VALIDATOR_RESPONSES.INITIAL_VALUE
+        { requirement: {}, ...VALIDATOR_RESPONSES.INITIAL_VALUE }
       );
 
       requirementsCache[id] = requirementsSatisfied;

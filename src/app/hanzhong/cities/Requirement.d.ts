@@ -1,9 +1,12 @@
-export type HanzhongCityRequirementBase = {
+import type { HanzhongRequirementBase } from '../requirements';
+
+export type HanzhongCityRequirementBase = HanzhongRequirementBase & {
   section: 'cities';
 };
 
 export type HanzhongCityHanzhongRequirement = HanzhongCityRequirementBase & {
   type: 'hanzhong';
+  value: 1;
 };
 
 export type HanzhongCityNonHanzhongRequirement = HanzhongCityRequirementBase & {

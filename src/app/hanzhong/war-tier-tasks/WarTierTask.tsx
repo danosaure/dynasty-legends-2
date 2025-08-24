@@ -25,23 +25,25 @@ export const HanzhongWarTierTask = ({ task }: HanzhongWarTierTaskProps) => {
   );
 
   const border = `3px solid ${isDone.satisfies ? theme.palette.success.main : theme.palette.error.main}`;
+
   const value =
     isDone.value === -1 ? null : (
       <Typography color={isDone.satisfies ? 'success' : 'error'} sx={{ display: 'inline' }} variant="body1">
         {isDone.value}
       </Typography>
     );
-  // const required = task.requirement?.value ? (
-  //   <Typography color="info" sx={{ display: 'inline' }} variant="body2">
-  //     /{task.requirement.value}
-  //   </Typography>
-  // ) : null;
+
+  const required = task.requirement?.value ? (
+    <Typography color="info" sx={{ display: 'inline' }} variant="body2">
+      /{task.requirement.value}
+    </Typography>
+  ) : null;
 
   return (
     <PaperWrapper sx={{ width: '100%', p: 1, border, position: 'relative' }}>
       <Box sx={{ position: 'absolute', top: 1, right: 1 }}>
         {value}
-        {/* {required} */}
+        {required}
       </Box>
       <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
         {task.name}

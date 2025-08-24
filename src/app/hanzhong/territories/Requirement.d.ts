@@ -2,9 +2,11 @@
 //    Types
 //
 
+import type { HanzhongRequirementBase } from '../requirements';
+
 export type HanzhongTerritoryLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
-export type HanzhongTerritoryBaseRequirement = {
+export type HanzhongTerritoryBaseRequirement = HanzhongRequirementBase & {
   section: 'territories';
 };
 

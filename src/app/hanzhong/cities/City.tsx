@@ -3,8 +3,8 @@ import Grid from '@mui/material/Grid';
 import { CardWrapper } from '../../shared';
 import { HanzhongContextUserCheckbox } from '../ContextCheckbox';
 import { useHanzhongContext } from '../HanzhongContext';
-import { areRequirementsSatified, type HanzhongRequirementCheckResult } from '../requirements';
-import { useEffect, useState } from 'react';
+import { areRequirementsSatified } from '../requirements';
+import { useMemo } from 'react';
 import { useTheme } from '@mui/material/styles';
 import type { HanzhongCityType } from './HanzhongCity';
 
@@ -15,16 +15,14 @@ export type HanzhongCityProps = {
 export const HanzhongCity = ({ city }: HanzhongCityProps) => {
   const theme = useTheme();
   const { user, cache } = useHanzhongContext();
-  const [check, setCheck] = useState<HanzhongRequirementCheckResult>({ satisfies: true, value: 0 });
 
-  useEffect(() => {
+  const requirementSatisfied = useMemo(() => {
     if (city.requirements) {
-      const requirementSatisfied = areRequirementsSatified(city.id, city.requirements, user, cache.requirements);
-      setCheck(requirementSatisfied);
+      return areRequirementsSatified(city.id, city.requirements, user, cache.requirements);
     }
-  }, [user, cache.requirements, setCheck, city.id, city.requirements]);
+  }, [cache.requirements, city.id, city.requirements, user]);
 
-  const border = `3px solid ${check.satisfies ? 'transparent' : theme.palette.error.main}`;
+  const border = `3px solid ${requirementSatisfied?.satisfies ? 'transparent' : theme.palette.error.main}`;
 
   return (
     <CardWrapper sx={{ border }}>

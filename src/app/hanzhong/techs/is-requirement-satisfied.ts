@@ -15,16 +15,16 @@ export const isTechRequirementSatisfied: HanzhongRequirementValidator = (
   if (requirement.section === 'techs') {
     if (requirement.type === 'level') {
       const value = getNumberValue(userData, requirement.techId);
-      return { satisfies: value >= requirement.value, value };
+      return { requirement, satisfies: value >= requirement.value, value };
     } else if (requirement.type === 'count') {
       const value = Object.values(HANZHONG_TECH_IDS).reduce<number>(
         (count, techId) => count + (getNumberValue(userData, techId) >= 0 ? 1 : 0),
         0
       );
-      return { satisfies: value >= requirement.value, value };
+      return { requirement, satisfies: value >= requirement.value, value };
     }
-    return VALIDATOR_RESPONSES.UNKNOWN_REQUIREMENT_TYPE;
+    return { requirement, ...VALIDATOR_RESPONSES.UNKNOWN_REQUIREMENT_TYPE };
   }
 
-  return VALIDATOR_RESPONSES.UNKNOWN_SECTION;
+  return { requirement, ...VALIDATOR_RESPONSES.UNKNOWN_SECTION };
 };
