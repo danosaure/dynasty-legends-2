@@ -30,7 +30,6 @@ export const HanzhongLayout = () => {
   useEffect(() => {
     const onChange = (key: string, value: number) => {
       const newValues = updateResourcesIfTech(key, value, userData);
-      console.log(`onChange(key="${key}", value=${value}): newValues=`, newValues);
 
       setUserData({
         ...userData,
