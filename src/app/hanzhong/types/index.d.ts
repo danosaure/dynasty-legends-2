@@ -4,7 +4,6 @@ export { type HanzhongBanditLevelType } from './hanzhong-bandit-level-type';
 export { type HanzhongBanditLevelsType } from './hanzhong-bandit-levels-type';
 export { type HanzhongBanditsType } from './hanzhong-bandits-type';
 export { type HanzhongBonusType } from './hanzhong-bonus-type';
-export { type HanzhongCityType } from './hanzhong-city-type';
 export { type HanzhongContextOnChangeType } from './hanzhong-context-on-change-type';
 export { type HanzhongInfoDataKeyUpdaterType } from './hanzhong-info-data-key-updater-type';
 export { type HanzhongInfoDataType } from './hanzhong-info-data-type';
