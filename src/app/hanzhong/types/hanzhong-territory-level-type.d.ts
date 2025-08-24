@@ -1,4 +1,4 @@
-import type { BaseIDType } from '../../types';
+import type { BaseIDType, PotentiallyUnknownNumberType } from '../../types';
 
 import type { HanzhongTerritoryResourceType } from './hanzhong-territory-resource-type';
 

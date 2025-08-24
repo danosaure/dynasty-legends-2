@@ -15,6 +15,7 @@ import type { HanzhongBonusType, HanzhongContextType, HanzhongUserDataType } fro
 import { DEFAULT_HANZHONG_CONTEXT_DATA, initializeEarnings } from './utils';
 import { useAppContext } from '../Context';
 import type { HanzhongFormationsUserData } from './formations/types';
+import { updateResourcesIfTech } from './utils/update-resources-if-tech';
 
 export const HanzhongLayout = () => {
   const { setMenu, user } = useAppContext();
@@ -28,9 +29,12 @@ export const HanzhongLayout = () => {
 
   useEffect(() => {
     const onChange = (key: string, value: number) => {
+      const newValues = updateResourcesIfTech(key, value, userData);
+      console.log(`onChange(key="${key}", value=${value}): newValues=`, newValues);
+
       setUserData({
         ...userData,
-        [key]: value,
+        ...newValues,
       });
       setIsUserDataModified(true);
     };
