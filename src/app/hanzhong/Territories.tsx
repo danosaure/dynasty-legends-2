@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import { TitleTypographyWrapper } from '../shared';
 import { TerritoryLevel } from './TerritoryLevel';
 import type { HanzhongTerritoryLevelType } from './types';
-import { HANZHONG_DATA } from './data';
+import { HANZHONG_TERRITORIES } from './data';
 
 export const HanzhongTerritories = () => {
   return (
@@ -12,7 +12,7 @@ export const HanzhongTerritories = () => {
         <TitleTypographyWrapper variant="TITLE">Occupied Territories</TitleTypographyWrapper>
       </Grid>
       <Grid container size={{ xs: 12 }} spacing={2} direction={'column'}>
-        {HANZHONG_DATA.territories.levels
+        {HANZHONG_TERRITORIES.levels
           .map((level: HanzhongTerritoryLevelType, index: number) => (
             <Grid
               container
