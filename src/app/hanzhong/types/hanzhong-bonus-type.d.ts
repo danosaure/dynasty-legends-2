@@ -1,12 +1,10 @@
-import type { PotentiallyUnknownNumberType } from './potentially-unknown-number-type';
-
 export type HanzhongBonusType = {
-  atk?: PotentiallyUnknownNumberType;
-  def?: PotentiallyUnknownNumberType;
-  hp?: PotentiallyUnknownNumberType;
-  woodRate?: PotentiallyUnknownNumberType;
-  grainsRate?: PotentiallyUnknownNumberType;
-  ironRate?: PotentiallyUnknownNumberType;
-  territoryCap?: PotentiallyUnknownNumberType;
+  atk?: number;
+  def?: number;
+  hp?: number;
+  woodRate?: number;
+  grainsRate?: number;
+  ironRate?: number;
+  territoryCap?: number;
   description?: string;
 };
