@@ -1,7 +1,7 @@
-import type { HanzhongRequirements } from './hanzhong-requirements';
+import type { HanzhongRequirementsType } from './hanzhong-requirements-type';
 
 export type HanzhongWarTierTaskType = {
   label: string;
   description: string;
-  requirements?: HanzhongRequirements;
+  requirements?: HanzhongRequirementsType;
 };
