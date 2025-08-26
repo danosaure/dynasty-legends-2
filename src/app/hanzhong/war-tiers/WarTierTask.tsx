@@ -8,11 +8,13 @@ export type HanzhongWarTierTaskProps = {
 
 export const HanzhongWarTierTask = ({ task }: HanzhongWarTierTaskProps) => {
   return (
-    <PaperWrapper>
+    <PaperWrapper sx={{ p: 1 }}>
       <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
         {task.label}
       </Typography>
-      <Typography variant="body2">{task.description}</Typography>
+      <Typography variant="body2" sx={{ lineHeight: 1.2 }}>
+        {task.description}
+      </Typography>
     </PaperWrapper>
   );
 };

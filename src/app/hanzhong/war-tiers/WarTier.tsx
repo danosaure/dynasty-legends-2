@@ -24,12 +24,13 @@ export const HanzhongWarTier = ({ warTier, techs }: HanzhongWarTierProps) => {
         container
         spacing={0}
         sx={{ backgroundColor: warTier.bg, p: 1, justifyContent: 'flex-start', alignItems: 'flex-start' }}
+        direction={{ xs: 'column', sm: 'row' }}
       >
         <Grid sx={{ width: '70px' }}>
           <img src={assetPath(warTier.icon.path)} alt={warTier.id} style={{ maxWidth: '90%', maxHeight: '100px', opacity: 0.9 }} />
         </Grid>
 
-        <Grid container size="grow" spacing={0.5}>
+        <Grid container size="grow" spacing={0.5} direction="column" sx={{ width: '100%' }}>
           {content}
         </Grid>
       </Grid>

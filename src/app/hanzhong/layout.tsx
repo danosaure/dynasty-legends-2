@@ -77,7 +77,7 @@ export const HanzhongLayout = () => {
         </Grid>
         <Grid size="grow">
           <PaperWrapper>
-            <Grid container size="grow" spacing={2} sx={{ p: 1, pb: 3 }}>
+            <Grid container size="grow" spacing={2} sx={{ p: 1, pb: 3 }} direction="column">
               <Outlet />
             </Grid>
           </PaperWrapper>
