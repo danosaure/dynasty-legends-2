@@ -1,15 +1,7 @@
 import type { HanzhongWarTierType } from '../types';
-import {
-  HANZHONG_WAR_TIER_1_TECHS,
-  HANZHONG_WAR_TIER_2_TECHS,
-  HANZHONG_WAR_TIER_3_TECHS,
-  HANZHONG_WAR_TIER_4_TECHS,
-  HANZHONG_WAR_TIER_5_TECHS,
-  HANZHONG_WAR_TIER_6_TECHS,
-  HANZHONG_WAR_TIER_7_TECHS,
-} from './hanzhong-techs';
 
 import { HANZHONG_WAR_TIER_IDS } from '../constants/items-ids';
+import { HANZHONG__WAR_TIERS__TECHS__BY_LEVEL } from '../data';
 
 const assetPath = (f: string): string => `hanzhong/war-tier/${f}.png`;
 
@@ -42,7 +34,7 @@ export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
       description: 'Defeat Bandits 1 times',
     },
   ],
-  techs: HANZHONG_WAR_TIER_1_TECHS,
+  techs: HANZHONG__WAR_TIERS__TECHS__BY_LEVEL[1],
 };
 
 export const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
@@ -73,7 +65,7 @@ export const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
       description: 'Defeat Bandits 2 times',
     },
   ],
-  techs: HANZHONG_WAR_TIER_2_TECHS,
+  techs: HANZHONG__WAR_TIERS__TECHS__BY_LEVEL[2],
 };
 
 export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
@@ -100,7 +92,7 @@ export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
       description: 'Activate 8 Techs',
     },
   ],
-  techs: HANZHONG_WAR_TIER_3_TECHS,
+  techs: HANZHONG__WAR_TIERS__TECHS__BY_LEVEL[3],
 };
 
 export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
@@ -127,7 +119,7 @@ export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
       description: 'Defeat Bandits 4 times',
     },
   ],
-  techs: HANZHONG_WAR_TIER_4_TECHS,
+  techs: HANZHONG__WAR_TIERS__TECHS__BY_LEVEL[4],
 };
 
 export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
@@ -154,7 +146,7 @@ export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
       description: 'Activate 14 Techs',
     },
   ],
-  techs: HANZHONG_WAR_TIER_5_TECHS,
+  techs: HANZHONG__WAR_TIERS__TECHS__BY_LEVEL[5],
 };
 
 export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
@@ -185,7 +177,7 @@ export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
       description: 'Activate 18 Techs',
     },
   ],
-  techs: HANZHONG_WAR_TIER_6_TECHS,
+  techs: HANZHONG__WAR_TIERS__TECHS__BY_LEVEL[6],
 };
 
 export const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
@@ -212,7 +204,7 @@ export const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
       description: 'Guild occupies Hanzhong City 1 times',
     },
   ],
-  techs: HANZHONG_WAR_TIER_7_TECHS,
+  techs: HANZHONG__WAR_TIERS__TECHS__BY_LEVEL[7],
 };
 
 export const HANZHONG_WAR_TIERS: HanzhongWarTierType[] = [
@@ -224,3 +216,17 @@ export const HANZHONG_WAR_TIERS: HanzhongWarTierType[] = [
   HANZHONG_WAR_TIER_6,
   HANZHONG_WAR_TIER_7,
 ];
+
+export type HanzhongWarTierLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7;
+
+const HANZHONG__WAR_TIERS__BY_LEVEL: Record<HanzhongWarTierLevel, HanzhongWarTierType> = {
+  1: HANZHONG_WAR_TIER_1,
+  2: HANZHONG_WAR_TIER_2,
+  3: HANZHONG_WAR_TIER_3,
+  4: HANZHONG_WAR_TIER_4,
+  5: HANZHONG_WAR_TIER_5,
+  6: HANZHONG_WAR_TIER_6,
+  7: HANZHONG_WAR_TIER_7,
+};
+
+export const getWarTierByLevel = (level: HanzhongWarTierLevel) => HANZHONG__WAR_TIERS__BY_LEVEL[level];

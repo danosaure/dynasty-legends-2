@@ -1,6 +1,6 @@
 import { calculateEarningsFromCities } from '../cities';
 import { HANZHONG_TECH_IDS } from '../constants/items-ids';
-import { HANZHONG_TERRITORIES, HANZHONG_WAR_TIERS } from '../data';
+import { HANZHONG_TERRITORIES } from '../data';
 import type {
   HanzhongBonusType,
   HanzhongTechType,
@@ -10,6 +10,7 @@ import type {
   HanzhongWarTierType,
 } from '../types';
 import { addHanzhongBonuses } from '../utils';
+import { HANZHONG_WAR_TIERS } from '../war-tiers';
 
 const SPECIAL_TRAINING_KEYS = [
   HANZHONG_TECH_IDS.SPECIAL_TRAINING__VANGUARD_CAMP,
