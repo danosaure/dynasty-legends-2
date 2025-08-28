@@ -84,7 +84,6 @@ export const OfficerCard = ({
                 withTooltip="bottom-start"
                 small
                 onClick={rosterData.onClick}
-                palette={aptitude.palette}
               />
             </Grid>
           </Grid>
