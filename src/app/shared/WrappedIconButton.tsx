@@ -1,5 +1,5 @@
 import IconButton from '@mui/material/IconButton';
-import type { SxProps, Theme } from '@mui/material/styles';
+import type { SxProps } from '@mui/material/styles';
 import Tooltip, { type TooltipProps } from '@mui/material/Tooltip';
 
 import type { MaterialUiIconColorType, MaterialUiIconType } from '../types';
@@ -13,27 +13,16 @@ export type WrappedIconButtonProps = {
   small?: boolean;
   sx?: SxProps;
   selected?: boolean;
-  palette?: Theme['palette'];
 };
 
-export const WrappedIconButton = ({
-  label,
-  disabled,
-  onClick,
-  Icon,
-  withTooltip,
-  small,
-  sx,
-  selected,
-  palette,
-}: WrappedIconButtonProps) => {
+export const WrappedIconButton = ({ label, disabled, onClick, Icon, withTooltip, small, sx, selected }: WrappedIconButtonProps) => {
   let iconColor: MaterialUiIconColorType = 'action';
   if (disabled) {
-    iconColor = palette ? palette.text.disabled : 'disabled';
+    iconColor = 'disabled';
   } else if (selected) {
-    iconColor = palette ? palette.success.main : 'success';
+    iconColor = 'success';
   } else if (onClick) {
-    iconColor = palette ? palette.primary.main : 'primary';
+    iconColor = 'primary';
   }
 
   const button = (
