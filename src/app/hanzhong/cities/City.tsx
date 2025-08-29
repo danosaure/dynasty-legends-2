@@ -1,12 +1,12 @@
 import Grid from '@mui/material/Grid';
 
 import { CardWrapper } from '../../shared';
-import type { HanzhongCityType } from './types';
 import { HanzhongContextUserCheckbox } from '../ContextCheckbox';
 import { useHanzhongContext } from '../HanzhongContext';
 import { areRequirementsSatified } from '../requirements';
 import { useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
+import type { HanzhongCityType } from './types';
 
 export type HanzhongCityProps = {
   city: HanzhongCityType;
@@ -18,11 +18,11 @@ export const HanzhongCity = ({ city }: HanzhongCityProps) => {
   const [available, setAvailable] = useState<boolean>(true);
 
   useEffect(() => {
-    if (city.requirements) {
-      const requirementSatisfied = areRequirementsSatified(city.id, user, city.requirements, cache.requirements);
+    if (city.requirement) {
+      const requirementSatisfied = areRequirementsSatified(city.id, [city.requirement], user, cache.requirements);
       setAvailable(requirementSatisfied);
     }
-  }, [user, cache.requirements, setAvailable, city.id, city.requirements]);
+  }, [user, cache.requirements, setAvailable, city.id, city.requirement]);
 
   const border = `3px solid ${available ? 'transparent' : theme.palette.error.main}`;
 

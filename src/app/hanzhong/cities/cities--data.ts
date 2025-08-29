@@ -1,30 +1,18 @@
-import { baseInfo } from '../../data/base-info';
-import type { HanzhongRequirement } from '../../requirements';
-import type { HanzhongCityType } from '../types';
-import { cityIdByName } from '../utils/city-id-by-name';
+import { baseInfo } from '../data/base-info';
+import type { HanzhongCityOneOfRequirement, HanzhongCityType } from './types';
+import { cityIdByName } from './utils/city-id-by-name';
 
-const requirementsForExternalCities: HanzhongRequirement[] = [
-  {
-    type: 'count',
-    section: 'cities',
-    requirementIds: [
-      cityIdByName('Mianyang County'),
-      cityIdByName('Maming Pavilion'),
-      cityIdByName('North Summit'),
-      cityIdByName('Yangping Pass'),
-    ],
-    value: 1,
-  },
-];
+const requirementsForExternalCities: HanzhongCityOneOfRequirement = {
+  section: 'cities',
+  type: 'oneOf',
+  cityNames: ['Mianyang County', 'Maming Pavilion', 'North Summit', 'Yangping Pass'],
+};
 
-const requirementsForInnerCities: HanzhongRequirement[] = [
-  {
-    type: 'count',
-    section: 'cities',
-    requirementIds: [cityIdByName('Mount Dingjun'), cityIdByName('Hanshui Trail')],
-    value: 1,
-  },
-];
+const requirementsForInnerCities: HanzhongCityOneOfRequirement = {
+  section: 'cities',
+  type: 'oneOf',
+  cityNames: ['Mount Dingjun', 'Hanshui Trail'],
+};
 
 const HANZHONG__CITY__YANGPING_PASS: HanzhongCityType = {
   ...baseInfo('Yangping Pass', cityIdByName),
@@ -84,7 +72,7 @@ const HANZHONG__CITY__MOUNT_DINGJUN: HanzhongCityType = {
     grainsRate: 360,
     ironRate: 360,
   },
-  requirements: requirementsForExternalCities,
+  requirement: requirementsForExternalCities,
 } as const;
 
 const HANZHONG__CITY__HANSHUI_TRAIL: HanzhongCityType = {
@@ -97,7 +85,7 @@ const HANZHONG__CITY__HANSHUI_TRAIL: HanzhongCityType = {
     grainsRate: 360,
     ironRate: 360,
   },
-  requirements: requirementsForExternalCities,
+  requirement: requirementsForExternalCities,
 } as const;
 
 const HANZHONG__CITY__HANZHONG_CITY: HanzhongCityType = {
@@ -110,7 +98,7 @@ const HANZHONG__CITY__HANZHONG_CITY: HanzhongCityType = {
     grainsRate: 720,
     ironRate: 720,
   },
-  requirements: requirementsForInnerCities,
+  requirement: requirementsForInnerCities,
 } as const;
 
 export const HANZHONG_CITIES: HanzhongCityType[] = [
@@ -122,3 +110,18 @@ export const HANZHONG_CITIES: HanzhongCityType[] = [
   HANZHONG__CITY__HANSHUI_TRAIL,
   HANZHONG__CITY__HANZHONG_CITY,
 ] as const;
+
+type CacheType = Record<string, HanzhongCityType>;
+
+const CACHE_BY_ID: CacheType = HANZHONG_CITIES.reduce<CacheType>(
+  (citiesCache, city) =>
+    ({
+      ...citiesCache,
+      [city.id]: city,
+    } as const),
+  {}
+);
+
+export const getCityById = (id: string): HanzhongCityType => CACHE_BY_ID[id];
+
+export const getCityByName = (name: string): HanzhongCityType => getCityById(cityIdByName(name));

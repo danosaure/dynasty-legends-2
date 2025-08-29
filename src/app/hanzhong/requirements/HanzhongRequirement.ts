@@ -1,8 +1,11 @@
+import type { HanzhongCityRequirement } from '../cities';
 import type { HanzhongRequirementSection } from './HanzhongRequirementSection';
 
-export type HanzhongRequirement = {
-  section: HanzhongRequirementSection;
-  type: 'sum' | 'count' | 'level';
-  requirementIds: string[];
-  value: number;
-};
+export type HanzhongRequirement =
+  | HanzhongCityRequirement
+  | {
+      section: HanzhongRequirementSection;
+      type: 'sum' | 'count' | 'level';
+      requirementIds: string[];
+      value: number;
+    };
