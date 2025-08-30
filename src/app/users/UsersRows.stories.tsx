@@ -27,6 +27,7 @@ const defaultProps: UsersRowsProps = {
   users,
   onUsernameChange: fn(),
   onDeleteClick: fn(),
+  onCloneClick: fn(),
 };
 
 const meta = {

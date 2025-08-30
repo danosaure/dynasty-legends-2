@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
@@ -31,6 +32,21 @@ export const UserDashboard = () => {
     }
   };
 
+  const onCloneClick = async (id: string): Promise<void> => {
+    if (!isStorybookTest()) {
+      const dbUserData = await getUserData(id);
+      if (dbUserData) {
+        const clonedUserData = {
+          ...dbUserData,
+          username: `${dbUserData.username} [C]`,
+          id: uuidv4(),
+        };
+        await saveUserData(clonedUserData);
+        refreshApp();
+      }
+    }
+  };
+
   const onCreateUserClick = async () => {
     await createUser();
     refreshApp();
@@ -48,7 +64,7 @@ export const UserDashboard = () => {
   return (
     <Grid container direction={'column'} spacing={2}>
       <PaperWrapper sx={{ p: 2 }}>
-        <UsersRows users={users} onUsernameChange={onUsernameChange} onDeleteClick={setDeleteId} />
+        <UsersRows users={users} onUsernameChange={onUsernameChange} onDeleteClick={setDeleteId} onCloneClick={onCloneClick} />
       </PaperWrapper>
       <Button variant="contained" color="primary" startIcon={<PersonAddIcon />} onClick={onCreateUserClick}>
         New User
