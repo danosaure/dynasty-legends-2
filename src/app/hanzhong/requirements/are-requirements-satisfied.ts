@@ -1,7 +1,8 @@
 import { isCityRequirementSatisfied } from '../cities';
+import { isTechRequirementSatisfied } from '../techs';
 import type { HanzhongUserDataType } from '../types';
 import type { HanzhongRequirement } from './HanzhongRequirement';
-import { HANZHONG_REQUIREMENT_RESPONSES, type HanzhongRequirementResponse } from './RequirementResponse';
+import { errorRequirementResponse, HANZHONG_REQUIREMENT_RESPONSES, type HanzhongRequirementResponse } from './RequirementResponse';
 import type { RequirementsCache } from './RequirementsCache';
 
 export const areRequirementsSatified = (
@@ -20,9 +21,10 @@ export const areRequirementsSatified = (
 
       if (requirement.section === 'cities') {
         return isCityRequirementSatisfied(requirement, userData, requirementsCache);
+      } else if (requirement.section === 'techs') {
+        return isTechRequirementSatisfied(requirement, userData);
       } else {
-        console.error(`areRequirementsSatified(id="${id}"): need to handle requirement.section="${requirement.section}".`);
-        return HANZHONG_REQUIREMENT_RESPONSES.ERROR;
+        return errorRequirementResponse(`Unknown section.`);
       }
     }, HANZHONG_REQUIREMENT_RESPONSES.INITIAL_VALUE);
 

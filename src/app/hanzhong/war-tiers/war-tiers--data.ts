@@ -2,8 +2,14 @@ import type { HanzhongWarTierType } from '../types';
 
 import { HANZHONG_WAR_TIER_IDS } from '../constants/items-ids';
 import { HANZHONG__WAR_TIERS__TECHS__BY_LEVEL } from '../data';
+import { sanitizeId } from '../../../utils';
 
 const assetPath = (f: string): string => `hanzhong/war-tier/${f}.png`;
+
+const baseTask = (label: string) => ({
+  id: `hanzhong--war-tier--task--${sanitizeId(label)}`,
+  label,
+});
 
 export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
   id: HANZHONG_WAR_TIER_IDS.LV1,
@@ -13,24 +19,24 @@ export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
   },
   tasks: [
     {
-      label: 'Logging Pioneer',
+      ...baseTask('Logging Pioneer'),
       description: 'Occupy 2 Lumber territories',
     },
     {
-      label: 'Farming Pioneer',
+      ...baseTask('Farming Pioneer'),
       description: 'Occupy 2 Grains territories',
     },
     {
-      label: 'Mining Pioneer',
+      ...baseTask('Mining Pioneer'),
       description: 'Occupy 2 Iron territories',
     },
     {
-      label: 'Free Paths',
+      ...baseTask('Free Paths'),
       description: 'Upgrade Tech Free Paths to Lv.1',
       requirement: { section: 'techs', type: 'level', techName: 'Free Paths', level: 1 },
     },
     {
-      label: 'Bandits Terminator I',
+      ...baseTask('Bandits Terminator I'),
       description: 'Defeat Bandits 1 times',
     },
   ],
@@ -45,23 +51,23 @@ export const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
   },
   tasks: [
     {
-      label: 'Logging Elite',
+      ...baseTask('Logging Elite'),
       description: 'Occupy 3 Lumber territories',
     },
     {
-      label: 'Farming Elite',
+      ...baseTask('Farming Elite'),
       description: 'Occupy 3 Grains territories',
     },
     {
-      label: 'Mining Elite',
+      ...baseTask('Mining Elite'),
       description: 'Occupy 3 Iron territories',
     },
     {
-      label: 'Land Conqueror I',
+      ...baseTask('Land Conqueror I'),
       description: 'Occupy 2 Lv.3 or above territories',
     },
     {
-      label: 'Bandits Terminator II',
+      ...baseTask('Bandits Terminator II'),
       description: 'Defeat Bandits 2 times',
     },
   ],
@@ -76,20 +82,20 @@ export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
   },
   tasks: [
     {
-      label: 'Territory Plunderer I',
+      ...baseTask('Territory Plunderer I'),
       description: 'Attack territories 10 times (Individual Territory, Strategic City, and Hanzhong City will be counted)',
     },
     {
-      label: 'Land Conqueror II',
+      ...baseTask('Land Conqueror II'),
       description: 'Occupy 2 Lv.4 or above territories',
     },
     {
-      label: 'Overall Boost',
+      ...baseTask('Overall Boost'),
       description: 'Upgrade Tech Diligent Warrior I to Lv.5',
       requirement: { section: 'techs', type: 'level', techName: 'Diligent Warrior I', level: 5 },
     },
     {
-      label: 'Tech Master I',
+      ...baseTask('Tech Master I'),
       description: 'Activate 8 Techs',
     },
   ],
@@ -104,19 +110,19 @@ export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
   },
   tasks: [
     {
-      label: 'Territory Plunderer II',
+      ...baseTask('Territory Plunderer II'),
       description: 'Attack territories 15 times (Individual Territory, Strategic City, and Hanzhong City will be counted)',
     },
     {
-      label: 'Land Conqueror III',
+      ...baseTask('Land Conqueror III'),
       description: 'Occupy 2 Lv.5 or above territories',
     },
     {
-      label: 'Siege I',
+      ...baseTask('Siege I'),
       description: 'Guild occupies 1 Strategic Cities (Hanzhong City excluded)',
     },
     {
-      label: 'Bandits Terminator III',
+      ...baseTask('Bandits Terminator III'),
       description: 'Defeat Bandits 4 times',
     },
   ],
@@ -131,20 +137,20 @@ export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
   },
   tasks: [
     {
-      label: 'Land Conqueror IV',
+      ...baseTask('Land Conqueror IV'),
       description: 'Occupy 2 Lv.6 or above territories',
     },
     {
-      label: 'Siege II',
+      ...baseTask('Siege II'),
       description: 'Guild occupies 2 Strategic Cities (Hanzhong City excluded)',
     },
     {
-      label: "Dragon's Attendant",
+      ...baseTask("Dragon's Attendant"),
       description: 'Upgrade Tech Formation Expansion to Lv.1',
       requirement: { section: 'techs', type: 'level', techName: 'Formation Expansion', level: 1 },
     },
     {
-      label: 'Tech Master II',
+      ...baseTask('Tech Master II'),
       description: 'Activate 14 Techs',
     },
   ],
@@ -159,23 +165,23 @@ export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
   },
   tasks: [
     {
-      label: 'Territory Plunderer III',
+      ...baseTask('Territory Plunderer III'),
       description: 'Attack territories 25 times (Individual Territory, Strategic City, and Hanzhong City will be counted)',
     },
     {
-      label: 'Land Conqueror V',
+      ...baseTask('Land Conqueror V'),
       description: 'Occupy 5 Lv.6 or above territories',
     },
     {
-      label: 'Siege III',
+      ...baseTask('Siege III'),
       description: 'Guild occupies 3 Strategic Cities (Hazhong City excluded)',
     },
     {
-      label: 'Bandits Terminator IV',
+      ...baseTask('Bandits Terminator IV'),
       description: 'Defeat Bandits 6 times',
     },
     {
-      label: 'Tech Master III',
+      ...baseTask('Tech Master III'),
       description: 'Activate 18 Techs',
     },
   ],
@@ -190,19 +196,19 @@ export const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
   },
   tasks: [
     {
-      label: 'Territory Plunderer IV',
+      ...baseTask('Territory Plunderer IV'),
       description: 'Attack territories 40 times (Individual Territory, Strategic City, and Hanzhong City will be counted)',
     },
     {
-      label: 'Land Conqueror VI',
+      ...baseTask('Land Conqueror VI'),
       description: 'Occupy 10 Lv.6 or above territories',
     },
     {
-      label: 'Siege IV',
+      ...baseTask('Siege IV'),
       description: 'Guild occupies 5 Strategic Cities (Hanzhong City excluded)',
     },
     {
-      label: 'Pacificator',
+      ...baseTask('Pacificator'),
       description: 'Guild occupies Hanzhong City 1 times',
     },
   ],

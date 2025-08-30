@@ -34,39 +34,42 @@ export const isCityRequirementSatisfied = (
   }
 
   if (requirement.type == 'count') {
-    const result = requirement.cityNames.reduce<HanzhongRequirementResponse>((consolidatedCheck, cityName) => {
-      if (isErrorRequirementResponse(consolidatedCheck)) {
-        return consolidatedCheck;
-      }
-
-      const city = getCityByName(cityName);
-      if (!city) {
-        return errorRequirementResponse(
-          `Invalid city name="${cityName}" for requirement="${requirement.section}/${requirement.type}".`
-        );
-      }
-
-      if (isCityOccupied(city.id, userData)) {
-        if (city.requirement) {
-          const check = areRequirementsSatified(city.id, userData, [city.requirement], requirementsCache);
-          if (isErrorRequirementResponse(check)) {
-            return check;
-          }
-
-          return {
-            ...consolidatedCheck,
-            value: consolidatedCheck.value + (check.satisfied ? 1 : 0),
-          };
-        } else {
-          return {
-            ...consolidatedCheck,
-            value: consolidatedCheck.value + 1,
-          };
+    const result = requirement.cityNames.reduce<HanzhongRequirementResponse>(
+      (consolidatedCheck, cityName) => {
+        if (isErrorRequirementResponse(consolidatedCheck)) {
+          return consolidatedCheck;
         }
-      }
 
-      return consolidatedCheck;
-    }, HANZHONG_REQUIREMENT_RESPONSES.INITIAL_VALUE);
+        const city = getCityByName(cityName);
+        if (!city) {
+          return errorRequirementResponse(
+            `Invalid city name="${cityName}" for requirement="${requirement.section}/${requirement.type}".`
+          );
+        }
+
+        if (isCityOccupied(city.id, userData)) {
+          if (city.requirement) {
+            const check = areRequirementsSatified(city.id, userData, [city.requirement], requirementsCache);
+            if (isErrorRequirementResponse(check)) {
+              return check;
+            }
+
+            return {
+              ...consolidatedCheck,
+              value: consolidatedCheck.value + (check.satisfied ? 1 : 0),
+            };
+          } else {
+            return {
+              ...consolidatedCheck,
+              value: consolidatedCheck.value + 1,
+            };
+          }
+        }
+
+        return consolidatedCheck;
+      },
+      { ...HANZHONG_REQUIREMENT_RESPONSES.INITIAL_VALUE, expected: requirement.count }
+    );
 
     if (isErrorRequirementResponse(result)) {
       return result;
@@ -75,6 +78,7 @@ export const isCityRequirementSatisfied = (
     return {
       satisfied: result.value >= requirement.count,
       value: result.value,
+      expected: requirement.count,
     };
   } else {
     return errorRequirementResponse(`isCityRequirementSatisfied(): Need to implement type="${requirement.type}".`);
