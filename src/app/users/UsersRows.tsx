@@ -7,9 +7,10 @@ export type UsersRowsProps = {
   users: PersistenceUserDataType[];
   onUsernameChange: (id: string, username: string) => void;
   onDeleteClick: (id: string) => void;
+  onCloneClick: (id: string) => void;
 };
 
-export const UsersRows = ({ users, onUsernameChange, onDeleteClick }: UsersRowsProps) => {
+export const UsersRows = ({ users, onUsernameChange, onDeleteClick, onCloneClick }: UsersRowsProps) => {
   if (!users.length) {
     return (
       <Grid container size={12} sx={{ justifyContent: 'center' }}>
@@ -20,7 +21,13 @@ export const UsersRows = ({ users, onUsernameChange, onDeleteClick }: UsersRowsP
   return (
     <Grid container size={12}>
       {users.map((user) => (
-        <UserRow key={user.id} user={user} onUsernameChange={onUsernameChange} onDeleteClick={onDeleteClick} />
+        <UserRow
+          key={user.id}
+          user={user}
+          onUsernameChange={onUsernameChange}
+          onDeleteClick={onDeleteClick}
+          onCloneClick={onCloneClick}
+        />
       ))}
     </Grid>
   );

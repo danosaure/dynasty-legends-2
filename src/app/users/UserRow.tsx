@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import PersonIcon from '@mui/icons-material/Person';
@@ -14,9 +15,10 @@ export type UserRowProps = {
   user: PersistenceUserDataType;
   onUsernameChange: (id: string, username: string) => void;
   onDeleteClick: (id: string) => void;
+  onCloneClick: (id: string) => void;
 };
 
-export const UserRow = ({ user, onUsernameChange, onDeleteClick }: UserRowProps) => {
+export const UserRow = ({ user, onUsernameChange, onDeleteClick, onCloneClick }: UserRowProps) => {
   const { user: selectedUser, setCurrentUserId } = useAppContext();
 
   const [editMode, setEditMode] = useState<boolean>(false);
@@ -53,6 +55,7 @@ export const UserRow = ({ user, onUsernameChange, onDeleteClick }: UserRowProps)
       <Grid size="auto">
         <WrappedIconButton Icon={EditIcon} label="Edit" onClick={() => setEditMode(true)} disabled={editMode} />
         <WrappedIconButton Icon={DeleteIcon} label="Delete" onClick={() => onDeleteClick(user.id)} />
+        <WrappedIconButton Icon={ContentCopyIcon} label="Clone" onClick={() => onCloneClick(user.id)} />
       </Grid>
     </Grid>
   );

@@ -26,6 +26,7 @@ const defaultProps: UserRowProps = {
   user: appContextData.user,
   onUsernameChange: fn(),
   onDeleteClick: fn(),
+  onCloneClick: fn(),
 };
 
 const meta = {
