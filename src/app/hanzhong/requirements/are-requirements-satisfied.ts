@@ -1,4 +1,4 @@
-import { areCityRequirementsSatisfied } from '../cities';
+import { isCityRequirementSatisfied } from '../cities';
 import type { HanzhongUserDataType } from '../types';
 import type { HanzhongRequirement } from './HanzhongRequirement';
 import type { RequirementsCache } from './RequirementsCache';
@@ -18,7 +18,7 @@ export const areRequirementsSatified = (
       }
 
       if (requirement.section === 'cities') {
-        return areCityRequirementsSatisfied(userData, requirement, requirementsCache);
+        return isCityRequirementSatisfied(requirement, userData, requirementsCache);
       } else {
         console.error(`areRequirementsSatified(id="${id}"): need to handle requirement.section="${requirement.section}".`);
         return false;
