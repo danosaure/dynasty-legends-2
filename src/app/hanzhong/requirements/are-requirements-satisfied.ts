@@ -1,6 +1,7 @@
 import { isCityRequirementSatisfied } from '../cities';
 import type { HanzhongUserDataType } from '../types';
 import type { HanzhongRequirement } from './HanzhongRequirement';
+import { HANZHONG_REQUIREMENT_RESPONSES, type HanzhongRequirementResponse } from './RequirementResponse';
 import type { RequirementsCache } from './RequirementsCache';
 
 export const areRequirementsSatified = (
@@ -8,22 +9,22 @@ export const areRequirementsSatified = (
   userData: HanzhongUserDataType,
   requirements: HanzhongRequirement[],
   requirementsCache: RequirementsCache
-): boolean => {
+): HanzhongRequirementResponse => {
   const savedValue = requirementsCache[id];
 
   if (savedValue === undefined) {
-    const requirementsSatisfied = requirements.reduce<boolean>((stillValid, requirement) => {
-      if (!stillValid) {
-        return false;
+    const requirementsSatisfied = requirements.reduce<HanzhongRequirementResponse>((stillValid, requirement) => {
+      if (!stillValid.satisfied) {
+        return stillValid;
       }
 
       if (requirement.section === 'cities') {
         return isCityRequirementSatisfied(requirement, userData, requirementsCache);
       } else {
         console.error(`areRequirementsSatified(id="${id}"): need to handle requirement.section="${requirement.section}".`);
-        return false;
+        return HANZHONG_REQUIREMENT_RESPONSES.ERROR;
       }
-    }, true);
+    }, HANZHONG_REQUIREMENT_RESPONSES.INITIAL_VALUE);
 
     requirementsCache[id] = requirementsSatisfied;
   }

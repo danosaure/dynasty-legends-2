@@ -19,7 +19,7 @@ describe('areCityRequirementsSatisfied()', () => {
       const userData: HanzhongUserDataType = {};
 
       const result = isCityRequirementSatisfied(requirement, userData, { ...requirementsCache });
-      expect(result).toBe(false);
+      expect(result).toEqual({ satisfied: false, value: 0 });
     });
 
     it('returns false when another city is occupied', () => {
@@ -28,7 +28,7 @@ describe('areCityRequirementsSatisfied()', () => {
       };
 
       const result = isCityRequirementSatisfied(requirement, userData, { ...requirementsCache });
-      expect(result).toBe(false);
+      expect(result).toEqual({ satisfied: false, value: 0 });
     });
 
     it('returns true when one of the cities is occupied', () => {
@@ -37,7 +37,7 @@ describe('areCityRequirementsSatisfied()', () => {
       };
 
       const result = isCityRequirementSatisfied(requirement, userData, { ...requirementsCache });
-      expect(result).toBe(true);
+      expect(result).toEqual({ satisfied: true, value: 1 });
     });
 
     it('returns true when both of the cities are occupied', () => {
@@ -47,7 +47,7 @@ describe('areCityRequirementsSatisfied()', () => {
       };
 
       const result = isCityRequirementSatisfied(requirement, userData, { ...requirementsCache });
-      expect(result).toBe(true);
+      expect(result).toEqual({ satisfied: true, value: 2 });
     });
   });
 
@@ -63,7 +63,7 @@ describe('areCityRequirementsSatisfied()', () => {
       const userData: HanzhongUserDataType = {};
 
       const result = isCityRequirementSatisfied(requirement, userData, { ...requirementsCache });
-      expect(result).toBe(false);
+      expect(result).toEqual({ satisfied: false, value: 0 });
     });
 
     it('returns false when another city is occupied', () => {
@@ -72,7 +72,7 @@ describe('areCityRequirementsSatisfied()', () => {
       };
 
       const result = isCityRequirementSatisfied(requirement, userData, { ...requirementsCache });
-      expect(result).toBe(false);
+      expect(result).toEqual({ satisfied: false, value: 0 });
     });
 
     it('returns false when one city is occupied, but not that city requirements', () => {
@@ -81,7 +81,7 @@ describe('areCityRequirementsSatisfied()', () => {
       };
 
       const result = isCityRequirementSatisfied(requirement, userData, { ...requirementsCache });
-      expect(result).toBe(false);
+      expect(result).toEqual({ satisfied: false, value: 0 });
     });
 
     it('returns true when recursive are met', () => {
@@ -91,7 +91,7 @@ describe('areCityRequirementsSatisfied()', () => {
       };
 
       const result = isCityRequirementSatisfied(requirement, userData, { ...requirementsCache });
-      expect(result).toBe(true);
+      expect(result).toEqual({ satisfied: true, value: 1 });
     });
   });
 });
