@@ -1,6 +1,6 @@
 import type { BaseIDType } from '../../../types';
-import type { HanzhongRequirement } from '../../requirements';
 import type { HanzhongBonusType } from '../../types';
+import type { HanzhongCitiesRequirement } from '../requirements';
 
 export type HanzhongCityType = BaseIDType & {
   name: string;
@@ -8,5 +8,5 @@ export type HanzhongCityType = BaseIDType & {
   tacticalPoints: number;
   description: string;
   earnings: HanzhongBonusType;
-  requirements?: HanzhongRequirement[];
+  requirement?: HanzhongCitiesRequirement;
 };

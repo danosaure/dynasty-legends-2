@@ -18,11 +18,11 @@ export const HanzhongCity = ({ city }: HanzhongCityProps) => {
   const [available, setAvailable] = useState<boolean>(true);
 
   useEffect(() => {
-    if (city.requirements) {
-      const requirementSatisfied = areRequirementsSatified(city.id, user, city.requirements, cache.requirements);
+    if (city.requirement) {
+      const requirementSatisfied = areRequirementsSatified(city.id, user, [city.requirement], cache.requirements);
       setAvailable(requirementSatisfied);
     }
-  }, [user, cache.requirements, setAvailable, city.id, city.requirements]);
+  }, [user, cache.requirements, setAvailable, city.id, city.requirement]);
 
   const border = `3px solid ${available ? 'transparent' : theme.palette.error.main}`;
 

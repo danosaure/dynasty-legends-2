@@ -1,25 +1,24 @@
 import { describe, expect, it } from 'vitest';
-import { cityIdByName } from './city-id-by-name';
-import type { HanzhongUserDataType } from '../../types';
-import type { HanzhongRequirement } from '../../requirements';
-import { areCityRequirementsSatisfied } from './are-city-requirements-satisfied';
-import type { RequirementsCache } from '../../requirements/RequirementsCache';
+import { cityIdByName } from './utils';
+import type { HanzhongUserDataType } from '../types';
+import { isCityRequirementSatisfied, type HanzhongCitiesRequirement } from './requirements';
+import type { RequirementsCache } from '../requirements/RequirementsCache';
 
 describe('areCityRequirementsSatisfied()', () => {
   const requirementsCache: RequirementsCache = {};
 
   describe('One level check', () => {
-    const requirement: HanzhongRequirement = {
+    const requirement: HanzhongCitiesRequirement = {
       type: 'count',
       section: 'cities',
-      requirementIds: [cityIdByName('Mianyang County'), cityIdByName('Maming Pavilion')],
-      value: 1,
+      cityNames: ['Mianyang County', 'Maming Pavilion'],
+      count: 1,
     };
 
     it('returns false when no cities are occupied', () => {
       const userData: HanzhongUserDataType = {};
 
-      const result = areCityRequirementsSatisfied(userData, requirement, { ...requirementsCache });
+      const result = isCityRequirementSatisfied(requirement, userData, { ...requirementsCache });
       expect(result).toBe(false);
     });
 
@@ -28,7 +27,7 @@ describe('areCityRequirementsSatisfied()', () => {
         [cityIdByName('Foo Bar')]: 1,
       };
 
-      const result = areCityRequirementsSatisfied(userData, requirement, { ...requirementsCache });
+      const result = isCityRequirementSatisfied(requirement, userData, { ...requirementsCache });
       expect(result).toBe(false);
     });
 
@@ -37,33 +36,33 @@ describe('areCityRequirementsSatisfied()', () => {
         [cityIdByName('Mianyang County')]: 1,
       };
 
-      const result = areCityRequirementsSatisfied(userData, requirement, { ...requirementsCache });
+      const result = isCityRequirementSatisfied(requirement, userData, { ...requirementsCache });
       expect(result).toBe(true);
     });
 
     it('returns true when both of the cities are occupied', () => {
       const userData: HanzhongUserDataType = {
         [cityIdByName('Mianyang County')]: 1,
-        [cityIdByName('Mianyang County')]: 1,
+        [cityIdByName('Maming Pavilion')]: 1,
       };
 
-      const result = areCityRequirementsSatisfied(userData, requirement, { ...requirementsCache });
+      const result = isCityRequirementSatisfied(requirement, userData, { ...requirementsCache });
       expect(result).toBe(true);
     });
   });
 
   describe('With recursion', () => {
-    const requirement: HanzhongRequirement = {
+    const requirement: HanzhongCitiesRequirement = {
       type: 'count',
       section: 'cities',
-      requirementIds: [cityIdByName('Mount Dingjun'), cityIdByName('Hanshui Trail')],
-      value: 1,
+      cityNames: ['Mount Dingjun', 'Hanshui Trail'],
+      count: 1,
     };
 
     it('returns false when no cities are occupied', () => {
       const userData: HanzhongUserDataType = {};
 
-      const result = areCityRequirementsSatisfied(userData, requirement, { ...requirementsCache });
+      const result = isCityRequirementSatisfied(requirement, userData, { ...requirementsCache });
       expect(result).toBe(false);
     });
 
@@ -72,7 +71,7 @@ describe('areCityRequirementsSatisfied()', () => {
         [cityIdByName('Foo Bar')]: 1,
       };
 
-      const result = areCityRequirementsSatisfied(userData, requirement, { ...requirementsCache });
+      const result = isCityRequirementSatisfied(requirement, userData, { ...requirementsCache });
       expect(result).toBe(false);
     });
 
@@ -81,7 +80,7 @@ describe('areCityRequirementsSatisfied()', () => {
         [cityIdByName('Mount Dingjun')]: 1,
       };
 
-      const result = areCityRequirementsSatisfied(userData, requirement, { ...requirementsCache });
+      const result = isCityRequirementSatisfied(requirement, userData, { ...requirementsCache });
       expect(result).toBe(false);
     });
 
@@ -91,7 +90,7 @@ describe('areCityRequirementsSatisfied()', () => {
         [cityIdByName('Mianyang County')]: 1,
       };
 
-      const result = areCityRequirementsSatisfied(userData, requirement, { ...requirementsCache });
+      const result = isCityRequirementSatisfied(requirement, userData, { ...requirementsCache });
       expect(result).toBe(true);
     });
   });
