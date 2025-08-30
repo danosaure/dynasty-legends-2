@@ -27,7 +27,7 @@ export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
     {
       label: 'Free Paths',
       description: 'Upgrade Tech Free Paths to Lv.1',
-      requirements: [1, 'hanzhong--tech--free-paths'],
+      requirement: { section: 'techs', type: 'level', techName: 'Free Paths', level: 1 },
     },
     {
       label: 'Bandits Terminator I',
@@ -86,6 +86,7 @@ export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
     {
       label: 'Overall Boost',
       description: 'Upgrade Tech Diligent Warrior I to Lv.5',
+      requirement: { section: 'techs', type: 'level', techName: 'Diligent Warrior I', level: 5 },
     },
     {
       label: 'Tech Master I',
@@ -140,6 +141,7 @@ export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
     {
       label: "Dragon's Attendant",
       description: 'Upgrade Tech Formation Expansion to Lv.1',
+      requirement: { section: 'techs', type: 'level', techName: 'Formation Expansion', level: 1 },
     },
     {
       label: 'Tech Master II',
