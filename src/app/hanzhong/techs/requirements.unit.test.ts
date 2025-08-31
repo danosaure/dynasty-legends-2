@@ -24,7 +24,7 @@ describe('isTechRequirementSatisfied()', () => {
         level: 0,
       };
       const satisfied = isTechRequirementSatisfied(requirement, userData, {});
-      expect(satisfied).toEqual({ satisfied: false, value: 0 });
+      expect(satisfied).toEqual({ satisfied: false, value: 0, expected: 0 });
     });
 
     it('returns false when tech is not in userData', () => {
@@ -36,7 +36,7 @@ describe('isTechRequirementSatisfied()', () => {
         level: 5,
       };
       const satisfied = isTechRequirementSatisfied(requirement, userData, {});
-      expect(satisfied).toEqual({ satisfied: false, value: 0 });
+      expect(satisfied).toEqual({ satisfied: false, value: 0, expected: 5 });
     });
 
     it('returns false when current level is below required', () => {
@@ -48,7 +48,7 @@ describe('isTechRequirementSatisfied()', () => {
         level: userData[USER_DATA_TECH.id] + 1,
       };
       const satisfied = isTechRequirementSatisfied(requirement, userData, {});
-      expect(satisfied).toEqual({ satisfied: false, value: 3 });
+      expect(satisfied).toEqual({ satisfied: false, value: 3, expected: 4 });
     });
 
     it('returns true when current level is equal required', () => {
@@ -60,7 +60,7 @@ describe('isTechRequirementSatisfied()', () => {
         level: userData[USER_DATA_TECH.id],
       };
       const satisfied = isTechRequirementSatisfied(requirement, userData, {});
-      expect(satisfied).toEqual({ satisfied: true, value: 3 });
+      expect(satisfied).toEqual({ satisfied: true, value: 3, expected: 3 });
     });
 
     it('returns true when current level is below required', () => {
@@ -72,7 +72,7 @@ describe('isTechRequirementSatisfied()', () => {
         level: userData[USER_DATA_TECH.id] - 1,
       };
       const satisfied = isTechRequirementSatisfied(requirement, userData, {});
-      expect(satisfied).toEqual({ satisfied: true, value: 3 });
+      expect(satisfied).toEqual({ satisfied: true, value: 3, expected: 2 });
     });
   });
 });
