@@ -113,6 +113,15 @@ export const HANZHONG_TECH_LUMBER_MILL: HanzhongTechType = {
       [2020, 4030, 4030, 1500],
     ]
   ),
+  requirements: [
+    {
+      id: '',
+      section: 'techs',
+      type: 'level',
+      techName: 'Free Paths',
+      level: 1,
+    },
+  ],
 };
 
 export const HANZHONG_TECH_GRANARY: HanzhongTechType = {

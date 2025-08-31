@@ -9,6 +9,7 @@ describe('areCityRequirementsSatisfied()', () => {
 
   describe('One level check', () => {
     const requirement: HanzhongCitiesRequirement = {
+      id: 'foo',
       type: 'count',
       section: 'cities',
       cityNames: ['Mianyang County', 'Maming Pavilion'],
@@ -53,6 +54,7 @@ describe('areCityRequirementsSatisfied()', () => {
 
   describe('With recursion', () => {
     const requirement: HanzhongCitiesRequirement = {
+      id: 'foo',
       type: 'count',
       section: 'cities',
       cityNames: ['Mount Dingjun', 'Hanshui Trail'],

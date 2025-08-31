@@ -15,6 +15,7 @@ import { generateLevelsToDisplay } from './generate-levels-to-display';
 import type { HanzhongTechsTechLevelDisplayType } from './types';
 import { HanzhongTechsTechInfoLevel } from './level';
 import Typography from '@mui/material/Typography';
+import { HanzhongTechsTechInfoRequirements } from './InfoRequirements';
 
 export type HanzhongTechsTechInfoProps = {
   onClose: () => void;
@@ -44,6 +45,7 @@ export const HanzhongTechsTechInfo = ({ onClose }: HanzhongTechsTechInfoProps) =
         <HanzhongTechsTechInfoLevel key={`${techId}--${idx + 1}`} userLevel={user[techId] ?? 0} info={level} />
       ))
     );
+
   return (
     <Dialog
       open={techId !== NO_TECH_ID}
@@ -62,7 +64,8 @@ export const HanzhongTechsTechInfo = ({ onClose }: HanzhongTechsTechInfoProps) =
       </DialogTitle>
       <DialogContent sx={{ fontSize: { xs: '13px', md: '15px' }, p: { xs: 1, md: 2 } }}>
         <DialogContentText id="hanzhong--techs--tech--description" sx={{ fontSize: { xs: '13px', md: '15px' } }}>
-          {tech.description}
+          <Typography variant="body1">{tech.description}</Typography>
+          <HanzhongTechsTechInfoRequirements requirements={tech.requirements} />
         </DialogContentText>
 
         <Grid size={12} container sx={{ mt: '10px' }} spacing={1}>

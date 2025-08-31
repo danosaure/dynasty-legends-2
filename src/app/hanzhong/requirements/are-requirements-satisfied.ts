@@ -6,30 +6,20 @@ import { errorRequirementResponse, HANZHONG_REQUIREMENT_RESPONSES, type Hanzhong
 import type { RequirementsCache } from './RequirementsCache';
 
 export const areRequirementsSatified = (
-  id: string,
   userData: HanzhongUserDataType,
   requirements: HanzhongRequirement[],
   requirementsCache: RequirementsCache
-): HanzhongRequirementResponse => {
-  const savedValue = requirementsCache[id];
+): HanzhongRequirementResponse =>
+  requirements.reduce<HanzhongRequirementResponse>((stillValid, requirement) => {
+    if (!stillValid.satisfied) {
+      return stillValid;
+    }
 
-  if (savedValue === undefined) {
-    const requirementsSatisfied = requirements.reduce<HanzhongRequirementResponse>((stillValid, requirement) => {
-      if (!stillValid.satisfied) {
-        return stillValid;
-      }
-
-      if (requirement.section === 'cities') {
-        return isCityRequirementSatisfied(requirement, userData, requirementsCache);
-      } else if (requirement.section === 'techs') {
-        return isTechRequirementSatisfied(requirement, userData);
-      } else {
-        return errorRequirementResponse(`Unknown section.`);
-      }
-    }, HANZHONG_REQUIREMENT_RESPONSES.INITIAL_VALUE);
-
-    requirementsCache[id] = requirementsSatisfied;
-  }
-
-  return requirementsCache[id];
-};
+    if (requirement.section === 'cities') {
+      return isCityRequirementSatisfied(requirement, userData, requirementsCache);
+    } else if (requirement.section === 'techs') {
+      return isTechRequirementSatisfied(requirement, userData, requirementsCache);
+    } else {
+      return errorRequirementResponse(`Unknown section.`);
+    }
+  }, HANZHONG_REQUIREMENT_RESPONSES.INITIAL_VALUE);

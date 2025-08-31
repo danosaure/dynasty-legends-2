@@ -11,6 +11,8 @@ const baseTask = (label: string) => ({
   label,
 });
 
+const requirementId = (label: string) => baseTask(label).id;
+
 export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
   id: HANZHONG_WAR_TIER_IDS.LV1,
   bg: '#B9E5E4',
@@ -33,7 +35,13 @@ export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
     {
       ...baseTask('Free Paths'),
       description: 'Upgrade Tech Free Paths to Lv.1',
-      requirement: { section: 'techs', type: 'level', techName: 'Free Paths', level: 1 },
+      requirement: {
+        id: requirementId('Free Paths'),
+        section: 'techs',
+        type: 'level',
+        techName: 'Free Paths',
+        level: 1,
+      },
     },
     {
       ...baseTask('Bandits Terminator I'),
@@ -92,7 +100,13 @@ export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
     {
       ...baseTask('Overall Boost'),
       description: 'Upgrade Tech Diligent Warrior I to Lv.5',
-      requirement: { section: 'techs', type: 'level', techName: 'Diligent Warrior I', level: 5 },
+      requirement: {
+        id: requirementId('Overall Boost'),
+        section: 'techs',
+        type: 'level',
+        techName: 'Diligent Warrior I',
+        level: 5,
+      },
     },
     {
       ...baseTask('Tech Master I'),
@@ -147,7 +161,13 @@ export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
     {
       ...baseTask("Dragon's Attendant"),
       description: 'Upgrade Tech Formation Expansion to Lv.1',
-      requirement: { section: 'techs', type: 'level', techName: 'Formation Expansion', level: 1 },
+      requirement: {
+        id: requirementId("Dragon's Attendant"),
+        section: 'techs',
+        type: 'level',
+        techName: 'Formation Expansion',
+        level: 1,
+      },
     },
     {
       ...baseTask('Tech Master II'),

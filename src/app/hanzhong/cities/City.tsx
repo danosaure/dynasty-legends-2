@@ -20,7 +20,7 @@ export const HanzhongCity = ({ city }: HanzhongCityProps) => {
 
   useEffect(() => {
     if (city.requirement) {
-      const requirementSatisfied = areRequirementsSatified(city.id, user, [city.requirement], cache.requirements);
+      const requirementSatisfied = areRequirementsSatified(user, [city.requirement], cache.requirements);
       setAvailable(requirementSatisfied);
     }
   }, [user, cache.requirements, setAvailable, city.id, city.requirement]);

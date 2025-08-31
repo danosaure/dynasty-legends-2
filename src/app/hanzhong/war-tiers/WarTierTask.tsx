@@ -18,7 +18,7 @@ export const HanzhongWarTierTask = ({ task }: HanzhongWarTierTaskProps) => {
   let borderColor = 'transparent';
 
   if (task.requirement) {
-    const check = areRequirementsSatified(task.id, user, [task.requirement], cache.requirements);
+    const check = areRequirementsSatified(user, [task.requirement], cache.requirements);
     borderColor = check.satisfied ? theme.palette.success.main : theme.palette.error.main;
     requirementContent = (
       <>
