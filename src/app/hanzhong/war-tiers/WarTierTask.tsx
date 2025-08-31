@@ -4,19 +4,22 @@ import type { HanzhongWarTierTaskType } from '../types';
 import Grid from '@mui/material/Grid';
 import { areRequirementsSatified } from '../requirements';
 import { useHanzhongContext } from '../HanzhongContext';
-import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material/styles';
 
 export type HanzhongWarTierTaskProps = {
   task: HanzhongWarTierTaskType;
 };
 
 export const HanzhongWarTierTask = ({ task }: HanzhongWarTierTaskProps) => {
+  const theme = useTheme();
   const { user, cache } = useHanzhongContext();
 
   let requirementContent = null;
+  let borderColor = 'transparent';
 
   if (task.requirement) {
     const check = areRequirementsSatified(task.id, user, [task.requirement], cache.requirements);
+    borderColor = check.satisfied ? theme.palette.success.main : theme.palette.error.main;
     requirementContent = (
       <>
         <Typography color={check.satisfied ? 'success' : 'error'} display="inline">
@@ -30,7 +33,7 @@ export const HanzhongWarTierTask = ({ task }: HanzhongWarTierTaskProps) => {
   }
 
   return (
-    <PaperWrapper sx={{ p: 1 }}>
+    <PaperWrapper sx={{ p: 1, borderColor, borderStyle: 'solid', borderWidth: '2px' }}>
       <Grid container spacing={0} direction="column">
         <Grid container spacing={1} direction="row">
           <Grid size="grow">
