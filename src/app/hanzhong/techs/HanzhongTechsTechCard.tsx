@@ -9,6 +9,7 @@ import { HanzhongEstimatedTime } from '../resources-timers';
 
 import { HanzhongTechsTechCardImage } from './HanzhongTechsTechCardImage';
 import { useHanzhongTechsContext } from './context';
+import { useTheme } from '@mui/material/styles';
 
 export type HanzhongTechsTechCardProps = {
   id: string;
@@ -16,9 +17,18 @@ export type HanzhongTechsTechCardProps = {
   label: string;
   value: number;
   maxValue: number;
+  satisfiedRequirements: boolean | null;
 };
 
-export const HanzhongTechsTechCard = ({ id, assetImage, label, value, maxValue }: HanzhongTechsTechCardProps) => {
+export const HanzhongTechsTechCard = ({
+  id,
+  assetImage,
+  label,
+  value,
+  maxValue,
+  satisfiedRequirements,
+}: HanzhongTechsTechCardProps) => {
+  const theme = useTheme();
   const { onChange } = useHanzhongContext();
   const { displayTechId } = useHanzhongTechsContext();
 
@@ -27,6 +37,7 @@ export const HanzhongTechsTechCard = ({ id, assetImage, label, value, maxValue }
       sx={{
         backgroundColor: 'rgba(255, 255, 255, 0.7)',
         width: { xs: '180px', md: '125px' },
+        border: `3px solid ${satisfiedRequirements === false ? theme.palette.error.main : 'transparent'}`,
       }}
       cardContentSx={{ 'p': '5px', '&:last-child': { pb: '1px' } }}
     >

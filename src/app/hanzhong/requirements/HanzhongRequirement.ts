@@ -1,3 +1,8 @@
 import type { HanzhongCitiesRequirement } from '../cities';
+import type { HanzhongTechRequirement } from '../techs';
 
-export type HanzhongRequirement = HanzhongCitiesRequirement;
+export type HanzhongBaseRequirement = {
+  id: string;
+};
+
+export type HanzhongRequirement = HanzhongCitiesRequirement | HanzhongTechRequirement;

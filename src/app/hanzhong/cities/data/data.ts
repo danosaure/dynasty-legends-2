@@ -4,6 +4,7 @@ import type { HanzhongCityType } from '../types';
 import { cityIdByName } from '../utils/city-id-by-name';
 
 const requirementsForExternalCities: HanzhongCitiesRequirement = {
+  id: 'hanzhong--cities--external',
   type: 'count',
   section: 'cities',
   cityNames: ['Mianyang County', 'Maming Pavilion', 'North Summit', 'Yangping Pass'],
@@ -11,6 +12,7 @@ const requirementsForExternalCities: HanzhongCitiesRequirement = {
 };
 
 const requirementsForInnerCities: HanzhongCitiesRequirement = {
+  id: 'hanzhong--cities--inner',
   type: 'count',
   section: 'cities',
   cityNames: ['Mount Dingjun', 'Hanshui Trail'],

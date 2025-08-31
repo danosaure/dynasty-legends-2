@@ -8,6 +8,7 @@ const defaultProps: HanzhongTechsTechCardProps = {
   label: 'Nice Card',
   value: 5,
   maxValue: 10,
+  satisfiedRequirements: null,
 };
 
 const meta = {
