@@ -17,7 +17,6 @@ export const HanzhongTechsTech = ({ info, value }: HanzhongTechsTechProps) => {
     const check = areRequirementsSatified(user, info.requirements, cache.requirements);
     satisfiedRequirements = check.satisfied;
   }
-  const disabled = false;
 
   return (
     <HanzhongTechsTechCard
