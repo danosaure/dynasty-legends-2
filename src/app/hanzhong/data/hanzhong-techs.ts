@@ -115,7 +115,7 @@ export const HANZHONG_TECH_LUMBER_MILL: HanzhongTechType = {
   ),
   requirements: [
     {
-      id: '',
+      id: `tech--free-paths--level--1`,
       section: 'techs',
       type: 'level',
       techName: 'Free Paths',
@@ -139,6 +139,15 @@ export const HANZHONG_TECH_GRANARY: HanzhongTechType = {
       [4030, 2020, 4030, 1500],
     ]
   ),
+  requirements: [
+    {
+      id: `tech--free-paths--level--1`,
+      section: 'techs',
+      type: 'level',
+      techName: 'Free Paths',
+      level: 1,
+    },
+  ],
 };
 
 export const HANZHONG_TECH_IRON_FOUNDRY: HanzhongTechType = {
@@ -156,6 +165,15 @@ export const HANZHONG_TECH_IRON_FOUNDRY: HanzhongTechType = {
       [4030, 4030, 2020, 1500],
     ]
   ),
+  requirements: [
+    {
+      id: `tech--free-paths--level--1`,
+      section: 'techs',
+      type: 'level',
+      techName: 'Free Paths',
+      level: 1,
+    },
+  ],
 };
 
 export const HANZHONG_TECH_MIGHTY_GENERALS: HanzhongTechType = {
@@ -249,6 +267,15 @@ export const HANZHONG_TECH_ATTACK_TRAINING_2: HanzhongTechType = {
       [7300, 7300, 34100, 103200],
     ]
   ),
+  requirements: [
+    {
+      id: `tech--attack-training-I--level--6`,
+      section: 'techs',
+      type: 'level',
+      techName: 'Attack Training I',
+      level: 6,
+    },
+  ],
 };
 
 export const HANZHONG_TECH_DEFENSE_TRAINING_2: HanzhongTechType = {
@@ -271,6 +298,15 @@ export const HANZHONG_TECH_DEFENSE_TRAINING_2: HanzhongTechType = {
       [34100, 7300, 7300, 103200],
     ]
   ),
+  requirements: [
+    {
+      id: `tech--defense-training-I--level--6`,
+      section: 'techs',
+      type: 'level',
+      techName: 'Defense Training I',
+      level: 6,
+    },
+  ],
 };
 
 export const HANZHONG_TECH_TENACITY_TRAINING_2: HanzhongTechType = {
@@ -293,6 +329,15 @@ export const HANZHONG_TECH_TENACITY_TRAINING_2: HanzhongTechType = {
       [7300, 34100, 7300, 7750000],
     ]
   ),
+  requirements: [
+    {
+      id: `tech--tenacity-training-I--level--6`,
+      section: 'techs',
+      type: 'level',
+      techName: 'Tenacity Training I',
+      level: 6,
+    },
+  ],
 };
 
 //
@@ -353,6 +398,15 @@ export const HANZHONG_TECH_FORMATION_EXPANSION: HanzhongTechType = {
       },
     },
   ],
+  requirements: [
+    {
+      id: `tech--attack-training-II--level--6`,
+      section: 'techs',
+      type: 'level',
+      techName: 'Attack Training II',
+      level: 6,
+    },
+  ],
 };
 
 //
@@ -379,6 +433,15 @@ export const HANZHONG_TECH_SPECIAL_TRAINING_VANGUARD_CAMP: HanzhongTechType = {
       [30000, 30000, 30000, 90400, 45200, 6790000],
     ]
   ),
+  requirements: [
+    {
+      id: `tech--defense-training-II--level--6`,
+      section: 'techs',
+      type: 'level',
+      techName: 'Defense Training II',
+      level: 6,
+    },
+  ],
 };
 
 export const HANZHONG_TECH_SPECIAL_TRAINING_VALIANT_CAVALRY: HanzhongTechType = {
@@ -401,6 +464,15 @@ export const HANZHONG_TECH_SPECIAL_TRAINING_VALIANT_CAVALRY: HanzhongTechType = 
       [30000, 30000, 30000, 90400, 45200, 6790000],
     ]
   ),
+  requirements: [
+    {
+      id: `tech--tenacity-training-II--level--6`,
+      section: 'techs',
+      type: 'level',
+      techName: 'Tenacity Training II',
+      level: 6,
+    },
+  ],
 };
 
 export const HANZHONG_TECH_SPECIAL_TRAINING_ROYAL_GUARDS: HanzhongTechType = {
@@ -423,6 +495,15 @@ export const HANZHONG_TECH_SPECIAL_TRAINING_ROYAL_GUARDS: HanzhongTechType = {
       [30000, 30000, 30000, 90400, 45200, 6790000],
     ]
   ),
+  requirements: [
+    {
+      id: `tech--formation-expansion--level--6`,
+      section: 'techs',
+      type: 'level',
+      techName: 'Formation Expansion',
+      level: 1,
+    },
+  ],
 };
 
 export const HANZHONG_TECH_REHABILITATION: HanzhongTechType = {
@@ -468,6 +549,15 @@ export const HANZHONG_TECH_DILIGENT_WARRIOR_3: HanzhongTechType = {
       [48700, 48700, 48700, 83400, 41800, 6261300],
     ]
   ),
+  requirements: [
+    {
+      id: `tech--formation-expansion--level--6`,
+      section: 'techs',
+      type: 'level',
+      techName: 'Formation Expansion',
+      level: 1,
+    },
+  ],
 };
 
 //
