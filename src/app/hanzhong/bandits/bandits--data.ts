@@ -1,4 +1,6 @@
-import type { HanzhongBanditAttackType, HanzhongBanditLevelsType, HanzhongBanditsType } from '../types';
+import type { HanzhongBanditAttackType } from './BanditAttackType';
+import type { HanzhongBanditLevelsType } from './BanditLevelsType';
+import type { HanzhongBanditsType } from './BanditsType';
 
 type LevelDataRowType = [number /** Level */, number /** Tactical Points */, number /** reward */, number /** marching flags */];
 

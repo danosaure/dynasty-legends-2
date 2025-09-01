@@ -1,3 +1,3 @@
-import type { HanzhongBanditLevelType } from './hanzhong-bandit-level-type';
+import type { HanzhongBanditLevelType } from './BanditLevelType';
 
 export type HanzhongBanditLevelsType = Record<number, HanzhongBanditLevelType>;

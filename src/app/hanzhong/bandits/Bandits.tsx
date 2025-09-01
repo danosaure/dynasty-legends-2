@@ -1,10 +1,10 @@
 import Grid from '@mui/material/Grid';
 
-import { TitleTypographyWrapper } from '../shared';
+import { TitleTypographyWrapper } from '../../shared';
 
 import { HanzhongBandit } from './Bandit';
-import { HANZHONG_BANDITS } from './data';
-import type { HanzhongBanditAttackType } from './types';
+import type { HanzhongBanditAttackType } from './BanditAttackType';
+import { HANZHONG_BANDITS } from './bandits--data';
 
 export const HanzhongBandits = () => {
   const grid = [1, 2, 3, 4, 5, 6, 7].map((day) => {

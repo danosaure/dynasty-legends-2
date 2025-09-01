@@ -1,7 +1,7 @@
-import { CardWrapper } from '../shared';
+import { CardWrapper } from '../../shared';
+import { HanzhongContextUserCheckbox } from '../ContextCheckbox';
 
-import { HanzhongContextUserCheckbox } from './ContextCheckbox';
-import type { HanzhongBanditAttackType } from './types';
+import type { HanzhongBanditAttackType } from './BanditAttackType';
 
 export type HanzhongBanditProps = {
   attack: HanzhongBanditAttackType;
