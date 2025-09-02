@@ -1,9 +1,9 @@
 import Grid from '@mui/material/Grid';
 
-import { TitleTypographyWrapper } from '../shared';
+import { TitleTypographyWrapper } from '../../shared';
 import { TerritoryLevel } from './TerritoryLevel';
-import type { HanzhongTerritoryLevelType } from './types';
-import { HANZHONG_TERRITORIES } from './data';
+import { HANZHONG_TERRITORIES } from './territories--data';
+import type { HanzhongTerritoryLevelType } from './TerritoryLevelType';
 
 export const HanzhongTerritories = () => {
   return (

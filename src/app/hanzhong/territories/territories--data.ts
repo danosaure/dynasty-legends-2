@@ -1,5 +1,5 @@
-import type { HanzhongTerritoriesType } from '../types';
 import { HANZHONG_TERRITORY_IDS, HANZHONG_TERRITORY_LEVEL_IDS } from '../constants/items-ids';
+import type { HanzhongTerritoriesType } from './TerritoriesType';
 
 export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
   features: [

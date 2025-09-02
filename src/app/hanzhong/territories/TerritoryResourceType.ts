@@ -1,6 +1,5 @@
 import type { BaseIDType } from '../../types';
-
-import type { HanzhongBonusType } from './hanzhong-bonus-type';
+import type { HanzhongBonusType } from '../types';
 
 export type HanzhongTerritoryResourceType = BaseIDType & {
   earnings: HanzhongBonusType;

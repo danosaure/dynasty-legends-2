@@ -1,7 +1,7 @@
 import Grid from '@mui/material/Grid';
 
 import { TerritoryLevelResource } from './TerritoryLevelResource';
-import type { HanzhongTerritoryLevelType } from './types';
+import type { HanzhongTerritoryLevelType } from './TerritoryLevelType';
 
 export type TerritoryLevelProps = {
   index: number;
