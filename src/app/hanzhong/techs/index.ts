@@ -2,3 +2,6 @@ export { HanzhongTechs } from './HanzhongTechs';
 export { HanzhongTechsTech } from './HanzhongTechsTech';
 export type * from './requirements';
 export { isTechRequirementSatisfied } from './requirements';
+export type { HanzhongTechType } from './TechType';
+export type { HanzhongTechResourceType } from './TechResourceType';
+export type { HanzhongTechLevelType } from './TechLevelType';

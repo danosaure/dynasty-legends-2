@@ -1,5 +1,5 @@
 import type { BaseIDType, IconType } from '../../types';
-import type { HanzhongTechType } from '../types';
+import type { HanzhongTechType } from '../techs';
 import type { HanzhongWarTierTaskType } from './WarTierTaskType';
 
 export type HanzhongWarTierType = BaseIDType & {

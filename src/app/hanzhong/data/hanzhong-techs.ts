@@ -1,6 +1,6 @@
 import { mapTableToResourcesAndBonuses } from './utils';
-import type { HanzhongTechType } from '../types';
 import { HANZHONG_TECH_IDS } from '../constants/items-ids';
+import type { HanzhongTechType } from '../techs';
 
 const assetPath = (f: string): string => `hanzhong/tech/${f}.png`;
 

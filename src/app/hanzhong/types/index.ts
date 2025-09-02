@@ -3,8 +3,5 @@ export type { HanzhongContextOnChangeType } from './hanzhong-context-on-change-t
 export type { HanzhongInfoDataKeyUpdaterType } from './hanzhong-info-data-key-updater-type';
 export type { HanzhongInfoDataType } from './hanzhong-info-data-type';
 export type { HanzhongInfoDataUpdaterType } from './hanzhong-info-data-updater-type';
-export type { HanzhongTechLevelType } from './hanzhong-tech-level-type';
-export type { HanzhongTechResourceType } from './hanzhong-tech-resource-type';
-export type { HanzhongTechType } from './hanzhong-tech-type';
 export type { HanzhongUserDataType } from './UserData';
 export type { HanzhongContextType } from './Context';
