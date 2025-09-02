@@ -1,9 +1,9 @@
 import { calculateEarningsFromCities } from '../cities';
 import { HANZHONG_TECH_IDS } from '../constants/items-ids';
 import { HANZHONG_TERRITORIES, type HanzhongTerritoryLevelType, type HanzhongTerritoryResourceType } from '../territories';
-import type { HanzhongBonusType, HanzhongTechType, HanzhongUserDataType, HanzhongWarTierType } from '../types';
+import type { HanzhongBonusType, HanzhongTechType, HanzhongUserDataType } from '../types';
 import { addHanzhongBonuses } from '../utils';
-import { HANZHONG_WAR_TIERS } from '../war-tiers';
+import { HANZHONG_WAR_TIERS, type HanzhongWarTierType } from '../war-tiers';
 
 const SPECIAL_TRAINING_KEYS = [
   HANZHONG_TECH_IDS.SPECIAL_TRAINING__VANGUARD_CAMP,

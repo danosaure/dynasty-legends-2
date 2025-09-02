@@ -1,8 +1,8 @@
-import type { HanzhongWarTierType } from '../types';
-
+import { sanitizeId } from '../../../utils';
 import { HANZHONG_WAR_TIER_IDS } from '../constants/items-ids';
 import { HANZHONG__WAR_TIERS__TECHS__BY_LEVEL } from '../data';
-import { sanitizeId } from '../../../utils';
+
+import type { HanzhongWarTierType } from './WarTierType';
 
 const assetPath = (f: string): string => `hanzhong/war-tier/${f}.png`;
 

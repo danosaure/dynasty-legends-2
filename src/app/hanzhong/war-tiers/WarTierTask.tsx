@@ -1,10 +1,11 @@
-import Typography from '@mui/material/Typography';
-import { PaperWrapper } from '../../shared';
-import type { HanzhongWarTierTaskType } from '../types';
 import Grid from '@mui/material/Grid';
-import { areRequirementsSatified } from '../requirements';
-import { useHanzhongContext } from '../HanzhongContext';
 import { useTheme } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
+
+import { PaperWrapper } from '../../shared';
+import { useHanzhongContext } from '../HanzhongContext';
+import { areRequirementsSatified } from '../requirements';
+import type { HanzhongWarTierTaskType } from './WarTierTaskType';
 
 export type HanzhongWarTierTaskProps = {
   task: HanzhongWarTierTaskType;
