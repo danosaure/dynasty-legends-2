@@ -4,4 +4,4 @@ export type { HanzhongInfoDataKeyUpdaterType } from './hanzhong-info-data-key-up
 export type { HanzhongInfoDataType } from './hanzhong-info-data-type';
 export type { HanzhongInfoDataUpdaterType } from './hanzhong-info-data-updater-type';
 export type { HanzhongUserDataType } from './UserData';
-export type { HanzhongContextType } from './Context';
+export type { HanzhongContextCache } from './ContextCache';
