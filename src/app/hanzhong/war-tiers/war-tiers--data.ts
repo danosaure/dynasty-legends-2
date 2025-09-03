@@ -23,14 +23,35 @@ export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
     {
       ...baseTask('Logging Pioneer'),
       description: 'Occupy 2 Lumber territories',
+      requirement: {
+        id: requirementId('Logging Pioneer'),
+        section: 'territories',
+        type: 'resources',
+        resourceType: 'lumber',
+        count: 2,
+      },
     },
     {
       ...baseTask('Farming Pioneer'),
       description: 'Occupy 2 Grains territories',
+      requirement: {
+        id: requirementId('Farming Pioneer'),
+        section: 'territories',
+        type: 'resources',
+        resourceType: 'grains',
+        count: 2,
+      },
     },
     {
       ...baseTask('Mining Pioneer'),
       description: 'Occupy 2 Iron territories',
+      requirement: {
+        id: requirementId('Mining Pioneer'),
+        section: 'territories',
+        type: 'resources',
+        resourceType: 'iron',
+        count: 2,
+      },
     },
     {
       ...baseTask('Free Paths'),
@@ -67,14 +88,35 @@ export const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
     {
       ...baseTask('Logging Elite'),
       description: 'Occupy 3 Lumber territories',
+      requirement: {
+        id: requirementId('Logging Elite'),
+        section: 'territories',
+        type: 'resources',
+        resourceType: 'lumber',
+        count: 3,
+      },
     },
     {
       ...baseTask('Farming Elite'),
       description: 'Occupy 3 Grains territories',
+      requirement: {
+        id: requirementId('Farming Elite'),
+        section: 'territories',
+        type: 'resources',
+        resourceType: 'grains',
+        count: 3,
+      },
     },
     {
       ...baseTask('Mining Elite'),
       description: 'Occupy 3 Iron territories',
+      requirement: {
+        id: requirementId('Mining Elite'),
+        section: 'territories',
+        type: 'resources',
+        resourceType: 'iron',
+        count: 3,
+      },
     },
     {
       ...baseTask('Land Conqueror I'),
