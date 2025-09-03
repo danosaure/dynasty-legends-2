@@ -121,6 +121,13 @@ export const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
     {
       ...baseTask('Land Conqueror I'),
       description: 'Occupy 2 Lv.3 or above territories',
+      requirement: {
+        id: requirementId('Land Conqueror I'),
+        section: 'territories',
+        type: 'level',
+        level: 3,
+        count: 2,
+      },
     },
     {
       ...baseTask('Bandits Terminator II'),
@@ -150,6 +157,13 @@ export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
     {
       ...baseTask('Land Conqueror II'),
       description: 'Occupy 2 Lv.4 or above territories',
+      requirement: {
+        id: requirementId('Land Conqueror II'),
+        section: 'territories',
+        type: 'level',
+        level: 4,
+        count: 2,
+      },
     },
     {
       ...baseTask('Overall Boost'),
@@ -190,6 +204,13 @@ export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
     {
       ...baseTask('Land Conqueror III'),
       description: 'Occupy 2 Lv.5 or above territories',
+      requirement: {
+        id: requirementId('Land Conqueror III'),
+        section: 'territories',
+        type: 'level',
+        level: 5,
+        count: 2,
+      },
     },
     {
       ...baseTask('Siege I'),
@@ -225,6 +246,13 @@ export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
     {
       ...baseTask('Land Conqueror IV'),
       description: 'Occupy 2 Lv.6 or above territories',
+      requirement: {
+        id: requirementId('Land Conqueror IV'),
+        section: 'territories',
+        type: 'level',
+        level: 6,
+        count: 2,
+      },
     },
     {
       ...baseTask('Siege II'),
@@ -275,6 +303,13 @@ export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
     {
       ...baseTask('Land Conqueror V'),
       description: 'Occupy 5 Lv.6 or above territories',
+      requirement: {
+        id: requirementId('Land Conqueror V'),
+        section: 'territories',
+        type: 'level',
+        level: 6,
+        count: 5,
+      },
     },
     {
       ...baseTask('Siege III'),
@@ -324,6 +359,13 @@ export const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
     {
       ...baseTask('Land Conqueror VI'),
       description: 'Occupy 10 Lv.6 or above territories',
+      requirement: {
+        id: requirementId('Land Conqueror VI'),
+        section: 'territories',
+        type: 'level',
+        level: 6,
+        count: 10,
+      },
     },
     {
       ...baseTask('Siege IV'),

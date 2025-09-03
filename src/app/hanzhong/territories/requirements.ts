@@ -33,7 +33,27 @@ const isTerritoryResourceRequirementSatisfied = (
   return { satisfied: value >= requirement.count, value, expected: requirement.count };
 };
 
-export type HanzhongTerritoryRequirement = HanzhongTerritoryResourceRequirement;
+export type HanzhongTerritoryLevelRequirement = HanzhongTerritoryBaseRequirement & {
+  type: 'level';
+  level: number;
+  count: number;
+};
+
+const isTerritoryLevelRequirementSatisfied = (
+  requirement: HanzhongTerritoryLevelRequirement,
+  userData: HanzhongUserDataType
+): HanzhongRequirementResponse => {
+  const value = HANZHONG_TERRITORIES.levels
+    .slice(requirement.level - 1)
+    .reduce<number>(
+      (count, level) => level.earnings.reduce<number>((total, earning) => total + getNumberValue(userData, earning.id), count),
+      0
+    );
+
+  return { satisfied: value >= requirement.count, value, expected: requirement.count };
+};
+
+export type HanzhongTerritoryRequirement = HanzhongTerritoryResourceRequirement | HanzhongTerritoryLevelRequirement;
 
 export const isTerritoryRequirementSatisfied = (
   requirement: HanzhongTerritoryRequirement,
@@ -50,6 +70,8 @@ export const isTerritoryRequirementSatisfied = (
     checkToCache = errorRequirementResponse(`Invalid requirement section="${requirement.section}". Expecting "${SECTION_NAME}".`);
   } else if (requirement.type === 'resources') {
     checkToCache = isTerritoryResourceRequirementSatisfied(requirement, userData);
+  } else if (requirement.type === 'level') {
+    checkToCache = isTerritoryLevelRequirementSatisfied(requirement, userData);
   } else {
     checkToCache = errorRequirementResponse(`Invalid data: "${JSON.stringify(requirement)}".`);
   }
