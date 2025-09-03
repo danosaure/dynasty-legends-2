@@ -146,6 +146,12 @@ export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
     {
       ...baseTask('Siege I'),
       description: 'Guild occupies 1 Strategic Cities (Hanzhong City excluded)',
+      requirement: {
+        id: requirementId('Siege I'),
+        section: 'cities',
+        type: 'non-hanzhong',
+        count: 1,
+      },
     },
     {
       ...baseTask('Bandits Terminator III'),
@@ -175,6 +181,12 @@ export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
     {
       ...baseTask('Siege II'),
       description: 'Guild occupies 2 Strategic Cities (Hanzhong City excluded)',
+      requirement: {
+        id: requirementId('Siege II'),
+        section: 'cities',
+        type: 'non-hanzhong',
+        count: 2,
+      },
     },
     {
       ...baseTask("Dragon's Attendant"),
@@ -213,6 +225,12 @@ export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
     {
       ...baseTask('Siege III'),
       description: 'Guild occupies 3 Strategic Cities (Hazhong City excluded)',
+      requirement: {
+        id: requirementId('Siege III'),
+        section: 'cities',
+        type: 'non-hanzhong',
+        count: 3,
+      },
     },
     {
       ...baseTask('Bandits Terminator IV'),
@@ -250,10 +268,22 @@ export const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
     {
       ...baseTask('Siege IV'),
       description: 'Guild occupies 5 Strategic Cities (Hanzhong City excluded)',
+      requirement: {
+        id: requirementId('Siege IV'),
+        section: 'cities',
+        type: 'non-hanzhong',
+        count: 5,
+      },
     },
     {
       ...baseTask('Pacificator'),
       description: 'Guild occupies Hanzhong City 1 times',
+      requirement: {
+        id: requirementId('Pacificator'),
+        section: 'cities',
+        type: 'hanzhong',
+        count: 1,
+      },
     },
   ],
   techs: HANZHONG__WAR_TIERS__TECHS__BY_LEVEL[7],
