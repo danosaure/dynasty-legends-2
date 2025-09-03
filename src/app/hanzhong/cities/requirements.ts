@@ -8,6 +8,8 @@ import {
 } from '../requirements';
 import { HANZHONG_REQUIREMENT_RESPONSES } from '../requirements/RequirementResponse';
 import type { HanzhongUserDataType } from '../types';
+import { HANZHONG_CITIES } from './data';
+import type { HanzhongCityType } from './types';
 
 import { getCityByName, isCityOccupied } from './utils';
 
@@ -22,8 +24,6 @@ export type HanzhongCitiesCountRequirement = HanzhongCitiesBaseRequirement & {
   cityNames: string[];
   count: number;
 };
-
-export type HanzhongCitiesRequirement = HanzhongCitiesCountRequirement;
 
 export const isCityCountRequirementSatisfied = (
   requirement: HanzhongCitiesCountRequirement,
@@ -78,6 +78,43 @@ export const isCityCountRequirementSatisfied = (
   };
 };
 
+export type HanzhongCitiesNonHanzhongRequirement = HanzhongCitiesBaseRequirement & {
+  type: 'non-hanzhong';
+  count: number;
+};
+
+export type HanzhongCitiesHanzhongRequirement = HanzhongCitiesBaseRequirement & {
+  type: 'hanzhong';
+  count: 1;
+};
+
+const isCityHanzhongOrNonHanzhongRequirementSatisfied = (
+  requirement: HanzhongCitiesHanzhongRequirement | HanzhongCitiesNonHanzhongRequirement,
+  userData: HanzhongUserDataType,
+  filter: (city: HanzhongCityType) => boolean
+): HanzhongRequirementResponse => {
+  const count = HANZHONG_CITIES.filter(filter).reduce<number>((sum, city) => sum + (isCityOccupied(city.id, userData) ? 1 : 0), 0);
+
+  return { satisfied: count >= requirement.count, value: count, expected: requirement.count };
+};
+
+const isCityNonHanzhongRequirementSatisfied = (
+  requirement: HanzhongCitiesNonHanzhongRequirement,
+  userData: HanzhongUserDataType
+): HanzhongRequirementResponse =>
+  isCityHanzhongOrNonHanzhongRequirementSatisfied(requirement, userData, (city) => city.name !== 'Hanzhong City');
+
+const isCityHanzhongRequirementSatisfied = (
+  requirement: HanzhongCitiesHanzhongRequirement,
+  userData: HanzhongUserDataType
+): HanzhongRequirementResponse =>
+  isCityHanzhongOrNonHanzhongRequirementSatisfied(requirement, userData, (city) => city.name === 'Hanzhong City');
+
+export type HanzhongCitiesRequirement =
+  | HanzhongCitiesCountRequirement
+  | HanzhongCitiesNonHanzhongRequirement
+  | HanzhongCitiesHanzhongRequirement;
+
 export const isCityRequirementSatisfied = (
   requirement: HanzhongCitiesRequirement,
   userData: HanzhongUserDataType,
@@ -94,8 +131,12 @@ export const isCityRequirementSatisfied = (
     checkToCache = errorRequirementResponse(`Invalid requirement section="${requirement.section}". Expecting "${SECTION_NAME}".`);
   } else if (requirement.type == 'count') {
     checkToCache = isCityCountRequirementSatisfied(requirement, userData, requirementsCache);
+  } else if (requirement.type === 'non-hanzhong') {
+    checkToCache = isCityNonHanzhongRequirementSatisfied(requirement, userData);
+  } else if (requirement.type === 'hanzhong') {
+    checkToCache = isCityHanzhongRequirementSatisfied(requirement, userData);
   } else {
-    checkToCache = errorRequirementResponse(`isCityRequirementSatisfied(): Need to implement type="${requirement.type}".`);
+    checkToCache = errorRequirementResponse(`Invalid type: "${JSON.stringify(requirement)}".`);
   }
   requirementsCache[requirement.id] = checkToCache;
   return checkToCache;
