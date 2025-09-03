@@ -1,4 +1,4 @@
-import type { HanzhongTerritoryLevelType } from './hanzhong-territory-level-type';
+import type { HanzhongTerritoryLevelType } from './TerritoryLevelType';
 
 export type HanzhongTerritoriesType = {
   features: string[];

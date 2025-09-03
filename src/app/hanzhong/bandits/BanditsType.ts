@@ -1,6 +1,6 @@
 import type { BaseIDType } from '../../types';
-import type { HanzhongBanditAttackType } from './hanzhong-bandit-attack-type';
-import type { HanzhongBanditLevelsType } from './hanzhong-bandit-levels-type';
+import type { HanzhongBanditAttackType } from './BanditAttackType';
+import type { HanzhongBanditLevelsType } from './BanditLevelsType';
 
 export type HanzhongBanditsType = BaseIDType & {
   info: HanzhongBanditLevelsType;

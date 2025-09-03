@@ -1,6 +1,6 @@
 import { getNumberValue } from '../../utils';
-import { getTechById } from '../data';
 import { RESOURCES_TIMERS_KEYS } from '../resources-timers/utils';
+import { getTechById } from '../techs';
 import type { HanzhongUserDataType } from '../types';
 
 export const updateResourcesIfTech = (key: string, value: number, userData: HanzhongUserDataType) => {

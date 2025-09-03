@@ -1,4 +1,4 @@
-import type { HanzhongTechType } from '../types';
+import type { HanzhongTechType } from '../techs';
 import { HANZHONG_WAR_TIERS } from '../war-tiers';
 
 export const findTechBonus = (key: string): HanzhongTechType | null => {

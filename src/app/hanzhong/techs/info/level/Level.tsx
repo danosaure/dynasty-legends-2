@@ -1,13 +1,12 @@
 import Grid from '@mui/material/Grid';
 
-import type { HanzhongTechsTechLevelDisplayType } from '../types';
-
 import { HanzhongTechsTechInfoLevelResources } from './LevelResources';
 import { HanzhongTechsTechInfoLevelBonuses } from './LevelBonuses';
 import { useHanzhongContext } from '../../../HanzhongContext';
 import { extractResourceDataFromUser } from '../../../resources-timers/utils/extract-resource-data-from-user';
 import { HanzhongTimerDisplay } from '../../../resources-timers/TimerDisplay';
 import { calculateTimeNeededForResources } from '../../../resources-timers/utils/calculate-time-needed-for-resources';
+import type { HanzhongTechsTechLevelDisplayType } from '../../TechsTechLevelDisplayType';
 
 export type HanzhongTechsTechInfoLevelProps = {
   info: HanzhongTechsTechLevelDisplayType;

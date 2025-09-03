@@ -6,7 +6,7 @@ import { HanzhongCities } from './cities';
 import { HanzhongFormations } from './formations';
 import { HanzhongTechs } from './techs';
 import { HanzhongLayout } from './layout';
-import { HanzhongTerritories } from './Territories';
+import { HanzhongTerritories } from './territories';
 import { HANZHONG_ROUTES } from './constants';
 import { HanzhongWarTiersLayout } from './war-tiers';
 

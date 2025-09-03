@@ -1,5 +1,4 @@
 import { getNumberValue } from '../../utils';
-import { getTechByName } from '../data';
 import {
   errorRequirementResponse,
   type HanzhongBaseRequirement,
@@ -7,6 +6,7 @@ import {
   type RequirementsCache,
 } from '../requirements';
 import type { HanzhongUserDataType } from '../types';
+import { getTechByName } from './techs--data';
 
 const SECTION_NAME = 'techs';
 

@@ -1,4 +1,5 @@
-import type { HanzhongBonusType, HanzhongTechLevelType } from '../types';
+import type { HanzhongTechLevelType } from '../techs';
+import type { HanzhongBonusType } from '../types';
 
 type bonusKeys = keyof HanzhongBonusType;
 

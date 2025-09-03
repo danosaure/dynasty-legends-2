@@ -1,4 +1,5 @@
-import type { HanzhongBonusType, HanzhongTechResourceType } from '../../../types';
+import type { HanzhongBonusType } from '../types';
+import type { HanzhongTechResourceType } from './TechResourceType';
 
 export type HanzhongTechsTechLevelDisplayType = {
   level: number;

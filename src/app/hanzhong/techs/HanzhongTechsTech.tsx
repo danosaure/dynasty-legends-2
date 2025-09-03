@@ -1,8 +1,8 @@
 import { useHanzhongContext } from '../HanzhongContext';
 import { areRequirementsSatified } from '../requirements';
-import type { HanzhongTechType } from '../types';
 
 import { HanzhongTechsTechCard } from './HanzhongTechsTechCard';
+import type { HanzhongTechType } from './TechType';
 
 export interface HanzhongTechsTechProps {
   info: HanzhongTechType;

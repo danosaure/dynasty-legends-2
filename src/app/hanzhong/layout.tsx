@@ -5,14 +5,14 @@ import Grid from '@mui/material/Grid';
 import { PaperWrapper } from '../shared';
 
 import { ActionsMenu } from './actions-menu';
-import { HanzhongContext } from './HanzhongContext';
+import { DEFAULT_HANZHONG_CONTEXT_DATA, HanzhongContext, type HanzhongContextType } from './HanzhongContext';
 import { saveHanzhongUserData } from './persistence';
 import { Progress } from './Progress';
 import { ResourceIncomes } from './ResourceIncomes';
 import { HanzhongSidePanelTabs } from './side-panel-tabs';
 import { TacticalBonuses } from './TacticalBonuses';
-import type { HanzhongBonusType, HanzhongContextType, HanzhongUserDataType } from './types';
-import { DEFAULT_HANZHONG_CONTEXT_DATA, initializeEarnings } from './utils';
+import type { HanzhongBonusType, HanzhongUserDataType } from './types';
+import { initializeEarnings } from './utils';
 import { useAppContext } from '../Context';
 import type { HanzhongFormationsUserData } from './formations/types';
 import { updateResourcesIfTech } from './utils/update-resources-if-tech';

@@ -1,6 +1,6 @@
 import type { BaseIDType } from '../../types';
 import type { HanzhongRequirement } from '../requirements';
-import type { HanzhongTechLevelType } from './hanzhong-tech-level-type';
+import type { HanzhongTechLevelType } from './TechLevelType';
 
 export type HanzhongTechType = BaseIDType & {
   assetPath: string;

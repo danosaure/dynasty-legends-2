@@ -1,6 +1,6 @@
 import type { BaseIDType, IconType } from '../../types';
-import type { HanzhongTechType } from './hanzhong-tech-type';
-import type { HanzhongWarTierTaskType } from './hanzhong-war-tier-task-type';
+import type { HanzhongTechType } from '../techs';
+import type { HanzhongWarTierTaskType } from './WarTierTaskType';
 
 export type HanzhongWarTierType = BaseIDType & {
   icon: IconType;

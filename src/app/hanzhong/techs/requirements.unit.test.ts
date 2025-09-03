@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { HanzhongUserDataType } from '../types';
 import { isTechRequirementSatisfied, type HanzhongTechRequirement } from './requirements';
-import { getTechByName } from '../data';
+import { getTechByName } from './techs--data';
 
 describe('isTechRequirementSatisfied()', () => {
   const OTHER_TECH_NAME = 'Diligent Warrior I';

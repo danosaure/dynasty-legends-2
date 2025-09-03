@@ -1,3 +1,4 @@
+import { isBanditRequirementSatisfied } from '../bandits';
 import { isCityRequirementSatisfied } from '../cities';
 import { isTechRequirementSatisfied } from '../techs';
 import type { HanzhongUserDataType } from '../types';
@@ -19,6 +20,8 @@ export const areRequirementsSatified = (
       return isCityRequirementSatisfied(requirement, userData, requirementsCache);
     } else if (requirement.section === 'techs') {
       return isTechRequirementSatisfied(requirement, userData, requirementsCache);
+    } else if (requirement.section === 'bandits') {
+      return isBanditRequirementSatisfied(requirement, userData, requirementsCache);
     } else {
       return errorRequirementResponse(`Unknown section.`);
     }

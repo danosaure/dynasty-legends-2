@@ -1,5 +1,5 @@
 import type { PotentiallyUnknownNumberType } from '../../types';
-import type { HanzhongBanditLevelRewardsType } from './hanzhong-bandit-level-rewards-type';
+import type { HanzhongBanditLevelRewardsType } from './BanditLevelRewardsType';
 
 export type HanzhongBanditLevelType = {
   tacticalPoints: PotentiallyUnknownNumberType;
