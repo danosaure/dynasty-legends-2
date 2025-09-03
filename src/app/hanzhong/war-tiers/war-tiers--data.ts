@@ -46,6 +46,12 @@ export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
     {
       ...baseTask('Bandits Terminator I'),
       description: 'Defeat Bandits 1 times',
+      requirement: {
+        id: requirementId('Bandits Terminator I'),
+        section: 'bandits',
+        type: 'count',
+        value: 1,
+      },
     },
   ],
   techs: HANZHONG__WAR_TIERS__TECHS__BY_LEVEL[1],
@@ -77,6 +83,12 @@ export const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
     {
       ...baseTask('Bandits Terminator II'),
       description: 'Defeat Bandits 2 times',
+      requirement: {
+        id: requirementId('Bandits Terminator II'),
+        section: 'bandits',
+        type: 'count',
+        value: 2,
+      },
     },
   ],
   techs: HANZHONG__WAR_TIERS__TECHS__BY_LEVEL[2],
@@ -138,6 +150,12 @@ export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
     {
       ...baseTask('Bandits Terminator III'),
       description: 'Defeat Bandits 4 times',
+      requirement: {
+        id: requirementId('Bandits Terminator III'),
+        section: 'bandits',
+        type: 'count',
+        value: 4,
+      },
     },
   ],
   techs: HANZHONG__WAR_TIERS__TECHS__BY_LEVEL[4],
@@ -199,6 +217,12 @@ export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
     {
       ...baseTask('Bandits Terminator IV'),
       description: 'Defeat Bandits 6 times',
+      requirement: {
+        id: requirementId('Bandits Terminator IV'),
+        section: 'bandits',
+        type: 'count',
+        value: 6,
+      },
     },
     {
       ...baseTask('Tech Master III'),
