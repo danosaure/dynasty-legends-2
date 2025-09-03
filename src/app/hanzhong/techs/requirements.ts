@@ -6,7 +6,7 @@ import {
   type RequirementsCache,
 } from '../requirements';
 import type { HanzhongUserDataType } from '../types';
-import { getTechByName } from './techs--data';
+import { getTechByName, HANZHONG_TECHS } from './techs--data';
 
 const SECTION_NAME = 'techs';
 
@@ -20,12 +20,9 @@ export type HanzhongTechLevelRequirement = HanzhongTechBaseRequirement & {
   level: number;
 };
 
-export type HanzhongTechRequirement = HanzhongTechLevelRequirement;
-
 export const isTechLevelRequirementSatisfied = (
   requirement: HanzhongTechLevelRequirement,
   userData: HanzhongUserDataType
-  // requirementsCache: RequirementsCache
 ): HanzhongRequirementResponse => {
   const tech = getTechByName(requirement.techName);
   if (!tech) {
@@ -42,6 +39,25 @@ export const isTechLevelRequirementSatisfied = (
   };
 };
 
+export type HanzhongTechCountRequirement = HanzhongTechBaseRequirement & {
+  type: 'count';
+  count: number;
+};
+
+const isTechCountRequirementSatisfied = (
+  requirement: HanzhongTechCountRequirement,
+  userData: HanzhongUserDataType
+): HanzhongRequirementResponse => {
+  const value = HANZHONG_TECHS.reduce<number>((count, tech) => {
+    const level = getNumberValue(userData, tech.id);
+    return count + (level > 0 ? 1 : 0);
+  }, 0);
+
+  return { satisfied: value >= requirement.count, value, expected: requirement.count };
+};
+
+export type HanzhongTechRequirement = HanzhongTechLevelRequirement | HanzhongTechCountRequirement;
+
 export const isTechRequirementSatisfied = (
   requirement: HanzhongTechRequirement,
   userData: HanzhongUserDataType,
@@ -56,9 +72,11 @@ export const isTechRequirementSatisfied = (
   if (requirement.section !== SECTION_NAME) {
     checkToCache = errorRequirementResponse(`Invalid requirement section="${requirement.section}". Expecting "techs"`);
   } else if (requirement.type === 'level') {
-    checkToCache = isTechLevelRequirementSatisfied(requirement, userData /*, requirementsCache*/);
+    checkToCache = isTechLevelRequirementSatisfied(requirement, userData);
+  } else if (requirement.type === 'count') {
+    checkToCache = isTechCountRequirementSatisfied(requirement, userData);
   } else {
-    checkToCache = errorRequirementResponse(`Invalid requirement type "${requirement.type}" for section "${requirement.section}".`);
+    checkToCache = errorRequirementResponse(`Invalid requirement "${JSON.stringify(requirement)}".`);
   }
   requirementsCache[requirement.id] = checkToCache;
   return checkToCache;

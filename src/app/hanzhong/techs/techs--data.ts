@@ -611,7 +611,7 @@ export const HANZHONG__WAR_TIERS__TECHS__BY_LEVEL: Record<number, HanzhongTechTy
   7: HANZHONG_WAR_TIER_7_TECHS,
 };
 
-const __ALL_TECHS: HanzhongTechType[] = [
+export const HANZHONG_TECHS: HanzhongTechType[] = [
   HANZHONG_TECH_ATTACK_TRAINING_1,
   HANZHONG_TECH_DEFENSE_TRAINING_1,
   HANZHONG_TECH_TENACITY_TRAINING_1,
@@ -635,11 +635,11 @@ const __ALL_TECHS: HanzhongTechType[] = [
   HANZHONG_TECH_DILIGENT_WARRIOR_3,
 ];
 
-const __CACHE: Record<string, HanzhongTechType> = __ALL_TECHS.reduce((cache, tech) => ({ ...cache, [tech.id]: tech }), {});
+const __CACHE: Record<string, HanzhongTechType> = HANZHONG_TECHS.reduce((cache, tech) => ({ ...cache, [tech.id]: tech }), {});
 
 export const getTechById = (id: string): HanzhongTechType | null => __CACHE[id] ?? null;
 
-const __CACHE_BY_NAME: Record<string, HanzhongTechType> = __ALL_TECHS.reduce(
+const __CACHE_BY_NAME: Record<string, HanzhongTechType> = HANZHONG_TECHS.reduce(
   (cache, tech) => ({ ...cache, [tech.label]: tech }),
   {}
 );

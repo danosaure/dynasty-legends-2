@@ -123,6 +123,12 @@ export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
     {
       ...baseTask('Tech Master I'),
       description: 'Activate 8 Techs',
+      requirement: {
+        id: requirementId('Tech Master I'),
+        section: 'techs',
+        type: 'count',
+        count: 8,
+      },
     },
   ],
   techs: HANZHONG__WAR_TIERS__TECHS__BY_LEVEL[3],
@@ -202,6 +208,12 @@ export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
     {
       ...baseTask('Tech Master II'),
       description: 'Activate 14 Techs',
+      requirement: {
+        id: requirementId('Tech Master II'),
+        section: 'techs',
+        type: 'count',
+        count: 14,
+      },
     },
   ],
   techs: HANZHONG__WAR_TIERS__TECHS__BY_LEVEL[5],
@@ -245,6 +257,12 @@ export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
     {
       ...baseTask('Tech Master III'),
       description: 'Activate 18 Techs',
+      requirement: {
+        id: requirementId('Tech Master III'),
+        section: 'techs',
+        type: 'count',
+        count: 18,
+      },
     },
   ],
   techs: HANZHONG__WAR_TIERS__TECHS__BY_LEVEL[6],
