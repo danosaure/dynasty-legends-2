@@ -19,14 +19,17 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
       earnings: [
         {
           id: HANZHONG_TERRITORY_IDS.LUMBER_MILL__1,
+          resource: 'lumber',
           earnings: { woodRate: 60 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.GRANARY__1,
+          resource: 'grains',
           earnings: { grainsRate: 60 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.IRON_MINE__1,
+          resource: 'iron',
           earnings: { ironRate: 60 },
         },
       ],
@@ -42,14 +45,17 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
       earnings: [
         {
           id: HANZHONG_TERRITORY_IDS.LUMBER_MILL__2,
+          resource: 'lumber',
           earnings: { woodRate: 120 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.GRANARY__2,
+          resource: 'grains',
           earnings: { grainsRate: 120 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.IRON_MINE__2,
+          resource: 'iron',
           earnings: { ironRate: 120 },
         },
       ],
@@ -65,14 +71,17 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
       earnings: [
         {
           id: HANZHONG_TERRITORY_IDS.LUMBER_MILL__3,
+          resource: 'lumber',
           earnings: { woodRate: 180 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.GRANARY__3,
+          resource: 'grains',
           earnings: { grainsRate: 180 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.IRON_MINE__3,
+          resource: 'iron',
           earnings: { ironRate: 180 },
         },
       ],
@@ -83,14 +92,17 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
       earnings: [
         {
           id: HANZHONG_TERRITORY_IDS.LUMBER_MILL__4,
+          resource: 'lumber',
           earnings: { woodRate: 240 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.GRANARY__4,
+          resource: 'grains',
           earnings: { grainsRate: 240 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.IRON_MINE__4,
+          resource: 'iron',
           earnings: { ironRate: 240 },
         },
       ],
@@ -101,14 +113,17 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
       earnings: [
         {
           id: HANZHONG_TERRITORY_IDS.LUMBER_MILL__5,
+          resource: 'lumber',
           earnings: { woodRate: 300 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.GRANARY__5,
+          resource: 'grains',
           earnings: { grainsRate: 300 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.IRON_MINE__5,
+          resource: 'iron',
           earnings: { ironRate: 300 },
         },
       ],
@@ -119,14 +134,17 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
       earnings: [
         {
           id: HANZHONG_TERRITORY_IDS.LUMBER_MILL__6,
+          resource: 'lumber',
           earnings: { woodRate: 360 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.GRANARY__6,
+          resource: 'grains',
           earnings: { grainsRate: 360 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.IRON_MINE__6,
+          resource: 'iron',
           earnings: { ironRate: 360 },
         },
       ],
@@ -137,14 +155,17 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
       earnings: [
         {
           id: HANZHONG_TERRITORY_IDS.LUMBER_MILL__7,
+          resource: 'lumber',
           earnings: { woodRate: 420 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.GRANARY__7,
+          resource: 'grains',
           earnings: { grainsRate: 420 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.IRON_MINE__7,
+          resource: 'iron',
           earnings: { ironRate: 420 },
         },
       ],
@@ -155,14 +176,17 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
       earnings: [
         {
           id: HANZHONG_TERRITORY_IDS.LUMBER_MILL__8,
+          resource: 'lumber',
           earnings: { woodRate: 480 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.GRANARY__8,
+          resource: 'grains',
           earnings: { grainsRate: 480 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.IRON_MINE__8,
+          resource: 'iron',
           earnings: { ironRate: 480 },
         },
       ],
@@ -173,14 +197,17 @@ export const HANZHONG_TERRITORIES: HanzhongTerritoriesType = {
       earnings: [
         {
           id: HANZHONG_TERRITORY_IDS.LUMBER_MILL__9,
+          resource: 'lumber',
           earnings: { woodRate: 540 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.GRANARY__9,
+          resource: 'grains',
           earnings: { grainsRate: 540 },
         },
         {
           id: HANZHONG_TERRITORY_IDS.IRON_MINE__9,
+          resource: 'iron',
           earnings: { ironRate: 540 },
         },
       ],

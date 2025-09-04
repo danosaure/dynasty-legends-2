@@ -1,5 +1,5 @@
 import { useHanzhongContext } from '../HanzhongContext';
-import { areRequirementsSatified } from '../requirements';
+import { areRequirementsSatisfied } from '../requirements';
 
 import { HanzhongTechsTechCard } from './HanzhongTechsTechCard';
 import type { HanzhongTechType } from './TechType';
@@ -14,7 +14,7 @@ export const HanzhongTechsTech = ({ info, value }: HanzhongTechsTechProps) => {
 
   let satisfiedRequirements = null;
   if (info.requirements) {
-    const check = areRequirementsSatified(user, info.requirements, cache.requirements);
+    const check = areRequirementsSatisfied(user, info.requirements, cache.requirements);
     satisfiedRequirements = check.satisfied;
   }
 

@@ -23,14 +23,35 @@ export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
     {
       ...baseTask('Logging Pioneer'),
       description: 'Occupy 2 Lumber territories',
+      requirement: {
+        id: requirementId('Logging Pioneer'),
+        section: 'territories',
+        type: 'resources',
+        resourceType: 'lumber',
+        count: 2,
+      },
     },
     {
       ...baseTask('Farming Pioneer'),
       description: 'Occupy 2 Grains territories',
+      requirement: {
+        id: requirementId('Farming Pioneer'),
+        section: 'territories',
+        type: 'resources',
+        resourceType: 'grains',
+        count: 2,
+      },
     },
     {
       ...baseTask('Mining Pioneer'),
       description: 'Occupy 2 Iron territories',
+      requirement: {
+        id: requirementId('Mining Pioneer'),
+        section: 'territories',
+        type: 'resources',
+        resourceType: 'iron',
+        count: 2,
+      },
     },
     {
       ...baseTask('Free Paths'),
@@ -67,18 +88,46 @@ export const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
     {
       ...baseTask('Logging Elite'),
       description: 'Occupy 3 Lumber territories',
+      requirement: {
+        id: requirementId('Logging Elite'),
+        section: 'territories',
+        type: 'resources',
+        resourceType: 'lumber',
+        count: 3,
+      },
     },
     {
       ...baseTask('Farming Elite'),
       description: 'Occupy 3 Grains territories',
+      requirement: {
+        id: requirementId('Farming Elite'),
+        section: 'territories',
+        type: 'resources',
+        resourceType: 'grains',
+        count: 3,
+      },
     },
     {
       ...baseTask('Mining Elite'),
       description: 'Occupy 3 Iron territories',
+      requirement: {
+        id: requirementId('Mining Elite'),
+        section: 'territories',
+        type: 'resources',
+        resourceType: 'iron',
+        count: 3,
+      },
     },
     {
       ...baseTask('Land Conqueror I'),
       description: 'Occupy 2 Lv.3 or above territories',
+      requirement: {
+        id: requirementId('Land Conqueror I'),
+        section: 'territories',
+        type: 'level',
+        level: 3,
+        count: 2,
+      },
     },
     {
       ...baseTask('Bandits Terminator II'),
@@ -104,10 +153,23 @@ export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
     {
       ...baseTask('Territory Plunderer I'),
       description: 'Attack territories 10 times (Individual Territory, Strategic City, and Hanzhong City will be counted)',
+      requirement: {
+        id: requirementId('Territory Plunderer I'),
+        section: 'freebie',
+        type: 'freebie',
+        count: 10,
+      },
     },
     {
       ...baseTask('Land Conqueror II'),
       description: 'Occupy 2 Lv.4 or above territories',
+      requirement: {
+        id: requirementId('Land Conqueror II'),
+        section: 'territories',
+        type: 'level',
+        level: 4,
+        count: 2,
+      },
     },
     {
       ...baseTask('Overall Boost'),
@@ -144,10 +206,23 @@ export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
     {
       ...baseTask('Territory Plunderer II'),
       description: 'Attack territories 15 times (Individual Territory, Strategic City, and Hanzhong City will be counted)',
+      requirement: {
+        id: requirementId('Territory Plunderer II'),
+        section: 'freebie',
+        type: 'freebie',
+        count: 15,
+      },
     },
     {
       ...baseTask('Land Conqueror III'),
       description: 'Occupy 2 Lv.5 or above territories',
+      requirement: {
+        id: requirementId('Land Conqueror III'),
+        section: 'territories',
+        type: 'level',
+        level: 5,
+        count: 2,
+      },
     },
     {
       ...baseTask('Siege I'),
@@ -183,6 +258,13 @@ export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
     {
       ...baseTask('Land Conqueror IV'),
       description: 'Occupy 2 Lv.6 or above territories',
+      requirement: {
+        id: requirementId('Land Conqueror IV'),
+        section: 'territories',
+        type: 'level',
+        level: 6,
+        count: 2,
+      },
     },
     {
       ...baseTask('Siege II'),
@@ -229,10 +311,23 @@ export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
     {
       ...baseTask('Territory Plunderer III'),
       description: 'Attack territories 25 times (Individual Territory, Strategic City, and Hanzhong City will be counted)',
+      requirement: {
+        id: requirementId('Territory Plunderer III'),
+        section: 'freebie',
+        type: 'freebie',
+        count: 25,
+      },
     },
     {
       ...baseTask('Land Conqueror V'),
       description: 'Occupy 5 Lv.6 or above territories',
+      requirement: {
+        id: requirementId('Land Conqueror V'),
+        section: 'territories',
+        type: 'level',
+        level: 6,
+        count: 5,
+      },
     },
     {
       ...baseTask('Siege III'),
@@ -278,10 +373,23 @@ export const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
     {
       ...baseTask('Territory Plunderer IV'),
       description: 'Attack territories 40 times (Individual Territory, Strategic City, and Hanzhong City will be counted)',
+      requirement: {
+        id: requirementId('Territory Plunderer IV'),
+        section: 'freebie',
+        type: 'freebie',
+        count: 40,
+      },
     },
     {
       ...baseTask('Land Conqueror VI'),
       description: 'Occupy 10 Lv.6 or above territories',
+      requirement: {
+        id: requirementId('Land Conqueror VI'),
+        section: 'territories',
+        type: 'level',
+        level: 6,
+        count: 10,
+      },
     },
     {
       ...baseTask('Siege IV'),
