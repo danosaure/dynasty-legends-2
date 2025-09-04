@@ -4,7 +4,7 @@ import { CardWrapper } from '../../shared';
 import type { HanzhongCityType } from './types';
 import { HanzhongContextUserCheckbox } from '../ContextCheckbox';
 import { useHanzhongContext } from '../HanzhongContext';
-import { areRequirementsSatified, type HanzhongRequirementResponse } from '../requirements';
+import { areRequirementsSatisfied, type HanzhongRequirementResponse } from '../requirements';
 import { useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { HANZHONG_REQUIREMENT_RESPONSES } from '../requirements/RequirementResponse';
@@ -20,7 +20,7 @@ export const HanzhongCity = ({ city }: HanzhongCityProps) => {
 
   useEffect(() => {
     if (city.requirement) {
-      const requirementSatisfied = areRequirementsSatified(user, [city.requirement], cache.requirements);
+      const requirementSatisfied = areRequirementsSatisfied(user, [city.requirement], cache.requirements);
       setAvailable(requirementSatisfied);
     }
   }, [user, cache.requirements, setAvailable, city.id, city.requirement]);

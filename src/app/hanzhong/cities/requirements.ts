@@ -1,5 +1,5 @@
 import {
-  areRequirementsSatified,
+  areRequirementsSatisfied,
   errorRequirementResponse,
   isErrorRequirementResponse,
   type HanzhongBaseRequirement,
@@ -45,7 +45,7 @@ export const isCityCountRequirementSatisfied = (
 
       if (isCityOccupied(city.id, userData)) {
         if (city.requirement) {
-          const check = areRequirementsSatified(userData, [city.requirement], requirementsCache);
+          const check = areRequirementsSatisfied(userData, [city.requirement], requirementsCache);
           if (isErrorRequirementResponse(check)) {
             return check;
           }

@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 
 import { PaperWrapper } from '../../shared';
 import { useHanzhongContext } from '../HanzhongContext';
-import { areRequirementsSatified } from '../requirements';
+import { areRequirementsSatisfied } from '../requirements';
 import type { HanzhongWarTierTaskType } from './WarTierTaskType';
 
 export type HanzhongWarTierTaskProps = {
@@ -19,12 +19,12 @@ export const HanzhongWarTierTask = ({ task }: HanzhongWarTierTaskProps) => {
   let borderColor = 'transparent';
 
   if (task.requirement) {
-    const check = areRequirementsSatified(user, [task.requirement], cache.requirements);
+    const check = areRequirementsSatisfied(user, [task.requirement], cache.requirements);
     borderColor = check.satisfied ? theme.palette.success.main : theme.palette.error.main;
     requirementContent = (
       <>
         <Typography color={check.satisfied ? 'success' : 'error'} display="inline">
-          {check.value}
+          {check.value === -1 ? '???' : check.value}
         </Typography>
         <Typography color="info" display="inline">
           /{check.expected}

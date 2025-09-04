@@ -7,7 +7,14 @@ export type HanzhongBaseRequirement = {
   id: string;
 };
 
+export type HanzhongUnverifiableRequirement = HanzhongBaseRequirement & {
+  section: 'freebie';
+  type: 'freebie';
+  count: number;
+};
+
 export type HanzhongRequirement =
+  | HanzhongUnverifiableRequirement
   | HanzhongCitiesRequirement
   | HanzhongTechRequirement
   | HanzhongBanditsRequirement

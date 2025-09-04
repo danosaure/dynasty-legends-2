@@ -1,7 +1,7 @@
 export type { HanzhongRequirement, HanzhongBaseRequirement } from './HanzhongRequirement';
 export type { RequirementsCache } from './RequirementsCache';
 
-export { areRequirementsSatified } from './are-requirements-satisfied';
+export { areRequirementsSatisfied } from './are-requirements-satisfied';
 export {
   HANZHONG_REQUIREMENT_RESPONSE_CODES,
   errorRequirementResponse,

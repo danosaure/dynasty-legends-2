@@ -153,6 +153,12 @@ export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
     {
       ...baseTask('Territory Plunderer I'),
       description: 'Attack territories 10 times (Individual Territory, Strategic City, and Hanzhong City will be counted)',
+      requirement: {
+        id: requirementId('Territory Plunderer I'),
+        section: 'freebie',
+        type: 'freebie',
+        count: 10,
+      },
     },
     {
       ...baseTask('Land Conqueror II'),
@@ -200,6 +206,12 @@ export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
     {
       ...baseTask('Territory Plunderer II'),
       description: 'Attack territories 15 times (Individual Territory, Strategic City, and Hanzhong City will be counted)',
+      requirement: {
+        id: requirementId('Territory Plunderer II'),
+        section: 'freebie',
+        type: 'freebie',
+        count: 15,
+      },
     },
     {
       ...baseTask('Land Conqueror III'),
@@ -299,6 +311,12 @@ export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
     {
       ...baseTask('Territory Plunderer III'),
       description: 'Attack territories 25 times (Individual Territory, Strategic City, and Hanzhong City will be counted)',
+      requirement: {
+        id: requirementId('Territory Plunderer III'),
+        section: 'freebie',
+        type: 'freebie',
+        count: 25,
+      },
     },
     {
       ...baseTask('Land Conqueror V'),
@@ -355,6 +373,12 @@ export const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
     {
       ...baseTask('Territory Plunderer IV'),
       description: 'Attack territories 40 times (Individual Territory, Strategic City, and Hanzhong City will be counted)',
+      requirement: {
+        id: requirementId('Territory Plunderer IV'),
+        section: 'freebie',
+        type: 'freebie',
+        count: 40,
+      },
     },
     {
       ...baseTask('Land Conqueror VI'),
