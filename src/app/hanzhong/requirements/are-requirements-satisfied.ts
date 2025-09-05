@@ -3,6 +3,7 @@ import { isCityRequirementSatisfied } from '../cities';
 import { isTechRequirementSatisfied } from '../techs';
 import { isTerritoryRequirementSatisfied } from '../territories';
 import type { HanzhongUserDataType } from '../types';
+import { isWarTierRequirementSatisfied } from '../war-tiers';
 import type { HanzhongRequirement, HanzhongUnverifiableRequirement } from './HanzhongRequirement';
 import { errorRequirementResponse, HANZHONG_REQUIREMENT_RESPONSES, type HanzhongRequirementResponse } from './RequirementResponse';
 import type { RequirementsCache } from './RequirementsCache';
@@ -41,6 +42,8 @@ export const areRequirementsSatisfied = (
       return isTerritoryRequirementSatisfied(requirement, userData, requirementsCache);
     } else if (requirement.section === 'freebie') {
       return isFreebieRequirementSatisfied(requirement, requirementsCache);
+    } else if (requirement.section === 'wartier') {
+      return isWarTierRequirementSatisfied(requirement, userData, requirementsCache);
     } else {
       return errorRequirementResponse(`Unknown section.`);
     }

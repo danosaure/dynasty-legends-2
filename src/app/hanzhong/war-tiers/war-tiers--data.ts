@@ -1,10 +1,11 @@
 import { sanitizeId } from '../../../utils';
-import { HANZHONG_WAR_TIER_IDS } from '../constants/items-ids';
 import { HANZHONG__WAR_TIERS__TECHS__BY_LEVEL } from '../techs';
 
 import type { HanzhongWarTierType } from './WarTierType';
 
 const assetPath = (f: string): string => `hanzhong/war-tier/${f}.png`;
+
+const warTierIdByLevel = (level: number): string => `hanzhong--war-tier--level-${level}`;
 
 const baseTask = (label: string) => ({
   id: `hanzhong--war-tier--task--${sanitizeId(label)}`,
@@ -13,12 +14,26 @@ const baseTask = (label: string) => ({
 
 const requirementId = (label: string) => baseTask(label).id;
 
-export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
-  id: HANZHONG_WAR_TIER_IDS.LV1,
-  bg: '#B9E5E4',
+const baseWarTier = (level: number) => ({
+  id: warTierIdByLevel(level),
   icon: {
-    path: assetPath('lv1'),
+    path: assetPath(`lv${level}`),
   },
+});
+
+export const HANZHONG_WAR_TIER_IDS = {
+  LV1: 'Hanzhong_WarTier_1',
+  LV2: 'Hanzhong_WarTier_2',
+  LV3: 'Hanzhong_WarTier_3',
+  LV4: 'Hanzhong_WarTier_4',
+  LV5: 'Hanzhong_WarTier_5',
+  LV6: 'Hanzhong_WarTier_6',
+  LV7: 'Hanzhong_WarTier_7',
+};
+
+export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
+  ...baseWarTier(1),
+  bg: '#B9E5E4',
   tasks: [
     {
       ...baseTask('Logging Pioneer'),
@@ -79,10 +94,13 @@ export const HANZHONG_WAR_TIER_1: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
-  id: HANZHONG_WAR_TIER_IDS.LV2,
+  ...baseWarTier(2),
   bg: '#ADE7F7',
-  icon: {
-    path: assetPath('lv2'),
+  requirement: {
+    id: warTierIdByLevel(2),
+    section: 'wartier',
+    type: 'level',
+    level: 1,
   },
   tasks: [
     {
@@ -144,10 +162,13 @@ export const HANZHONG_WAR_TIER_2: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
-  id: HANZHONG_WAR_TIER_IDS.LV3,
+  ...baseWarTier(3),
   bg: '#DBC5FF',
-  icon: {
-    path: assetPath('lv3'),
+  requirement: {
+    id: warTierIdByLevel(3),
+    section: 'wartier',
+    type: 'level',
+    level: 2,
   },
   tasks: [
     {
@@ -197,10 +218,13 @@ export const HANZHONG_WAR_TIER_3: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
-  id: HANZHONG_WAR_TIER_IDS.LV4,
+  ...baseWarTier(4),
   bg: '#F5CB87',
-  icon: {
-    path: assetPath('lv4'),
+  requirement: {
+    id: warTierIdByLevel(4),
+    section: 'wartier',
+    type: 'level',
+    level: 3,
   },
   tasks: [
     {
@@ -249,10 +273,13 @@ export const HANZHONG_WAR_TIER_4: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
-  id: HANZHONG_WAR_TIER_IDS.LV5,
+  ...baseWarTier(5),
   bg: '#FFD9A8',
-  icon: {
-    path: assetPath('lv5'),
+  requirement: {
+    id: warTierIdByLevel(5),
+    section: 'wartier',
+    type: 'level',
+    level: 4,
   },
   tasks: [
     {
@@ -302,10 +329,13 @@ export const HANZHONG_WAR_TIER_5: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
-  id: HANZHONG_WAR_TIER_IDS.LV6,
+  ...baseWarTier(6),
   bg: '#F6E8A4',
-  icon: {
-    path: assetPath('lv6'),
+  requirement: {
+    id: warTierIdByLevel(6),
+    section: 'wartier',
+    type: 'level',
+    level: 5,
   },
   tasks: [
     {
@@ -364,10 +394,13 @@ export const HANZHONG_WAR_TIER_6: HanzhongWarTierType = {
 };
 
 export const HANZHONG_WAR_TIER_7: HanzhongWarTierType = {
-  id: HANZHONG_WAR_TIER_IDS.LV7,
+  ...baseWarTier(7),
   bg: '#FFFCA6',
-  icon: {
-    path: assetPath('lv7'),
+  requirement: {
+    id: warTierIdByLevel(7),
+    section: 'wartier',
+    type: 'level',
+    level: 6,
   },
   tasks: [
     {
