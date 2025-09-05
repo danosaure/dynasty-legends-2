@@ -7,6 +7,8 @@ import { HanzhongTechsTech } from '../techs';
 
 import { HanzhongWarTierTask } from './WarTierTask';
 import type { HanzhongWarTierType } from './WarTierType';
+import { checkRequirement, isHanzhongWarTierRequirementCompleted, isHanzhongWarTierRequirementInactive } from './requirements';
+import { useTheme } from '@mui/material/styles';
 
 export type HanzhongWarTierProps = {
   warTier: HanzhongWarTierType;
@@ -14,18 +16,29 @@ export type HanzhongWarTierProps = {
 };
 
 export const HanzhongWarTier = ({ warTier, techs }: HanzhongWarTierProps) => {
-  const { user } = useHanzhongContext();
+  const theme = useTheme();
+  const { user, cache } = useHanzhongContext();
 
   const content = techs
     ? warTier.techs.map((tech) => <HanzhongTechsTech key={tech.id} info={tech} value={getNumberValue(user, tech.id)} />)
     : warTier.tasks.map((task) => <HanzhongWarTierTask key={task.label} task={task} />);
 
+  const check = checkRequirement(warTier, user, cache.requirements);
+  let opacity = 1;
+  let checkColor: string = 'transparent';
+  if (isHanzhongWarTierRequirementCompleted(check)) {
+    checkColor = theme.palette.success.main;
+  } else if (isHanzhongWarTierRequirementInactive(check)) {
+    checkColor = theme.palette.error.main;
+    opacity = 0.5;
+  }
+
   return (
-    <PaperWrapper>
+    <PaperWrapper sx={{ border: `3px solid ${checkColor}`, backgroundColor: warTier.bg, opacity }}>
       <Grid
         container
         spacing={0}
-        sx={{ backgroundColor: warTier.bg, p: 1, justifyContent: 'flex-start', alignItems: 'flex-start' }}
+        sx={{ p: 1, justifyContent: 'flex-start', alignItems: 'flex-start' }}
         direction={{ xs: 'column', sm: 'row' }}
       >
         <Grid sx={{ width: '70px' }}>
