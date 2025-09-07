@@ -37,7 +37,7 @@ export const TerritoryLevelResource = ({ label, level, earning }: TerritoryLevel
           </Grid>
         </Grid>
         <Grid size={{ xs: 12 }} sx={{ p: 0 }}>
-          <ValueAdjuster value={user[earning.id] ?? 0} onChange={(newValue: number) => onChange(id, newValue)} />
+          <ValueAdjuster value={user[earning.id] ?? 0} onChange={(newValue: number) => onChange(earning.id, newValue)} />
         </Grid>
       </Grid>
     </CardWrapper>
