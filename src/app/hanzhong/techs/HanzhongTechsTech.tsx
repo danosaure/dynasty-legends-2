@@ -14,8 +14,17 @@ export const HanzhongTechsTech = ({ info, value }: HanzhongTechsTechProps) => {
 
   let satisfiedRequirements = null;
   if (info.requirements) {
-    const check = areRequirementsSatisfied(user, info.requirements, cache.requirements);
-    satisfiedRequirements = check.satisfied || check.value === 0;
+    satisfiedRequirements = info.requirements.reduce<boolean>((stillValid, requirement) => {
+      if (!stillValid) {
+        return false;
+      }
+
+      const check = areRequirementsSatisfied(user, [requirement], cache.requirements);
+      if (requirement.section === 'wartier' && requirement.type === 'level') {
+        return check.satisfied || check.value === 0;
+      }
+      return check.satisfied;
+    }, true);
   }
 
   return (
