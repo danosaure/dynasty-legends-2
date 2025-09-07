@@ -115,6 +115,12 @@ export const HANZHONG_TECH_LUMBER_MILL: HanzhongTechType = {
   ),
   requirements: [
     {
+      id: `tech--war-tier--level--2`,
+      section: 'wartier',
+      type: 'level',
+      level: 1,
+    },
+    {
       id: `tech--free-paths--level--1`,
       section: 'techs',
       type: 'level',
@@ -141,6 +147,12 @@ export const HANZHONG_TECH_GRANARY: HanzhongTechType = {
   ),
   requirements: [
     {
+      id: `tech--war-tier--level--2`,
+      section: 'wartier',
+      type: 'level',
+      level: 1,
+    },
+    {
       id: `tech--free-paths--level--1`,
       section: 'techs',
       type: 'level',
@@ -166,6 +178,12 @@ export const HANZHONG_TECH_IRON_FOUNDRY: HanzhongTechType = {
     ]
   ),
   requirements: [
+    {
+      id: `tech--war-tier--level--2`,
+      section: 'wartier',
+      type: 'level',
+      level: 1,
+    },
     {
       id: `tech--free-paths--level--1`,
       section: 'techs',
@@ -194,6 +212,14 @@ export const HANZHONG_TECH_MIGHTY_GENERALS: HanzhongTechType = {
       },
     },
   ],
+  requirements: [
+    {
+      id: `tech--war-tier--level--2`,
+      section: 'wartier',
+      type: 'level',
+      level: 1,
+    },
+  ],
 };
 
 //
@@ -220,6 +246,14 @@ export const HANZHONG_TECH_DILIGENT_WARRIOR_1: HanzhongTechType = {
       [36100, 36100, 36100, 42600, 21200, 3190000],
     ]
   ),
+  requirements: [
+    {
+      id: `tech--war-tier--level--3`,
+      section: 'wartier',
+      type: 'level',
+      level: 2,
+    },
+  ],
 };
 export const HANZHONG_TECH_TERRITORY_EXPANSION: HanzhongTechType = {
   id: HANZHONG_TECH_IDS.TERRITORY_EXPANSION,
@@ -241,6 +275,14 @@ export const HANZHONG_TECH_TERRITORY_EXPANSION: HanzhongTechType = {
       [12700, 12700, 12700, 15],
     ]
   ),
+  requirements: [
+    {
+      id: `tech--war-tier--level--3`,
+      section: 'wartier',
+      type: 'level',
+      level: 2,
+    },
+  ],
 };
 
 //
@@ -268,6 +310,12 @@ export const HANZHONG_TECH_ATTACK_TRAINING_2: HanzhongTechType = {
     ]
   ),
   requirements: [
+    {
+      id: `tech--war-tier--level--4`,
+      section: 'wartier',
+      type: 'level',
+      level: 3,
+    },
     {
       id: `tech--attack-training-I--level--6`,
       section: 'techs',
@@ -300,6 +348,12 @@ export const HANZHONG_TECH_DEFENSE_TRAINING_2: HanzhongTechType = {
   ),
   requirements: [
     {
+      id: `tech--war-tier--level--4`,
+      section: 'wartier',
+      type: 'level',
+      level: 3,
+    },
+    {
       id: `tech--defense-training-I--level--6`,
       section: 'techs',
       type: 'level',
@@ -331,6 +385,12 @@ export const HANZHONG_TECH_TENACITY_TRAINING_2: HanzhongTechType = {
   ),
   requirements: [
     {
+      id: `tech--war-tier--level--4`,
+      section: 'wartier',
+      type: 'level',
+      level: 3,
+    },
+    {
       id: `tech--tenacity-training-I--level--6`,
       section: 'techs',
       type: 'level',
@@ -359,6 +419,14 @@ export const HANZHONG_TECH_OVERALL_DEVELOPMENT: HanzhongTechType = {
       [6912, 6912, 6912, 1980, 1980, 1980],
     ]
   ),
+  requirements: [
+    {
+      id: `tech--war-tier--level--5`,
+      section: 'wartier',
+      type: 'level',
+      level: 4,
+    },
+  ],
 };
 
 export const HANZHONG_TECH_UNITED_STRENGTH: HanzhongTechType = {
@@ -377,6 +445,14 @@ export const HANZHONG_TECH_UNITED_STRENGTH: HanzhongTechType = {
         description:
           'Deploying 6 Officers of the same faction in a Formation additionally increases the damage dealt in battle by 20%.',
       },
+    },
+  ],
+  requirements: [
+    {
+      id: `tech--war-tier--level--5`,
+      section: 'wartier',
+      type: 'level',
+      level: 4,
     },
   ],
 };
@@ -399,6 +475,12 @@ export const HANZHONG_TECH_FORMATION_EXPANSION: HanzhongTechType = {
     },
   ],
   requirements: [
+    {
+      id: `tech--war-tier--level--5`,
+      section: 'wartier',
+      type: 'level',
+      level: 4,
+    },
     {
       id: `tech--attack-training-II--level--6`,
       section: 'techs',
@@ -435,6 +517,12 @@ export const HANZHONG_TECH_SPECIAL_TRAINING_VANGUARD_CAMP: HanzhongTechType = {
   ),
   requirements: [
     {
+      id: `tech--war-tier--level--6`,
+      section: 'wartier',
+      type: 'level',
+      level: 5,
+    },
+    {
       id: `tech--defense-training-II--level--6`,
       section: 'techs',
       type: 'level',
@@ -465,6 +553,12 @@ export const HANZHONG_TECH_SPECIAL_TRAINING_VALIANT_CAVALRY: HanzhongTechType = 
     ]
   ),
   requirements: [
+    {
+      id: `tech--war-tier--level--6`,
+      section: 'wartier',
+      type: 'level',
+      level: 5,
+    },
     {
       id: `tech--tenacity-training-II--level--6`,
       section: 'techs',
@@ -497,6 +591,12 @@ export const HANZHONG_TECH_SPECIAL_TRAINING_ROYAL_GUARDS: HanzhongTechType = {
   ),
   requirements: [
     {
+      id: `tech--war-tier--level--6`,
+      section: 'wartier',
+      type: 'level',
+      level: 5,
+    },
+    {
       id: `tech--formation-expansion--level--6`,
       section: 'techs',
       type: 'level',
@@ -521,6 +621,14 @@ export const HANZHONG_TECH_REHABILITATION: HanzhongTechType = {
       bonuses: {
         description: "Increases all Formation's March Orders cap by 20",
       },
+    },
+  ],
+  requirements: [
+    {
+      id: `tech--war-tier--level--6`,
+      section: 'wartier',
+      type: 'level',
+      level: 5,
     },
   ],
 };
@@ -550,6 +658,12 @@ export const HANZHONG_TECH_DILIGENT_WARRIOR_3: HanzhongTechType = {
     ]
   ),
   requirements: [
+    {
+      id: `tech--war-tier--level--7`,
+      section: 'wartier',
+      type: 'level',
+      level: 6,
+    },
     {
       id: `tech--formation-expansion--level--6`,
       section: 'techs',
