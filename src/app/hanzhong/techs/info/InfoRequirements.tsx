@@ -1,35 +1,32 @@
-import Typography from '@mui/material/Typography';
-import { type HanzhongRequirement, type HanzhongRequirementResponse } from '../../requirements';
+import { areRequirementsSatisfied, type HanzhongRequirement, type RequirementsCache } from '../../requirements';
 import { useHanzhongContext } from '../../HanzhongContext';
+import { HanzhongTechInfoRequirementWrapper } from './InfoRequirementWrapper';
+import { infoRequirementTextColor } from './info-requirement-text-color';
+import { HanzhongTechInfoRequirementTechLevel } from './InfoRequirementTechLevel';
+import { HanzhongTechInfoRequirementWarTierLevel } from './InfoRequirementWarTierLevel';
+import type { HanzhongUserDataType } from '../../types';
 
-const LABEL_BY_SECTION: Record<string, string> = {
-  techs: 'Tech',
-} as const;
+const requirementInfo = (
+  requirement: HanzhongRequirement,
+  userData: HanzhongUserDataType,
+  requirementsCache: RequirementsCache
+) => {
+  const check = areRequirementsSatisfied(userData, [requirement], requirementsCache);
+  let info;
 
-const requirementInfo = (requirement: HanzhongRequirement, check: HanzhongRequirementResponse) => {
+  const color = infoRequirementTextColor(check);
+
   if (requirement.section === 'techs') {
     if (requirement.type === 'level') {
-      return (
-        <>
-          <Typography color="error" display="inline" fontWeight="bold">
-            {requirement.techName}
-          </Typography>
-          <Typography display="inline"> upgraded to Lv.</Typography>
-          <Typography color="error" display="inline" fontWeight="bold">
-            {requirement.level}
-          </Typography>{' '}
-          (
-          <Typography color="error" display="inline">
-            {check.value}
-          </Typography>
-          <Typography color="info" display={'inline'}>
-            /{check.expected}
-          </Typography>
-          )
-        </>
-      );
+      info = <HanzhongTechInfoRequirementTechLevel requirement={requirement} check={check} color={color} />;
+    }
+  } else if (requirement.section === 'wartier') {
+    if (requirement.type === 'level') {
+      info = <HanzhongTechInfoRequirementWarTierLevel requirement={requirement} color={color} />;
     }
   }
+
+  return <HanzhongTechInfoRequirementWrapper requirement={requirement}>{info}</HanzhongTechInfoRequirementWrapper>;
 };
 
 export type HanzhongTechsTechInfoRequirementsProps = {
@@ -37,23 +34,10 @@ export type HanzhongTechsTechInfoRequirementsProps = {
 };
 
 export const HanzhongTechsTechInfoRequirements = ({ requirements }: HanzhongTechsTechInfoRequirementsProps) => {
-  const { cache } = useHanzhongContext();
+  const { user, cache } = useHanzhongContext();
 
-  if (!requirements || !requirements.length) {
+  if (!requirements?.length) {
     return null;
   }
-  return requirements.map((requirement) => {
-    console.log(`<HanzhongTechsTechInfoRequirements>: cache=`, cache);
-    const check = cache.requirements[requirement.id];
-
-    if (check && check.satisfied) {
-      return null;
-    }
-
-    return (
-      <Typography key={`${requirement.section}--${requirement.type}`} textAlign="center">
-        Required {LABEL_BY_SECTION[requirement.section]}: {requirementInfo(requirement, check)}
-      </Typography>
-    );
-  });
+  return requirements.map((requirement) => requirementInfo(requirement, user, cache.requirements));
 };
