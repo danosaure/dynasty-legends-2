@@ -1,14 +1,16 @@
 import Typography from '@mui/material/Typography';
 import type { HanzhongTechLevelRequirement } from '../requirements';
 import type { HanzhongRequirementResponse } from '../../requirements';
+import { infoRequirementTextColor } from './info-requirement-text-color';
 
 export type HanzhongTechInfoRequirementTechLevelProps = {
   requirement: HanzhongTechLevelRequirement;
-  color: string;
   check: HanzhongRequirementResponse;
 };
 
-export const HanzhongTechInfoRequirementTechLevel = ({ requirement, check, color }: HanzhongTechInfoRequirementTechLevelProps) => {
+export const HanzhongTechInfoRequirementTechLevel = ({ requirement, check }: HanzhongTechInfoRequirementTechLevelProps) => {
+  const color = infoRequirementTextColor(check);
+
   return (
     <>
       <Typography color={color} display="inline" fontWeight="bold">
