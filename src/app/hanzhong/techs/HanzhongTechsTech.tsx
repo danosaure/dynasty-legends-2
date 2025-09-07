@@ -15,7 +15,7 @@ export const HanzhongTechsTech = ({ info, value }: HanzhongTechsTechProps) => {
   let satisfiedRequirements = null;
   if (info.requirements) {
     const check = areRequirementsSatisfied(user, info.requirements, cache.requirements);
-    satisfiedRequirements = check.satisfied;
+    satisfiedRequirements = check.satisfied || check.value === 0;
   }
 
   return (
