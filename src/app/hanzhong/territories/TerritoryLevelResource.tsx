@@ -11,13 +11,14 @@ export type TerritoryLevelResourceProps = {
   label: string;
   level: number;
   earning: HanzhongTerritoryLevelEarningsType;
+  color: string;
 };
 
-export const TerritoryLevelResource = ({ label, level, earning }: TerritoryLevelResourceProps) => {
+export const TerritoryLevelResource = ({ label, level, earning, color }: TerritoryLevelResourceProps) => {
   const { user, onChange } = useHanzhongContext();
 
   return (
-    <CardWrapper>
+    <CardWrapper sx={{ border: `1px solid ${color}` }}>
       <Grid container sx={{ justifyContent: 'center', alignItems: 'center' }} direction="column">
         <Grid container direction="row">
           <Grid size="auto" display={{ xs: 'none', sm: 'block' }}>
@@ -25,12 +26,12 @@ export const TerritoryLevelResource = ({ label, level, earning }: TerritoryLevel
           </Grid>
           <Grid container size="grow">
             <Grid size={{ xs: 12 }}>
-              <Typography align="center" sx={{ fontSize: 12 }}>
+              <Typography align="center" sx={{ fontSize: 12, color }}>
                 Lv.{level}
               </Typography>
             </Grid>
             <Grid size={{ xs: 12 }}>
-              <Typography align="center" sx={{ fontSize: 13 }}>
+              <Typography align="center" sx={{ fontSize: 13, color }}>
                 {label}
               </Typography>
             </Grid>
