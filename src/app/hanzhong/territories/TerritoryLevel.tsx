@@ -3,8 +3,8 @@ import Grid from '@mui/material/Grid';
 import { TerritoryLevelResource } from './TerritoryLevelResource';
 import type { HanzhongTerritoryLevelType } from './TerritoryLevelType';
 import { useHanzhongContext } from '../HanzhongContext';
-
-const THRESHOLD = 0.7;
+import { useMemo } from 'react';
+import { getColorByTacticalPoints } from '../utils';
 
 export type TerritoryLevelProps = {
   index: number;
@@ -14,13 +14,10 @@ export type TerritoryLevelProps = {
 export const TerritoryLevel = ({ index, level }: TerritoryLevelProps) => {
   const { cache } = useHanzhongContext();
 
-  const minTacticalPoints = Math.min(...cache.tacticalPoints.map<number>((info) => info.value));
-  let color: string = 'red';
-  if (minTacticalPoints >= level.tacticalPoints) {
-    color = 'darkgreen';
-  } else if (minTacticalPoints / THRESHOLD >= level.tacticalPoints) {
-    color = 'DarkOrange';
-  }
+  const color = useMemo(
+    () => getColorByTacticalPoints(cache.tacticalPoints, level.tacticalPoints),
+    [cache.tacticalPoints, level.tacticalPoints]
+  );
 
   return (
     <Grid container direction={{ xs: 'row' }} spacing={1}>

@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { cityIdByName } from './utils';
 import type { HanzhongUserDataType } from '../types';
 import { isCityRequirementSatisfied, type HanzhongCitiesRequirement } from './requirements';
 import type { RequirementsCache } from '../requirements/RequirementsCache';
+import { cityIdByName } from './cities--data';
 
 describe('areCityRequirementsSatisfied()', () => {
   const requirementsCache: RequirementsCache = {};

@@ -8,10 +8,10 @@ import {
 } from '../requirements';
 import { HANZHONG_REQUIREMENT_RESPONSES } from '../requirements/RequirementResponse';
 import type { HanzhongUserDataType } from '../types';
-import { HANZHONG_CITIES } from './data';
-import type { HanzhongCityType } from './types';
+import { getCityByName, HANZHONG_CITIES } from './cities--data';
+import type { HanzhongCityType } from './CityType';
 
-import { getCityByName, isCityOccupied } from './utils';
+import { isCityOccupied } from './utils';
 
 const SECTION_NAME = 'cities';
 
