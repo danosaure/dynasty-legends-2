@@ -52,7 +52,7 @@ export const HanzhongLayout = () => {
       onChange,
       formationsUserData,
       onChangeFormations,
-      cache: { requirements: {} },
+      cache: { requirements: {}, tacticalPoints: [] },
     });
   }, [userData, formationsUserData, bonuses]);
 

@@ -22,7 +22,7 @@ export const DEFAULT_HANZHONG_CONTEXT_DATA: HanzhongContextType = {
   onChange: () => {},
   formationsUserData: {},
   onChangeFormations: () => {},
-  cache: { requirements: {} },
+  cache: { requirements: {}, tacticalPoints: [] },
 };
 
 export const HanzhongContext = createContext<HanzhongContextType>({ ...DEFAULT_HANZHONG_CONTEXT_DATA });
