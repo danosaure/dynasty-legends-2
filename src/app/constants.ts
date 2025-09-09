@@ -16,3 +16,9 @@ export const DEFAULT_THEME = createTheme({
     },
   },
 });
+
+export const COLORS: Record<string, string> = {
+  OK: 'DarkGreen',
+  WARNING: 'DarkOrange',
+  ERROR: 'Red',
+} as const;

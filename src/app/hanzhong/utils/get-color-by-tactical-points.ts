@@ -1,3 +1,4 @@
+import { COLORS } from '../../constants';
 import type { HanzhongInfoDataType } from '../types';
 
 const THRESHOLD = 0.7;
@@ -5,10 +6,10 @@ const THRESHOLD = 0.7;
 export const getColorByTacticalPoints = (formationsTacticalPoints: HanzhongInfoDataType[], targetTacticalPoint: number): string => {
   const minTacticalPoints = Math.min(...formationsTacticalPoints.map<number>((info) => info.value));
   if (minTacticalPoints >= targetTacticalPoint) {
-    return 'DarkGreen';
+    return COLORS.OK;
   } else if (minTacticalPoints / THRESHOLD >= targetTacticalPoint) {
-    return 'DarkOrange';
+    return COLORS.WARNING;
   } else {
-    return 'Red';
+    return COLORS.ERROR;
   }
 };
