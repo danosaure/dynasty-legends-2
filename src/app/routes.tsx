@@ -6,6 +6,7 @@ import { AppLayout } from './layout';
 import { AppMain } from './main';
 import { OfficersRoutes } from './officers';
 import { UsersRoutes } from './users';
+import { BanquetQuiz } from './banquet-quiz';
 
 export const MainRoutes = (
   <Route Component={AppLayout}>
@@ -13,6 +14,7 @@ export const MainRoutes = (
     <Route path="hanzhong">{HanzhongRoutes}</Route>
     <Route path="officers">{OfficersRoutes}</Route>
     <Route path="users">{UsersRoutes}</Route>
+    <Route path="banquet-quiz" Component={BanquetQuiz} />
     <Route path="*" Component={App404} />
   </Route>
 );
