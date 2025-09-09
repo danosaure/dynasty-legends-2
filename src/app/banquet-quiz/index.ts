@@ -1,0 +1,1 @@
+export { BanquetQuiz } from './Layout';
