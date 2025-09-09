@@ -6,7 +6,7 @@ import { BANQUET_QUIZ } from './data';
 
 const defaultProps: BanquetQuizQuestionProps = {
   question: BANQUET_QUIZ[0],
-  onClick: fn(),
+  onAnswerSelected: fn(),
 };
 
 const meta = {

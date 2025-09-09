@@ -11,10 +11,10 @@ const getOptionLetter = (index: number): string => String.fromCodePoint(CHARCODE
 export type BanquetQuizQuestionProps = {
   question: BanquetQuizType;
   selected?: string;
-  onClick: (label: string) => void;
+  onAnswerSelected: (label: string) => void;
 };
 
-export const BanquetQuizQuestion = ({ question, onClick, selected }: BanquetQuizQuestionProps) => {
+export const BanquetQuizQuestion = ({ question, onAnswerSelected, selected }: BanquetQuizQuestionProps) => {
   const optionsJSX = question.options.map((option, index) => {
     let buttonVariant: ButtonOwnProps['variant'] = 'outlined';
     let buttonColor: ButtonOwnProps['color'];
@@ -29,10 +29,10 @@ export const BanquetQuizQuestion = ({ question, onClick, selected }: BanquetQuiz
     }
 
     return (
-      <Grid key={option.label} size={6}>
+      <Grid key={option.label} size={{ xs: 12, sm: 6 }}>
         <PaperWrapper>
           <Button
-            onClick={() => onClick(option.label)}
+            onClick={() => onAnswerSelected(option.label)}
             variant={buttonVariant}
             sx={{ width: '100%', justifyContent: 'flex-start' }}
             color={buttonColor}
