@@ -30,7 +30,7 @@ export class LeitnerSystem<T extends LeitnerMustHaveId> {
    *
    * @returns The current item or `undefined` if no more is available.
    */
-  *next(): Generator<T> {
+  *questions(): Generator<T> {
     for (const id of this.currentDeck) {
       const currentItem = this.data.find((item) => item.id === id);
 
