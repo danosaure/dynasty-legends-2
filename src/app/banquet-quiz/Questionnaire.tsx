@@ -1,43 +1,66 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 
 import { PaperWrapper } from '../shared';
 import { BANQUET_QUIZ } from './data';
 import { BanquetQuizQuestion } from './Question';
 import type { BanquetQuizType } from './types';
-
-const NUMBER_OF_QUESTIONS = BANQUET_QUIZ.length;
-
-const getRandomQuestion = () => BANQUET_QUIZ[Math.floor(Math.random() * NUMBER_OF_QUESTIONS)];
+import { LeitnerSystem } from '../../libs';
 
 export const BanquetQuizQuestionnaire = () => {
   const [selected, setSelected] = useState<string>('');
-  const [question, setQuestion] = useState<BanquetQuizType>(getRandomQuestion());
-  const [totalQuestions, setTotalQuestions] = useState<number>(0);
-  const [correctAnswers, setCorrectAnswers] = useState<number>(0);
+  const [question, setQuestion] = useState<BanquetQuizType>();
+  const [leitner, setLeitner] = useState<LeitnerSystem<BanquetQuizType> | null>(null);
+  const [questionGenerator, setQuestionGenerator] = useState<Generator<BanquetQuizType | undefined>>();
+
+  useEffect(() => {
+    // TODO: fetch data from persistence.
+
+    const questionnaire = new LeitnerSystem<BanquetQuizType>(BANQUET_QUIZ, 0);
+    setLeitner(questionnaire);
+
+    const generator = questionnaire.questions();
+    setQuestionGenerator(generator);
+
+    const questionIteration = generator.next();
+    setQuestion(questionIteration.value);
+  }, []);
 
   const onAnswerSelected = (label: string) => {
     setSelected(label);
-    setTotalQuestions(totalQuestions + 1);
-
-    if (question.options.find((option) => option.label === label)?.answer) {
-      setCorrectAnswers(correctAnswers + 1);
+    if (question) {
+      const correct = question.options.find((option) => option.label === label)?.answer;
+      leitner?.rebox(question.id, correct ?? false);
     }
   };
 
   const nextQuestion = () => {
     setSelected('');
-    setQuestion(getRandomQuestion());
+    if (questionGenerator) {
+      const questionIteration = questionGenerator.next();
+      if (questionIteration.done) {
+        console.log('DONE QUESTIONNAIRE...');
+      } else {
+        setQuestion(questionIteration.value);
+      }
+    }
   };
 
-  let stats = <Typography>Answer at least one question to get statistics</Typography>;
-  if (totalQuestions) {
-    stats = (
-      <Typography>
-        {correctAnswers}/{totalQuestions} ({Math.floor((correctAnswers / totalQuestions) * 100)}%)
-      </Typography>
+  if (!leitner || !question) {
+    return null;
+  }
+
+  const leitnerStats = leitner.stats();
+
+  console.log('leitnerStats=', leitnerStats);
+
+  let percentJSX = null;
+  if (leitnerStats.answered) {
+    percentJSX = (
+      <>
+        Results: {leitnerStats.correct}/{leitnerStats.answered} ({leitnerStats.percent}%)
+      </>
     );
   }
 
@@ -45,7 +68,12 @@ export const BanquetQuizQuestionnaire = () => {
     <PaperWrapper sx={{ p: 3 }}>
       <Grid container spacing={2} direction="column">
         <BanquetQuizQuestion question={question} onAnswerSelected={selected ? () => {} : onAnswerSelected} selected={selected} />
-        {stats}
+        <Grid container>
+          <Grid size={{ xs: 6 }}>
+            Progress: {leitnerStats.questionIndex ?? 0 + 1}/{leitnerStats.currentDeckSize}
+          </Grid>
+          <Grid size={{ xs: 6 }}>{percentJSX}</Grid>
+        </Grid>
         <Button onClick={() => nextQuestion()} variant="outlined" disabled={!selected}>
           Next Question
         </Button>
