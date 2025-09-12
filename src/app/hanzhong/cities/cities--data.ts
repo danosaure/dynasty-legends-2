@@ -130,8 +130,6 @@ export const HANZHONG_CITIES: HanzhongCityType[] = [
   HANZHONG__CITY__HANZHONG_CITY,
 ] as const;
 
-console.log(`HANZHONG_CITIES=`, HANZHONG_CITIES);
-
 type CacheType = Record<string, HanzhongCityType>;
 
 const __CACHE_BY_ID: CacheType = HANZHONG_CITIES.reduce<CacheType>(
