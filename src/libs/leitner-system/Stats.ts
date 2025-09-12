@@ -8,4 +8,7 @@ export type LeitnerStats = {
   retiredDeck: LeitnerBox;
   correct: number;
   currentDeckSize: number;
+  questionIndex: number;
+  answered: number;
+  percent: number;
 };

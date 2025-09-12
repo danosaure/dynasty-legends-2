@@ -15,6 +15,8 @@ export class LeitnerSystem<T extends LeitnerMustHaveId> {
 
   private boxes: LeitnerBoxes;
   private correct: number = 0;
+  private questionIndex: number = 0;
+  private answered: number = 0;
 
   constructor(data: T[], sessionId: LeitnerSessionId = 0, boxes: LeitnerBoxes = EMPTY_BOXES, retiredDeck: LeitnerBox = []) {
     this.data = data;
@@ -28,7 +30,7 @@ export class LeitnerSystem<T extends LeitnerMustHaveId> {
    *
    * @returns The current item or `undefined` if no more is available.
    */
-  *next(): Generator<T | undefined> {
+  *next(): Generator<T> {
     for (const id of this.currentDeck) {
       const currentItem = this.data.find((item) => item.id === id);
 
@@ -36,6 +38,7 @@ export class LeitnerSystem<T extends LeitnerMustHaveId> {
         throw new LeitnerSystemError(`Invalid item id="${id}" in current deck.`);
       }
 
+      this.questionIndex++;
       yield currentItem;
     }
   }
@@ -50,19 +53,24 @@ export class LeitnerSystem<T extends LeitnerMustHaveId> {
   }
 
   rebox(id: string, correct: boolean) {
+    this.answered++;
+
     if (correct) {
       this.correct++;
       this.boxes = this.boxes.map((box, index) => {
         if (box.includes(id)) {
           // Is the box ending with the session number?
+
           if (LEITNER_BOX_NAMES[index].endsWith(String(this.sessionId))) {
             this.retiredDeck.push(id);
-            return box.filter((itemId) => itemId !== id);
-          } else if (index === (this.sessionId as number)) {
-            // Add to the session box.
-            return box.concat([id]);
           }
+
+          return box.filter((itemId) => itemId !== id);
+        } else if (index == (this.sessionId as number)) {
+          // Add to the session box.
+          return box.concat([id]);
         }
+
         return box;
       }) as LeitnerBoxes;
     }
@@ -74,7 +82,10 @@ export class LeitnerSystem<T extends LeitnerMustHaveId> {
       boxes: this.boxes,
       retiredDeck: this.retiredDeck,
       correct: this.correct,
+      answered: this.answered,
       currentDeckSize: this.currentDeck.length,
+      questionIndex: this.questionIndex,
+      percent: this.answered ? Math.floor((this.correct / this.answered) * 100) : 0,
     };
   }
 }
