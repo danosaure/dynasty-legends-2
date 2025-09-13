@@ -1,15 +1,20 @@
 import { useEffect, useState } from 'react';
+import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 
+import { EMPTY_LEITNER_BOXES, LeitnerSystem, type LeitnerBox, type LeitnerBoxes } from '../../libs/leitner-system';
+import { useAppContext } from '../Context';
 import { PaperWrapper } from '../shared';
+
 import { BANQUET_QUIZ } from './data';
+import { saveBanquetQuiz } from './persistence';
 import { BanquetQuizQuestion } from './Question';
 import type { BanquetQuizType } from './types';
-import Typography from '@mui/material/Typography';
-import { LeitnerSystem, type LeitnerBox, type LeitnerBoxes } from '../../libs/leitner-system';
 
 export const BanquetQuizQuestionnaire = () => {
+  const { user } = useAppContext();
+
   const [selected, setSelected] = useState<string>('');
   const [question, setQuestion] = useState<BanquetQuizType>();
   const [leitner, setLeitner] = useState<LeitnerSystem<BanquetQuizType> | null>(null);
@@ -28,15 +33,19 @@ export const BanquetQuizQuestionnaire = () => {
   };
 
   useEffect(() => {
-    // TODO: fetch data from persistence.
-    initializeSession(0, [[], [], [], [], [], [], [], [], [], []], []);
+    initializeSession(
+      user.banquetQuiz?.sessionId ?? 0,
+      user.banquetQuiz?.decks.boxes ?? EMPTY_LEITNER_BOXES,
+      user.banquetQuiz?.decks.retired ?? []
+    );
   }, []);
 
   const onAnswerSelected = (label: string) => {
     setSelected(label);
-    if (question) {
+    if (question && leitner) {
       const correct = question.options.find((option) => option.label === label)?.answer;
-      leitner?.rebox(question.id, correct ?? false);
+      leitner.rebox(question.id, correct ?? false);
+      saveBanquetQuiz(user.id, leitner);
     }
     setIsSessionDone(leitnerStats.questionIndex === leitnerStats.currentDeckSize);
   };
@@ -51,21 +60,28 @@ export const BanquetQuizQuestionnaire = () => {
         setQuestion(questionIteration.value);
       }
     }
+    if (leitner) {
+      saveBanquetQuiz(user.id, leitner);
+    }
   };
 
   const startNextSession = () => {
-    initializeSession((leitnerStats.sessionId as number) + 1, leitnerStats.boxes, leitnerStats.retiredDeck);
+    initializeSession(leitnerStats.sessionId + 1, leitnerStats.boxes, leitnerStats.retiredDeck);
     setIsSessionDone(false);
     setSelected('');
   };
+
+  useEffect(() => {
+    if (leitner) {
+      saveBanquetQuiz(user.id, leitner);
+    }
+  }, [user.id, leitner]);
 
   if (!leitner) {
     return null;
   }
 
   const leitnerStats = leitner.stats();
-
-  // console.log('leitnerStats=', JSON.stringify(leitnerStats, null, 2));
 
   let percentJSX = null;
   if (leitnerStats.answered) {
@@ -77,12 +93,12 @@ export const BanquetQuizQuestionnaire = () => {
   }
 
   return (
-    <PaperWrapper sx={{ p: 3 }}>
+    <PaperWrapper sx={{ p: 1 }}>
       <Grid container spacing={2} direction="column">
         {question ? (
           <BanquetQuizQuestion question={question} onAnswerSelected={selected ? () => {} : onAnswerSelected} selected={selected} />
         ) : (
-          <Typography color="warning">No questions for this session.</Typography>
+          <Alert severity="warning">No questions for this session.</Alert>
         )}
         <Grid container>
           <Grid size={{ xs: 4 }}>Session: {leitnerStats.sessionId + 1}</Grid>
@@ -93,7 +109,7 @@ export const BanquetQuizQuestionnaire = () => {
         </Grid>
         {isSessionDone || !question ? (
           <>
-            <Typography color="success">Session completed.</Typography>
+            <Alert severity="success">Session completed.</Alert>
             <Button onClick={() => startNextSession()} variant="contained">
               Start Next Session
             </Button>

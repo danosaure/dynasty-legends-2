@@ -29,7 +29,7 @@ export const BanquetQuizQuestion = ({ question, onAnswerSelected, selected }: Ba
     }
 
     return (
-      <Grid key={option.label} size={{ xs: 12, sm: 6 }}>
+      <Grid key={option.label} size={{ xs: 6, sm: 6 }}>
         <PaperWrapper>
           <Button
             onClick={() => onAnswerSelected(option.label)}
@@ -52,10 +52,10 @@ export const BanquetQuizQuestion = ({ question, onAnswerSelected, selected }: Ba
   return (
     <PaperWrapper sx={{ p: 3 }}>
       <Grid container spacing={2}>
-        <Grid size={12}>
+        <Grid size={12} height={{ xs: 100, sm: 80 }}>
           <Typography variant="body1">{question.question}</Typography>
         </Grid>
-        <Grid container size={12} spacing={2}>
+        <Grid container size={12} spacing={2} height={{ xs: 120, sm: 100 }}>
           {optionsJSX}
         </Grid>
       </Grid>
