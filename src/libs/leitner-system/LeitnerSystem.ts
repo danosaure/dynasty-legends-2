@@ -1,9 +1,8 @@
 import type { LeitnerBox } from './Box';
 import { LEITNER_BOX_NAMES } from './box-names';
-import { EMPTY_BOXES, type LeitnerBoxes } from './Boxes';
+import { EMPTY_LEITNER_BOXES, type LeitnerBoxes } from './Boxes';
 import type { CurrentDeckItem } from './CurrentDeckItem';
 import { defineCurrentDeck } from './define-current-deck';
-import { LeitnerSystemError } from './Error';
 import type { LeitnerMustHaveId } from './MustHaveId';
 import type { LeitnerSessionId } from './SessionId';
 import type { LeitnerStats } from './Stats';
@@ -20,7 +19,7 @@ export class LeitnerSystem<T extends LeitnerMustHaveId> {
   private questionIndex: number = 0;
   private answered: number = 0;
 
-  constructor(data: T[], sessionId: number = 0, boxes: LeitnerBoxes = EMPTY_BOXES, retiredDeck: LeitnerBox = []) {
+  constructor(data: T[], sessionId: number = 0, boxes: LeitnerBoxes = EMPTY_LEITNER_BOXES, retiredDeck: LeitnerBox = []) {
     this.data = data;
     this.userSessionId = sessionId;
     this.sessionId = (sessionId % 10) as LeitnerSessionId;
@@ -38,7 +37,7 @@ export class LeitnerSystem<T extends LeitnerMustHaveId> {
       const currentItem = this.data.find((item) => item.id === currentDeckItem.id);
 
       if (!currentItem) {
-        throw new LeitnerSystemError(`Invalid item id="${currentDeckItem.id}" in current deck.`);
+        return; // Just end the questionnaire.
       }
 
       this.questionIndex++;
