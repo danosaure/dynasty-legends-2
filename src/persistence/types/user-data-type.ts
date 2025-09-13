@@ -1,3 +1,4 @@
+import type { BanquetQuizUserData } from '../../app/banquet-quiz';
 import type { HanzhongFormationsUserData } from '../../app/hanzhong/formations/types';
 import type { HanzhongUserDataType } from '../../app/hanzhong/types';
 import type { OfficersRosterData } from '../../app/officers/types';
@@ -8,4 +9,5 @@ export type PersistenceUserDataType = PersistenceBaseType & {
   hanzhong?: HanzhongUserDataType;
   officers?: OfficersRosterData;
   formations?: HanzhongFormationsUserData;
+  banquetQuiz?: BanquetQuizUserData;
 };

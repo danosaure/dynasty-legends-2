@@ -13,4 +13,4 @@ export type LeitnerBoxes = [
   LeitnerBox
 ];
 
-export const EMPTY_BOXES: LeitnerBoxes = [[], [], [], [], [], [], [], [], [], []];
+export const EMPTY_LEITNER_BOXES: LeitnerBoxes = [[], [], [], [], [], [], [], [], [], []];
