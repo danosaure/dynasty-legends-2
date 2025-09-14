@@ -41,6 +41,11 @@ const __DATA: _DataType[] = [
   ['Q020', "What's the weapon of Zhang Fei?", [['Snake Lance'], 'Blade', 'Halberd', 'Broadax']],
   ['Q021', 'Where did Cao Cao set fire on and win the Battle of Guandu?', ['Red Cliffs', 'Xinye', ['Wuchao'], 'Hulu Valley']],
   [
+    'Q067',
+    'Where did Dong Zhuo want to move to after burning down Luoyang?',
+    ['Nanjing', ["Chang'an"], 'Western Liang', 'Jingzhou'],
+  ],
+  [
     'Q022',
     'Where did Liu Bei, Guan Yu, and Zhang Fei swear brotherhood?',
     ['Altar', ['Peach Garden'], 'Desert', 'Imperial Palace'],
