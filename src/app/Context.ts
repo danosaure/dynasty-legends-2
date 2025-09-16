@@ -14,6 +14,7 @@ export type AppContextType = {
   refreshApp: () => void;
   user: PersistenceUserDataType;
   users: AppContextBaseUser[];
+  showProfile: (profileNature: string, profileId: string) => void;
 };
 
 export const DEFAULT_APP_CONTEXT: AppContextType = {
@@ -22,6 +23,7 @@ export const DEFAULT_APP_CONTEXT: AppContextType = {
   refreshApp: () => {},
   users: [],
   user: { id: '', username: '' },
+  showProfile: () => {},
 };
 
 export const AppContext = createContext<AppContextType>(DEFAULT_APP_CONTEXT);

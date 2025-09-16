@@ -2,7 +2,6 @@ import Person4Icon from '@mui/icons-material/Person4';
 import Person4OutlinedIcon from '@mui/icons-material/Person4Outlined';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 
 import { getAptitudeById, getFactionById, getOfficerTypeById } from '../data';
@@ -10,9 +9,9 @@ import { CardWrapper, OfficerAvatar, WrappedIconButton } from '../shared';
 import type { OfficerType, OfficerTypeType } from '../types';
 import type { OfficersRosterData } from './types';
 import { FactionIcon } from './FactionIcon';
-import { OfficerSkill } from './OfficerSkill';
 import { OfficerSkills } from './OfficerSkills';
 import { Aptitude } from './Aptitude';
+import { useAppContext } from '../Context';
 
 export type OfficerCardProps = {
   officer: OfficerType;

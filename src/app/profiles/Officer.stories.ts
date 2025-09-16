@@ -8,7 +8,7 @@ const defaultProps: OfficerProps = {
 };
 
 const meta = {
-  title: 'Officers/Officer',
+  title: 'Profiles/Officer',
   component: Officer,
   tags: ['autodocs'],
   args: {
