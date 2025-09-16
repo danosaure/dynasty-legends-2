@@ -66,10 +66,12 @@ const DATA: DataType[] = [
 
 const avatar = (name: string): string => `data/officers/${sanitizeId(name)}.png`;
 
+const officerIdByName = (name: string): string => sanitizeId(`officers--${name}`);
+
 const RAW: OfficerType[] = DATA.map((infos: DataType) => {
   const [name, factionName, aptitude, officerTypeNames] = infos;
   return {
-    id: sanitizeId(`officers--${name}`),
+    id: officerIdByName(name),
     name,
     factionId: getFactionIdByName(factionName),
     aptitudeId: getAptitudeIdByAptitude(aptitude),
@@ -102,3 +104,14 @@ export const getOfficerIdByName = (name: string): string => {
   const officer = getOfficerByName(name);
   return officer?.id ?? '';
 };
+
+[
+  [
+    'Hua Tuo',
+    'Courtesy name Yuanhua, the renowned Divine Physician. He is famously known for performing bone surgery on Guan Yu. In his later years, he was tragically executed by Cao Cao, leaving behind a legacy of medical brilliance.',
+  ],
+].forEach((data) => {
+  const [name, profile] = data;
+  const officer = getOfficerByName(name);
+  officer.profile = profile;
+});

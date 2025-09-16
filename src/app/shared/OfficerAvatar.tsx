@@ -5,6 +5,7 @@ import { getAptitudeById, getFactionById, getOfficerById } from '../data';
 import IconButton from '@mui/material/IconButton';
 import type { OfficersRosterData } from '../officers/types';
 import Box from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip';
 
 export type OfficerAvatarProps = {
   officerId: string;
@@ -34,11 +35,13 @@ export const OfficerAvatar = ({
   const size = small ? '27px' : '32px';
 
   const avatar = (
-    <Avatar
-      alt={officer?.name}
-      src={assetPath(officer?.avatar.path)}
-      sx={{ width: size, height: size, border: `3px solid ${aptitudeColor}` }}
-    />
+    <Tooltip title={officer?.name} placement="top-start">
+      <Avatar
+        alt={officer?.name}
+        src={assetPath(officer?.avatar.path)}
+        sx={{ width: size, height: size, border: `3px solid ${aptitudeColor}` }}
+      />
+    </Tooltip>
   );
 
   const iconButton = onClick ? (

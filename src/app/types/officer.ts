@@ -9,4 +9,5 @@ export type OfficerType = BaseIDType & {
   officerTypeIds: string[];
   bonds?: OfficerBondType[];
   avatar: IconType;
+  profile?: string;
 };
