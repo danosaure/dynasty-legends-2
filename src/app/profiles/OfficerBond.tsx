@@ -12,7 +12,7 @@ export type OfficerBondProps = {
 
 export const OfficerBond = ({ officerId, bondOfficerId, name, roster }: OfficerBondProps) => {
   return (
-    <Grid container direction="row" spacing={1}>
+    <Grid container direction="row" spacing={1} sx={{ alignItems: 'center' }}>
       <Grid size="auto">
         <OfficerAvatar officerId={officerId} roster={roster} small />
       </Grid>
