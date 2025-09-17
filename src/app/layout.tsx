@@ -6,6 +6,8 @@ import Grid from '@mui/material/Grid';
 import { AppContext, DEFAULT_APP_CONTEXT, type AppContextType } from './Context';
 import { AppHeader } from './header';
 import { getUsers } from './persistence';
+import type { ProfilesQueue } from './profiles/Queue';
+import { ProfileModal } from './profiles';
 
 export const AppLayout = () => {
   const navigate = useNavigate();
@@ -14,6 +16,7 @@ export const AppLayout = () => {
   const [doneLoading, setDoneLoading] = useState<boolean>(false);
   const [appContextData, setAppContextData] = useState<AppContextType>(DEFAULT_APP_CONTEXT);
   const [currentUserId, setCurrentUserId] = useState<string>('');
+  const [profilesQueue, setProfilesQueue] = useState<ProfilesQueue>([]);
 
   useEffect(() => {
     (async () => {
@@ -42,12 +45,14 @@ export const AppLayout = () => {
           refreshApp: () => setDoneLoading(false),
           users: users.map((user) => ({ id: user.id, username: user.username })),
           user: users.find((user) => user.id === currentUserId) ?? users[0],
+          showProfile: (profileNature: string, profileId: string): void =>
+            setProfilesQueue(profilesQueue.concat([{ profileNature, profileId }])),
         });
       }
 
       setDoneLoading(true);
     })();
-  }, [currentUserId, navigate, doneLoading]);
+  }, [currentUserId, navigate, doneLoading, profilesQueue, setProfilesQueue]);
 
   if (!doneLoading) {
     return null;
@@ -60,6 +65,11 @@ export const AppLayout = () => {
           <AppHeader menu={menu} />
           <Outlet />
         </Grid>
+        <ProfileModal
+          profilesQueue={profilesQueue}
+          onClose={() => setProfilesQueue([])}
+          showPrevious={() => setProfilesQueue(profilesQueue.slice(0, -1))}
+        />
       </Container>
     </AppContext.Provider>
   );

@@ -20,6 +20,7 @@ const appContextData: AppContextType = {
   refreshApp: fn(),
   setCurrentUserId: fn(),
   setMenu: fn(),
+  showProfile: fn(),
 } as const;
 
 const meta = {

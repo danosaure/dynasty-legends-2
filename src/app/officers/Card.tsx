@@ -2,14 +2,15 @@ import Person4Icon from '@mui/icons-material/Person4';
 import Person4OutlinedIcon from '@mui/icons-material/Person4Outlined';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 
 import { getAptitudeById, getFactionById, getOfficerTypeById } from '../data';
 import { CardWrapper, OfficerAvatar, WrappedIconButton } from '../shared';
 import type { OfficerType, OfficerTypeType } from '../types';
-import { assetPath } from '../utils';
 import type { OfficersRosterData } from './types';
+import { FactionIcon } from './FactionIcon';
+import { OfficerSkills } from './OfficerSkills';
+import { Aptitude } from './Aptitude';
 
 export type OfficerCardProps = {
   officer: OfficerType;
@@ -55,23 +56,17 @@ export const OfficerCard = ({
         </Grid>
         <Grid size="grow" container direction={'row'} spacing={0}>
           <Grid size={3}>
-            <Tooltip title={faction?.name} placement="top-end">
-              <Box sx={{ height: { xs: '17px', sm: '25px' } }}>
-                <img src={assetPath(faction?.avatar.path)} alt={faction?.name} height={'100%'} />
-              </Box>
-            </Tooltip>
+            <Box sx={{ height: { xs: '17px', sm: '25px' } }}>
+              <FactionIcon faction={faction} />
+            </Box>
           </Grid>
           <Grid size={4}>
-            <Typography sx={{ fontSize: { xs: '10px', sm: '14px' } }}>Apt {aptitude?.name}</Typography>
+            <Aptitude aptitude={aptitude} />
           </Grid>
           <Grid size={5} container spacing={0.7} sx={{ alignContent: 'center', justifyContent: 'flex-end' }}>
-            {officerTypes.map((officerType) => (
-              <Box key={officerType.name} sx={{ height: { xs: '16px', sm: '20px', md: '24px' } }}>
-                <Tooltip title={officerType?.name} placement="top-start">
-                  <img src={assetPath(officerType?.avatar.path)} alt={officerType?.name} height={'100%'} />
-                </Tooltip>
-              </Box>
-            ))}
+            <Box sx={{ height: { xs: '16px', sm: '20px', md: '24px' } }}>
+              <OfficerSkills officerSkills={officerTypes} />
+            </Box>
           </Grid>
           <Grid container size={12} sx={{ alignItems: 'center', justifyContent: 'center' }}>
             <Grid size="grow">

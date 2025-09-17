@@ -5,6 +5,8 @@ import { getAptitudeById, getFactionById, getOfficerById } from '../data';
 import IconButton from '@mui/material/IconButton';
 import type { OfficersRosterData } from '../officers/types';
 import Box from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip';
+import { useAppContext } from '../Context';
 
 export type OfficerAvatarProps = {
   officerId: string;
@@ -25,6 +27,8 @@ export const OfficerAvatar = ({
   disabled,
   small,
 }: OfficerAvatarProps) => {
+  const { showProfile } = useAppContext();
+
   const officer = officerId ? getOfficerById(officerId) : undefined;
   const aptitudeColor = officer ? getAptitudeById(officer.aptitudeId).palette.background.default : 'transparent';
   const factionColor = officer ? getFactionById(officer.factionId).color : 'transparent';
@@ -34,20 +38,16 @@ export const OfficerAvatar = ({
   const size = small ? '27px' : '32px';
 
   const avatar = (
-    <Avatar
-      alt={officer?.name}
-      src={assetPath(officer?.avatar.path)}
-      sx={{ width: size, height: size, border: `3px solid ${aptitudeColor}` }}
-    />
+    <Tooltip title={officer?.name} placement="top-start">
+      <Avatar
+        alt={officer?.name}
+        src={assetPath(officer?.avatar.path)}
+        sx={{ width: size, height: size, border: `3px solid ${aptitudeColor}` }}
+      />
+    </Tooltip>
   );
 
-  const iconButton = onClick ? (
-    <IconButton sx={{ width: size }} onClick={() => onClick()} disabled={disabled}>
-      {avatar}
-    </IconButton>
-  ) : (
-    avatar
-  );
+  const iconClick = onClick ? () => onClick() : () => showProfile('officer', officer?.id ?? '');
 
   return (
     <Box
@@ -59,7 +59,9 @@ export const OfficerAvatar = ({
         // height: '50px',
       }}
     >
-      {iconButton}
+      <IconButton sx={{ width: size }} onClick={() => iconClick()} disabled={disabled}>
+        {avatar}
+      </IconButton>
     </Box>
   );
 };
