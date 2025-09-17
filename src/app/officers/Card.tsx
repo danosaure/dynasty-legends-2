@@ -11,7 +11,6 @@ import type { OfficersRosterData } from './types';
 import { FactionIcon } from './FactionIcon';
 import { OfficerSkills } from './OfficerSkills';
 import { Aptitude } from './Aptitude';
-import { useAppContext } from '../Context';
 
 export type OfficerCardProps = {
   officer: OfficerType;
