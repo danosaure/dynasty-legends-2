@@ -41,6 +41,15 @@ const _DATA: DataType[] = [
   ['Wild Runner', 14, ['Cao Ren', 'Xue Zong', 'Wen Chou', 'Huang Gai']],
   ['Yellow-hoofed Thunder', 20, ['Cao Cao', 'Taishi Ci', 'Hua Tuo', 'Xiahou Dun', 'Guo Jia']],
 ];
+// ].sort((mountA, mountB) => {
+//   const [aName, aAptitude] = mountA;
+//   const [bName, bAptitude] = mountB;
+
+//   if (aAptitude === bAptitude) {
+//     return (aName as string).localeCompare(bName as string);
+//   }
+//   return (bAptitude as number) - (aAptitude as number);
+// });
 
 const avatar = (name: string): IconType => ({ path: `data/mounts/${sanitizeId(name)}.png` });
 

@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import MapIcon from '@mui/icons-material/Map';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
+import BedroomBabyIcon from '@mui/icons-material/BedroomBaby';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -30,6 +31,7 @@ export const AppHeaderNavigationMenu = ({ hideMenu }: AppHeaderNavigationMenuPro
 
   const NAVIGATION_MENU: [string, string | ReactNode, MaterialUiIconType, string | null][] = [
     ['/officers', 'Officers', MilitaryTechIcon, null],
+    ['/mounts', 'Mounts', BedroomBabyIcon, null],
     ['/hanzhong', 'Hanzhong', MapIcon, null],
     ['/users', <Username username={user?.username} />, ManageAccountsIcon, 'Manage users'],
   ];
