@@ -19,7 +19,7 @@ export const MountBonds = ({ mount }: MountBondsProps) => {
       <Typography>Officer Bonds</Typography>
       <Grid container direction="row" spacing={1}>
         {mount.officerIds.map((officerId) => (
-          <OfficerAvatar key={officerId} officerId={officerId} roster={roster} />
+          <OfficerAvatar key={officerId} officerId={officerId} roster={roster} small />
         ))}
       </Grid>
     </Grid>

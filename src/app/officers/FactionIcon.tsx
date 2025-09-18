@@ -8,7 +8,7 @@ export type FactionIconProps = {
 
 export const FactionIcon = ({ faction }: FactionIconProps) => {
   return (
-    <Tooltip title={faction.name} placement="top-start">
+    <Tooltip title={faction.name} placement="bottom-start">
       <img src={assetPath(faction.avatar.path)} alt={faction.name} height={'100%'} />
     </Tooltip>
   );

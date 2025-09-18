@@ -8,7 +8,7 @@ export type OfficerSkillProps = {
 
 export const OfficerSkill = ({ officerSkill }: OfficerSkillProps) => {
   return (
-    <Tooltip title={officerSkill.name} placement="top-start">
+    <Tooltip title={officerSkill.name} placement="bottom-start">
       <img src={assetPath(officerSkill.avatar.path)} alt={officerSkill.name} height={'100%'} />
     </Tooltip>
   );
