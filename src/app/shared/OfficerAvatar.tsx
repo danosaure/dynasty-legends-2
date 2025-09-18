@@ -7,6 +7,8 @@ import type { OfficersRosterData } from '../officers/types';
 import Box from '@mui/material/Box';
 import Tooltip from '@mui/material/Tooltip';
 import { useAppContext } from '../Context';
+import { avatarSize } from '../profiles/avatar-size';
+import { rosterOpacity } from '../profiles/roster-opacity';
 
 export type OfficerAvatarProps = {
   officerId: string;
@@ -33,9 +35,9 @@ export const OfficerAvatar = ({
   const aptitudeColor = officer ? getAptitudeById(officer.aptitudeId).palette.background.default : 'transparent';
   const factionColor = officer ? getFactionById(officer.factionId).color : 'transparent';
 
-  const inRosterOpacity = roster[officerId] ? 1 : 0.6;
+  const inRosterOpacity = rosterOpacity(roster[officerId]);
 
-  const size = small ? '27px' : '32px';
+  const size = avatarSize(small);
 
   const avatar = (
     <Tooltip title={officer?.name} placement="top-start">
@@ -55,11 +57,10 @@ export const OfficerAvatar = ({
         backgroundColor: factionColor,
         opacity: disabled ? 0.2 : inRosterOpacity,
         borderRadius: 'calc(12px / 2)',
-        border: `2px solid ${officerId === selectedOfficerId ? selectedColor : 'transparent'}`,
-        // height: '50px',
+        border: `3px solid ${officerId === selectedOfficerId ? selectedColor : 'transparent'}`,
       }}
     >
-      <IconButton sx={{ width: size }} onClick={() => iconClick()} disabled={disabled}>
+      <IconButton sx={{ width: size, height: `calc(${size} + 10px)` }} onClick={() => iconClick()} disabled={disabled}>
         {avatar}
       </IconButton>
     </Box>

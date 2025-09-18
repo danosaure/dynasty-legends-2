@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fn } from 'storybook/test';
 
 import { OFFICERS } from '../data';
 
@@ -10,8 +9,6 @@ const defaultProps: OfficerCardProps = {
   selectedFaction: '',
   selectedAptitude: '',
   selectedOfficerType: '',
-  roster: {},
-  onRosterUpdated: fn(),
 };
 
 const meta = {
