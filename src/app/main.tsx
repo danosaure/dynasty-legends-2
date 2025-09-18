@@ -13,6 +13,9 @@ export const AppMain = () => {
           <Link to="/officers">Officers</Link>
         </li>
         <li>
+          <Link to="/mounts">Mounts</Link>
+        </li>
+        <li>
           <Link to="/hanzhong">Hanzhong</Link>
         </li>
       </ul>
