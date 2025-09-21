@@ -1,11 +1,16 @@
 export type ItemTypeType =
   | 'Avatar Frame'
+  | 'Beast'
   | 'Consumables'
   | 'Currency'
+  | 'Event'
   | 'Image Halo'
   | 'Materials'
   | 'Officer'
+  | 'Officer Shard'
   | 'Pack'
+  | 'Pet'
   | 'Soul Bead'
+  | 'Stratagem'
   | 'Universal Shard'
   | 'Weapon Shard';
