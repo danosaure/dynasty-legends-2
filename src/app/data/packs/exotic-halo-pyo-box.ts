@@ -23,4 +23,4 @@ export const EXOTIC_HALO_PYO_BOX: PackType = {
     'Brilliant Glow',
     'Star Guide',
   ]),
-};
+} as const;
