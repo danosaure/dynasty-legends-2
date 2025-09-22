@@ -7,3 +7,4 @@ export * from './officer-bonds';
 export * from './officer-types';
 export * from './officers';
 export type { RewardType } from './RewardType';
+export { getItem } from './items-db';
