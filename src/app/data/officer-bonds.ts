@@ -21,6 +21,7 @@ export const _DATA: DataType = {
   'Huang Yueying': { 'Cai Wenji': 'Gifted Scholar', 'Yuan Shu': 'Able VS Vulgar', 'Zhenji': "Dragon's Descent" },
   'Huang Zhong': { 'Guan Yu': 'Five Tigers', 'Zhang Fei': 'Heroic Fighter', 'Taishi Ci': 'Mighty Marksman' },
   'Jia Xu': { 'Hua Tuo': 'Plot VS Benevolence', 'Dong Zhuo': 'Critic Posture', 'Hua Xiong': 'The Dedicated' },
+  'Jiang Wei': { 'Zhuge Liang': 'Northern Campaign', 'Sima Yi': 'Longxi Gambit', 'Zhao Yun': 'Twin Radiance' },
   'Liu Bei': { 'Mi Fang': 'Intimacy' },
   'Lu Bu': { 'Diaochan': 'Educated & Bold', 'Hua Xiong': 'Valiant Warror', 'Zhang Liao': 'Fatuous & Wise' },
   'Lu Meng': { 'Gan Ning': 'Brave Charge', 'Cao Ren': 'Mandarins', 'Taishi Ci': 'Brave & Resourceful' },

@@ -28,8 +28,8 @@ const RAW: OfficerTypeType[] = DATA.map((infos) => {
     name,
     color,
     avatar: {
-      path: sanitizeId(`data/officer-types/${name}--active.png`),
-      alt: sanitizeId(`data/officer-types/${name}.png`),
+      path: `data/officer-types/${sanitizeId(name)}--active.png`,
+      alt: `data/officer-types/${sanitizeId(name)}.png`,
     },
   };
 });
