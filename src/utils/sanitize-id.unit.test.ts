@@ -26,4 +26,8 @@ describe('sanitizeId()', () => {
   it('handles case of mixed spaces and dashes', () => {
     expect(sanitizeId('Foo - Bar')).toBe('foo--bar');
   });
+
+  it('handles & character', () => {
+    expect(sanitizeId('Strength & Virtue')).to.equal('strength--virtue');
+  });
 });
