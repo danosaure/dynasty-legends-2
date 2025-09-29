@@ -1,1 +1,0 @@
-export { OfficersRoutes } from './routes';

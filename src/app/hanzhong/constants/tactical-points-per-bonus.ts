@@ -1,3 +1,0 @@
-export const TACTICAL_POINTS_PER_ATK = 45;
-export const TACTICAL_POINTS_PER_DEF = 45;
-export const TACTICAL_POINTS_PER_HP = 0.6;
