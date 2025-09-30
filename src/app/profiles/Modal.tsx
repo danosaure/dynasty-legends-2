@@ -30,7 +30,7 @@ export const ProfileModal = ({ profilesQueue, onClose, showPrevious }: ProfileMo
       aria-labelledby="profile-info"
       aria-describedby=""
       onClose={() => onClose()}
-      sx={{ width: '80vw', ml: '10vw', mt: '10vw' }}
+      sx={{ maxWidth: 'min(480px, 90vw)', ml: 'auto', mr: 'auto', mt: '20px' }}
     >
       <Grid container direction="column" sx={{ border: '3px solid black' }}>
         <Grid
