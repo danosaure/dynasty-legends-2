@@ -12,6 +12,7 @@ export type ItemTypeType =
   | 'Officer Shard'
   | 'Pack'
   | 'Pet'
+  | 'Showpiece'
   | 'Soul Bead'
   | 'Stratagem'
   | 'Trinket'
