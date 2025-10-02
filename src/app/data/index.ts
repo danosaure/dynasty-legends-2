@@ -1,6 +1,7 @@
 export * from './aptitudes';
 export * from './events';
 export * from './factions';
+export { generateItemIdByTypeAndName } from './generate-item-id-by-type-and-name';
 export type { ItemTypeType } from './ItemTypeType';
 export * from './mounts';
 export * from './officer-bonds';
@@ -8,3 +9,5 @@ export * from './officer-types';
 export * from './officers';
 export type { RewardType } from './RewardType';
 export { getItem } from './items-db';
+export * from './weapons';
+export type * from './weapons';

@@ -1,6 +1,5 @@
 import Grid from '@mui/material/Grid';
-import { getAptitudeById, getMountById } from '../data';
-import { MountAvatar } from './MountAvatar';
+import { getAptitudeByAptitude, getMountById } from '../data';
 import Typography from '@mui/material/Typography';
 import { Aptitude } from './Aptitude';
 import { MountBonds } from './MountBonds';
@@ -9,6 +8,8 @@ import { useEffect, useState } from 'react';
 import type { MountsRosterData } from './MountsRosterData';
 import { InRoster } from './InRoster';
 import { updateMountUserData } from './persistence';
+import type { AptitudeValueType } from '../types';
+import { ItemAvatar } from '../shared';
 
 export type MountProps = {
   id: string;
@@ -23,7 +24,6 @@ export const Mount = ({ id, inCard, opacity }: MountProps) => {
   useEffect(() => setRoster(user.mounts ?? {}), [user]);
 
   const mount = getMountById(id);
-  const aptitude = getAptitudeById(mount.aptitudeId);
 
   const toggleMount = () => {
     updateMountUserData(user.id, id);
@@ -37,7 +37,7 @@ export const Mount = ({ id, inCard, opacity }: MountProps) => {
     <Grid container direction="column" spacing={1}>
       <Grid container spacing={2} sx={{ justifyContent: 'flex-start', alignItems: 'center' }}>
         <Grid size="auto">
-          <MountAvatar id={id} roster={roster} />
+          <ItemAvatar item={mount} roster={roster} />
         </Grid>
         <Grid size="grow">
           <Grid container>
@@ -48,7 +48,7 @@ export const Mount = ({ id, inCard, opacity }: MountProps) => {
               <InRoster inRoster={roster[id]} toggle={toggleMount} />
             </Grid>
           </Grid>
-          <Aptitude aptitude={aptitude} opacity={opacity} />
+          <Aptitude aptitude={getAptitudeByAptitude(mount.aptitude as AptitudeValueType)} opacity={opacity} />
         </Grid>
       </Grid>
       <Grid container>

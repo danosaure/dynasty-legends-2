@@ -15,7 +15,7 @@ export const getModalContent = (profile: Profile): ModalContentType => {
       title: `Officer`,
       jsx: <Officer id={profile.profileId} />,
     };
-  } else if (profile.profileNature === 'mount') {
+  } else if (profile.profileNature === 'Mount') {
     return {
       title: 'Mount',
       jsx: <Mount id={profile.profileId} />,
