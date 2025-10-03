@@ -1,10 +1,9 @@
 import { convertNamesToRewards } from '../convert-names-to-rewards';
-import type { PackType } from './PackType';
+import { generatePackItemData } from './utils';
 
-export const EXOTIC_HALO_PYO_BOX: PackType = {
-  type: 'Pack',
-  name: 'Exotic Halo PYO Box',
-  items: convertNamesToRewards('Image Halo', [
+export const EXOTIC_HALO_PYO_BOX = generatePackItemData(
+  'Exotic Halo PYO Box',
+  convertNamesToRewards('Image Halo', [
     'Nether Soulfire',
     'Dragonfly Waltz',
     "Lightning's Might",
@@ -22,5 +21,5 @@ export const EXOTIC_HALO_PYO_BOX: PackType = {
     'Rosy Shade',
     'Brilliant Glow',
     'Star Guide',
-  ]),
-} as const;
+  ])
+);
