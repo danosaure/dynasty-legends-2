@@ -1,7 +1,6 @@
-import type { ItemDB } from '../items-db';
+import type { BaseItemType } from '../../types';
 import type { RewardType } from '../RewardType';
 
-export type PackType = ItemDB & {
-  type: 'Pack';
+export type PackType = BaseItemType & {
   items: RewardType[];
 };

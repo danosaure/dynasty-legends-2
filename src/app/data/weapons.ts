@@ -1,6 +1,6 @@
-import type { AptitudeValueType, BaseItemType } from '../types';
+import { generateBaseItemData, type AptitudeValueType, type BaseItemType } from '../types';
 import { getFactionById } from './factions';
-import { generateItemIdByTypeAndName } from './generate-item-id-by-type-and-name';
+import { addItems } from './items-db';
 import { getOfficerByName } from './officers';
 
 type DataType = [string, AptitudeValueType, string];
@@ -68,16 +68,13 @@ export const WEAPON_SHARDS: WeaponShardType[] = [
     const [name, aptitude, officerName] = info;
     const officer = getOfficerByName(officerName);
     return {
-      id: generateItemIdByTypeAndName('Weapon Shard', `${name} Shard`),
-      type: 'Weapon Shard',
-      name: `${name} Shard`,
-      hasAvatar: true,
-      aptitude,
-      faction: getFactionById(officer.factionId).name,
+      ...generateBaseItemData('Weapon Shard', `${name} Shard`, true, aptitude, getFactionById(officer.factionId).name),
       officerId: officer.id,
     } as const;
   }),
 ] as const;
+
+addItems(WEAPON_SHARDS);
 
 export const getWeaponShardByName = (name: string): WeaponShardType => {
   const weaponShard = WEAPON_SHARDS.find((item) => item.name === name);
@@ -107,16 +104,13 @@ export const WEAPON_POLISHES: WeaponPolishType[] = [
     const officer = getOfficerByName(officerName);
 
     return {
-      id: generateItemIdByTypeAndName('Materials', name),
-      type: 'Materials',
-      name,
-      hasAvatar: true,
-      aptitude,
-      faction: getFactionById(officer.factionId).name,
+      ...generateBaseItemData('Materials', name, true, aptitude, getFactionById(officer.factionId).name),
       weaponShardId: getWeaponShardByName(`${baseName} Shard`).id,
     } as const;
   }),
 ] as const;
+
+addItems(WEAPON_POLISHES);
 
 export const getWeaponPolishByWeaponShardId = (id: string): WeaponPolishType => {
   const weaponPolish = WEAPON_POLISHES.find((item) => item.weaponShardId === id);
