@@ -1,6 +1,6 @@
 import { Mount } from './Mount';
 import type { AptitudeType } from '../types';
-import { getAptitudeById, type MountType } from '../data';
+import { getAptitudeByAptitude, type MountType } from '../data';
 import { CardWrapper } from '../shared';
 
 export type MountCardProps = {
@@ -8,7 +8,10 @@ export type MountCardProps = {
 };
 
 export const MountCard = ({ mount }: MountCardProps) => {
-  const aptitude: AptitudeType = getAptitudeById(mount.aptitudeId);
+  if (!mount.aptitude) {
+    return null;
+  }
+  const aptitude: AptitudeType = getAptitudeByAptitude(mount.aptitude);
 
   return (
     <CardWrapper sx={{ bgcolor: aptitude.palette.background.default }}>

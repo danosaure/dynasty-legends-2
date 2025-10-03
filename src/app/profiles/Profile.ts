@@ -1,4 +1,6 @@
+import type { ItemTypeType } from '../data';
+
 export type Profile = {
-  profileNature: string;
+  profileType: ItemTypeType;
   profileId: string;
 };

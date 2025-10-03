@@ -33,7 +33,7 @@ Default.storyName = 'empty list';
 export const OneItem: Story = {
   args: {
     ...defaultProps,
-    profilesQueue: [{ profileNature: 'officer', profileId: OFFICER_BONDS[0].officerId }],
+    profilesQueue: [{ profileType: 'Officer', profileId: OFFICER_BONDS[0].officerId }],
   },
 };
 OneItem.storyName = 'one officer';
@@ -42,8 +42,8 @@ export const MultipleItems: Story = {
   args: {
     ...defaultProps,
     profilesQueue: [
-      { profileNature: 'officer', profileId: 'some-id' },
-      { profileNature: 'officer', profileId: 'some-other-id' },
+      { profileType: 'Officer', profileId: 'some-id' },
+      { profileType: 'Officer', profileId: 'some-other-id' },
     ],
   },
 };

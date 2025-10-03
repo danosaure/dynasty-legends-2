@@ -49,8 +49,6 @@ export const OfficerAvatar = ({
     </Tooltip>
   );
 
-  const iconClick = onClick ? () => onClick() : () => showProfile('officer', officer?.id ?? '');
-
   return (
     <Box
       sx={{
@@ -60,7 +58,11 @@ export const OfficerAvatar = ({
         border: `3px solid ${officerId === selectedOfficerId ? selectedColor : 'transparent'}`,
       }}
     >
-      <IconButton sx={{ width: size, height: `calc(${size} + 10px)` }} onClick={() => iconClick()} disabled={disabled}>
+      <IconButton
+        sx={{ width: size, height: `calc(${size} + 10px)` }}
+        onClick={() => (onClick ? onClick() : showProfile('Officer', officer?.id ?? ''))}
+        disabled={disabled}
+      >
         {avatar}
       </IconButton>
     </Box>
