@@ -10,20 +10,18 @@ export type ModalContentType = {
 };
 
 export const getModalContent = (profile: Profile): ModalContentType => {
-  if (profile.profileNature === 'officer') {
-    return {
-      title: `Officer`,
-      jsx: <Officer id={profile.profileId} />,
-    };
-  } else if (profile.profileNature === 'mount') {
-    return {
-      title: 'Mount',
-      jsx: <Mount id={profile.profileId} />,
-    };
+  let jsx;
+
+  if (profile.profileType === 'Officer') {
+    jsx = <Officer id={profile.profileId} />;
+  } else if (profile.profileType === 'Mount') {
+    jsx = <Mount id={profile.profileId} />;
   } else {
-    return {
-      title: 'Invalid Profile',
-      jsx: <Alert severity="error">Invalid Profile Nature</Alert>,
-    };
+    jsx = <Alert severity="error">Profile Type "{profile.profileType}" not implemented yet.</Alert>;
   }
+
+  return {
+    title: profile.profileType,
+    jsx,
+  };
 };

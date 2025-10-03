@@ -1,17 +1,17 @@
 import Grid from '@mui/material/Grid';
-import { getAptitudeById, MOUNTS } from '../data';
+import { MOUNTS } from '../data';
 import { MountCard } from './MountCard';
 
 export const MountsLayout = () => {
   const mounts = [...MOUNTS].sort((a, b) => {
-    if (a.aptitudeId == b.aptitudeId) {
-      return a.name.localeCompare(b.name);
+    if (!a.aptitude || !b.aptitude) {
+      return 0;
     }
 
-    const aptitudeA = getAptitudeById(a.aptitudeId);
-    const aptitudeB = getAptitudeById(b.aptitudeId);
-
-    return aptitudeB.aptitude - aptitudeA.aptitude;
+    if (a.aptitude == b.aptitude) {
+      return a.name.localeCompare(b.name);
+    }
+    return b.aptitude - a.aptitude;
   });
 
   return (

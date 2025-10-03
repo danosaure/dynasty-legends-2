@@ -8,6 +8,7 @@ import { AppHeader } from './header';
 import { getUsers } from './persistence';
 import type { ProfilesQueue } from './profiles/Queue';
 import { ProfileModal } from './profiles';
+import type { ItemTypeType } from './data';
 
 export const AppLayout = () => {
   const navigate = useNavigate();
@@ -45,8 +46,8 @@ export const AppLayout = () => {
           refreshApp: () => setDoneLoading(false),
           users: users.map((user) => ({ id: user.id, username: user.username })),
           user: users.find((user) => user.id === currentUserId) ?? users[0],
-          showProfile: (profileNature: string, profileId: string): void =>
-            setProfilesQueue(profilesQueue.concat([{ profileNature, profileId }])),
+          showProfile: (profileType: ItemTypeType, profileId: string): void =>
+            setProfilesQueue(profilesQueue.concat([{ profileType, profileId }])),
         });
       }
 

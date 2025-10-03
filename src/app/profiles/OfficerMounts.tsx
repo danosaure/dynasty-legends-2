@@ -1,8 +1,8 @@
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { getMountsByOfficerId } from '../data';
-import { MountAvatar } from './MountAvatar';
 import type { MountsRosterData } from './MountsRosterData';
+import { ItemAvatar } from '../shared';
 
 export type OfficerMountsProps = {
   id: string;
@@ -21,7 +21,7 @@ export const OfficerMounts = ({ id, roster }: OfficerMountsProps) => {
       <Typography>Mounts</Typography>
       <Grid container direction="row" spacing={1}>
         {mounts.map((mount) => (
-          <MountAvatar key={mount.id} id={mount.id} roster={roster} small />
+          <ItemAvatar key={mount.id} item={mount} roster={roster} small />
         ))}
       </Grid>
     </Grid>

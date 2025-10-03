@@ -1,5 +1,6 @@
 export { CardWrapper, type CardWrapperProps } from './CardWrapper';
 export { DebouncedInputField, type DebouncedInputFieldProps } from './debounced-inputfield';
+export { ItemAvatar, type ItemAvatarProps } from './ItemAvatar';
 export { OfficerAvatar, type OfficerAvatarProps } from './OfficerAvatar';
 export { PaperWrapper } from './PaperWrapper';
 export { TitleTypographyWrapper, type TitleTypographyWrapperProps } from './TitleTypographyWrapper';

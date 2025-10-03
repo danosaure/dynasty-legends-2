@@ -16,6 +16,7 @@ import type { OfficersRosterData } from '../officers/types';
 import { InRoster } from './InRoster';
 import type { MountsRosterData } from './MountsRosterData';
 import { updateOfficerUserData } from './persistence';
+import { OfficerWeapon } from './OfficerWeapon';
 
 export type OfficerProps = {
   id: string;
@@ -86,10 +87,17 @@ export const Officer = ({ id, inCard }: OfficerProps) => {
         </Grid>
       </Grid>
       {inCard ? null : (
-        <>
-          <OfficerBonds id={id} roster={roster} />
-          <OfficerMounts id={id} roster={mountsRoster} />
-        </>
+        <Grid container>
+          <Grid size={4}>
+            <OfficerWeapon officerId={id} />
+          </Grid>
+          <Grid size={8}>
+            <OfficerMounts id={id} roster={mountsRoster} />
+          </Grid>
+          <Grid size={12}>
+            <OfficerBonds id={id} roster={roster} />
+          </Grid>
+        </Grid>
       )}
     </Grid>
   );

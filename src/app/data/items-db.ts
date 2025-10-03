@@ -1,5 +1,6 @@
 import type { ItemTypeType } from './ItemTypeType';
 import type { PackType } from './packs';
+import type { WeaponShardType } from './weapons';
 
 export type ItemsDB = {
   'Avatar Frame': Record<string, object>;
@@ -15,11 +16,12 @@ export type ItemsDB = {
   'Officer Shard': Record<string, object>;
   'Pack': Record<string, PackType>;
   'Pet': Record<string, object>;
+  'Showpiece': Record<string, object>;
   'Soul Bead': Record<string, object>;
   'Stratagem': Record<string, object>;
   'Trinket': Record<string, object>;
   'Universal Shard': Record<string, object>;
-  'Weapon Shard': Record<string, object>;
+  'Weapon Shard': Record<string, WeaponShardType>;
 };
 
 const ITEMS_DB: ItemsDB = {
@@ -36,6 +38,7 @@ const ITEMS_DB: ItemsDB = {
   'Officer Shard': {},
   'Pack': {},
   'Pet': {},
+  'Showpiece': {},
   'Soul Bead': {},
   'Stratagem': {},
   'Trinket': {},

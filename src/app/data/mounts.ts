@@ -1,13 +1,9 @@
 import { sanitizeId } from '../../utils';
-import type { AptitudeValueType, BaseIDType, IconType } from '../types';
-import { getAptitudeIdByAptitude } from './aptitudes';
+import type { AptitudeValueType, BaseItemType } from '../types';
 import { getOfficerIdByName } from './officers';
 
-export type MountType = BaseIDType & {
-  name: string;
-  aptitudeId: string;
+export type MountType = BaseItemType & {
   officerIds: string[];
-  avatar: IconType;
 };
 
 type DataType = [string, AptitudeValueType, string[]];
@@ -42,18 +38,17 @@ const _DATA: DataType[] = [
   ['Yellow-hoofed Thunder', 20, ['Cao Cao', 'Taishi Ci', 'Hua Tuo', 'Xiahou Dun', 'Guo Jia']],
 ];
 
-const avatar = (name: string): IconType => ({ path: `data/mounts/${sanitizeId(name)}.png` });
-
 export const MOUNTS = [
   ..._DATA.map<MountType>((mount) => {
     const [name, aptitude, officers] = mount;
 
     return {
       id: sanitizeId(`mounts--${name}`),
+      type: 'Mount',
       name,
-      aptitudeId: getAptitudeIdByAptitude(aptitude),
+      hasAvatar: true,
+      aptitude,
       officerIds: officers.map<string>((officerName) => getOfficerIdByName(officerName)),
-      avatar: avatar(name),
     } as const;
   }),
 ] as const;

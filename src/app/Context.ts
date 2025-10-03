@@ -2,6 +2,7 @@ import { createContext, type ReactNode } from 'react';
 
 import type { PersistenceUserDataType } from '../persistence/types';
 import { useSafeContext } from './shared/utils';
+import type { ItemTypeType } from './data';
 
 export type AppContextBaseUser = {
   id: string;
@@ -14,7 +15,7 @@ export type AppContextType = {
   refreshApp: () => void;
   user: PersistenceUserDataType;
   users: AppContextBaseUser[];
-  showProfile: (profileNature: string, profileId: string) => void;
+  showProfile: (profileType: ItemTypeType, profileId: string) => void;
 };
 
 export const DEFAULT_APP_CONTEXT: AppContextType = {
