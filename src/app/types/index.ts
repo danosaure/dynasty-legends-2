@@ -1,6 +1,6 @@
 export type * from './aptitude';
 export type { BaseIDType } from './base-id-type';
-export type { BaseItemType } from './base-item';
+export { type BaseItemType, generateBaseItemData } from './base-item';
 export type * from './faction';
 export type { IconType } from './icon-type';
 export type { MaterialUiIconColorType } from './MaterialUiIconColorType';

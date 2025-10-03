@@ -1,26 +1,27 @@
+import type { BaseItemType } from '../types';
 import type { ItemTypeType } from './ItemTypeType';
 import type { PackType } from './packs';
 import type { WeaponShardType } from './weapons';
 
 export type ItemsDB = {
-  'Avatar Frame': Record<string, object>;
-  'Beast': Record<string, object>;
-  'Consumables': Record<string, object>;
-  'Currency': Record<string, object>;
-  'Event': Record<string, object>;
-  'Gear Shard': Record<string, object>;
-  'Image Halo': Record<string, object>;
-  'Materials': Record<string, object>;
-  'Mount': Record<string, object>;
-  'Officer': Record<string, object>;
-  'Officer Shard': Record<string, object>;
+  'Avatar Frame': Record<string, BaseItemType>;
+  'Beast': Record<string, BaseItemType>;
+  'Consumables': Record<string, BaseItemType>;
+  'Currency': Record<string, BaseItemType>;
+  'Event': Record<string, BaseItemType>;
+  'Gear Shard': Record<string, BaseItemType>;
+  'Image Halo': Record<string, BaseItemType>;
+  'Materials': Record<string, BaseItemType>;
+  'Mount': Record<string, BaseItemType>;
+  'Officer': Record<string, BaseItemType>;
+  'Officer Shard': Record<string, BaseItemType>;
   'Pack': Record<string, PackType>;
-  'Pet': Record<string, object>;
-  'Showpiece': Record<string, object>;
-  'Soul Bead': Record<string, object>;
-  'Stratagem': Record<string, object>;
-  'Trinket': Record<string, object>;
-  'Universal Shard': Record<string, object>;
+  'Pet': Record<string, BaseItemType>;
+  'Showpiece': Record<string, BaseItemType>;
+  'Soul Bead': Record<string, BaseItemType>;
+  'Stratagem': Record<string, BaseItemType>;
+  'Trinket': Record<string, BaseItemType>;
+  'Universal Shard': Record<string, BaseItemType>;
   'Weapon Shard': Record<string, WeaponShardType>;
 };
 
@@ -46,23 +47,19 @@ const ITEMS_DB: ItemsDB = {
   'Weapon Shard': {},
 };
 
-export interface ItemDB {
-  type: ItemTypeType;
-  name: string;
-}
-
-export const addItem = (item: ItemDB): void => {
+export const addItem = (item: BaseItemType): void => {
   ITEMS_DB[item.type][item.name] = item;
+  ITEMS_DB[item.type][item.id] = item;
 };
 
-export const addItems = (items: ItemDB[]): void => items.forEach((item) => addItem(item));
+export const addItems = (items: BaseItemType[]): void => items.forEach((item) => addItem(item));
 
-export const getItem = (type: ItemTypeType, name: string) => {
+export const getItem = (type: ItemTypeType, nameOrId: string) => {
   const items = ITEMS_DB[type];
-  const item = items[name];
+  const item = items[nameOrId];
 
   if (!item) {
-    throw new Error(`Item[type=${type}, name="${name}"] not defined.`);
+    throw new Error(`Item[type=${type}, name="${nameOrId}"] not defined.`);
   }
 
   return item;

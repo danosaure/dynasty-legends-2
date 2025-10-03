@@ -17,21 +17,47 @@ export type ItemAvatarProps = {
   selectedId?: string;
   selectedColor?: string;
   disabled?: boolean;
+  disabledClick?: boolean;
 };
 
-export const ItemAvatar = ({ item, onClick, roster, small, selectedId, selectedColor, disabled }: ItemAvatarProps) => {
+export const ItemAvatar = ({
+  item,
+  onClick,
+  roster,
+  small,
+  selectedId,
+  selectedColor,
+  disabled,
+  disabledClick,
+}: ItemAvatarProps) => {
   const { showProfile } = useAppContext();
+
+  if (!item.hasAvatar) {
+    return null;
+  }
 
   const inRoster = roster ? roster[item.id] : true;
   const size = avatarSize(small);
   const aptitudeColor = item.aptitude ? getAptitudeByAptitude(item.aptitude).palette.background.default : 'transparent';
   const factionColor = item.faction ? getFactionByName(item.faction).color : aptitudeColor;
   const src = assetPath(`data/${sanitizeId(item.type as string)}/${sanitizeId(item.name)}.png`);
-  console.log(`<ItemAvatar>: src="${src}".`);
 
-  if (!item.hasAvatar) {
-    return null;
-  }
+  const avatar = (
+    <Tooltip title={item.name}>
+      <Avatar alt={item.name} src={src} sx={{ width: size, height: size, border: `3px solid ${aptitudeColor}` }} />
+    </Tooltip>
+  );
+
+  const iconButton = disabledClick ? (
+    avatar
+  ) : (
+    <IconButton
+      onClick={() => (onClick ? onClick() : showProfile(item.type, item.id))}
+      sx={{ width: size, height: `calc(${size} + 10px)` }}
+    >
+      {avatar}
+    </IconButton>
+  );
 
   return (
     <Box
@@ -42,14 +68,7 @@ export const ItemAvatar = ({ item, onClick, roster, small, selectedId, selectedC
         opacity: disabled ? 0.2 : rosterOpacity(inRoster),
       }}
     >
-      <IconButton
-        onClick={() => (onClick ? onClick() : showProfile(item.type, item.id))}
-        sx={{ width: size, height: `calc(${size} + 10px)` }}
-      >
-        <Tooltip title={item.name}>
-          <Avatar alt={item.name} src={src} sx={{ width: size, height: size, border: `3px solid ${aptitudeColor}` }} />
-        </Tooltip>
-      </IconButton>
+      {iconButton}
     </Box>
   );
 };
